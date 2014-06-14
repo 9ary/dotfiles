@@ -69,5 +69,35 @@ menu_main = awful.menu({ items =
     { "Suspend", "systemctl suspend" },
     { "Shutdown", "systemctl poweroff" },
     { "Reboot", "systemctl reboot" }
-}
+}})
+
+-- Make a taskbar wibox
+taskbar = {}
+taskbar_layout_icon = {}
+taskbar_list_tags = {}
+taskbar_list_windows = {}
+taskbar_systray = wibox.widget.systray()
+taskbar_clock = awful.widget.textclock("%a %d %b %H:%M", 10)
+
+for s = 1, screen.count() do
+    taskbar_layout_icon[s] = awful.widget.layoutbox(s)
+    taskbar_list_tags[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all)
+    taskbar_list_windows[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags)
+
+    local widgets_left = wibox.layout.fixed.horizontal()
+        widgets_left:add(taskbar_layout_icon[s])
+        widgets_left:add(taskbar_list_tags[s])
+
+    local widgets_right = wibox.layout.fixed.horizontal()
+        widgets_right:add(taskbar_systray)
+        widgets_right:add(taskbar_clock)
+
+    local widgets_all = wibox.layout.align.horizontal()
+        widgets_all:set_left(widgets_left)
+        widgets_all:set_middle(taskbar_list_windows[s])
+        widgets_all:set_right(widgets_right)
+
+    taskbar[s] = awful.wibox({ position = "bottom", screen = s })
+    taskbar[s]:set_widget(widgets_all)
+end
 
