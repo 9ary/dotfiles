@@ -1,11 +1,11 @@
 -- Awesome stdlib
-local gears = require("gears")
-local awful = require("awful")
-local rules = require("awful.rules")
+gears = require("gears")
+awful = require("awful")
+awful.rules = require("awful.rules")
 require("awful.autofocus")
-local wibox = require("wibox")
-local beautiful = require("beautiful")
-local naughty = require("naughty")
+wibox = require("wibox")
+beautiful = require("beautiful")
+naughty = require("naughty")
 
 -- Error handler, because who doesn't have one ?
 -- Note : handles only runtime errors
@@ -26,7 +26,7 @@ end
 home = os.getenv("HOME") .. "/"
 conf = home .. ".config/awesome/"
 terminal = os.getenv("TERMINAL") .. " "
-editor = terminal .. "-e " .. os.getenv("editor") .. " "
+editor = terminal .. "-e " .. os.getenv("EDITOR") .. " "
 browser = os.getenv("BROWSER")
 modkey = "Mod4"
 
@@ -37,10 +37,10 @@ naughty.config.defaults.position = "top_left"
 naughty.config.defaults.screen = 1
 
 -- Theme
-beatiful.init(config .. "theme/solarized.lua")
+beautiful.init(conf .. "theme/solarized.lua")
 if beautiful.wallpaper then
     for s = 1, screen.count() do
-        gears.wallpaper.maximized(beatiful.wallpaper, s, true)
+        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
     end
 end
 
@@ -77,7 +77,7 @@ taskbar_layout_icon = {}
 taskbar_list_tags = {}
 taskbar_list_windows = {}
 taskbar_systray = wibox.widget.systray()
-taskbar_clock = awful.widget.textclock("%a %d %b %H:%M", 10)
+taskbar_clock = awful.widget.textclock(" %a %d %b %H:%M ", 10)
 
 for s = 1, screen.count() do
     taskbar_layout_icon[s] = awful.widget.layoutbox(s)
@@ -89,7 +89,9 @@ for s = 1, screen.count() do
         widgets_left:add(taskbar_list_tags[s])
 
     local widgets_right = wibox.layout.fixed.horizontal()
-        widgets_right:add(taskbar_systray)
+        if s == 1 then
+            widgets_right:add(taskbar_systray)
+        end
         widgets_right:add(taskbar_clock)
 
     local widgets_all = wibox.layout.align.horizontal()
