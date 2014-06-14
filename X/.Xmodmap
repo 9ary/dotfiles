@@ -1,0 +1,4 @@
+! Remap caps lock to mod4
+clear lock
+keycode 66 = Escape
+
