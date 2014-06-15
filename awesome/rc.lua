@@ -375,6 +375,10 @@ awful.rules.rules = {
       properties = { floating = true,
                      border_width = 0 } },
 
+{ rule = { class = "Gcr-prompter" },
+      properties = { floating = true,
+                     border_width = 0 } },
+
     { rule = { class = "Wine" },
       properties = { floating = true } },
 
