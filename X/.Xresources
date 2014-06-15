@@ -92,6 +92,9 @@ URxvt*font: xft:dejavu sans mono for powerline:bold:size=10
 ! Icon
 URxvt*iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
 
+! Notifications
+URxvt*urgentOnBell: true
+
 ! Perl extensions
 URxvt*perl-ext-common: default,matcher,url-select,selection-to-clipboard
 URxvt*url-launcher: /usr/bin/xdg-open
