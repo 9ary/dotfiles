@@ -10,8 +10,12 @@ if [ -f .Xresources ]; then
     xrdb -merge .Xresources
 fi
 
+# Disable this shitty power saving
 xset s off
 xset -dpms
+
+# Don't ring bells
+xset b off
 
 source /etc/X11/xinit/xinitrc.d/30-dbus
 
