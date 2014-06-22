@@ -5,6 +5,7 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 alias sudo="sudo "
 alias s="sudo "
 alias sa="sudo aura"
+alias sp="sudo pacman"
 alias n="nano"
 alias ls="ls --color -Fh"
 alias lsa="ls --color -FAh"
