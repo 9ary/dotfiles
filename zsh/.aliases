@@ -15,4 +15,5 @@ alias c="clear"
 alias e="exit"
 alias v="vim"
 alias sv="sudoedit"
+alias view="$TERMINAL -e less"
 
