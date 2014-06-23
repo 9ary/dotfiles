@@ -99,6 +99,11 @@ export PROMPT="
 $PR_USER$PR_HOST$PR_DIR
  $PR_USER_OP "
 
+ # Bell on prompt becoz reasons
+ precmd () (
+    echo -ne '\a'
+)
+
 # Environment
 source ~/.envrc
 typeset -U path
