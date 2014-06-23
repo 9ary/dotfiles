@@ -389,7 +389,7 @@ awful.rules.rules = {
     { rule = { class = "Firefox" },
       properties = { tag = tags[1][1] } },
     
-    { rule = { class = "Hexchat" },
+    { rule = { name = "irssi" },
       properties = { tag = tags[2][1] } },
     
     { rule = { class = "Skype" },
