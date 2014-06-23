@@ -7,7 +7,7 @@ if [ -f .Xmodmap ]; then
 fi
 
 if [ -f .Xresources ]; then
-    xrdb -merge .Xresources
+    xrdb -merge -override .Xresources
 fi
 
 # Disable this shitty power saving
