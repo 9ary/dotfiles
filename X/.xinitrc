@@ -24,7 +24,7 @@ export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
 exec keynav &
 exec firefox-nightly &
-exec $TERMINAL irssi &
+exec $TERMINAL -e irssi &
 exec sskype &
 exec dropboxd &
 
