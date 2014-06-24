@@ -104,6 +104,9 @@ $PR_USER$PR_HOST$PR_DIR
     echo -ne '\a'
 )
 
+# ls colors
+source ~/.dircolors
+
 # Environment
 source ~/.envrc
 typeset -U path
