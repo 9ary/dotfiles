@@ -87,7 +87,7 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 ! Font
-URxvt*font: xft:dejavu sans mono for powerline:size=10
+URxvt*font: xft:dejavu sans mono for powerline:size=9
 
 ! Icon
 URxvt*iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
