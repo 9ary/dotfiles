@@ -111,6 +111,3 @@ source ~/.dircolors
 source ~/.envrc
 typeset -U path
 
-# Ponies
-ponysay -q
-
