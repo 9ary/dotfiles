@@ -89,7 +89,7 @@ end
 -- Define a tag table which hold all screen tags.
 tags = {}
 tags[1] = awful.tag({ "1:FX", "2", "3", "4", "5", "6", "7", "8", "9" }, 1, layouts[1])
-tags[2] = awful.tag({ "1:IRC", "2:Skype", "3", "4", "5", "6", "7", "8", "9" }, 2, layouts[1])
+tags[2] = awful.tag({ "1:IRC", "2:Skype", "3:Mumble", "4", "5", "6", "7", "8", "9" }, 2, layouts[1])
 
 -- Set the Skype tag master window factor
 awful.tag.setproperty(tags[2][2], "mwfact", 0.15)
@@ -394,6 +394,9 @@ awful.rules.rules = {
     
     { rule = { class = "Skype" },
       properties = { tag = tags[2][2] } },
+
+    { rule = { class = "Mumble" },
+      properties = { tag = tags[2][3] } },
 }
 -- }}}
 

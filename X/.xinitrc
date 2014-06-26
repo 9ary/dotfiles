@@ -27,6 +27,7 @@ exec firefox-nightly &
 exec $TERMINAL -title "WeeChat" -e weechat &
 exec sskype &
 exec dropboxd &
+exec mumble &
 
 exec compton &
 exec awesome
