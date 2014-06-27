@@ -40,7 +40,7 @@ naughty.config.defaults.screen = 1
 beautiful.init(conf .. "theme/solarized.lua")
 if beautiful.wallpaper then
     for s = 1, screen.count() do
-        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        gears.wallpaper.maximized(conf .. "theme/wallpaper" .. s .. ".png", s, true)
     end
 end
 
@@ -53,7 +53,7 @@ layouts =
 
 tags = {}
 tags[1] = awful.tag({ "1:FX", "2", "3", "4", "5", "6", "7", "8", "9" }, 1, layouts[1])
-tags[2] = awful.tag({ "1:IRC", "2:Skype", "3", "4", "5", "6", "7", "8", "9" }, 2, layouts[1])
+tags[2] = awful.tag({ "1:IRC", "2:Skype", "3:Mumble", "4", "5", "6", "7", "8", "9" }, 2, layouts[1])
 
 menu_awesome =
 {
@@ -104,4 +104,8 @@ for s = 1, screen.count() do
     taskbar[s] = awful.wibox({ position = "bottom", screen = s })
     taskbar[s]:set_widget(widgets_all)
 end
+
+dofile keybindings.lua
+dofile rules.lua
+dofile signals.lua
 
