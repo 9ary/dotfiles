@@ -30,10 +30,6 @@ theme.border_marked = "#93A1A1"
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
--- Display the taglist squares
---theme.taglist_squares_sel   = theme.path .. "taglist/squarefw.png"
---theme.taglist_squares_unsel = theme.path .. "taglist/squarew.png"
-
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
@@ -70,8 +66,6 @@ theme.titlebar_maximized_button_focus_inactive  = theme.path .. "titlebar/maximi
 theme.titlebar_maximized_button_normal_active = theme.path .. "titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = theme.path .. "titlebar/maximized_focus_active.png"
 
-theme.wallpaper = theme.path .. "wallpaper.png"
-
 -- You can use your own layout icons like this:
 theme.layout_fairh = theme.path .. "layouts/fairh.png"
 theme.layout_fairv = theme.path .. "layouts/fairv.png"
@@ -86,11 +80,11 @@ theme.layout_tiletop = theme.path .. "layouts/tiletop.png"
 theme.layout_spiral  = theme.path .. "layouts/spiral.png"
 theme.layout_dwindle = theme.path .. "layouts/dwindle.png"
 
-theme.awesome_icon = theme.path .. "awesome.png"
+theme.icon_awesome = theme.path .. "awesome.png"
 
 -- Define the icon theme for application icons. If not set then the icons 
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
 return theme
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
+
