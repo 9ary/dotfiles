@@ -28,7 +28,6 @@ exec $TERMINAL -title "WeeChat" -e weechat &
 exec sskype &
 exec dropboxd &
 exec mumble &
-exec cantata &
 
 exec compton &
 exec awesome

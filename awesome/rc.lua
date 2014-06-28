@@ -52,7 +52,7 @@ layouts =
 
 tags = {}
 tags[1] = awful.tag({ "1:FX", "2", "3", "4", "5", "6", "7", "8", "9" }, 1, layouts[1])
-tags[2] = awful.tag({ "1:IRC", "2:Skype", "3:Mumble", "4", "5", "6", "7", "8", "9:Music" }, 2, layouts[1])
+tags[2] = awful.tag({ "1:IRC", "2:Skype", "3:Mumble", "4", "5", "6", "7", "8", "9" }, 2, layouts[1])
 
 menu_awesome =
 {
@@ -228,9 +228,6 @@ awful.rules.rules = {
 
     { rule = { class = "Mumble" },
       properties = { tag = tags[2][3] } },
-
-    { rule = { class = "cantata" },
-      properties = { tag = tags[2][9] } },
 }
 
 -- Signals
