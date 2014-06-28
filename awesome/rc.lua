@@ -26,6 +26,7 @@ end
 home = os.getenv("HOME") .. "/"
 conf = home .. ".config/awesome/"
 terminal = os.getenv("TERMINAL") .. " "
+file_manager = "nemo"
 editor = terminal .. "-e " .. os.getenv("EDITOR") .. " "
 browser = os.getenv("BROWSER")
 modkey = "Mod4"
@@ -38,10 +39,8 @@ naughty.config.defaults.screen = 1
 
 -- Theme
 beautiful.init(conf .. "theme/solarized.lua")
-if beautiful.wallpaper then
-    for s = 1, screen.count() do
-        gears.wallpaper.maximized(conf .. "theme/wallpaper" .. s .. ".png", s, true)
-    end
+for s = 1, screen.count() do
+    gears.wallpaper.maximized(conf .. "theme/wallpaper" .. s .. ".png", s, true)
 end
 
 layouts =
@@ -142,7 +141,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     -- Shortcuts
-    awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(file_manager_open .. "/home/danelkouby") end),
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(file_manager) end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({                   }, "Print",  function () awful.util.spawn("scrot") end),
     awful.key({ modkey, "Shift"   }, "r", awesome.restart),
