@@ -215,8 +215,7 @@ awful.rules.rules = {
       properties = { floating = true } },
 
     { rule = { class = "mpv" },
-      properties = { floating = true,
-                     tag = tags[1][1] } },
+      properties = { floating = true } },
 
     { rule = { class = "Firefox" },
       properties = { tag = tags[1][1] } },
@@ -231,6 +230,7 @@ awful.rules.rules = {
       properties = { tag = tags[2][3] } },
 }
 
+-- Signals
 client.connect_signal("manage", function (c, startup)
     if not startup then
         -- Set the windows at the slave, unless specified otherwise
@@ -245,7 +245,7 @@ client.connect_signal("manage", function (c, startup)
         end
 
         -- Center some windows
-        if c.class == "mupen64plus" then
+        if c.class == "mupen64plus" or c.class == "Gcr-prompter" then
             awful.placement.centered(c, c.transient_for)
         end
     end
