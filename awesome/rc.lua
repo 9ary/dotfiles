@@ -3,6 +3,7 @@ gears = require("gears")
 awful = require("awful")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
+vicious = require("vicious")
 wibox = require("wibox")
 beautiful = require("beautiful")
 naughty = require("naughty")
@@ -103,6 +104,44 @@ for s = 1, screen.count() do
     taskbar[s] = awful.wibox({ position = "bottom", screen = s })
     taskbar[s]:set_widget(widgets_all)
 end
+
+-- Statusbar
+statusbar = awful.wibox({ position = "top", screen = 1})
+
+statusbar_mpd = wibox.widget.textbox()
+vicious.register(statusbar_mpd, vicious.widgets.mpd,
+    function (widget, args)
+        if args["{state}"] == "Stop" then
+            return " ⬛ "
+        else
+            local icon
+            if args["{state}"] == "Play" then
+                icon = " ▶ "
+            else
+                icon = " ❙❙ "
+            end
+            return icon .. args["{Artist}"] .. " - " .. args["{Title}"] .. " (" .. args["{Album}"] .. ")"
+        end
+    end, 5)
+
+statusbar_cpu = wibox.widget.textbox()
+vicious.register(statusbar_cpu, vicious.widgets.cpu, "CPU:$1% - ")
+
+statusbar_mem = wibox.widget.textbox()
+vicious.register(statusbar_mem, vicious.widgets.mem, "MEM:$1% ($2MB/$3MB) ")
+
+statusbar_widgets_left = wibox.layout.fixed.horizontal()
+    statusbar_widgets_left:add(statusbar_mpd)
+
+statusbar_widgets_right = wibox.layout.fixed.horizontal()
+    statusbar_widgets_right:add(statusbar_cpu)
+    statusbar_widgets_right:add(statusbar_mem)
+
+statusbar_all = wibox.layout.align.horizontal()
+    statusbar_all:set_left(statusbar_widgets_left)
+    statusbar_all:set_right(statusbar_widgets_right)
+
+statusbar:set_widget(statusbar_all)
 
 -- Keybindings
 globalkeys = awful.util.table.join(

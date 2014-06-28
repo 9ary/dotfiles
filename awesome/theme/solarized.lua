@@ -2,7 +2,7 @@ theme = {}
 
 theme.path = os.getenv("HOME") .. "/.config/awesome/theme/"
 
-theme.font          = "DejaVu Sans Book 9"
+theme.font          = "DejaVu Sans Mono 9"
 
 theme.bg_normal     = "#002B36"
 theme.bg_focus      = "#93A1A1"
