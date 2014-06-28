@@ -35,7 +35,7 @@ modkey = "Mod4"
 os.setlocale("en_US.UTF-8")
 
 -- Notification preferences
-naughty.config.defaults.position = "top_left"
+naughty.config.defaults.position = "bottom_right"
 naughty.config.defaults.screen = 1
 
 -- Theme
