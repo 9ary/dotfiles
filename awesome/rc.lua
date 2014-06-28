@@ -189,7 +189,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () menu_main:show() end),
 
     -- dmenu
-    awful.key({ modkey,           }, "r", function () awful.util.spawn("dmenu_run -fn 'dejavu sans mono book-10' -nb '#002B36' -nf '#93A1A1' -sb '#93A1A1' -sf '#002B36'") end)
+    awful.key({ modkey,           }, "r", function () awful.util.spawn("dmenu_run -fn 'dejavu sans mono book-10' -nb '#002B36' -nf '#93A1A1' -sb '#93A1A1' -sf '#002B36'") end),
+
+    -- mpd
+    awful.key({                   }, "XF86AudioPlay", function () awful.util.spawn("mpc toggle") end),
+    awful.key({                   }, "XF86AudioStop", function () awful.util.spawn("mpc stop") end),
+    awful.key({                   }, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
+    awful.key({                   }, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
+    awful.key({                   }, "XF86Tools", function () awful.util.spawn("urxvt -e pms") end)
 )
 
 clientkeys = awful.util.table.join(
