@@ -275,6 +275,9 @@ awful.rules.rules = {
 
     { rule = { class = "Mumble" },
       properties = { tag = tags[2][3] } },
+
+    { rule = { class = "URxvt" },
+      properties = { size_hints_honor = false } },
 }
 
 -- Signals
