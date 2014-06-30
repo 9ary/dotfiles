@@ -271,7 +271,8 @@ awful.rules.rules = {
       properties = { tag = tags[2][1] } },
 
     { rule = { class = "Skype" },
-      properties = { tag = tags[2][2] } },
+      properties = { tag = tags[2][2],
+                     size_hints_honor = false} },
 
     { rule = { class = "Mumble" },
       properties = { tag = tags[2][3] } },
