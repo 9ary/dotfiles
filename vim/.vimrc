@@ -48,4 +48,5 @@ set shell=zsh
 set scrolloff=5
 set ruler
 set ttyfast
+set noesckeys
 

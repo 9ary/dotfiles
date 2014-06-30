@@ -56,6 +56,11 @@ key[PageDown]=${terminfo[knp]}
 bindkey "p" history-beginning-search-backward
 bindkey "n" history-beginning-search-forward
 
+# Resume suspended app
+foreground() { fg }
+zle -N foreground
+bindkey ""  foreground
+
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
