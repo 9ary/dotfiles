@@ -1,6 +1,17 @@
-" Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" Vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Bundle "gmarik/Vundle.vim"
+Bundle "altercation/vim-colors-solarized"
+Bundle "bling/vim-bufferline"
+Bundle "bling/vim-airline"
+Bundle "majutsushi/tagbar"
+
+call vundle#end()
+filetype plugin indent on
 
 " Airline
 set laststatus=2
@@ -11,6 +22,10 @@ syntax enable
 set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
+
+" Tagbar
+"autocmd VimEnter * nested :call tagbar#autoopen()
+nnoremap <C-t> :TagbarToggle<CR>
 
 " Formatting
 set encoding=utf-8
@@ -32,15 +47,34 @@ function! NumberToggle()
         set rnu
     endif
 endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
+nnoremap <C-n> :call NumberToggle()<CR>
+
+" Buffer switching
+nnoremap <C-b> :buffer<Space>
+let g:bufferline_echo = 0
+
 
 " Search tweaks
 set incsearch
 set hlsearch
 
+" Show whitespaces
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+
+" Paste mode
+set pastetoggle=<F2>
+
+" Window switching
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " Cache
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
+set list
 
 " Misc
 set nowrap
