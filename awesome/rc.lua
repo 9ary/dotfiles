@@ -53,7 +53,7 @@ layouts =
 
 tags = {}
 tags[1] = awful.tag({ "1:FX", "2", "3", "4", "5", "6", "7", "8", "9" }, 1, layouts[1])
-tags[2] = awful.tag({ "1:IRC", "2:Skype", "3:Mumble", "4", "5", "6", "7", "8", "9" }, 2, layouts[1])
+tags[2] = awful.tag({ "1:IRC", "2:Skype", "3", "4", "5", "6", "7", "8", "9" }, 2, layouts[1])
 awful.tag.setmwfact(0.2, tags[2][2])
 
 menu_awesome =
@@ -273,9 +273,6 @@ awful.rules.rules = {
     { rule = { class = "Skype" },
       properties = { tag = tags[2][2],
                      size_hints_honor = false} },
-
-    { rule = { class = "Mumble" },
-      properties = { tag = tags[2][3] } },
 
     { rule = { class = "URxvt" },
       properties = { size_hints_honor = false } },
