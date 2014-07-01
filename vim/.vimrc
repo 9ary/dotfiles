@@ -9,6 +9,7 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "bling/vim-bufferline"
 Bundle "bling/vim-airline"
 Bundle "majutsushi/tagbar"
+Bundle "tpope/vim-fugitive"
 
 call vundle#end()
 filetype plugin indent on
