@@ -94,15 +94,19 @@ elif [[ $UID -eq 0 ]]; then # root
   eval PR_USER_OP='${PR_RED}#\ zsh\>${PR_NO_COLOR}'
 fi
 # Check if we are on SSH or not
-if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
+if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
   eval PR_HOST='${PR_MAGENTA}@%M' #SSH
-else 
+else
   eval PR_HOST='${PR_BLUE}@%M' # no SSH
 fi
 eval PR_DIR=':%~${PR_NO_COLOR}'
 export PROMPT="
 $PR_USER$PR_HOST$PR_DIR
  $PR_USER_OP "
+
+# Git prompt
+source ~/dotfiles/zsh/zsh-git-prompt/zshrc.sh
+export RPROMPT='$(git_super_status)'
 
  # Bell on prompt becoz reasons
  precmd () (
