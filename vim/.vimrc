@@ -53,6 +53,7 @@ nnoremap <C-n> :call NumberToggle()<CR>
 " Buffer switching
 nnoremap <C-b> :buffer<Space>
 let g:bufferline_echo = 0
+let g:bufferline_rotate = 1
 
 
 " Search tweaks
