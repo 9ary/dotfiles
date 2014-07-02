@@ -78,6 +78,7 @@ fi
 source ~/.aliases
 
 # Prompt
+source ~/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 autoload -U colors zsh/terminfo
 colors
 # make some aliases for the colours: (coud use normal escap.seq's too)
@@ -100,13 +101,9 @@ else
   eval PR_HOST='${PR_BLUE}@%M' # no SSH
 fi
 eval PR_DIR=':%~${PR_NO_COLOR}'
-export PROMPT="
+export PROMPT='
 $PR_USER$PR_HOST$PR_DIR
- $PR_USER_OP "
-
-# Git prompt
-source ~/dotfiles/zsh/zsh-git-prompt/zshrc.sh
-export RPROMPT='$(git_super_status)'
+$(git_super_status) $PR_USER_OP '
 
  # Bell on prompt becoz reasons
  precmd () (
