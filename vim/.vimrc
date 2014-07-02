@@ -59,10 +59,6 @@ let g:bufferline_rotate = 1
 set incsearch
 set hlsearch
 
-" Show whitespaces
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
 " Paste mode
 set pastetoggle=<F2>
 
@@ -75,7 +71,6 @@ map <C-l> <C-w>l
 " Cache
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
-set list
 
 " Misc
 set nowrap
