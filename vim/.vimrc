@@ -33,7 +33,6 @@ set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
 set autoindent
-set expandtab
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
 
 " Line numbering
