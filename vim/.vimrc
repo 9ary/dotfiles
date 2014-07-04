@@ -26,7 +26,7 @@ colorscheme solarized
 
 " Tagbar
 "autocmd VimEnter * nested :call tagbar#autoopen()
-nnoremap <C-t> :TagbarToggle<CR>
+nnoremap <silent> <C-t> :TagbarToggle<CR>
 
 " Formatting
 set encoding=utf-8
@@ -47,7 +47,7 @@ function! NumberToggle()
         set rnu
     endif
 endfunc
-nnoremap <C-n> :call NumberToggle()<CR>
+nnoremap <silent> <C-n> :call NumberToggle()<CR>
 
 " Buffer switching
 nnoremap <C-b> :buffer<Space>
