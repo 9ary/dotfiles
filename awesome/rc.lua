@@ -264,6 +264,9 @@ awful.rules.rules = {
     { rule = { class = "Wine" },
       properties = { floating = true } },
 
+	{ rule = { name = "nspire_emu" },
+      properties = { floating = false } },
+
     { rule = { class = "mpv" },
       properties = { floating = true } },
 
