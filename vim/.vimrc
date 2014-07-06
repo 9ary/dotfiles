@@ -79,4 +79,5 @@ set scrolloff=5
 set ruler
 set ttyfast
 set noesckeys
+map ; :
 
