@@ -8,8 +8,6 @@ Bundle "gmarik/Vundle.vim"
 Bundle "altercation/vim-colors-solarized"
 Bundle "bling/vim-bufferline"
 Bundle "bling/vim-airline"
-Bundle "majutsushi/tagbar"
-Bundle "tpope/vim-fugitive"
 
 call vundle#end()
 filetype plugin indent on
@@ -23,10 +21,6 @@ syntax enable
 set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
-
-" Tagbar
-"autocmd VimEnter * nested :call tagbar#autoopen()
-nnoremap <silent> <C-t> :TagbarToggle<CR>
 
 " Formatting
 set encoding=utf-8
