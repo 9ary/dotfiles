@@ -16,9 +16,9 @@ theme.fg_urgent     = "#93A1A1"
 theme.fg_minimize   = "#93A1A1"
 
 theme.border_width  = 1
-theme.border_normal = "#93A1A1"
+theme.border_normal = "#586E75"
 theme.border_focus  = "#93A1A1"
-theme.border_marked = "#93A1A1"
+theme.border_marked = "#B58900"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -82,7 +82,7 @@ theme.layout_dwindle = theme.path .. "layouts/dwindle.png"
 
 theme.icon_awesome = theme.path .. "awesome.png"
 
--- Define the icon theme for application icons. If not set then the icons 
+-- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
