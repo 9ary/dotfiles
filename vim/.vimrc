@@ -67,6 +67,7 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 " Misc
+set mouse=a
 set nowrap
 set shell=zsh
 set scrolloff=5

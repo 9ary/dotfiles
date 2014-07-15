@@ -13,6 +13,9 @@ xset -dpms
 # Don't ring bells
 xset b off
 
+# Mouse speed
+xset m 2/1 1
+
 source /etc/X11/xinit/xinitrc.d/30-dbus
 pulseaudio --start
 
