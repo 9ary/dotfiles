@@ -27,6 +27,7 @@ exec autocutsel -fork -selection PRIMARY &
 exec keynav &
 exec redshift-gtk &
 exec firefox-nightly &
+exec transmission-gtk &
 exec $TERMINAL -title "WeeChat" -e weechat &
 exec sskype &
 exec dropboxd &
