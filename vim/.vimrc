@@ -62,6 +62,17 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Completion
+set completeopt=menu,menuone,longest,preview
+function! Tab_Or_Complete()
+    if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+      return "\<C-N>"
+    else
+      return "\<Tab>"
+    endif
+endfunction
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+
 " Cache
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
