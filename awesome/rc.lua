@@ -298,7 +298,7 @@ client.connect_signal("manage", function (c, startup)
         end
 
         -- Center some windows
-        if c.class == "mupen64plus" or c.class == "Gcr-prompter" then
+        if c.class == "mupen64plus" or c.class == "Gcr-prompter" or c.class == "mpv" then
             awful.placement.centered(c, c.transient_for)
         end
     end
