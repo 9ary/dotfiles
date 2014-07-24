@@ -25,6 +25,7 @@ export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 exec autocutsel -fork &
 exec autocutsel -fork -selection PRIMARY &
 exec keynav &
+exec unclutter -idle 1 -jitter 2 -root &
 exec redshift-gtk &
 exec firefox-nightly &
 exec transmission-gtk &
