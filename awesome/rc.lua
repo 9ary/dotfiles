@@ -27,7 +27,7 @@ end
 home = os.getenv("HOME") .. "/"
 conf = home .. ".config/awesome/"
 terminal = os.getenv("TERMINAL") .. " "
-file_manager = "nemo"
+file_manager = terminal .. "-e ranger"
 editor = terminal .. "-e " .. os.getenv("EDITOR") .. " "
 browser = os.getenv("BROWSER")
 modkey = "Mod4"
