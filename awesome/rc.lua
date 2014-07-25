@@ -153,12 +153,22 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "j",
         function ()
-            awful.client.focus.byidx( 1)
+            awful.client.focus.global_bydirection("down")
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "k",
         function ()
-            awful.client.focus.byidx(-1)
+            awful.client.focus.global_bydirection("up")
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ modkey,           }, "h",
+        function ()
+            awful.client.focus.global_bydirection("left")
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ modkey,           }, "l",
+        function ()
+            awful.client.focus.global_bydirection("right")
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
@@ -171,12 +181,14 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1) end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1) end),
+    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.global_bydirection("down") end),
+    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.global_bydirection("up") end),
+    awful.key({ modkey, "Shift"   }, "h", function () awful.client.swap.global_bydirection("left") end),
+    awful.key({ modkey, "Shift"   }, "l", function () awful.client.swap.global_bydirection("right") end),
     awful.key({ modkey, "Shift"   }, "n", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Shift"   }, "p", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "l", function () awful.tag.incmwfact( 0.05) end),
-    awful.key({ modkey,           }, "h", function () awful.tag.incmwfact(-0.05) end),
+    awful.key({ modkey, "Control" }, "l", function () awful.tag.incmwfact( 0.05) end),
+    awful.key({ modkey, "Control" }, "h", function () awful.tag.incmwfact(-0.05) end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
@@ -205,8 +217,7 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "q", function (c) c:kill() end),
-    awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle),
-    awful.key({ modkey,           }, "o", awful.client.movetoscreen)
+    awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle)
 )
 
 -- Bind all key numbers to tags (with key codes)
