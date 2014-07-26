@@ -28,7 +28,7 @@ exec keynav &
 exec unclutter -idle 1 -jitter 2 -root &
 exec redshift-gtk &
 exec firefox-nightly &
-exec transmission-gtk &
+exec $TERMINAL -title "Transmission" -e transmission-remote-cli &
 exec $TERMINAL -title "WeeChat" -e weechat &
 exec sskype &
 exec dropboxd &

@@ -290,7 +290,7 @@ awful.rules.rules = {
       properties = { tag = tags[2][2],
                      size_hints_honor = false} },
 
-    { rule = { class = "Transmission-gtk" },
+    { rule = { name = "Transmission" },
       properties = { tag = tags[2][3] } },
 
     { rule = { class = "URxvt" },
