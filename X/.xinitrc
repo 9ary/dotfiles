@@ -26,7 +26,6 @@ exec autocutsel -fork &
 exec autocutsel -fork -selection PRIMARY &
 exec keynav &
 exec unclutter -idle 1 -jitter 2 -root &
-exec redshift-gtk &
 exec firefox-nightly &
 exec $TERMINAL -title "Transmission" -e transmission-remote-cli &
 exec $TERMINAL -title "WeeChat" -e weechat &
