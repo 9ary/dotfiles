@@ -4,11 +4,13 @@ theme.path = os.getenv("HOME") .. "/.config/awesome/theme/"
 
 theme.font          = "DejaVu Sans Mono 9"
 
-theme.bg_normal     = "#002B36"
-theme.bg_focus      = "#93A1A1"
-theme.bg_urgent     = "#B58900"
-theme.bg_minimize   = "#586E75"
+theme.bg_normal     = "#002B36D9"
+theme.bg_focus      = "#93A1A1D9"
+theme.bg_urgent     = "#B58900D9"
+theme.bg_minimize   = "#586E75D9"
 theme.bg_systray    = theme.bg_normal
+
+theme.tasklist_bg_normal = "#00000000"
 
 theme.fg_normal     = "#93A1A1"
 theme.fg_focus      = "#002B36"
@@ -16,14 +18,14 @@ theme.fg_urgent     = "#93A1A1"
 theme.fg_minimize   = "#93A1A1"
 
 theme.border_width  = 1
-theme.border_normal = "#586E75"
-theme.border_focus  = "#93A1A1"
-theme.border_marked = "#B58900"
+theme.border_normal = "#586E75D9"
+theme.border_focus  = "#93A1A1D9"
+theme.border_marked = "#B58900D9"
 
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
--- [taglist|tasklist]_[bg|fg]_[focus|urgent]
+-- [taglist|tasklist]_[bg|fg]_[normal|focus|urgent]
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
