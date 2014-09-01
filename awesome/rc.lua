@@ -275,7 +275,7 @@ awful.rules.rules = {
     { rule = { class = "Wine" },
       properties = { floating = true } },
 
-	{ rule = { name = "nspire_emu" },
+    { rule = { name = "nspire_emu" },
       properties = { floating = false } },
 
     { rule = { class = "mpv" },
@@ -317,10 +317,43 @@ client.connect_signal("manage", function (c, startup)
             awful.placement.centered(c, c.transient_for)
         end
     end
+
+    -- Titlebars
+    local titlebars = true
+    if titlebars == true and (c.type == "normal" or c.type == "dialog") then
+        local buttons = awful.util.table.join(
+            awful.button({ }, 1, function()
+                client.focus = c
+                c:raise()
+                awful.mouse.client.move(c)
+            end),
+            awful.button({ }, 3, function()
+                client.focus = c
+                c:raise()
+                awful.mouse.client.resize(c)
+            end)
+        )
+        local title = awful.titlebar.widget.titlewidget(c)
+            title:set_align("center")
+
+        local widgets_left = wibox.layout.fixed.horizontal()
+            widgets_left:add(awful.titlebar.widget.iconwidget(c))
+            widgets_left:buttons(buttons)
+
+        local widgets_middle = wibox.layout.flex.horizontal()
+            widgets_middle:add(title)
+            widgets_middle:buttons(buttons)
+
+        local widgets_all = wibox.layout.align.horizontal()
+            widgets_all:set_left(widgets_left)
+            widgets_all:set_middle(widgets_middle)
+
+        awful.titlebar(c):set_widget(widgets_all)
+    end
 end)
 
 client.connect_signal("focus", function (c)
-	awful.screen.focus(c.screen)
+    awful.screen.focus(c.screen)
 end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
