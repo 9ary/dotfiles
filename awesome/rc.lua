@@ -203,7 +203,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () menu_main:show() end),
 
     -- dmenu
-    awful.key({ modkey,           }, "r", function () awful.util.spawn("dmenu_run -fn 'dejavu sans mono book-10' -nb '#002B36' -nf '#93A1A1' -sb '#93A1A1' -sf '#002B36'") end),
+    awful.key({ modkey,           }, "r", function () awful.util.spawn("dmenu_run -fn 'dejavu sans mono -9' -h 22 -p '>' -b -f -i -nb '#002B36' -nf '#93A1A1' -sb '#93A1A1' -sf '#002B36'") end),
 
     -- mpd
     awful.key({                   }, "XF86AudioPlay", function () awful.util.spawn("mpc toggle") end),
