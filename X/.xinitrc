@@ -27,7 +27,7 @@ exec autocutsel -fork -selection PRIMARY &
 exec keynav &
 exec unclutter -idle 1 -jitter 2 -root &
 exec firefox-nightly &
-exec $TERMINAL -title "Transmission" -e transmission-remote-cli &
+exec $TERMINAL -title "Transmission" -e transmission-remote-retry &
 exec $TERMINAL -title "WeeChat" -e weechat &
 exec sskype &
 exec dropboxd &
