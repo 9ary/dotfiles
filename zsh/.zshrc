@@ -105,9 +105,15 @@ export PROMPT='
 $PR_USER$PR_HOST$PR_DIR
 $(git_super_status) $PR_USER_OP '
 
- # Bell on prompt becoz reasons
- precmd () (
-    echo -ne '\a'
+precmd()
+(
+    echo -ne '\a' # BELL
+    print -Pn '\e]0;%n@%M:%~ - zsh\a' # Window title
+)
+
+preexec()
+(
+    print -Pn '\e]0;%n@%M:%~ - $1\a' # Window title
 )
 
 # ls colors
