@@ -37,7 +37,7 @@ theme.border_marked = "#B58900D9"
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = theme.path .. "submenu.png"
 theme.menu_height = 20
-theme.menu_width  = 200
+theme.menu_width  = 150
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -67,6 +67,9 @@ theme.titlebar_maximized_button_normal_inactive = theme.path .. "titlebar/maximi
 theme.titlebar_maximized_button_focus_inactive  = theme.path .. "titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_active = theme.path .. "titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = theme.path .. "titlebar/maximized_focus_active.png"
+
+theme.taglist_squares_sel   = theme.path .. "tagsquare_sel.png"
+theme.taglist_squares_unsel = theme.path .. "tagsquare_unsel.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = theme.path .. "layouts/fairh.png"
