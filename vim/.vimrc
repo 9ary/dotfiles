@@ -73,6 +73,9 @@ function! Tab_Or_Complete()
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
+" Shortcuts
+nnoremap <silent> <F4> :echo system('make run')<CR>
+
 " Cache
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
