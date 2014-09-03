@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 #
 # This program copyright (C) 2011 Nicolas Schodet
 #
@@ -34,7 +34,7 @@
 """Generate a set of icons to be used with the Awesome Window Manager."""
 import optparse
 import ConfigParser
-import Image, ImageDraw
+import PIL.Image, PIL.ImageDraw
 import os, os.path
 from fnmatch import fnmatch
 
@@ -286,8 +286,8 @@ else:
             for name, func in icons.iteritems():
                 for pattern in include:
                     if fnmatch (name, pattern):
-                        icon = Image.new ('RGBA', p.size, (0, 0, 0, 0))
-                        draw = ImageDraw.Draw (icon)
+                        icon = PIL.Image.new ('RGBA', p.size, (0, 0, 0, 0))
+                        draw = PIL.ImageDraw.Draw (icon)
                         if not options.quiet:
                             print "Generating %s..." % name
                         func (icon, draw, p)
