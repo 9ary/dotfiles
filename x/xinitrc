@@ -2,9 +2,7 @@
 
 source ~/.envrc
 
-if [ -f .Xresources ]; then
-    xrdb -merge -override .Xresources
-fi
+xrdb -merge -override ~/dotfiles/x/Xresources
 
 # Disable this shitty power saving
 xset s off

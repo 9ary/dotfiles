@@ -10,7 +10,6 @@ zstyle ':completion:*' menu select=1
 zstyle ':completion:*' original true
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/danelkouby/.zshrc'
 autoload -Uz compinit
 compinit
 
@@ -75,7 +74,7 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
 fi
 
 # Aliases (duh)
-source ~/.aliases
+source ~/dotfiles/zsh/aliases
 
 # Prompt
 source ~/dotfiles/zsh/zsh-git-prompt/zshrc.sh
@@ -117,7 +116,7 @@ preexec()
 )
 
 # ls colors
-source ~/.dircolors
+source ~/dotfiles/zsh/dircolors
 
 # Environment
 source ~/.envrc
