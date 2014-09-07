@@ -74,7 +74,7 @@ endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 " Shortcuts
-nnoremap <silent> <F4> :echo system('make run')<CR>
+nnoremap <silent> <F4> :w<CR>:echo system('make run')<CR>
 
 " Cache
 set backupdir=~/.vim/backup
