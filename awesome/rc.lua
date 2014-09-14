@@ -112,8 +112,9 @@ statusbar = awful.wibox({ position = "top", screen = 1})
 statusbar_mpd = wibox.widget.textbox()
 vicious.register(statusbar_mpd, vicious.widgets.mpd,
     function (widget, args)
+        local vol = " " .. args["{volume}"] .. "%"
         if args["{state}"] == "Stop" then
-            return " ⬛ "
+            return vol .. " ⬛ "
         else
             local icon
             if args["{state}"] == "Play" then
@@ -121,9 +122,9 @@ vicious.register(statusbar_mpd, vicious.widgets.mpd,
             else
                 icon = " ❙❙ "
             end
-            return icon .. args["{Artist}"] .. " - " .. args["{Title}"] .. " (" .. args["{Album}"] .. ")"
+            return vol .. icon .. args["{Artist}"] .. " - " .. args["{Title}"] .. " (" .. args["{Album}"] .. ")"
         end
-    end, 5)
+    end, 1)
 
 statusbar_cpu = wibox.widget.textbox()
 vicious.register(statusbar_cpu, vicious.widgets.cpu, "CPU:$1% - ")
