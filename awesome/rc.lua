@@ -219,7 +219,8 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "q", function (c) c:kill() end),
-    awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle)
+    awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle),
+	awful.key({ modkey,           }, "f", function (c) c.fullscreen = not c.fullscreen end)
 )
 
 -- Bind all key numbers to tags (with key codes)
@@ -290,12 +291,15 @@ awful.rules.rules = {
 
     { rule = { class = "Skype" },
       properties = { tag = tags[2][2],
-                     size_hints_honor = false} },
+                     size_hints_honor = false } },
 
     { rule = { name = "Transmission" },
       properties = { tag = tags[2][3] } },
 
-    { rule = { class = "URxvt" },
+    { rule = { name = "Minecraft" },
+      properties = { fullscreen = true } },
+
+   { rule = { class = "URxvt" },
       properties = { size_hints_honor = false } },
 }
 
