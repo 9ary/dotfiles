@@ -197,7 +197,8 @@ globalkeys = awful.util.table.join(
     -- Shortcuts
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(file_manager) end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({                   }, "Print",  function () awful.util.spawn("scrush") end),
+    awful.key({                   }, "Print",  function () awful.util.spawn("escrotum '" .. home .. "screenshots/%Y-%m-%d_%H%M%S_$wx$h.png'") end),
+    awful.key({         "Shift"   }, "Print",  function () awful.util.spawn("escrotum -s '" .. home .. "screenshots/%Y-%m-%d_%H%M%S_$wx$h.png'") end),
     awful.key({ modkey, "Shift"   }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
