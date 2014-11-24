@@ -77,7 +77,6 @@
 
 ! Background
 URxvt*depth: 32
-URxvt*background: [85]#002b36
 URxvt*fading: 0
 
 ! Scrolling stuffs
