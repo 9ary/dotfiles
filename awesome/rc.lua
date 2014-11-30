@@ -82,10 +82,18 @@ taskbar_list_windows = {}
 taskbar_systray = wibox.widget.systray()
 taskbar_clock = awful.widget.textclock(" %a %d %b %H:%M ", 10)
 
+taskbar_list_windows.buttons = awful.util.table.join
+(
+	awful.button({}, 1,
+		function (c)
+			c.minimized = false
+		end)
+)
+
 for s = 1, screen.count() do
 	taskbar_layout_icon[s] = awful.widget.layoutbox(s)
 	taskbar_list_tags[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all)
-	taskbar_list_windows[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags)
+	taskbar_list_windows[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, taskbar_list_windows.buttons)
 
 	local widgets_left = wibox.layout.fixed.horizontal()
 		widgets_left:add(taskbar_layout_icon[s])
