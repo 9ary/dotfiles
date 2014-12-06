@@ -8,6 +8,7 @@ Bundle "gmarik/Vundle.vim"
 Bundle "altercation/vim-colors-solarized"
 Bundle "bling/vim-bufferline"
 Bundle "bling/vim-airline"
+Bundle "tpope/vim-sleuth"
 
 call vundle#end()
 filetype plugin indent on
