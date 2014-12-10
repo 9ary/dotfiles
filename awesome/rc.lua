@@ -308,6 +308,9 @@ awful.rules.rules = {
     { rule = { name = "Minecraft" },
       properties = { fullscreen = true } },
 
+   { rule = { class = "portal2_linux" },
+      properties = { fullscreen = true } },
+
    { rule = { class = "URxvt" },
       properties = { size_hints_honor = false } },
 }
