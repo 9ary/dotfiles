@@ -311,6 +311,9 @@ awful.rules.rules = {
    { rule = { class = "portal2_linux" },
       properties = { fullscreen = true } },
 
+   { rule = { class = "SuperMeatBoy" },
+      properties = { fullscreen = true } },
+
    { rule = { class = "URxvt" },
       properties = { size_hints_honor = false } },
 }
