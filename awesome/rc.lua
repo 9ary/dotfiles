@@ -284,7 +284,8 @@ awful.rules.rules = {
       properties = { floating = true } },
 
     { rule = { class = "Wine" },
-      properties = { floating = true } },
+      properties = { floating = true,
+                     border_width = 0 } },
 
     { rule = { name = "nspire_emu" },
       properties = { floating = false } },
