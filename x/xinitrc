@@ -29,6 +29,7 @@ exec $TERMINAL -title "Transmission" -e transmission-remote-retry &
 exec $TERMINAL -title "WeeChat" -e weechat &
 exec telegram &
 exec dropboxd &
+exec nm-applet &
 
 exec compton &
 exec awesome
