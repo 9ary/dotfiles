@@ -67,8 +67,7 @@ menu_main = awful.menu({ items =
     { "Awesome", menu_awesome, beautiful.icon_awesome },
     { "Logout", awesome.quit },
     { "Suspend", "systemctl suspend" },
-    { "Hibernate", "systemctl hibernate" },
-    { "Hybrid sleep", "systemctl hybrid-sleep" },
+    { "Hibernate", "sudo hibernate" },
     { "Shutdown", "systemctl poweroff" },
     { "Reboot", "systemctl reboot" }
 }})
