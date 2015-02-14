@@ -96,10 +96,8 @@ URxvt*iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
 URxvt*urgentOnBell: true
 
 ! Perl extensions
-URxvt*perl-ext-common: default,matcher,url-select,selection-to-clipboard
-URxvt*url-launcher: /usr/bin/xdg-open
-URxvt*matcher.button: 1
+URxvt*perl-ext-common: default,url-select,selection-to-clipboard
 URxvt*keysym.C-i: perl:url-select:select_next
-URxvt*url-select.launcher: /usr/bin/xdg-open
-URxvt*url-select.underline: false
+URxvt*url-select.launcher: /usr/bin/rifle
+URxvt*url-select.underline: true
 
