@@ -297,7 +297,7 @@ awful.rules.rules = {
     { rule = { name = "WeeChat" },
       properties = { tag = tags[2][1] } },
 
-    { rule = { class = "Telegram" },
+    { rule = { name = "Telegram Web" },
       properties = { tag = tags[2][2] } },
 
     { rule = { name = "Transmission" },
