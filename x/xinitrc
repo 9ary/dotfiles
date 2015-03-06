@@ -27,7 +27,7 @@ exec firefox-nightly &
 exec $TERMINAL -title "Transmission" -e transmission-remote-retry &
 exec $TERMINAL -title "WeeChat" -e weechat &
 exec telegram &
-exec dropboxd &
+exec dropbox &
 exec nm-applet &
 
 exec compton &
