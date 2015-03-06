@@ -30,6 +30,7 @@ exec telegram &
 exec dropbox &
 exec nm-applet &
 
+exec redshift &
 exec compton &
 exec awesome
 
