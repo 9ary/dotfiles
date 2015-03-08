@@ -9,6 +9,7 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "bling/vim-bufferline"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-sleuth"
+Bundle "troydm/shellasync.vim"
 
 call vundle#end()
 filetype plugin indent on
@@ -67,7 +68,7 @@ map <C-l> <C-w>l
 set completeopt=menu,menuone,longest,preview
 
 " Shortcuts
-nnoremap <silent> <F4> :w<CR>:call system('urxvt -e runpause make run')<CR>
+nnoremap <silent> <F4> :w<CR>:Shell make run<CR>
 
 " Cache
 set backupdir=~/.vim/backup
