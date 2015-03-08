@@ -67,7 +67,7 @@ map <C-l> <C-w>l
 set completeopt=menu,menuone,longest,preview
 
 " Shortcuts
-nnoremap <silent> <F4> :w<CR>:echo system('make run')<CR>
+nnoremap <silent> <F4> :w<CR>:call system('urxvt -e runpause make run')<CR>
 
 " Cache
 set backupdir=~/.vim/backup
