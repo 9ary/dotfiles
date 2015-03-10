@@ -218,9 +218,9 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86AudioStop", function () awful.util.spawn("mpc stop") end),
     awful.key({                   }, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
     awful.key({                   }, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
-    awful.key({                   }, "XF86AudioRaiseVolume", function () awful.util.spawn("pa-adjust plus") end),
-    awful.key({                   }, "XF86AudioLowerVolume", function () awful.util.spawn("pa-adjust minus") end),
-    awful.key({                   }, "XF86AudioMute", function () awful.util.spawn("pa-adjust mute") end),
+    awful.key({                   }, "XF86AudioRaiseVolume", function () awful.util.spawn("pulseaudio-ctl up") end),
+    awful.key({                   }, "XF86AudioLowerVolume", function () awful.util.spawn("pulseaudio-ctl down") end),
+    awful.key({                   }, "XF86AudioMute", function () awful.util.spawn("pulseaudio-ctl mute") end),
     awful.key({                   }, "XF86Tools", function () awful.util.spawn("urxvt -e pms") end)
 )
 
