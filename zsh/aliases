@@ -1,9 +1,8 @@
 # Aliases
 alias sudo="sudo "
 alias s="sudo "
-alias sa="sudo aura"
 alias sp="sudo pacman"
-alias n="nano"
+
 alias ls="ls --color -Fh"
 alias lsa="ls --color -FAh"
 alias ll="ls --color -Fhl"
@@ -11,8 +10,13 @@ alias lla="ls --color -FAhl"
 alias cp="cp -r"
 alias c="clear"
 alias e="exit"
+
 alias v="vim"
 alias sv="sudoedit"
+
 alias verynice="ionice -c3 nice -n 15 "
 alias schedbatch="schedtool -B -e "
+
+alias mtpmount="jmtpfs ~/mtp"
+alias mtpumount="fusermount -u ~/mtp"
 
