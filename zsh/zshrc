@@ -78,6 +78,7 @@ source ~/dotfiles/zsh/aliases
 
 # Prompt
 source ~/dotfiles/zsh/zsh-git-prompt/zshrc.sh
+GIT_PROMPT_EXECUTABLE="haskell"
 autoload -U colors zsh/terminfo
 colors
 # make some aliases for the colours: (coud use normal escap.seq's too)
