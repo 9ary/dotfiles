@@ -96,9 +96,12 @@ URxvt*iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
 URxvt*urgentOnBell: true
 
 ! Perl extensions
-URxvt*perl-ext-common: default,matcher,url-select,selection-to-clipboard
+URxvt*perl-ext-common: default,url-select,clipboard
 URxvt*matcher.button: 1
 URxvt*keysym.C-i: perl:url-select:select_next
 URxvt*url-select.launcher: /usr/bin/rifle
 URxvt*url-select.underline: true
+URxvt.iso14755: False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
