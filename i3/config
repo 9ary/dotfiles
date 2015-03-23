@@ -107,10 +107,23 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# workspaces
+set $WS1 1:FX
+workspace $WS1 output DFP5
+assign [class="Firefox"] $WS1
+
+set $WS2 2:IRC
+workspace $WS2 output DFP7
+assign [title="WeeChat"] $WS2
+
+set $WS3 3:Torrent
+workspace $WS3 output DFP7
+assign [class="Qbittorrent"] $WS3
+
 # switch to workspace
-bindsym $mod+1 workspace 1:FX
-bindsym $mod+2 workspace 2:IRC
-bindsym $mod+3 workspace 3:Torrent
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -122,9 +135,9 @@ bindsym $mod+n workspace next_on_output
 bindsym $mod+p workspace prev_on_output
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:FX
-bindsym $mod+Shift+2 move container to workspace 2:IRC
-bindsym $mod+Shift+3 move container to workspace 3:Torrent
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -132,15 +145,6 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-
-workspace 1:FX output DFP5
-assign [class="Firefox"] 1:FX
-
-workspace 2:IRC output DFP7
-assign [title="WeeChat"] 2:IRC
-
-workspace 3:Torrent output DFP7
-assign [class="Qbittorrent"] 3:Torrent
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
