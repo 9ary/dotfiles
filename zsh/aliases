@@ -8,6 +8,7 @@ alias lsa="ls --color -FAh"
 alias ll="ls --color -Fhl"
 alias lla="ls --color -FAhl"
 alias cp="cp -r"
+alias scp="scp -r"
 alias c="clear"
 alias e="exit"
 
