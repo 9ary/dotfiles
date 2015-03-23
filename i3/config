@@ -109,15 +109,15 @@ bindsym $mod+a focus parent
 
 # workspaces
 set $WS1 1:FX
-workspace $WS1 output DFP5
+workspace $WS1 output HDMI-0
 assign [class="Firefox"] $WS1
 
 set $WS2 2:IRC
-workspace $WS2 output DFP7
+workspace $WS2 output DVI-1
 assign [title="WeeChat"] $WS2
 
 set $WS3 3:Torrent
-workspace $WS3 output DFP7
+workspace $WS3 output DVI-1
 assign [class="Qbittorrent"] $WS3
 
 # switch to workspace
@@ -183,7 +183,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Log out ?' -b 'Yes' 'i3-msg 
 # finds out, if available)
 bar {
 	status_command i3status
-	tray_output DFP5
+	tray_output HDMI-0
 
 	colors {
 		separator #dc322f
