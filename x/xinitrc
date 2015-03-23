@@ -27,6 +27,7 @@ exec dropbox &
 exec nm-applet &
 exec redshift-gtk &
 
+source ~/.fehbg
 exec compton &
-exec awesome
+exec i3
 
