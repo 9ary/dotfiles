@@ -196,9 +196,12 @@ bar {
 	}
 }
 
-
+# pretty colors
 client.focused #859900 #859900 #fdf6e3 #859900
 client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
 client.unfocused #073642 #073642 #93a1a1 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+
+# nicer borders
+new_window pixel 1
 
