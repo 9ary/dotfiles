@@ -118,7 +118,7 @@ assign [title="WeeChat"] $WS2
 
 set $WS3 3:Torrent
 workspace $WS3 output DVI-1
-assign [class="Qbittorrent"] $WS3
+assign [title="^qBittorrent v"] $WS3
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -145,6 +145,18 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+# move workspace to screen
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+j move workspace to output down
+bindsym $mod+Ctrl+k move workspace to output up
+bindsym $mod+Ctrl+l move workspace to output right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Right move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -185,7 +197,7 @@ mode "$mode_system" {
 	bindsym Shift+e exec --no-startup-id i3-msg exit, mode "default"
 	bindsym s exec --no-startup-id $Locker && sleep 1 && systemctl suspend, mode "default"
 	bindsym Shift+r exec --no-startup-id systemctl reboot, mode "default"
-	bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+	bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
 	# back to normal: Enter or Escape
 	bindsym Return mode "default"
