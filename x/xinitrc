@@ -21,9 +21,10 @@ exec autocutsel -fork &
 exec keynav &
 exec unclutter -idle 1 -jitter 2 -root &
 exec dunst &
-exec firefox&
+exec firefox &
 exec qbittorrent &
 exec $TERMINAL -title "WeeChat" -e weechat &
+exec telegram &
 exec dropbox &
 exec nm-applet &
 exec redshift-gtk &
