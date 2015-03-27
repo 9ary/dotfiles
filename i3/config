@@ -43,8 +43,8 @@ bindsym $mod+r exec dmenu_run -fn 'dejavu sans mono -9' -h 22 -p '>' -b -f -i -n
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # take screenshots
-bindsym Print exec escrotum
-bindsym Shift+Print exec escrotum -s
+bindsym Print exec maim
+bindsym Shift+Print exec maim -s
 
 # music and sound control
 bindsym XF86AudioPlay exec mpc toggle
