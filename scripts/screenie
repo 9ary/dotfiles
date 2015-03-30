@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+file=$HOME/screenshots/$(date +%Y-%m-%d_%H%M%S).png
+/usr/bin/maim $@ --hidecursor --nokeyboard $file || exit 1
+notify-send "Uploading screenshot" "This may take a while"
+pomf=$(pymf $file | sed -e "s/^.* -> //")
+echo -n $pomf | xclip -sel CLIP
+notify-send "Screenshot uploaded" "$pomf"
+
