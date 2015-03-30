@@ -1,0 +1,21 @@
+super r
+	dmenu_run -p '>'
+
+XF86Eject
+	dpower
+
+super {_,shift} Return
+	$TERMINAL {_,-e ranger}
+
+{_,shift} Print
+	screenie {_,-s}
+
+XF86Audio{Play,Next,Prev}
+	mpc {toggle,next,prev}
+
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	pulseaudio-ctl {up,down,mute}
+
+XF86Tools
+	$TERMINAL -e pms
+

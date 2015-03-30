@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+
+action=$(echo "Lock
+Suspend
+Logout
+Reboot
+Shutdown" | dmenu)
+
+case $action in
+	"Lock" )
+		i3lock-wrapper
+		;;
+
+	"Suspend" )
+		i3lock-wrapper
+		systemctl suspend
+		;;
+
+	"Logout" )
+		i3-msg exit
+		;;
+
+	"Reboot" )
+		systemctl reboot
+		;;
+
+	"Shutdown" )
+		systemctl poweroff
+		;;
+esac
+
