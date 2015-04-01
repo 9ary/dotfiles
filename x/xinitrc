@@ -24,6 +24,7 @@ exec dunst &
 exec sxhkd &
 exec firefox &
 exec qbittorrent &
+exec thunderbird &
 exec $TERMINAL -title "WeeChat" -e weechat &
 exec telegram &
 exec dropbox &
