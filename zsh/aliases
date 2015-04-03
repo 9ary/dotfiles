@@ -8,7 +8,7 @@ alias lsa="ls --color=auto -FAh"
 alias ll="ls --color=auto -Fhl"
 alias lla="ls --color=auto -FAhl"
 alias cp="cp -r"
-alias scp="scp -r"
+alias rsync="rsync -rPh"
 alias c="clear"
 alias e="exit"
 
