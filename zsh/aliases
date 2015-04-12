@@ -12,7 +12,7 @@ alias rsync="rsync -rPh"
 alias c="clear"
 alias e="exit"
 
-alias v="vim"
+alias v=$EDITOR
 alias sv="sudoedit"
 alias git="hub"
 
