@@ -1,7 +1,7 @@
 super r
 	dmenu_run -p '>'
 
-XF86Eject
+XF86Sleep
 	dpower
 
 super {_,shift} Return
