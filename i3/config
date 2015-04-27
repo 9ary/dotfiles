@@ -90,14 +90,10 @@ set $WS2 2:IRC
 workspace $WS2 output DVI-1
 assign [title="WeeChat"] $WS2
 
-set $WS3 3:Telegram
-workspace $WS3 output DVI-1
-assign [title="Telegram"] $WS3
-
 # switch to workspace
 bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
-bindsym $mod+3 workspace $WS3
+bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -111,7 +107,7 @@ bindsym $mod+p workspace prev_on_output
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $WS1
 bindsym $mod+Shift+2 move container to workspace $WS2
-bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
