@@ -73,6 +73,7 @@ set completeopt=menu,menuone,longest,preview
 " Shortcuts
 nnoremap <silent> <F4> :w<CR><C-w>s :terminal make -j run<CR>
 vnoremap <silent> // y/<C-r>"<CR>
+vnoremap <C-y> :y +<CR>
 
 " Cache
 set backupdir=~/.vim/backup
