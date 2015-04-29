@@ -81,7 +81,7 @@ set nowrap
 set shell=zsh
 set scrolloff=5
 set ruler
-set ttyfast
+set backspace=2
 set noesckeys
 map ; :
 
