@@ -9,7 +9,6 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "bling/vim-bufferline"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-sleuth"
-Bundle "troydm/shellasync.vim"
 
 call vundle#end()
 filetype plugin indent on
@@ -59,16 +58,20 @@ set hlsearch
 set pastetoggle=<F2>
 
 " Window switching
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " Completion
 set completeopt=menu,menuone,longest,preview
 
 " Shortcuts
-nnoremap <silent> <F4> :w<CR>:Shell make -j run<CR>
+nnoremap <silent> <F4> :w<CR><C-w>s :terminal make -j run<CR>
 vnoremap <silent> // y/<C-r>"<CR>
 
 " Cache
