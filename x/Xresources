@@ -89,18 +89,19 @@ URxvt*scrollTtyKeypress: true
 ! Font
 URxvt*font: xft:dejavu sans mono for powerline:size=9
 
-! Icon
-URxvt*iconFile: /usr/share/icons/Numix-Circle/48x48/apps/terminal.svg
-
 ! Notifications
 URxvt*urgentOnBell: true
 
 ! Perl extensions
-URxvt*perl-ext-common: default,url-select,clipboard
-URxvt*matcher.button: 1
+URxvt*perl-ext-common: default,url-select2,clipboard
+
+! url-select
+URxvt*url-select.button: 1
 URxvt*keysym.C-i: perl:url-select:select_next
 URxvt*url-select.launcher: /usr/bin/rifle
 URxvt*url-select.underline: true
+
+! Clipboard
 URxvt*iso14755: False
 URxvt*keysym.Shift-Control-C: perl:clipboard:copy
 URxvt*keysym.Shift-Control-V: perl:clipboard:paste
