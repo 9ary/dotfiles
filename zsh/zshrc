@@ -73,11 +73,17 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
+# Environment
+source ~/.envrc
+typeset -U path
+
 # Aliases (duh)
 source ~/dotfiles/zsh/aliases
 
 # Prompt
-source ~/dotfiles/zsh/zsh-git-prompt/zshrc.sh
+setopt PROMPT_SUBST
+function git_super_status() {}
+[[ $GIT_PROMPT != no ]] && source ~/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 GIT_PROMPT_EXECUTABLE="haskell"
 autoload -U colors zsh/terminfo
 colors
@@ -118,8 +124,4 @@ preexec()
 
 # ls colors
 source ~/dotfiles/zsh/dircolors
-
-# Environment
-source ~/.envrc
-typeset -U path
 
