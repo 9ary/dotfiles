@@ -107,13 +107,13 @@ $(git_super_status) $PR_USER_OP '
 
 precmd()
 (
-    echo -ne '\a' # BELL
-    print -Pn '\e]0;%n@%M:%~ - zsh\a' # Window title
+  [[ $TERM != linux && $TERM != fbterm ]] && echo -ne '\a' # BELL
+  [[ $TERM != linux && $TERM != fbterm ]] && print -Pn '\e]0;%n@%M:%~ - zsh\a' # Window title
 )
 
 preexec()
 (
-    print -Pn '\e]0;%n@%M:%~ - $1\a' # Window title
+  [[ $TERM != linux && $TERM != fbterm ]] && print -Pn '\e]0;%n@%M:%~ - $1\a' # Window title
 )
 
 # ls colors
