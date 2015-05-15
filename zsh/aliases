@@ -1,6 +1,7 @@
 # Aliases
 alias sudo="sudo "
 alias s="sudo "
+alias fucking="sudo "
 alias sp="sudo pacman"
 
 alias ls="ls --color=auto -Fh"
