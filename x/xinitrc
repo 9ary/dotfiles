@@ -30,7 +30,7 @@ exec dropbox &
 exec nm-applet &
 exec redshift-gtk &
 
-exec ~/.fehbg
+exec ~/.fehbg &
 exec compton &
 exec i3
 
