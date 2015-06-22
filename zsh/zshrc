@@ -123,5 +123,6 @@ preexec()
 )
 
 # ls colors
-source ~/dotfiles/zsh/dircolors
+eval $(dircolors ~/dotfiles/zsh/dircolors)
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
