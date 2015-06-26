@@ -9,6 +9,7 @@ Bundle "bling/vim-bufferline"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-sleuth"
 Bundle "Streetwalrus/base16-vim"
+Bundle "airblade/vim-gitgutter"
 
 call vundle#end()
 filetype plugin indent on
