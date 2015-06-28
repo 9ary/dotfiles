@@ -138,7 +138,7 @@ superimpose_padlock() {
     height=$(identify -format "($scale * %H + .5)/1\n" "$file2" | bc)
     width=$(identify -format "scale=4; t=%W/%H; scale=0; (t * $height + .5)/1\n" "${lockimage}.pdf" | bc)
     convert -density 600 -background none -resize ${height}x${width} "${lockimage}.pdf" "${lockimage}.png"
-    convert -compose Exclusion -composite -geometry +2075+234 "$file2" "${lockimage}.png" "$file2"
+    convert -compose Exclusion -composite -gravity center "$file2" "${lockimage}.png" "$file2"
     rm "${lockimage}" "${lockimage}.png" "${lockimage}.pdf"
 }
 
@@ -148,7 +148,7 @@ arg_test $@
 file1=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 file2=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 
-/usr/bin/maim "$file1"
+maim "$file1"
 convert "$file1" -blur 0x3 "$file2"
 rm "$file1" # Remove for security
 
