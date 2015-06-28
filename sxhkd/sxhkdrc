@@ -7,8 +7,8 @@ super shift q
 super {_,shift} Return
 	$TERMINAL {_,-e ranger}
 
-{_,shift} Print
-	srht {_,-s}
+{_,shift,alt} Print
+	srht {_,-s,-w}
 
 XF86Audio{Play,Next,Prev}
 	mpc {toggle,next,prev}
