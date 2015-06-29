@@ -18,7 +18,7 @@ filetype plugin indent on
 set laststatus=2
 let g:airline_powerline_fonts=1
 
-" Solarized and syntax coloring
+" Syntax coloring
 syntax enable
 set background=dark
 colorscheme base16-3024
@@ -53,6 +53,8 @@ nnoremap <C-b> :buffer<Space>
 let g:bufferline_echo = 0
 let g:bufferline_rotate = 1
 
+" Vimpager
+let vimpager_disable_ansiesc = 1
 
 " Search tweaks
 set incsearch
