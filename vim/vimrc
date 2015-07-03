@@ -5,7 +5,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Bundle "gmarik/Vundle.vim"
-Bundle "bling/vim-bufferline"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-sleuth"
 Bundle "Streetwalrus/base16-vim"
@@ -50,8 +49,6 @@ nnoremap <silent> <C-n> :call NumberToggle()<CR>
 
 " Buffer switching
 nnoremap <C-b> :buffer<Space>
-let g:bufferline_echo = 0
-let g:bufferline_rotate = 1
 
 " Vimpager
 let vimpager_disable_ansiesc = 1
