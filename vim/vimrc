@@ -9,6 +9,8 @@ Bundle "bling/vim-airline"
 Bundle "tpope/vim-sleuth"
 Bundle "Streetwalrus/base16-vim"
 Bundle "airblade/vim-gitgutter"
+Bundle "Valloric/YouCompleteMe"
+Bundle "majutsushi/tagbar"
 
 call vundle#end()
 filetype plugin indent on
@@ -16,6 +18,9 @@ filetype plugin indent on
 " Airline
 set laststatus=2
 let g:airline_powerline_fonts=1
+
+" Tagbar
+nmap <silent> <F8> :TagbarOpenAutoClose<CR>
 
 " Syntax coloring
 syntax enable
@@ -48,7 +53,7 @@ endfunc
 nnoremap <silent> <C-n> :call NumberToggle()<CR>
 
 " Buffer switching
-nnoremap <C-b> :buffer<Space>
+nnoremap <C-b> :buffers<CR>:buffer<Space>
 
 " Vimpager
 let vimpager_disable_ansiesc = 1
@@ -72,6 +77,7 @@ nnoremap <A-l> <C-w>l
 
 " Completion
 set completeopt=menu,menuone,longest,preview
+let g:ycm_confirm_extra_conf=0
 
 " Shortcuts
 nnoremap <silent> <F4> :w<CR><C-w>s :terminal make run<CR>
