@@ -7,7 +7,7 @@ call vundle#begin()
 Bundle "gmarik/Vundle.vim"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-sleuth"
-Bundle "Streetwalrus/base16-vim"
+Bundle "chriskempson/base16-vim"
 Bundle "airblade/vim-gitgutter"
 Bundle "Valloric/YouCompleteMe"
 Bundle "majutsushi/tagbar"
@@ -26,6 +26,8 @@ nmap <silent> <F8> :TagbarOpenAutoClose<CR>
 syntax enable
 set background=dark
 colorscheme base16-3024
+hi Normal ctermbg=NONE
+hi WarningMsg ctermbg=0
 
 " Formatting
 set encoding=utf-8
