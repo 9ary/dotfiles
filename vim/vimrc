@@ -41,18 +41,20 @@ nmap <C-k> m'ggvG:pyf /usr/share/clang/clang-format.py<cr>''
 imap <C-k> <C-o>:pyf /usr/share/clang/clang-format.py<cr>
 
 " Line numbering
-set number
-set rnu
-autocmd InsertEnter * :set nornu
-autocmd InsertLeave * :set rnu
-function! NumberToggle()
-    if(&rnu == 1)
-        set nornu
-    else
-        set rnu
-    endif
-endfunc
-nnoremap <silent> <C-n> :call NumberToggle()<CR>
+if !exists("vimpager")
+    set number
+    set rnu
+    autocmd InsertEnter * :set nornu
+    autocmd InsertLeave * :set rnu
+    function! NumberToggle()
+        if(&rnu == 1)
+            set nornu
+        else
+            set rnu
+        endif
+    endfunc
+    nnoremap <silent> <C-n> :call NumberToggle()<CR>
+endif
 
 " Buffer switching
 nnoremap <C-b> :buffers<CR>:buffer<Space>
