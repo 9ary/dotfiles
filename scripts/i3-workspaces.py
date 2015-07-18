@@ -69,5 +69,6 @@ if sys.argv[1] == "-r":
     if len(name):
         if not(":" in name):
             name = cur_number + ":" + name
+        name = '"' + name + '"'
         conn.command("rename workspace to" + name)
 
