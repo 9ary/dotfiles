@@ -29,21 +29,45 @@ for ws in wss:
         active_ws = ws.name
 wslist.sort()
 
+# Look for the first free slot
+max_number = 1
+for ws in wslist:
+    if ":" in ws:
+        try:
+            max_number_new = int(ws.split(":")[0])
+            if max_number_new == max_number:
+                max_number += 1
+        except ValueError:
+            pass
+
+
 if sys.argv[1] == "-s":
     name = dmenu("SwitchTo", wslist)
     if len(name):
-        if not(name in wslist):
-            name = str(len(wslist) + 1) + ":" + name
+        if not(":" in name):
+            name = str(max_number) + ":" + name
         conn.command("workspace" + name)
 
 if sys.argv[1] == "-m":
     name = dmenu("MoveTo", wslist)
     if len(name):
+        if not(":" in name):
+            name = str(max_number) + ":" + name
         conn.command("move container to workspace" + name)
 
 if sys.argv[1] == "-r":
-    name = dmenu("Rename", [active_ws.split(":")[1]])
+    cur_number = 0
+    cur_name = ""
+    if ":" in active_ws:
+        active_ws = active_ws.split(":")
+        cur_name = active_ws[1]
+        cur_number = active_ws[0]
+    else:
+        cur_number = active_ws
+
+    name = dmenu("Rename", [cur_name])
     if len(name):
-        name = active_ws.split(":")[0] + ":" + name
+        if not(":" in name):
+            name = cur_number + ":" + name
         conn.command("rename workspace to" + name)
 
