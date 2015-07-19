@@ -105,6 +105,7 @@ bindsym $mod+n workspace next_on_output
 bindsym $mod+p workspace prev_on_output
 bindsym $mod+g exec i3-workspaces.py -s
 bindsym $mod+Ctrl+g exec i3-workspaces.py -r
+bindsym $mod+Escape workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
