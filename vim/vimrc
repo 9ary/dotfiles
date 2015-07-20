@@ -66,6 +66,8 @@ let vimpager_passthrough = 0
 " Search tweaks
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 
 " Paste mode
 set pastetoggle=<F2>
