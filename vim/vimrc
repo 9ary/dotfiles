@@ -61,6 +61,7 @@ nnoremap <C-b> :buffers<CR>:buffer<Space>
 
 " Vimpager
 let vimpager_disable_ansiesc = 1
+let vimpager_passthrough = 0
 
 " Search tweaks
 set incsearch
