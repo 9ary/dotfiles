@@ -82,13 +82,17 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspaces
-set $WS1 1:FX
-workspace $WS1 output HDMI-0
-assign [class="Firefox"] $WS1
+set $firefox 1:fx
+workspace $firefox output HDMI-0
+assign [class="Firefox"] $firefox
 
-set $WS2 2:IRC
-workspace $WS2 output DVI-1
-assign [title="WeeChat"] $WS2
+set $irc 2:irc
+workspace $irc output DVI-1
+assign [title="WeeChat"] $irc
+
+set $telegram 3:tg
+workspace $telegram output DVI-1
+assign [class="Telegram"] $telegram
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
