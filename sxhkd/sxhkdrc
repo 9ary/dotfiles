@@ -17,5 +17,5 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 	pulseaudio-ctl {up,down,mute}
 
 XF86Tools
-	$TERMINAL -e pms
+	$TERMINAL -e ncmpcpp
 
