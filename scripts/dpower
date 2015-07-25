@@ -3,7 +3,6 @@
 action=$(echo "Lock
 Suspend
 Logout
-Kexec
 Reboot
 Shutdown" | dmenu)
 
@@ -19,10 +18,6 @@ case $action in
 
 	"Logout" )
 		i3-msg exit
-		;;
-
-	"Kexec" )
-		sudo systemctl kexec
 		;;
 
 	"Reboot" )
