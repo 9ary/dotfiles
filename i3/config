@@ -193,6 +193,9 @@ client.urgent #DB2D20 #DB2D20 #A5A2A2 #DB2D20
 # nicer borders
 new_window pixel 1
 
+# some window rules
+for_window [class="mupen64plus"] floating enable
+
 # Run some scripts
 exec_always --no-startup-id i3-dunst-autopause.py
 
