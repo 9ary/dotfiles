@@ -32,13 +32,15 @@ wslist.sort()
 # Look for the first free slot
 max_number = 1
 for ws in wslist:
-    if ":" in ws:
-        try:
+    try:
+        if ":" in ws:
             max_number_new = int(ws.split(":")[0])
-            if max_number_new == max_number:
-                max_number += 1
-        except ValueError:
-            pass
+        else:
+            max_number_new = int(ws)
+        if max_number_new == max_number:
+            max_number += 1
+    except ValueError:
+        pass
 
 
 if sys.argv[1] == "-s":
