@@ -70,7 +70,10 @@ if sys.argv[1] == "-r":
     name = dmenu("Rename", [cur_name])
     if len(name):
         if not(":" in name):
-            name = cur_number + ":" + name
+            try:
+                int(name)
+            except ValueError:
+                name = cur_number + ":" + name
         name = '"' + name + '"'
         conn.command("rename workspace to" + name)
 
