@@ -72,6 +72,12 @@ set smartcase
 " Paste mode
 set pastetoggle=<F2>
 
+" Undos
+set undofile
+set undodir=~/.vim/undo
+set undolevels=1000
+set undoreload=10000
+
 " Window switching
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
