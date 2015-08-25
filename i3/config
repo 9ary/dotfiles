@@ -82,11 +82,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspaces
-set $www 1:www
-workspace $www output HDMI-0
-assign [class="Firefox"] $www
-assign [class="Vivaldi-snapshot"] $www
-assign [class="Vivaldi-preview"] $www
+set $firefox 1:fx
+workspace $firefox output HDMI-0
+assign [class="Firefox"] $firefox
 
 set $irc 2:irc
 workspace $irc output DVI-1

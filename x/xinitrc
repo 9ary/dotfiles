@@ -23,7 +23,6 @@ exec unclutter -idle 3 -jitter 2 -root &
 exec dunst &
 exec sxhkd &
 exec firefox &
-exec vivaldi-snapshot &
 exec qbittorrent &
 exec thunderbird &
 exec telegram &
