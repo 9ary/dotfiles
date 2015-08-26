@@ -19,3 +19,6 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 XF86Tools
 	$TERMINAL -e ncmpcpp
 
+button{8,9}
+	razer-profile {+,-}
+
