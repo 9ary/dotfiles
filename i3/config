@@ -95,9 +95,9 @@ workspace $telegram output DVI-1
 assign [class="Telegram"] $telegram
 
 # switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
+bindsym $mod+1 workspace $firefox
+bindsym $mod+2 workspace $irc
+bindsym $mod+3 workspace $telegram
 bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
 bindsym $mod+6 workspace number 6
@@ -112,9 +112,9 @@ bindsym $mod+Ctrl+g exec i3-workspaces.py -r
 bindsym $mod+Escape workspace back_and_forth
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+1 move container to workspace $firefox
+bindsym $mod+Shift+2 move container to workspace $irc
+bindsym $mod+Shift+3 move container to workspace $telegram
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
 bindsym $mod+Shift+6 move container to workspace number 6
