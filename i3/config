@@ -197,6 +197,7 @@ new_window pixel 1
 for_window [class="mupen64plus"] floating enable
 for_window [class="Minecraft"] fullscreen enable
 for_window [class="Minecraft"] move container to output HDMI-0
+for_window [class="WalrusRPG"] floating enable
 
 # Run some scripts
 exec_always --no-startup-id i3-dunst-autopause.py
