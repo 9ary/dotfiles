@@ -1,18 +1,12 @@
 #!/usr/bin/bash
 
-action=$(echo "Lock
-Suspend
+action=$(echo "Suspend
 Logout
 Reboot
 Shutdown" | dmenu)
 
 case $action in
-	"Lock" )
-		i3lock-wrapper
-		;;
-
 	"Suspend" )
-		i3lock-wrapper
 		systemctl suspend
 		;;
 
