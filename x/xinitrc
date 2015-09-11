@@ -18,6 +18,7 @@ source /etc/X11/xinit/xinitrc.d/30-dbus
 pulseaudio --start
 
 exec autocutsel -fork &
+exec clipmenud &
 exec keynav &
 exec unclutter -idle 3 -jitter 2 -root &
 exec dunst &

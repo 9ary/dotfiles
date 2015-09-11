@@ -22,3 +22,6 @@ XF86Tools
 XF86Launch{8,9}
 	razer-profile {+,-}
 
+super c
+	clipmenu
+
