@@ -4,15 +4,8 @@ source ~/.envrc
 
 xrdb -merge -override ~/dotfiles/x/Xresources
 
-# Disable this shitty power saving
-xset s off
-xset -dpms
-
 # Don't ring bells
 xset b off
-
-# Mouse speed
-xset m 7/4 0
 
 source /etc/X11/xinit/xinitrc.d/30-dbus
 pulseaudio --start
