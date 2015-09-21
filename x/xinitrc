@@ -7,9 +7,7 @@ xrdb -merge -override ~/dotfiles/x/Xresources
 # Don't ring bells
 xset b off
 
-source /etc/X11/xinit/xinitrc.d/30-dbus
 pulseaudio --start
-
 exec autocutsel -fork &
 exec clipmenud &
 exec keynav &
