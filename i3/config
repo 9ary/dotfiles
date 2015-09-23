@@ -184,6 +184,25 @@ bar {
 	}
 }
 
+bar {
+	status_command echo "" && xtitle -s
+	tray_output none
+	id title
+	workspace_buttons no
+	binding_mode_indicator no
+	position top
+
+	colors {
+		separator #5C5855
+		background #090300
+		statusline #A5A2A2
+		focused_workspace #A5A2A2 #A5A2A2 #090300
+		active_workspace #5C5855 #5C5855 #090300
+		inactive_workspace #090300 #090300 #A5A2A2
+		urgent_workspace #DB2D20 #DB2D20 #A5A2A2
+	}
+}
+
 # pretty colors
 client.focused #A5A2A2 #A5A2A2 #090300 #A5A2A2
 client.focused_inactive #5C5855 #5C5855 #090300 #5C5855
