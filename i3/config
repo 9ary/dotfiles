@@ -220,3 +220,6 @@ for_window [class="Minecraft"] move container to output HDMI-0
 # Run some scripts
 exec_always --no-startup-id i3-dunst-autopause.py
 
+# i3-gaps
+gaps inner 20
+
