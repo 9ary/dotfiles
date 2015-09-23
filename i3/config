@@ -185,7 +185,7 @@ bar {
 }
 
 bar {
-	status_command echo "" && xtitle -s
+	status_command echo "" && xtitle -s | sed -u "s/&/&amp;/g"
 	tray_output none
 	id title
 	workspace_buttons no
