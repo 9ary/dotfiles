@@ -2,7 +2,7 @@ super r
 	dmenu_run -p '>'
 
 super shift q
-	dpower
+	i3-msg exit
 
 super {_,shift} Return
 	$TERMINAL {_,-e ranger}
