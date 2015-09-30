@@ -7,7 +7,7 @@ if [ $profile -gt 1 -a $1 == "-" ]; then
     razercfg -p $profile
 fi
 
-if [ $profile -lt 4 -a $1 == "+" ]; then
+if [ $profile -lt 5 -a $1 == "+" ]; then
     let profile++
     razercfg -p $profile
 fi
