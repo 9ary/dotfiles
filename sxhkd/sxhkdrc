@@ -4,6 +4,9 @@ super r
 super shift q
 	i3-msg exit
 
+XF86Eject
+	systemctl suspend
+
 super {_,shift} Return
 	$TERMINAL {_,-e ranger}
 
