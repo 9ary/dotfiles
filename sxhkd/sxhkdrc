@@ -19,6 +19,9 @@ XF86Audio{Play,Next,Prev}
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	pulseaudio-ctl {up,down,mute}
 
+shift XF86Audio{RaiseVolume,LowerVolume}
+	socos volume 10.0.0.11 {+,-}5
+
 XF86Tools
 	$TERMINAL -e ncmpcpp
 
