@@ -1,5 +1,4 @@
 " Vundle
-set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -50,27 +49,21 @@ nmap <C-k> m'ggvG:pyf /usr/share/clang/clang-format.py<cr>''
 imap <C-k> <C-o>:pyf /usr/share/clang/clang-format.py<cr>
 
 " Line numbering
-if !exists("vimpager")
-    set number
-    set rnu
-    autocmd InsertEnter * :set nornu
-    autocmd InsertLeave * :set rnu
-    function! NumberToggle()
-        if(&rnu == 1)
-            set nornu
-        else
-            set rnu
-        endif
-    endfunc
-    nnoremap <silent> <C-n> :call NumberToggle()<CR>
-endif
+set number
+set rnu
+autocmd InsertEnter * :set nornu
+autocmd InsertLeave * :set rnu
+function! NumberToggle()
+    if(&rnu == 1)
+        set nornu
+    else
+        set rnu
+    endif
+endfunc
+nnoremap <silent> <C-n> :call NumberToggle()<CR>
 
 " Buffer switching
 nnoremap <C-b> :buffers<CR>:buffer<Space>
-
-" Vimpager
-let vimpager_disable_ansiesc = 1
-let vimpager_passthrough = 0
 
 " Search tweaks
 set incsearch
@@ -124,4 +117,14 @@ set noesckeys
 set cursorline
 set lazyredraw
 map ; :
+
+" Vimpager
+if exists("vimpager")
+    set nonumber
+    set nornu
+    set laststatus=0
+    set nocursorline
+endif
+let vimpager_disable_ansiesc = 1
+let vimpager_passthrough = 1
 
