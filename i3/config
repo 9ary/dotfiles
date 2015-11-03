@@ -222,5 +222,5 @@ for_window [class="hl2_linux"] fullscreen enable
 exec_always --no-startup-id i3-dunst-autopause.py
 
 # i3-gaps
-gaps inner 20
+gaps inner 10
 
