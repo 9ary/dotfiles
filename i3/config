@@ -42,6 +42,7 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 focus_follows_mouse no
+focus_on_window_activation urgent
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -82,9 +83,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspaces
-set $firefox 1:fx
-workspace $firefox output HDMI-0
-assign [class="Firefox"] $firefox
+set $www 1:www
+workspace $www output HDMI-0
+assign [class="chromium"] $www
 
 set $irc 2:irc
 workspace $irc output DVI-1
@@ -95,7 +96,7 @@ workspace $telegram output DVI-1
 assign [class="Telegram"] $telegram
 
 # switch to workspace
-bindsym $mod+1 workspace $firefox
+bindsym $mod+1 workspace $www
 bindsym $mod+2 workspace $irc
 bindsym $mod+3 workspace $telegram
 bindsym $mod+4 workspace number 4
@@ -112,7 +113,7 @@ bindsym $mod+Ctrl+g exec i3-workspaces.py -r
 bindsym $mod+Escape workspace back_and_forth
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $firefox
+bindsym $mod+Shift+1 move container to workspace $www
 bindsym $mod+Shift+2 move container to workspace $irc
 bindsym $mod+Shift+3 move container to workspace $telegram
 bindsym $mod+Shift+4 move container to workspace number 4
