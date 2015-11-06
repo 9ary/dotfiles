@@ -25,9 +25,15 @@ shift XF86Audio{RaiseVolume,LowerVolume}
 XF86Tools
 	$TERMINAL -e ncmpcpp
 
+shift XF86Tools
+	pavucontrol
+
 XF86Launch{8,9}
 	razer-profile {+,-}
 
 super c
 	clipmenu
+
+super ctrl r
+	pkill -SIGUSR1 sxhkd
 
