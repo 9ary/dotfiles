@@ -21,15 +21,6 @@ selection() {
     word=selection
 }
 
-# This function sets $file to an active window scrot
-active() {
-    uploadme="/tmp/scrot.png"
-
-    maim --hidecursor -i $(xdotool getactivewindow) "$uploadme"
-
-    word=active
-}
-
 # This function sets $file to your clipboard contents
 clipboard() {
     uploadme="/tmp/scrot.txt"
@@ -68,6 +59,15 @@ desktop() {
     maim --hidecursor "$uploadme"
 
     word=desktop
+}
+
+# This function compresses the file to jpeg
+jpeg() {
+    jpegd="/tmp/srht.jpg"
+
+    convert "$uploadme" "$jpegd"
+
+    uploadme="$jpegd"
 }
 
 # This function uploads the $file
@@ -109,17 +109,18 @@ if [[ "$#" -ge 1 ]]; then
             echo "usage: srht [options] [file/url]"
             echo "options:"
             echo "  -h,   --help            print help and exit"
-            echo "  -p,   --paste               upload your clipboard as text"
+            echo "  -p,   --paste           upload your clipboard as text"
             echo "  -s,   --selection       upload selection scrot"
-            echo "  -w,   --active          upload active window scrot"
+            echo "  -sj,  --selection-jpeg  upload selection scrot as a jpeg"
             echo "  -v,   --version         print version and exit"
             exit 0
             ;;
         -s|--selection)
             selection
             ;;
-        -w|--active)
-            active
+        -sj|--selection-jpeg)
+            compress=1
+            selection
             ;;
         -v|--version)
             echo "srht 0.9.1"
@@ -144,6 +145,10 @@ fi
 
 if [[ "$#" -eq 0 ]]; then
     desktop
+fi
+
+if [[ "$compress" -eq 1 ]]; then
+    jpeg
 fi
 
 upload

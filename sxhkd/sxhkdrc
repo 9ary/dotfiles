@@ -10,8 +10,8 @@ XF86Eject
 super {_,shift} Return
 	$TERMINAL {_,-e ranger}
 
-{_,shift,alt} Print
-	srht {_,-s,-w}
+{_,shift} Print
+	srht {-sj,-s}
 
 XF86Audio{Play,Next,Prev}
 	mpc {toggle,next,prev}
