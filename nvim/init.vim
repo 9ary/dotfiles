@@ -1,7 +1,7 @@
 " Vundle
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin("~/.nvim/bundle")
 
 Bundle "gmarik/Vundle.vim"
 Bundle "bling/vim-airline"
@@ -104,8 +104,8 @@ vnoremap <silent> // y/<C-r>"<CR>
 vnoremap <C-y> "+y
 
 " Cache
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+set backupdir=~/.nvim/backup
+set directory=~/.nvim/backup
 
 " Misc
 set mouse=a
