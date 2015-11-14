@@ -11,6 +11,8 @@ Bundle "airblade/vim-gitgutter"
 Bundle "Valloric/YouCompleteMe"
 Bundle "majutsushi/tagbar"
 Bundle "mitsuhiko/vim-jinja"
+Bundle "scrooloose/nerdtree"
+Bundle "Xuyuanp/nerdtree-git-plugin"
 
 call vundle#end()
 filetype plugin indent on
@@ -30,6 +32,10 @@ let g:airline_symbols.linenr = '¶'
 " Tagbar
 nmap <silent> <F8> :TagbarOpenAutoClose<CR>
 
+" NERDTree
+nmap <silent> <C-n> :NERDTreeFocus<CR>
+let NERDTreeQuitOnOpen=1
+
 " Syntax coloring
 syntax enable
 set background=dark
@@ -45,23 +51,15 @@ set shiftwidth=4
 set expandtab
 set autoindent
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
-map <C-k> :pyf /usr/share/clang/clang-format.py<cr>
-nmap <C-k> m'ggvG:pyf /usr/share/clang/clang-format.py<cr>''
-imap <C-k> <C-o>:pyf /usr/share/clang/clang-format.py<cr>
+map <C-f> :pyf /usr/share/clang/clang-format.py<cr>
+nmap <C-f> m'ggvG:pyf /usr/share/clang/clang-format.py<cr>''
+imap <C-f> <C-o>:pyf /usr/share/clang/clang-format.py<cr>
 
 " Line numbering
 set number
 set rnu
 autocmd InsertEnter * :set nornu
 autocmd InsertLeave * :set rnu
-function! NumberToggle()
-    if(&rnu == 1)
-        set nornu
-    else
-        set rnu
-    endif
-endfunc
-nnoremap <silent> <C-n> :call NumberToggle()<CR>
 
 " Buffer switching
 nnoremap <C-b> :buffers<CR>:buffer<Space>
@@ -117,6 +115,7 @@ set backspace=2
 set noesckeys
 set cursorline
 set lazyredraw
+set hidden
 map ; :
 
 " Vimpager
