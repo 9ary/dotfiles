@@ -7,6 +7,9 @@ xrdb -merge -override ~/dotfiles/x/Xresources
 # Don't ring bells
 xset b off
 
+# Mouse settings
+razer-profile
+
 pulseaudio --start
 exec autocutsel -fork &
 exec clipmenud &

@@ -1,14 +1,18 @@
 #!/bin/bash
 
-profile=$(razercfg -P | grep -o "[0-9]\\+")
+dpi=(1200 800 600 300)
+ndpi=3
 
-if [ $profile -gt 1 -a $1 == "-" ]; then
+profile=$(cat ~/.razer-profile)
+
+if [ $profile -gt 0 -a $1 == "-" ]; then
     let profile--
-    razercfg -p $profile
 fi
 
-if [ $profile -lt 5 -a $1 == "+" ]; then
+if [ $profile -lt $ndpi -a $1 == "+" ]; then
     let profile++
-    razercfg -p $profile
 fi
 
+echo $profile > ~/.razer-profile
+
+da2013ctl -w off -l off -f 1000 -r ${dpi[$profile]}
