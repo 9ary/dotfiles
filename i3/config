@@ -180,26 +180,7 @@ bar {
 		statusline #A5A2A2
 		focused_workspace #A5A2A2 #A5A2A2 #090300
 		active_workspace #5C5855 #5C5855 #090300
-		inactive_workspace #090300 #090300 #A5A2A2
-		urgent_workspace #DB2D20 #DB2D20 #A5A2A2
-	}
-}
-
-bar {
-	status_command echo "" && xtitle -s | sed -u "s/&/&amp;/g"
-	tray_output none
-	id title
-	workspace_buttons no
-	binding_mode_indicator no
-	position top
-
-	colors {
-		separator #5C5855
-		background #090300
-		statusline #A5A2A2
-		focused_workspace #A5A2A2 #A5A2A2 #090300
-		active_workspace #5C5855 #5C5855 #090300
-		inactive_workspace #090300 #090300 #A5A2A2
+		inactive_workspace #3A3432 #3A3432 #A5A2A2
 		urgent_workspace #DB2D20 #DB2D20 #A5A2A2
 	}
 }
@@ -207,21 +188,22 @@ bar {
 # pretty colors
 client.focused #A5A2A2 #A5A2A2 #090300 #A5A2A2
 client.focused_inactive #5C5855 #5C5855 #090300 #5C5855
-client.unfocused #090300 #090300 #A5A2A2 #090300
+client.unfocused #3A3432 #3A3432 #A5A2A2 #3A3432
 client.urgent #DB2D20 #DB2D20 #A5A2A2 #DB2D20
 
 # nicer borders
-new_window pixel 1
+new_window normal 1
 
 # some window rules
 for_window [class="mupen64plus"] floating enable
 for_window [class="Minecraft"] fullscreen enable
 for_window [class="Minecraft"] move container to output HDMI-0
 for_window [class="hl2_linux"] fullscreen enable
+for_window [class="Eom"] fullscreen enable
 
 # Run some scripts
 exec_always --no-startup-id i3-dunst-autopause.py
 
 # i3-gaps
-gaps inner 10
+smart_borders on
 
