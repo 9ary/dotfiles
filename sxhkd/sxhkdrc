@@ -4,7 +4,7 @@ super r
 super shift q
 	i3-msg exit
 
-XF86Eject
+XF86Sleep
 	systemctl suspend
 
 super {_,shift} Return
