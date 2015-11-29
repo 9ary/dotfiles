@@ -21,7 +21,7 @@ relpath()
 {
     python3 << EOF
 import os.path
-print(os.path.relpath('$1', '${2:-$PWD}'))
+print(os.path.relpath('''$1''', '''${2:-$PWD}'''))
 EOF
 }
 export -f relpath
@@ -35,4 +35,4 @@ do
 done
 
 find "$music/$1" \( -name "*.flac" -or -name "*.ogg" \) ! -iname "*instr*" -print0 \
-    | xargs -0 -P $threads -L1 -ifile bash -c "to_vorbis 'file'"
+    | xargs -0 -P $threads -L1 -ifile bash -c 'to_vorbis "file"'
