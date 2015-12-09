@@ -23,7 +23,7 @@ shift XF86Audio{RaiseVolume,LowerVolume}
 	socos volume 10.0.0.11 {+,-}5
 
 XF86Tools
-	$TERMINAL -e ncmpcpp
+	$TERMINAL -e pms
 
 shift XF86Tools
 	pavucontrol
@@ -32,7 +32,7 @@ XF86Launch{8,9}
 	razer-profile {+,-}
 
 super c
-	clipmenu
+	passmenu --type
 
 super ctrl r
 	pkill -SIGUSR1 sxhkd
