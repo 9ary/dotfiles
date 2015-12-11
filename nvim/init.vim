@@ -1,21 +1,16 @@
-" Vundle
-filetype off
-set rtp+=~/.nvim/bundle/Vundle.vim
-call vundle#begin("~/.nvim/bundle")
+call plug#begin("~/.nvim/bundle")
 
-Bundle "gmarik/Vundle.vim"
-Bundle "bling/vim-airline"
-Bundle "tpope/vim-sleuth"
-Bundle "chriskempson/base16-vim"
-Bundle "airblade/vim-gitgutter"
-Bundle "Valloric/YouCompleteMe"
-Bundle "majutsushi/tagbar"
-Bundle "mitsuhiko/vim-jinja"
-Bundle "scrooloose/nerdtree"
-Bundle "Xuyuanp/nerdtree-git-plugin"
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-sleuth'
+Plug 'chriskempson/base16-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'Valloric/YouCompleteMe'
+Plug 'majutsushi/tagbar'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 " Airline
 set laststatus=2
