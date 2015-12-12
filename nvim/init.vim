@@ -67,6 +67,7 @@ set smartcase
 
 " Paste mode
 set pastetoggle=<F2>
+map <silent> <F2> :set invpaste<CR>
 
 " Undos
 set undofile
@@ -75,10 +76,12 @@ set undolevels=1000
 set undoreload=10000
 
 " Window switching
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
+if has("nvim")
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+endif
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
