@@ -115,6 +115,8 @@ set cursorline
 set lazyredraw
 set hidden
 map ; :
+set wildmenu
+set wildmode=longest:full
 
 " Vimpager
 if exists("vimpager")
