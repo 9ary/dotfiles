@@ -66,7 +66,7 @@ URxvt*perl-ext-common: default,url-select2,clipboard
 ! url-select
 URxvt*url-select.button: 1
 URxvt*keysym.C-i: perl:url-select:select_next
-URxvt*url-select.launcher: chromium
+URxvt*url-select.launcher: chromium-su
 URxvt*url-select.underline: true
 
 ! Clipboard
