@@ -1,4 +1,3 @@
-# Aliases
 alias sudo="sudo "
 alias s="sudo "
 alias fucking="sudo "
@@ -19,7 +18,4 @@ alias git="hub"
 
 alias verynice="ionice -c3 nice -n 15 "
 alias schedbatch="schedtool -B -e "
-
-alias mtpmount="jmtpfs ~/mtp"
-alias mtpumount="fusermount -u ~/mtp"
 
