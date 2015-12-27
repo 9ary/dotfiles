@@ -46,9 +46,6 @@ set shiftwidth=4
 set expandtab
 set autoindent
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
-map <C-f> :pyf /usr/share/clang/clang-format.py<cr>
-nmap <C-f> m'ggvG:pyf /usr/share/clang/clang-format.py<cr>''
-imap <C-f> <C-o>:pyf /usr/share/clang/clang-format.py<cr>
 
 " Line numbering
 set number
