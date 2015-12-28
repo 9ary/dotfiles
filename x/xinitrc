@@ -2,8 +2,6 @@
 
 source ~/.envrc
 
-xrdb -merge -override ~/dotfiles/x/Xresources
-
 # Don't ring bells
 xset b off
 
@@ -21,7 +19,7 @@ exec chromium &
 exec qbittorrent &
 exec thunderbird &
 exec telegram &
-exec $TERMINAL -title "WeeChat" -e weechat &
+exec $TERMINAL -t "WeeChat" -e weechat &
 exec dropbox &
 exec nm-applet &
 exec redshift-gtk &

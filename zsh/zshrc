@@ -128,6 +128,9 @@ preexec()
 eval $(dircolors ~/dotfiles/zsh/dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+# VTE extensions
+[[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
+
 source ~/dotfiles/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=white,bold'
 
