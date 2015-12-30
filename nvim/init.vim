@@ -78,11 +78,19 @@ if has("nvim")
     tnoremap <A-j> <C-\><C-n><C-w>j
     tnoremap <A-k> <C-\><C-n><C-w>k
     tnoremap <A-l> <C-\><C-n><C-w>l
+    tnoremap h <C-\><C-n><C-w>h
+    tnoremap j <C-\><C-n><C-w>j
+    tnoremap k <C-\><C-n><C-w>k
+    tnoremap l <C-\><C-n><C-w>l
 endif
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+nnoremap h <C-w>h
+nnoremap j <C-w>j
+nnoremap k <C-w>k
+nnoremap l <C-w>l
 
 " Completion
 set completeopt=menu,menuone,longest,preview
