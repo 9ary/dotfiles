@@ -30,7 +30,7 @@ cursor_shape = block
 #modify_other_keys = false
 
 [colors]
-cursor = #a5a2a2
+#cursor = #a5a2a2
 foreground = #a5a2a2
 foreground_bold = #a5a2a2
 background = #090300
