@@ -107,8 +107,8 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-bindsym $mod+n workspace next_on_output
-bindsym $mod+p workspace prev_on_output
+bindsym $mod+n exec i3-ws.py next
+bindsym $mod+p exec i3-ws.py prev
 bindsym $mod+g exec i3-workspaces.py -s
 bindsym $mod+Ctrl+g exec i3-workspaces.py -r
 bindsym $mod+Escape workspace back_and_forth
