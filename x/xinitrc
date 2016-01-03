@@ -15,7 +15,7 @@ exec keynav &
 exec unclutter -idle 3 -jitter 2 -root &
 exec dunst &
 exec sxhkd &
-exec chromium &
+exec firefox &
 exec qbittorrent &
 exec thunderbird &
 exec telegram &

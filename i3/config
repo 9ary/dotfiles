@@ -86,6 +86,7 @@ bindsym $mod+a focus parent
 set $www 1:www
 workspace $www output HDMI-0
 assign [class="chromium"] $www
+assign [class="Firefox"] $www
 
 set $irc 2:irc
 workspace $irc output DVI-1
