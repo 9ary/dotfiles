@@ -35,3 +35,16 @@ if sys.argv[1] == "prev":
         conn.command("workspace" + str(ws_max + 1))
     else:
         conn.command("workspace" + out_cur[ws_cur_index - 1].name)
+
+if sys.argv[1] == "move":
+    if sys.argv[2] == "next":
+        if not(ws_cur_index == (len(out_cur) - 1)):
+            conn.command("move container to workspace" + out_cur[ws_cur_index + 1].name)
+        else:
+            conn.command("move container to workspace" + str(ws_max + 1))
+
+    if sys.argv[2] == "prev":
+        if ws_cur_index == 0:
+            conn.command("move container to workspace" + str(ws_max + 1))
+        else:
+            conn.command("move container to workspace" + out_cur[ws_cur_index - 1].name)
