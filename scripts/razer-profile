@@ -1,6 +1,7 @@
 #!/bin/bash
 
-dpi=(1200 800 600 300)
+dpi=(2100 1400 1000 500)
+# Yes, I know it's the actual number minus one, don't question sloppy programming
 ndpi=3
 
 profile=$(cat ~/.razer-profile)
