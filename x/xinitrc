@@ -2,6 +2,8 @@
 
 source ~/.envrc
 
+xrdb -merge -override ~/dotfiles/x/Xresources
+
 # Don't ring bells
 xset b off
 
@@ -16,7 +18,7 @@ firefox &
 qbittorrent &
 thunderbird &
 telegram &
-$TERMINAL -t "WeeChat" -e weechat &
+$TERMINAL -title "WeeChat" -e weechat &
 dropbox &
 nm-applet &
 redshift-gtk &
