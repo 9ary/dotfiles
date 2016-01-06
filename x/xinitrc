@@ -9,20 +9,20 @@ xset b off
 razer-profile
 
 pulseaudio --start
-exec autocutsel -fork &
-exec clipmenud &
-exec dunst &
-exec sxhkd &
-exec firefox &
-exec qbittorrent &
-exec thunderbird &
-exec telegram &
-exec $TERMINAL -t "WeeChat" -e weechat &
-exec dropbox &
-exec nm-applet &
-exec redshift-gtk &
+autocutsel -fork &
+clipmenud &
+dunst &
+sxhkd &
+firefox &
+qbittorrent &
+thunderbird &
+telegram &
+$TERMINAL -t "WeeChat" -e weechat &
+dropbox &
+nm-applet &
+redshift-gtk &
 
-exec ~/.fehbg &
-exec compton &
+~/.fehbg &
+compton &
 exec i3
 
