@@ -12,7 +12,6 @@ pulseaudio --start
 autocutsel -fork &
 clipmenud &
 dunst &
-sxhkd &
 firefox &
 qbittorrent &
 thunderbird &

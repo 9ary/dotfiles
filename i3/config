@@ -171,6 +171,32 @@ bindsym $mod+Shift+r restart
 #
 #bindsym $mod+r mode "resize"
 
+# misc bindings
+bindsym $mod+shift+q exit
+bindsym XF86Sleep exec --no-startup-id systemctl suspend
+
+bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
+bindsym $mod+Return exec $TERMINAL
+bindsym $mod+shift+Return exec $TERMINAL -e ranger
+bindsym $mod+c exec --no-startup-id passmenu --type
+
+bindsym Print exec --no-startup-id srht -sj
+bindsym shift+Print --no-startup-id exec srht -s
+
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up
+bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
+bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute
+bindsym shift+XF86AudioRaiseVolume exec --no-startup-id socos volume 10.0.0.11 +5
+bindsym shift+XF86AudioLowerVolume exec --no-startup-id socos volume 10.0.0.11 -5
+bindsym XF86Tools exec $TERMINAL -e pms
+bindsym shift+XF86Tools exec pavucontrol
+
+bindsym XF86Launch8 exec --no-startup-id exec razer-profile +
+bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
