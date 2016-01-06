@@ -107,10 +107,10 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-bindsym $mod+n exec i3-ws.py next
-bindsym $mod+p exec i3-ws.py prev
-bindsym $mod+g exec i3-workspaces.py -s
-bindsym $mod+Ctrl+g exec i3-workspaces.py -r
+bindsym $mod+n exec --no-startup-id i3-ws.py next
+bindsym $mod+p exec --no-startup-id i3-ws.py prev
+bindsym $mod+g exec --no-startup-id i3-workspaces.py -s
+bindsym $mod+Ctrl+g exec --no-startup-id i3-workspaces.py -r
 bindsym $mod+Escape workspace back_and_forth
 
 # move focused container to workspace
@@ -124,9 +124,9 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
-bindsym $mod+Shift+n exec i3-ws.py move next
-bindsym $mod+Shift+p exec i3-ws.py move prev
-bindsym $mod+Shift+g exec i3-workspaces.py -m
+bindsym $mod+Shift+n exec --no-startup-id i3-ws.py move next
+bindsym $mod+Shift+p exec --no-startup-id i3-ws.py move prev
+bindsym $mod+Shift+g exec --no-startup-id i3-workspaces.py -m
 
 # move workspace to screen
 bindsym $mod+Ctrl+h move workspace to output left
