@@ -53,6 +53,7 @@ URxvt*scrollBar: false
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
+URxvt*saveLines: 10000
 
 ! Font
 URxvt*font: xft:dejavu sans mono:size=9
