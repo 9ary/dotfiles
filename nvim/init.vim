@@ -9,6 +9,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tikhomirov/vim-glsl'
 
 call plug#end()
 
