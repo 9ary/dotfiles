@@ -14,7 +14,7 @@ pulseaudio --start
 autocutsel -fork &
 dunst &
 firefox &
-qbittorrent &
+[[ -z $(pgrep transmission-da) ]] && transmission-daemon
 thunderbird &
 telegram &
 $TERMINAL -title "WeeChat" -e weechat &
