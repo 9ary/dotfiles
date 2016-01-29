@@ -57,7 +57,6 @@ URxvt*saveLines: 10000
 
 ! Font
 URxvt*font: xft:dejavu sans mono:size=9
-URxvt*letterSpace: -1
 
 ! Notifications
 URxvt*urgentOnBell: true
