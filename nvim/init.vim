@@ -54,44 +54,17 @@ set rnu
 autocmd InsertEnter * :set nornu
 autocmd InsertLeave * :set rnu
 
-" Buffer switching
-nnoremap <C-b> :buffers<CR>:buffer<Space>
-
-" Search tweaks
+" Search
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-
-" Paste mode
-set pastetoggle=<F2>
-map <silent> <F2> :set invpaste<CR>
 
 " Undos
 set undofile
 set undodir=~/.nvim/undo
 set undolevels=1000
 set undoreload=10000
-
-" Window switching
-if has("nvim")
-    tnoremap <A-h> <C-\><C-n><C-w>h
-    tnoremap <A-j> <C-\><C-n><C-w>j
-    tnoremap <A-k> <C-\><C-n><C-w>k
-    tnoremap <A-l> <C-\><C-n><C-w>l
-    tnoremap h <C-\><C-n><C-w>h
-    tnoremap j <C-\><C-n><C-w>j
-    tnoremap k <C-\><C-n><C-w>k
-    tnoremap l <C-\><C-n><C-w>l
-endif
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-nnoremap h <C-w>h
-nnoremap j <C-w>j
-nnoremap k <C-w>k
-nnoremap l <C-w>l
 
 " Completion
 set completeopt=menu,menuone,longest,preview
@@ -104,6 +77,19 @@ let g:ycm_seed_identifiers_with_syntax = 1
 nnoremap <silent> <F4> :w<CR><C-w>s :terminal make run<CR>
 vnoremap <silent> // y/<C-r>"<CR>
 vnoremap <C-y> "+y
+nnoremap <C-b> :buffers<CR>:buffer<Space>
+map <silent> <F2> :set invpaste<CR>
+if has("nvim")
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+endif
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+map ; :
 
 " Cache
 set backupdir=~/.nvim/backup
@@ -120,7 +106,6 @@ set noesckeys
 set cursorline
 set lazyredraw
 set hidden
-map ; :
 set wildmenu
 set wildmode=longest:full
 
