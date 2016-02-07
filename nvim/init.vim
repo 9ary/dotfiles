@@ -1,6 +1,7 @@
 call plug#begin("~/.nvim/bundle")
 
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-sleuth'
 Plug 'chriskempson/base16-vim'
 Plug 'airblade/vim-gitgutter'
@@ -24,12 +25,17 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = '|'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.linenr = '¶'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_tab_type = 0
 
 " Tagbar
 nmap <silent> <F8> :TagbarOpenAutoClose<CR>
 
 " NERDTree
-nmap <silent> <C-n> :NERDTreeFocus<CR>
+nmap <silent> <C-b> :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=1
 
 " Syntax coloring
@@ -77,7 +83,6 @@ let g:ycm_seed_identifiers_with_syntax = 1
 nnoremap <silent> <F4> :w<CR><C-w>s :terminal make run<CR>
 vnoremap <silent> // y/<C-r>"<CR>
 vnoremap <C-y> "+y
-nnoremap <C-b> :buffers<CR>:buffer<Space>
 map <silent> <F2> :set invpaste<CR>
 if has("nvim")
     tnoremap <A-h> <C-\><C-n><C-w>h
@@ -89,6 +94,9 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+nnoremap <silent> <C-t> :tabnew<CR>
+nnoremap <silent> <C-n> :tabnext<CR>
+nnoremap <silent> <C-p> :tabprevious<CR>
 map ; :
 
 " Cache
