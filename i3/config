@@ -224,7 +224,7 @@ client.unfocused #3A3432 #3A3432 #A5A2A2 #3A3432
 client.urgent #DB2D20 #DB2D20 #A5A2A2 #DB2D20
 
 # nicer borders
-new_window normal 1
+new_window pixel 1
 
 # some window rules
 for_window [class="mupen64plus"] floating enable
