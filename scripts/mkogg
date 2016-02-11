@@ -2,7 +2,7 @@
 
 export music="$HOME/music"
 export ogg="$HOME/ogg"
-threads=$(cat /proc/cpuinfo | grep "^processor" | wc -l)
+threads=$(nproc)
 
 to_vorbis()
 {
