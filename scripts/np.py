@@ -46,7 +46,7 @@ def mpd():
             title = "Null"
 
         try:
-            artist = song["ArtistSort"]
+            artist = song["Artist"]
         except:
             artist = "Null"
 
