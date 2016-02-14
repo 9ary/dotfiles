@@ -196,6 +196,7 @@ bindsym shift+XF86AudioMute exec --no-startup-id sonos.py mute
 bindsym shift+XF86AudioPlay exec --no-startup-id sonos.py line_in
 bindsym XF86Tools exec $TERMINAL -e ncmpcpp
 bindsym shift+XF86Tools exec pavucontrol
+bindsym --release XF86Calculator exec --no-startup-id np.py
 
 bindsym XF86Launch8 exec --no-startup-id exec razer-profile +
 bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
