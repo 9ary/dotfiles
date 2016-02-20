@@ -52,6 +52,7 @@ set tabstop=8
 set shiftwidth=4
 set expandtab
 set autoindent
+au BufRead,BufNewFile *.md setlocal textwidth=80
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
 
 " Line numbering
@@ -123,6 +124,7 @@ if exists("vimpager")
     set nornu
     set laststatus=0
     set nocursorline
+    let g:airline#extensions#tabline#enabled = 0
 endif
 let vimpager_disable_ansiesc = 1
 let vimpager_passthrough = 0
