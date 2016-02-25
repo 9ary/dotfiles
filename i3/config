@@ -232,6 +232,7 @@ for_window [class="mupen64plus"] floating enable
 for_window [class="Minecraft"] fullscreen enable
 for_window [class="Minecraft"] move container to output HDMI-0
 for_window [class="hl2_linux"] fullscreen enable
+for_window [class="portal2_linux"] fullscreen enable
 for_window [class="Eom"] fullscreen enable
 
 # Run some scripts
