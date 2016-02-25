@@ -13,7 +13,8 @@ razer-profile
 pulseaudio --start
 autocutsel -fork &
 dunst &
-firefox &
+chromium &
+ytdl_chromium.py &
 [[ -z $(pgrep transmission-da) ]] && transmission-daemon
 thunderbird &
 telegram &
