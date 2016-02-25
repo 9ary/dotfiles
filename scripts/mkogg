@@ -13,7 +13,7 @@ to_vorbis()
     [[ -f "$out" ]] && exit
 
     echo $out
-    ffmpeg -i "$1" -c:a libvorbis -q 6 "$out" &> /dev/null
+    ffmpeg -i "$1" -c:a libvorbis -q 8 "$out" &> /dev/null
 }
 export -f to_vorbis
 
