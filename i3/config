@@ -234,6 +234,8 @@ for_window [class="Minecraft"] move container to output HDMI-0
 for_window [class="hl2_linux"] fullscreen enable
 for_window [class="portal2_linux"] fullscreen enable
 for_window [class="Eom"] fullscreen enable
+for_window [class="mpv"] move container to output HDMI-0
+for_window [title="^Android Studio$"] floating disable
 
 # Run some scripts
 exec_always --no-startup-id i3-dunst-autopause.py
