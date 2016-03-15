@@ -14,7 +14,7 @@ pulseaudio --start
 autocutsel -fork &
 dunst &
 chromium &
-ytdl_chromium.py &
+ytdl_server.py &
 [[ -z $(pgrep transmission-da) ]] && transmission-daemon
 thunderbird &
 telegram &
