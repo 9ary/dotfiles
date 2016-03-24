@@ -12,13 +12,22 @@ source ~/.config/srht
 selection() {
     uploadme="/tmp/scrot.png"
 
-    maim --hidecursor -s --nokeyboard "$uploadme" 2> "/dev/null"
+    maim --hidecursor -s -l -c 0.5,0.5,0.5,0.8 --nokeyboard "$uploadme" 2> "/dev/null"
     if [[ "$?" -ge 1 ]]; then
         echo "Selection cancelled."
         exit 1
     fi
 
     word=selection
+}
+
+# This function sets $file to an active window scrot
+active() {
+    uploadme="/tmp/scrot.png"
+
+    maim --hidecursor -i $(xdotool getactivewindow) "$uploadme"
+
+    word=active
 }
 
 # This function sets $file to your clipboard contents
@@ -61,15 +70,6 @@ desktop() {
     word=desktop
 }
 
-# This function compresses the file to jpeg
-jpeg() {
-    jpegd="/tmp/srht.jpg"
-
-    convert "$uploadme" "$jpegd"
-
-    uploadme="$jpegd"
-}
-
 # This function uploads the $file
 upload() {
     url="$(curl -F key="$key" -F file="@$uploadme" "https://sr.ht/api/upload" | grep -o -i "https://sr.ht/*.[a-z0-9._-]*")"
@@ -109,18 +109,17 @@ if [[ "$#" -ge 1 ]]; then
             echo "usage: srht [options] [file/url]"
             echo "options:"
             echo "  -h,   --help            print help and exit"
-            echo "  -p,   --paste           upload your clipboard as text"
+            echo "  -p,   --paste               upload your clipboard as text"
             echo "  -s,   --selection       upload selection scrot"
-            echo "  -sj,  --selection-jpeg  upload selection scrot as a jpeg"
+            echo "  -w,   --active          upload active window scrot"
             echo "  -v,   --version         print version and exit"
             exit 0
             ;;
         -s|--selection)
             selection
             ;;
-        -sj|--selection-jpeg)
-            compress=1
-            selection
+        -w|--active)
+            active
             ;;
         -v|--version)
             echo "srht 0.9.1"
@@ -145,10 +144,6 @@ fi
 
 if [[ "$#" -eq 0 ]]; then
     desktop
-fi
-
-if [[ "$compress" -eq 1 ]]; then
-    jpeg
 fi
 
 upload
