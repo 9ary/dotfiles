@@ -11,6 +11,7 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tikhomirov/vim-glsl'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -19,6 +20,7 @@ set laststatus=2
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+let g:airline_theme = 'base16'
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ''
@@ -45,6 +47,9 @@ colorscheme base16-3024
 hi Normal ctermbg=NONE
 hi WarningMsg ctermbg=0
 hi YcmErrorSign ctermbg=10 ctermfg=1
+
+" indentLine
+let g:indentLine_char = '│'
 
 " Formatting
 set encoding=utf-8
