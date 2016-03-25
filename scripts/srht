@@ -72,6 +72,11 @@ desktop() {
 
 # This function uploads the $file
 upload() {
+    # Send notification
+    if [[ "$notify" == true ]]; then
+        notify-send "Uploading" "$uploadme"
+    fi
+
     url="$(curl -F key="$key" -F file="@$uploadme" "https://sr.ht/api/upload" | grep -o -i "https://sr.ht/*.[a-z0-9._-]*")"
 }
 
@@ -95,7 +100,7 @@ feedback() {
 
     # Send notification
     if [[ "$notify" == true ]]; then
-        notify-send "Upload complete: $url"
+        notify-send "Upload complete" "$url"
     fi
 
     echo "$url"
