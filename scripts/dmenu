@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-/usr/bin/dmenu -fn 'dejavu sans mono -9' -h 22 -b -f -i -nb '#090300' -nf '#a5a2a2' -sb '#a5a2a2' -sf '#090300' $@
+/usr/bin/dmenu -fn 'dejavu sans mono -9' -h 20 -b -i -nb '#090300' -nf '#a5a2a2' -sb '#a5a2a2' -sf '#090300' $@
 
