@@ -3,10 +3,11 @@
 import json
 import socket
 import subprocess
+import os
 
 def mpv():
     with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
-        client.connect("/tmp/mpvsocket")
+        client.connect(os.path.join(os.getenv("HOME"), ".mpv/socket"))
 
         res = {}
         for i in ['filename', 'media-title', 'playback-time', 'length']:
@@ -29,7 +30,7 @@ def mpd_command(client, cmd):
 
 def mpd():
     with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
-        client.connect("/home/streetwalrus/.mpd/socket")
+        client.connect(os.path.join(os.getenv("HOME"), ".mpd/socket"))
 
         # Discard the initial message
         client.recv(1024)
