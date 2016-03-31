@@ -15,7 +15,7 @@ autocutsel -fork &
 dunst &
 chromium &
 ytdl_server.py &
-[[ -z $(pgrep transmission-da) ]] && transmission-daemon
+qbittorrent &
 thunderbird &
 telegram &
 $TERMINAL -title "WeeChat" -e weechat &

@@ -179,7 +179,6 @@ bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec xterm -e ranger
 bindsym $mod+c exec --no-startup-id passmenu --type
-bindsym $mod+t exec $TERMINAL -e transmission-remote-cli
 
 bindsym Print exec --no-startup-id srht -w
 bindsym shift+Print exec --no-startup-id srht -s
