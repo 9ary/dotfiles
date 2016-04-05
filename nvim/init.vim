@@ -12,6 +12,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tikhomirov/vim-glsl'
 Plug 'Yggdroot/indentLine'
+Plug 'chrisbra/SudoEdit.vim'
 
 call plug#end()
 

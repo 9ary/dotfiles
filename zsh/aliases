@@ -13,7 +13,6 @@ alias c="clear"
 alias e="exit"
 
 alias v="vim"
-alias sv="sudoedit"
 alias git="hub"
 
 alias verynice="ionice -c3 nice -n 15 "
