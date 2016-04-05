@@ -1,6 +1,5 @@
 alias sudo="sudo "
 alias s="sudo "
-alias fucking="sudo "
 alias sp="sudo pacman"
 
 alias ls="ls --color=auto -Fh"
@@ -12,7 +11,7 @@ alias rsync="rsync -rPh"
 alias c="clear"
 alias e="exit"
 
-alias v="vim"
+alias v="nvim"
 alias git="hub"
 
 alias verynice="ionice -c3 nice -n 15 "
