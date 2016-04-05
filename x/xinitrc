@@ -21,6 +21,7 @@ telegram &
 $TERMINAL -title "WeeChat" -e weechat &
 dropbox &
 nm-applet &
+udiskie &
 redshift-gtk &
 
 ~/.fehbg &
