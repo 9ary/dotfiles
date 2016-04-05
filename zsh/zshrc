@@ -76,10 +76,6 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
-# Environment
-source ~/.envrc
-typeset -U path
-
 # Aliases (duh)
 source ~/dotfiles/zsh/aliases
 

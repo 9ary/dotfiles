@@ -1,6 +1,4 @@
-#!/usr/bin/bash
-
-source ~/.envrc
+#!/usr/bin/zsh
 
 xrdb -merge -override ~/dotfiles/x/Xresources
 
