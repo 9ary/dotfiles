@@ -81,9 +81,6 @@ source ~/dotfiles/zsh/aliases
 
 # Prompt
 setopt PROMPT_SUBST
-function git_super_status() {}
-[[ $GIT_PROMPT != no ]] && source ~/dotfiles/zsh/zsh-git-prompt/zshrc.sh
-GIT_PROMPT_EXECUTABLE="haskell"
 autoload -U colors zsh/terminfo
 colors
 # make some aliases for the colours: (coud use normal escap.seq's too)
@@ -108,7 +105,7 @@ fi
 eval PR_DIR=':%~${PR_NO_COLOR}'
 PROMPT='
 $PR_USER$PR_HOST$PR_DIR
-$(git_super_status) $PR_USER_OP '
+$(gitstatus.py) $PR_USER_OP '
 
 precmd()
 (
