@@ -13,7 +13,7 @@ autocutsel -fork &
 dunst &
 chromium &
 ytdl_server.py &
-qbittorrent &
+killall -9 qbittorrent; qbittorrent &
 thunderbird &
 telegram &
 $TERMINAL -title "WeeChat" -e weechat &
