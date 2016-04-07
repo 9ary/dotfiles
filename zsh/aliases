@@ -1,6 +1,5 @@
 alias sudo="sudo "
 alias s="sudo "
-alias sp="sudo pacman"
 
 alias ls="ls --color=auto -Fh"
 alias lsa="ls --color=auto -FAh"
