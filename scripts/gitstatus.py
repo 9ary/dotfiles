@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 
 import locale
-import os
 import re
 import shlex
 import subprocess as sp
 import sys
-
-if os.getenv("GIT_PROMPT") == "no":
-    sys.exit()
 
 cmd_git_status = "git status --porcelain --branch"
 cmd_git_commit = "git rev-parse --short HEAD"

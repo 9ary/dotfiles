@@ -103,9 +103,13 @@ else
   eval PR_HOST='${PR_BLUE}@%M' # no SSH
 fi
 eval PR_DIR=':%~${PR_NO_COLOR}'
+gitstatus()
+{
+  [[ -n $NO_GIT_PROMPT ]] || gitstatus.py
+}
 PROMPT='
 $PR_USER$PR_HOST$PR_DIR
-$(gitstatus.py) $PR_USER_OP '
+$(gitstatus) $PR_USER_OP '
 
 precmd()
 (
