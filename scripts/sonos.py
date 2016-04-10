@@ -16,6 +16,9 @@ if argv[1] == "+":
 if argv[1] == "-":
     sonos.volume -= vol_step
 
+if argv[1] == "set":
+    sonos.volume = int(argv[2])
+
 if argv[1] == "mute":
     sonos.mute = not(sonos.mute)
 
