@@ -6,15 +6,15 @@
 #define base02 #4a4543
 #define base03 #5c5855
 #define base04 #807d7c
-#define base05 #a5a2a2
+#define base05 #949191
 #define base06 #d6d5d4
-#define base07 #f7f7f7
-#define base08 #db2d20
-#define base09 #e8bbd0
-#define base0A #fded02
-#define base0B #01a252
-#define base0C #b5e4f4
-#define base0D #01a0e4
+#define base07 #c5c5c5
+#define base08 #af2419
+#define base09 #b995a6
+#define base0A #cabd01
+#define base0B #008141
+#define base0C #90b6c3
+#define base0D #0080b6
 #define base0E #a16a94
 #define base0F #cdab53
 

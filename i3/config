@@ -211,19 +211,19 @@ bar {
 	colors {
 		separator #5C5855
 		background #090300
-		statusline #A5A2A2
-		focused_workspace #A5A2A2 #A5A2A2 #090300
+		statusline #949191
+		focused_workspace #949191 #949191 #090300
 		active_workspace #5C5855 #5C5855 #090300
-		inactive_workspace #3A3432 #3A3432 #A5A2A2
-		urgent_workspace #DB2D20 #DB2D20 #A5A2A2
+		inactive_workspace #3A3432 #3A3432 #949191
+		urgent_workspace #AF2419 #AF2419 #949191
 	}
 }
 
 # pretty colors
-client.focused #A5A2A2 #A5A2A2 #090300 #A5A2A2
+client.focused #949191 #949191 #090300 #949191
 client.focused_inactive #5C5855 #5C5855 #090300 #5C5855
-client.unfocused #3A3432 #3A3432 #A5A2A2 #3A3432
-client.urgent #DB2D20 #DB2D20 #A5A2A2 #DB2D20
+client.unfocused #3A3432 #3A3432 #949191 #3A3432
+client.urgent #AF2419 #AF2419 #949191 #AF2419
 
 # nicer borders
 new_window pixel 1

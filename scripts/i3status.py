@@ -28,9 +28,9 @@ import sys
 import json
 from soco.core import SoCo
 
-color_good = "#01A252"
-color_degraded = "#FDED02"
-color_bad = "#DB2D20"
+color_good = "#008141"
+color_degraded = "#CABD01"
+color_bad = "#AF2419"
 
 def print_line(message):
     """ Non-buffered printing to stdout. """
