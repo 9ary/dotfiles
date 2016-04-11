@@ -11,6 +11,7 @@ razer-profile
 pulseaudio --start
 autocutsel -fork &
 dunst &
+keynav &
 chromium &
 ytdl_server.py &
 killall -9 qbittorrent; qbittorrent &
