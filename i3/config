@@ -206,6 +206,7 @@ bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
 bar {
 	status_command i3status -c ~/.i3/i3status.conf | i3status.py
 	tray_output HDMI-0
+	separator_symbol -
 
 	colors {
 		separator #5C5855

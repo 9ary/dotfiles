@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-xrdb -merge -override ~/dotfiles/x/Xresources
+xrdb ~/dotfiles/x/Xresources
 
 # Don't ring bells
 xset b off
