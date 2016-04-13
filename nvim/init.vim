@@ -85,7 +85,6 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_server_log_level = "silent"
 
 " Shortcuts
 nnoremap <silent> <F4> :wa<CR><C-w>s :terminal make run<CR>
