@@ -67,8 +67,9 @@ if __name__ == "__main__":
 
         j = json.loads(line)
 
-        # insert information into the start of the json, but could be anywhere
-        # CHANGE THIS LINE TO INSERT SOMETHING ELSE
+        # Truncate music titles
+        j[1]["short_text"] = j[1]["full_text"][:97] + "..."
+
         try:
             block = { "name": "sonos" }
             volume = sonos.volume
