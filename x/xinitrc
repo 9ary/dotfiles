@@ -8,6 +8,7 @@ xset b off
 # Mouse settings
 razer-profile
 
+xsettingsd &
 pulseaudio --start
 autocutsel -fork &
 dunst &
