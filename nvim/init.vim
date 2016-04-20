@@ -52,6 +52,9 @@ hi YcmErrorSign ctermbg=10 ctermfg=1
 " indentLine
 let g:indentLine_char = '│'
 
+" SudoEdit.vim
+let g:SudoEdit_skip_wundo=0
+
 " Formatting
 set encoding=utf-8
 set tabstop=8
