@@ -6,6 +6,7 @@ xrdb ~/dotfiles/x/Xresources
 xset b off
 
 # Mouse settings
+da2013ctl -w off -l off -f 1000
 razer-profile
 
 xsettingsd &

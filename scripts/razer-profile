@@ -16,4 +16,4 @@ fi
 
 echo $profile > ~/.razer-profile
 
-da2013ctl -w off -l off -f 1000 -r ${dpi[$profile]}
+da2013ctl -r ${dpi[$profile]}
