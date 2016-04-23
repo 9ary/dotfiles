@@ -91,7 +91,7 @@ if deleted:
 if conflict:
     status += color(3) + "x" + str(conflict)
 if staged:
-    status += color(4) + "●" + str(staged)
+    status += color(4) + "•" + str(staged)
 
 status += color(-1) + ")"
 
