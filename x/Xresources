@@ -4,47 +4,42 @@ Xft.hintstyle: hintfull
 Xft.rgba: none
 Xft.lcdfilter: none
 
-! Base16 3024
-! Scheme: Jan T. Sott (http://github.com/idleberg)
-
-#define base00 #090300
-#define base01 #3a3432
-#define base02 #4a4543
-#define base03 #5c5855
-#define base04 #807d7c
-#define base05 #949191
-#define base06 #d6d5d4
-#define base07 #c5c5c5
-#define base08 #af2419
-#define base09 #b995a6
-#define base0A #cabd01
-#define base0B #008141
-#define base0C #90b6c3
-#define base0D #0080b6
-#define base0E #a16a94
-#define base0F #cdab53
-
-*foreground:   base05
-*background:   base00
-*cursorColor:  base05
-
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
-
-*color8:       base03
-*color9:       base09
-*color10:      base01
-*color11:      base02
-*color12:      base04
-*color13:      base06
-*color14:      base0F
-*color15:      base07
+! special
+*.foreground:   #909090
+*.background:   #181818
+*.cursorColor:  #909090
+! black
+*.color0:       #181818
+*.color8:       #484848
+! red
+*.color1:       #c03030
+*.color9:       #d84848
+! green
+*.color2:       #48c060
+*.color10:      #60d878
+! yellow
+*.color3:       #c0c030
+*.color11:      #d8d848
+! blue
+*.color4:       #4848c0
+*.color12:      #6060d8
+! magenta
+*.color5:       #c03090
+*.color13:      #d848a8
+! cyan
+*.color6:       #30c0a8
+*.color14:      #48d8c0
+! white
+*.color7:       #909090
+*.color15:      #c0c0c0
+! base16 extra colors
+*.color16:      #f0c0d8
+*.color17:      #c0a848
+! base16 extra gray shades
+*.color18:      #303030
+*.color19:      #484848
+*.color20:      #787878
+*.color21:      #a8a8a8
 
 
 !

@@ -44,10 +44,12 @@ let NERDTreeQuitOnOpen=1
 " Syntax coloring
 syntax enable
 set background=dark
-colorscheme base16-3024
+let base16colorspace=256
+colorscheme base16-default
 hi Normal ctermbg=NONE
 hi WarningMsg ctermbg=0
-hi YcmErrorSign ctermbg=10 ctermfg=1
+hi YcmErrorSign ctermbg=18 ctermfg=1
+hi YcmWarningSign ctermbg=18 ctermfg=3
 
 " indentLine
 let g:indentLine_char = '│'

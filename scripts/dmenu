@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-/usr/bin/dmenu -fn 'terminus -10' -h 20 -b -i -nb '#090300' -nf '#949191' -sb '#949191' -sf '#090300' $@
+/usr/bin/dmenu -fn 'terminus -10' -h 20 -b -i -nb '#181818' -nf '#909090' -sb '#909090' -sf '#181818' $@
 
