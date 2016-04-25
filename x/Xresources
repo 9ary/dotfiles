@@ -33,8 +33,8 @@ Xft.lcdfilter: none
 *.color7:       #909090
 *.color15:      #c0c0c0
 ! base16 extra colors
-*.color16:      #f0c0d8
-*.color17:      #c0a848
+*.color16:      #f09090
+*.color17:      #c06030
 ! base16 extra gray shades
 *.color18:      #303030
 *.color19:      #484848

@@ -175,11 +175,11 @@ EXEC                    00;38;5;2   # This is for files with execute permission:
 .odt    00;38;5;2 # OpenDocument text document
 
 ## Template files (bright green)
-.pt     38;5;18 # Zope page template
-.tmpl   38;5;18
-.in     38;5;18
-.ots    38;5;18 # OpenDocument spreadsheet template
-.ott    38;5;18 # OpenDocument text document template
+.pt     38;5;10 # Zope page template
+.tmpl   38;5;10
+.in     38;5;10
+.ots    38;5;10 # OpenDocument spreadsheet template
+.ott    38;5;10 # OpenDocument text document template
 
 ## Audio formats (bright red)
 .aac    38;5;17
