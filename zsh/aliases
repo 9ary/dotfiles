@@ -13,6 +13,5 @@ alias e="exit"
 alias v="nvim"
 alias git="hub"
 
-alias verynice="ionice -c3 nice -n 15 "
-alias schedbatch="schedtool -B -e "
+alias verynice="schedtool -B -n 15 -e ionice -c3 "
 
