@@ -1,0 +1,9 @@
+#!/bin/bash
+
+IFS=$'\n\b'
+for line in $(xsel -b)
+do
+    xdotool type "$line"
+    xdotool key Return
+done
+
