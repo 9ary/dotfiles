@@ -48,6 +48,7 @@ Xft.lcdfilter: none
 
 ! Background
 URxvt*fading: 0
+URxvt*depth: 32
 
 ! Scrolling stuffs
 URxvt*scrollBar: false
@@ -77,18 +78,4 @@ URxvt*keysym.Shift-Control-C: perl:clipboard:copy
 URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 URxvt*clipboard.copycmd: xclip -i -selection clipboard
 URxvt*clipboard.pastecmd: xclip -o -selection clipboard
-
-
-!
-! XTerm
-!
-
-XTerm*locale: true
-XTerm*metaSendsEscape: true
-XTerm*saveLines: 4096
-XTerm*faceName: xft:terminus:size=10
-
-! Horrible hack to force ranger to behave
-! Dont do this at home kids
-XTerm*termName: rxvt-unicode-256color
 

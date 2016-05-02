@@ -177,7 +177,7 @@ bindsym XF86Sleep exec --no-startup-id systemctl suspend
 
 bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
-bindsym $mod+shift+Return exec xterm -e ranger
+bindsym $mod+shift+Return exec $TERMINAL -e ranger
 bindsym $mod+c exec --no-startup-id passmenu --type
 
 bindsym Print exec --no-startup-id srht -w
