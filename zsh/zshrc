@@ -129,6 +129,9 @@ preexec()
 eval $(dircolors ~/dotfiles/zsh/dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
 source ~/dotfiles/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black,bold'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
