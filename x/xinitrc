@@ -18,7 +18,7 @@ chromium &
 ytdl_server.py &
 killall -9 qbittorrent; qbittorrent &
 thunderbird &
-telegram &
+telegram-desktop &
 $TERMINAL -title "WeeChat" -e weechat &
 dropbox &
 nm-applet &
