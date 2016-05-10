@@ -220,7 +220,7 @@ client.unfocused #303030 #303030 #909090 #303030
 client.urgent #C03030 #C03030 #909090 #C03030
 
 # nicer borders
-new_window pixel 1
+new_window pixel 2
 
 # some window rules
 for_window [class="mupen64plus"] floating enable
