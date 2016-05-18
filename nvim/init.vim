@@ -93,7 +93,7 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 
 " Shortcuts
-nnoremap <silent> <F4> :wa<CR><C-w>s :terminal make run<CR>
+nnoremap <silent> <F4> :wa<CR>:split<CR>:terminal make run<CR>
 vnoremap <silent> // y/<C-r>"<CR>
 vnoremap <C-y> "+y
 map <silent> <F2> :set invpaste<CR>
@@ -129,6 +129,8 @@ set lazyredraw
 set hidden
 set wildmenu
 set wildmode=longest:full
+set splitright
+set splitbelow
 
 " Vimpager
 if exists("vimpager")
