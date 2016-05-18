@@ -14,6 +14,7 @@ pulseaudio --start
 autocutsel -fork &
 dunst &
 keynav &
+unclutter --timeout 2 --jitter 2 &
 chromium &
 ytdl_server.py &
 killall -9 qbittorrent; qbittorrent &
