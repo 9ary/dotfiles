@@ -41,7 +41,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-focus_follows_mouse yes
+focus_follows_mouse no
 focus_on_window_activation urgent
 
 # move focused window
