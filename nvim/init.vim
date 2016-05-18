@@ -110,6 +110,7 @@ nnoremap <A-l> <C-w>l
 nnoremap <silent> <C-t> :tabnew<CR>
 nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
+nnoremap <C-[> <C-t>
 map ; :
 
 " Cache
