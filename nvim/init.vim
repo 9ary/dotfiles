@@ -54,6 +54,7 @@ hi YcmWarningSign ctermbg=18 ctermfg=3
 
 " indentLine
 let g:indentLine_char = '│'
+let g:indentLine_concealcursor = ''
 
 " SudoEdit.vim
 let g:SudoEdit_skip_wundo=0
