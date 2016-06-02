@@ -11,7 +11,6 @@ alias c="clear"
 alias e="exit"
 
 alias v="nvim"
-alias git="hub"
 
 alias verynice="schedtool -B -n 15 -e ionice -c3 "
 
