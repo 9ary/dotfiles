@@ -11,10 +11,10 @@ if argv[1] == "line_in":
     sonos.play()
 
 if argv[1] == "+":
-    sonos.volume += vol_step
+    sonos.volume = (int(sonos.volume / vol_step) + 1) * vol_step
 
 if argv[1] == "-":
-    sonos.volume -= vol_step
+    sonos.volume = (int(sonos.volume / vol_step) - 1) * vol_step
 
 if argv[1] == "set":
     sonos.volume = int(argv[2])
