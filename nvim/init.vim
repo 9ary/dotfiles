@@ -13,8 +13,29 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tikhomirov/vim-glsl'
 Plug 'Yggdroot/indentLine'
 Plug 'chrisbra/SudoEdit.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 
 call plug#end()
+
+" Misc
+set mouse=a
+set nowrap
+set shell=zsh
+set scrolloff=5
+set ruler
+set backspace=2
+set noesckeys
+set cursorline
+set lazyredraw
+set hidden
+set wildmenu
+set wildmode=longest:full
+set splitright
+set splitbelow
+let mapleader=","
 
 " Airline
 set laststatus=2
@@ -59,6 +80,16 @@ let g:indentLine_concealcursor = ''
 " SudoEdit.vim
 let g:SudoEdit_skip_wundo=0
 
+" EasyMotion
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = "QWERTYUIOPASDFGHJKLZXCVBNM"
+let g:EasyMotion_do_mapping = 0
+map <Leader>w <Plug>(easymotion-bd-w)
+map <Leader>W <Plug>(easymotion-bd-W)
+map <Leader>e <Plug>(easymotion-bd-e)
+map <Leader>E <Plug>(easymotion-bd-E)
+map <Leader>l <Plug>(easymotion-bd-jk)
+
 " Formatting
 set encoding=utf-8
 set tabstop=8
@@ -70,15 +101,33 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> 
 
 " Line numbering
 set number
-set rnu
-autocmd InsertEnter * :set nornu
-autocmd InsertLeave * :set rnu
 
 " Search
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+
+function! s:config_easyfuzzymotion(...) abort
+    return extend(copy({
+    \   'converters': [incsearch#config#fuzzy#converter()],
+    \   'modules': [incsearch#config#easymotion#module()],
+    \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+    \   'is_expr': 0,
+    \   'is_stay': 1
+    \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> / incsearch#go(<SID>config_easyfuzzymotion())
+noremap <silent><expr> ? incsearch#go(<SID>config_easyfuzzymotion({'command': '?'}))
+map g/ <Plug>(incsearch-fuzzy-stay)
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 " Undos
 set undofile
@@ -118,22 +167,6 @@ map ; :
 " Cache
 set backupdir=~/.nvim/backup
 set directory=~/.nvim/backup
-
-" Misc
-set mouse=a
-set nowrap
-set shell=zsh
-set scrolloff=5
-set ruler
-set backspace=2
-set noesckeys
-set cursorline
-set lazyredraw
-set hidden
-set wildmenu
-set wildmode=longest:full
-set splitright
-set splitbelow
 
 " Vimpager
 if exists("vimpager")
