@@ -49,6 +49,7 @@ Xft.lcdfilter: none
 ! Background
 URxvt*fading: 0
 URxvt*depth: 32
+URxvt*background: [85]#181818
 
 ! Scrolling stuffs
 URxvt*scrollBar: false

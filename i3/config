@@ -231,6 +231,7 @@ for_window [class="portal2_linux"] fullscreen enable
 for_window [class="Eom"] fullscreen enable
 for_window [class="mpv"] move container to output HDMI-0
 for_window [class="BattleBlockTheater"] fullscreen enable
+for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
 
 # Run some scripts
 exec_always --no-startup-id i3-dunst-autopause.py
