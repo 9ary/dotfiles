@@ -118,9 +118,12 @@ function! s:config_easyfuzzymotion(...) abort
     \ }), get(a:, 1, {}))
 endfunction
 
-noremap <silent><expr> / incsearch#go(<SID>config_easyfuzzymotion())
-noremap <silent><expr> ? incsearch#go(<SID>config_easyfuzzymotion({'command': '?'}))
-map g/ <Plug>(incsearch-fuzzy-stay)
+map / <Plug>(incsearch-easymotion-/)
+map ? <Plug>(incsearch-easymotion-?)
+map g/ <Plug>(incsearch-stay)
+noremap <silent><expr> <Leader>/ incsearch#go(<SID>config_easyfuzzymotion())
+noremap <silent><expr> <Leader>? incsearch#go(<SID>config_easyfuzzymotion({'command': '?'}))
+map <Leader>g/ <Plug>(incsearch-fuzzy-stay)
 let g:incsearch#auto_nohlsearch = 1
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
