@@ -17,6 +17,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -35,6 +37,7 @@ set wildmenu
 set wildmode=longest:full
 set splitright
 set splitbelow
+set colorcolumn=+1
 let mapleader=","
 
 " Airline
