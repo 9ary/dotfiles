@@ -198,13 +198,14 @@ bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	i3bar_command i3bar -t
 	status_command i3status -c ~/.i3/i3status.conf | i3status.py
 	tray_output HDMI-0
 	separator_symbol -
 
 	colors {
 		separator #484848
-		background #181818
+		background #00181818
 		statusline #909090
 		focused_workspace #909090 #909090 #181818
 		active_workspace #484848 #484848 #181818
@@ -235,3 +236,5 @@ for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move s
 
 # Run some scripts
 exec_always --no-startup-id i3-dunst-autopause.py
+
+gaps inner 10
