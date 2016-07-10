@@ -69,7 +69,7 @@ let NERDTreeQuitOnOpen=1
 syntax enable
 set background=dark
 let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-default-dark
 hi Normal ctermbg=NONE
 hi Comment ctermfg=20
 hi WarningMsg ctermbg=0
