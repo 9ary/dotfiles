@@ -31,7 +31,7 @@ for dir in $(find $music/$1 -type d)
 do
     subpath=$(relpath "$dir" "$music")
     mkdir -p "$ogg/$subpath"
-    cp "$music/$subpath/cover.jpg" "$ogg/$subpath"
+    cp "$music/$subpath/"cover.{png,jpeg,jpg} "$ogg/$subpath" 2> /dev/null
 done
 
 find "$music/$1" \( -name "*.flac" -or -name "*.ogg" \) ! -iname "*instr*" -print0 \
