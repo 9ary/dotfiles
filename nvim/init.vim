@@ -147,6 +147,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_rust_src_path = $HOME . '/source/rust/src'
 
 " Shortcuts
 nnoremap <silent> <F4> :wa<CR>:split<CR>:terminal make run<CR>
