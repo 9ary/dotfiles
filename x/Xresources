@@ -21,8 +21,8 @@ Xft.lcdfilter: none
 *.color3:       #c0c030
 *.color11:      #d8d848
 ! blue
-*.color4:       #4848c0
-*.color12:      #6060d8
+*.color4:       #4860d8
+*.color12:      #6078d8
 ! magenta
 *.color5:       #c03090
 *.color13:      #d848a8
