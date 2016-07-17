@@ -89,45 +89,43 @@ colors
 # make some aliases for the colours: (coud use normal escap.seq's too)
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
   eval PR_$color='%{$fg[${(L)color}]%}'
+  eval PR_${color}_BOLD='%{$fg_bold[${(L)color}]%}'
 done
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
-# Check the UID
-if [[ $UID -ge 1000 ]]; then # normal user
-  eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
-  eval PR_USER_OP='${PR_GREEN}\$\ zsh\>${PR_NO_COLOR}'
-elif [[ $UID -eq 0 ]]; then # root
-  eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
-  eval PR_USER_OP='${PR_RED}#\ zsh\>${PR_NO_COLOR}'
-fi
+eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
 # Check if we are on SSH or not
 if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-  eval PR_HOST='${PR_MAGENTA}@%M' #SSH
+  eval PR_HOST='${PR_MAGENTA}@%M${PR_NO_COLOR}' #SSH
 else
-  eval PR_HOST='${PR_BLUE}@%M' # no SSH
+  eval PR_HOST='${PR_BLUE}@%M${PR_NO_COLOR}' # no SSH
 fi
-eval PR_DIR=':%~${PR_NO_COLOR}'
-gitstatus()
-{
-  [[ -n $NO_GIT_PROMPT ]] || gitstatus.py
+eval PR_PROMPT='${PR_WHITE_BOLD}\>\>${PR_NO_COLOR}'
+pr_gitstatus() { [[ -n $NO_GIT_PROMPT ]] || gitstatus.py }
+pr_cwd() {
+  pwd | perl -p -e "s|^$HOME|~|;" \
+    -e "s|(?!/)(.).*?/|\1/|g;" \
+    -e "s|/|$PR_RED/$PR_NO_COLOR|g;" \
+    -e "s|([^/%{}\n]*)\$|$PR_GREEN\1$PR_NO_COLOR|"
 }
 PROMPT='
-$PR_USER$PR_HOST$PR_DIR
-$(gitstatus) $PR_USER_OP '
+$PR_USER$PR_HOST $(pr_cwd)$(pr_gitstatus) $PR_PROMPT '
 
-precmd()
-(
-  [[ $TERM != linux && $TERM != fbterm ]] && echo -ne '\a' # BELL
-  [[ $TERM != linux && $TERM != fbterm ]] && print -Pn '\e]0;%n@%M:%~ - zsh\a' # Window title
-)
+if [[ $TERM != linux && $TERM != fbterm ]]; then
+  precmd() {
+    echo -ne '\a' # BELL
+    print -Pn '\e]0;%n@%M:%~ - zsh\a' # Window title
+  }
 
-preexec()
-(
-  [[ $TERM != linux && $TERM != fbterm ]] && print -Pn '\e]0;%n@%M:%~ - $1\a' # Window title
-)
+  preexec() {
+    print -Pn '\e]0;%n@%M:%~ - $1\a' # Window title
+  }
+fi
 
 # ls colors
 eval $(dircolors ~/dotfiles/zsh/dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
