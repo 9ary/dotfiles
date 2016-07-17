@@ -62,7 +62,7 @@ bindkey "" history-substring-search-down
 [[ -n "${key[Right]}"    ]]  && bindkey  "${key[Right]}"   forward-char
 
 # Resume suspended app
-foreground() { fg }
+foreground() { fg && zle redisplay }
 zle -N foreground
 bindkey ""  foreground
 
