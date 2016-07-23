@@ -5,17 +5,23 @@ import socket
 import subprocess
 import os
 
-def mpv():
-    with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
-        client.connect(os.path.join(os.getenv("HOME"), ".mpv/socket"))
+def mpv_query():
+    try:
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
+            client.connect(os.path.join(os.getenv("HOME"), ".mpv/socket"))
 
-        res = {}
-        for i in ['filename', 'media-title', 'playback-time', 'length']:
-            req = '{"command": ["get_property", "%s"]}\n' %i
-            client.send(req.encode("utf-8"))
-            res[i] = json.loads(client.recv(1024).decode("utf-8"))['data']
+            res = {}
+            for i in ['media-title', 'pause']:
+                req = '{"command": ["get_property", "%s"]}\n' %i
+                client.send(req.encode("utf-8"))
+                try:
+                    res[i] = json.loads(client.recv(1024).decode("utf-8"))['data']
+                except KeyError:
+                    res[i] = None
 
-        return res['media-title']
+        return res['pause'], res['media-title']
+    except socket.error:
+        return True, None
 
 def mpd_command(client, cmd):
     client.send((cmd + "\n").encode("utf-8"))
@@ -28,7 +34,7 @@ def mpd_command(client, cmd):
 
     return res
 
-def mpd():
+def mpd_query():
     with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as client:
         client.connect(os.path.join(os.getenv("HOME"), ".mpd/socket"))
 
@@ -36,8 +42,6 @@ def mpd():
         client.recv(1024)
 
         status = mpd_command(client, "status")
-        if status["state"] != "play":
-            return ""
 
         song = mpd_command(client, "currentsong")
 
@@ -51,12 +55,23 @@ def mpd():
         except:
             artist = "Null"
 
-        return "{} - {}".format(artist, title)
+        client.send("close\n".encode("utf-8"))
 
-try:
-    title = mpv()
-except socket.error:
-    title = mpd()
+        if status["state"] != "play":
+            return True, None
+        else:
+            return False, "{} - {}".format(artist, title)
 
-if title != "":
+def type_title(title):
     subprocess.call(["xdotool", "type", "/me np: " + title])
+
+def main():
+    mpd_pause, mpd_title = mpd_query()
+    mpv_pause, mpv_title = mpv_query()
+    if not mpd_pause and mpd_title is not None:
+        type_title(mpd_title)
+        return
+    if mpv_title is not None:
+        type_title(mpv_title)
+
+main()
