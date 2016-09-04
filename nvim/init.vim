@@ -67,6 +67,7 @@ let NERDTreeQuitOnOpen=1
 
 " Syntax coloring
 syntax enable
+set synmaxcol=1024
 set background=dark
 let base16colorspace=256
 colorscheme base16-default-dark
