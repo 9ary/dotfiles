@@ -5,12 +5,12 @@ Xft.rgba: none
 Xft.lcdfilter: none
 
 ! special
-*.foreground:   #909090
-*.background:   #181818
-*.cursorColor:  #909090
+*.foreground:   #9090a8
+*.background:   #181830
+*.cursorColor:  #9090a8
 ! black
-*.color0:       #181818
-*.color8:       #484848
+*.color0:       #181830
+*.color8:       #484860
 ! red
 *.color1:       #c03030
 *.color9:       #d84848
@@ -30,16 +30,16 @@ Xft.lcdfilter: none
 *.color6:       #30c0a8
 *.color14:      #48d8c0
 ! white
-*.color7:       #909090
-*.color15:      #c0c0c0
+*.color7:       #9090a8
+*.color15:      #c0c0d8
 ! base16 extra colors
 *.color16:      #f09090
 *.color17:      #c06030
 ! base16 extra gray shades
-*.color18:      #303030
-*.color19:      #484848
-*.color20:      #787878
-*.color21:      #a8a8a8
+*.color18:      #303048
+*.color19:      #484860
+*.color20:      #787890
+*.color21:      #a8a8C0
 
 
 !
@@ -49,7 +49,7 @@ Xft.lcdfilter: none
 ! Background
 URxvt*fading: 0
 URxvt*depth: 32
-URxvt*background: [85]#181818
+URxvt*background: [90]#181830
 
 ! Scrolling stuffs
 URxvt*scrollBar: false
