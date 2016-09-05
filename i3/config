@@ -127,21 +127,21 @@ bar {
 	separator_symbol -
 
 	colors {
-		separator #484860
-		background #181830
-		statusline #9090a8
-		focused_workspace #9090a8 #9090a8 #181830
-		active_workspace #484860 #484860 #181830
-		inactive_workspace #303048 #303048 #9090a8
-		urgent_workspace #C03030 #C03030 #9090a8
+		separator #484848
+		background #181818
+		statusline #909090
+		focused_workspace #909090 #909090 #181818
+		active_workspace #484848 #484848 #181818
+		inactive_workspace #303030 #303030 #909090
+		urgent_workspace #C03030 #C03030 #909090
 	}
 }
 
 # colors
-client.focused #9090a8 #9090a8 #181830 #9090a8
-client.focused_inactive #484860 #484860 #181830 #484860
-client.unfocused #303048 #303048 #9090a8 #303048
-client.urgent #C03030 #C03030 #9090a8 #C03030
+client.focused #909090 #909090 #181818 #909090
+client.focused_inactive #484848 #484848 #181818 #484848
+client.unfocused #303030 #303030 #909090 #303030
+client.urgent #C03030 #C03030 #909090 #C03030
 
 # borders
 new_window pixel 2
