@@ -19,9 +19,11 @@ export -f to_vorbis
 
 relpath()
 {
+    dir1=$(echo $1 | sed "s/'/\\\\'/g")
+    dir2=$(echo ${2:-$PWD} | sed "s/'/\\\\'/g")
     python3 << EOF
 import os.path
-print(os.path.relpath('''$1''', '''${2:-$PWD}'''))
+print(os.path.relpath('''$dir1''', '''$dir2'''))
 EOF
 }
 export -f relpath
