@@ -8,8 +8,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tikhomirov/vim-glsl'
 Plug 'Yggdroot/indentLine'
 Plug 'chrisbra/SudoEdit.vim'
@@ -57,13 +55,10 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tagbar#enabled = 0
 
 " Tagbar
 nmap <silent> <F8> :TagbarOpenAutoClose<CR>
-
-" NERDTree
-nmap <silent> <C-b> :NERDTreeFocus<CR>
-let NERDTreeQuitOnOpen=1
 
 " Syntax coloring
 syntax enable
@@ -152,7 +147,7 @@ let g:ycm_rust_src_path = $HOME . '/source/rust/src'
 let g:ycm_python_binary_path = 'python'
 
 " Shortcuts
-nnoremap <silent> <F4> :wa<CR>:split<CR>:terminal make run<CR>
+"nnoremap <silent> <F4> :wa<CR>:split<CR>:terminal make run<CR>
 vnoremap <silent> // y/<C-r>"<CR>
 vnoremap <C-y> "+y
 inoremap <C-p> <ESC>"+pa
