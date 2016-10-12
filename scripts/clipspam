@@ -1,9 +1,9 @@
 #!/bin/bash
 
 IFS=$'\n\b'
-for line in $(xsel -b)
+for line in $(xsel -ob)
 do
-    xdotool type "$line"
+    xdotool type --delay 0 "$line"
     xdotool key Return
 done
 
