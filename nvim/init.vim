@@ -17,6 +17,8 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -89,6 +91,11 @@ map <Leader>e <Plug>(easymotion-bd-e)
 map <Leader>E <Plug>(easymotion-bd-E)
 map <Leader>l <Plug>(easymotion-bd-jk)
 
+" ack.vim/ag
+let g:ackprg = 'ag --vimgrep'
+nnoremap <Leader>a :Ack!<Space>
+vnoremap <silent> <Leader>a y:Ack!<Space><C-r>"<CR>
+
 " Formatting
 set encoding=utf-8
 set tabstop=8
@@ -96,7 +103,9 @@ set shiftwidth=4
 set expandtab
 set autoindent
 au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.txt setlocal textwidth=80
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
+xmap ga <Plug>(EasyAlign)
 
 " Line numbering
 set number
