@@ -63,7 +63,9 @@ def mpd_query():
             return False, "{} - {}".format(artist, title)
 
 def type_title(title):
-    subprocess.call(["xdotool", "type", "/me np: " + title])
+    subprocess.call(["xdotool", "keyup", "--clearmodifiers", "Return"])
+    subprocess.call(["xdotool", "type", "--clearmodifiers", "--delay", "0", "/me np: " + title])
+    subprocess.call(["xdotool", "key", "--clearmodifiers", "Return"])
 
 def main():
     mpd_pause, mpd_title = mpd_query()

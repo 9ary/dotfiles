@@ -1,9 +1,10 @@
 #!/bin/bash
 
+xdotool keyup --clearmodifiers Return
 IFS=$'\n\b'
 for line in $(xsel -ob)
 do
-    xdotool type --delay 0 "$line"
-    xdotool key Return
+    xdotool type --clearmodifiers --delay 0 "$line"
+    xdotool key --clearmodifiers Return
 done
 
