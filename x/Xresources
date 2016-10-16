@@ -59,7 +59,7 @@ URxvt*scrollTtyKeypress: true
 URxvt*saveLines: 10000
 
 ! Font
-URxvt*font: xft:terminus:size=10
+URxvt*font: xft:terminus:size=9
 
 ! Notifications
 URxvt*urgentOnBell: true

@@ -39,6 +39,7 @@ set splitright
 set splitbelow
 set colorcolumn=+1
 let mapleader=","
+au BufRead,BufNewFile *.h setlocal filetype=c
 
 " Airline
 set laststatus=2
@@ -102,8 +103,8 @@ set tabstop=8
 set shiftwidth=4
 set expandtab
 set autoindent
-au BufRead,BufNewFile *.md setlocal textwidth=80
-au BufRead,BufNewFile *.txt setlocal textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=120
+au BufRead,BufNewFile *.txt setlocal textwidth=120
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
 xmap ga <Plug>(EasyAlign)
 

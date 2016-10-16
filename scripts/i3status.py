@@ -68,15 +68,15 @@ if __name__ == "__main__":
         j = json.loads(line)
 
         # Truncate music titles
-        j[1]["short_text"] = j[1]["full_text"][:97] + "..."
+        j[1]["short_text"] = j[1]["full_text"][:160] + "..."
 
         try:
             block = { "name": "sonos" }
             volume = sonos.volume
             mute = sonos.mute
-            icon = "🔊"
+            icon = "♫"
             if mute:
-                icon = "🔇"
+                icon = "✕"
                 block["color"] = color_degraded
             block["full_text"] = "{} {}%".format(icon, volume)
             j.insert(0, block)
