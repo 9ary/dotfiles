@@ -4,17 +4,14 @@ import json
 import locale
 import math
 import multiprocessing as mp
-import os
+from pathlib import Path
 import shlex
 import shutil
 import subprocess as sp
 import sys
 
-def homepath(subdir):
-    return os.path.join(os.getenv("HOME"), subdir)
-
-music_path = homepath("music")
-ogg_path = homepath("ogg")
+music_path = Path("~/music").expanduser()
+ogg_path = Path("~/ogg").expanduser()
 
 max_sample_rate = 48000
 
@@ -22,26 +19,15 @@ locale_encoding = locale.nl_langinfo(locale.CODESET)
 
 ffprobe_cmd = shlex.split("ffprobe -print_format json -show_streams")
 def transocde(infile):
-    outfile = os.path.splitext(infile)[0] + ".ogg"
-    outfile = os.path.relpath(outfile, music_path)
-    outfile = os.path.join(ogg_path, outfile)
-    if os.path.isfile(outfile):
+    outfile = Path(infile).with_suffix(".ogg")
+    outfile = ogg_path / outfile.relative_to(music_path)
+    if outfile.is_file():
         return
-    print(outfile)
+    print(str(outfile.relative_to(ogg_path)))
+    outfile = str(outfile)
 
-    # Create directory structure and copy the cover if they're not already there
-    outdir = os.path.dirname(outfile)
-    if not os.path.isdir(outdir):
-        os.makedirs(outdir, exist_ok=True)
-        indir = os.path.dirname(infile)
-        for coverfile in ["cover.png", "cover.jpg", "cover.jpeg"]:
-            coverpath = os.path.join(indir, coverfile)
-            if os.path.isfile(coverpath):
-                target = os.path.join(outdir, coverfile)
-                shutil.copy(coverpath, target)
-
-    probe = sp.check_output(ffprobe_cmd + [infile], stderr=sp.DEVNULL) \
-            .decode(locale_encoding)
+    probe = (sp.check_output(ffprobe_cmd + [infile], stderr=sp.DEVNULL)
+            .decode(locale_encoding))
     probe = json.loads(probe)
 
     encode_args = []
@@ -54,16 +40,16 @@ def transocde(infile):
                 target_sample_rate = int(sample_rate / math.ceil(sample_rate / max_sample_rate))
                 encode_args += shlex.split("-ar:0:{} {}".format(index, target_sample_rate))
 
-    encode_cmd = shlex.split("ffmpeg -y -i") \
-            + [infile] \
-            + shlex.split("-map 0:a -c:a libvorbis -q 8") \
-            + encode_args \
-            + [outfile]
+    encode_cmd = (shlex.split("ffmpeg -y -i")
+            + [infile]
+            + shlex.split("-map 0:a -c:a libvorbis -q 8")
+            + encode_args
+            + [outfile])
 
     sp.call(encode_cmd, stderr=sp.DEVNULL, stdin=sp.DEVNULL)
 
 def inpath(path):
-    return os.path.join(music_path, path)
+    return str(music_path / path)
 
 def main():
     indirs = list(map(inpath, sys.argv[1:]))
@@ -72,10 +58,25 @@ def main():
         print("No input")
         return
 
-    enum_cmd = ["find"] \
-            + indirs \
-            + shlex.split("( -name *.flac -or -name *.ogg ) ! -iname *instr*")
+    enum_cmd = (["find"]
+            + indirs
+            + shlex.split("( -name *.flac -or -name *.ogg ) ! -iname *instr*"))
     infiles = sp.check_output(enum_cmd).decode(locale_encoding).splitlines()
+
+    for infile in infiles:
+        infile = Path(infile)
+        outfile = ogg_path / infile.relative_to(music_path)
+
+        # Create directory structure and copy the cover if they're not already there
+        outdir = outfile.parent
+        if not outdir.is_dir():
+            outdir.mkdir(parents=True, exist_ok=True)
+            indir = infile.parent
+            for coverfile in ["cover.png", "cover.jpg", "cover.jpeg"]:
+                coverpath = indir / coverfile
+                if coverpath.is_file():
+                    target = outdir / coverfile
+                    shutil.copy(str(coverpath), str(target))
 
     with mp.Pool() as p:
         p.map(transocde, infiles)
