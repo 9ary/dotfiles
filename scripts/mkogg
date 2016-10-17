@@ -1,40 +1,83 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-export music="$HOME/music"
-export ogg="$HOME/ogg"
-threads=$(nproc)
+import json
+import locale
+import math
+import multiprocessing as mp
+import os
+import shlex
+import shutil
+import subprocess as sp
+import sys
 
-to_vorbis()
-{
-    subpath=$(dirname "$(relpath "$1" "$music")")
-    out=$ogg/$subpath/$(basename "$1" | sed "s/\(.*\)\..*/\1.ogg/")
+def homepath(subdir):
+    return os.path.join(os.getenv("HOME"), subdir)
 
-    # Don't bother if the file is there
-    [[ -f "$out" ]] && exit
+music_path = homepath("music")
+ogg_path = homepath("ogg")
 
-    echo $out
-    ffmpeg -i "$1" -c:a libvorbis -q 8 "$out" &> /dev/null < /dev/null
-}
-export -f to_vorbis
+max_sample_rate = 48000
 
-relpath()
-{
-    dir1=$(echo $1 | sed "s/'/\\\\'/g")
-    dir2=$(echo ${2:-$PWD} | sed "s/'/\\\\'/g")
-    python3 << EOF
-import os.path
-print(os.path.relpath('''$dir1''', '''$dir2'''))
-EOF
-}
-export -f relpath
+locale_encoding = locale.nl_langinfo(locale.CODESET)
 
-IFS=$'\n\b'
-for dir in $(find $music/$1 -type d)
-do
-    subpath=$(relpath "$dir" "$music")
-    mkdir -p "$ogg/$subpath"
-    cp "$music/$subpath/"cover.{png,jpeg,jpg} "$ogg/$subpath" 2> /dev/null
-done
+ffprobe_cmd = shlex.split("ffprobe -print_format json -show_streams")
+def transocde(infile):
+    outfile = os.path.splitext(infile)[0] + ".ogg"
+    outfile = os.path.relpath(outfile, music_path)
+    outfile = os.path.join(ogg_path, outfile)
+    if os.path.isfile(outfile):
+        return
+    print(outfile)
 
-find "$music/$1" \( -name "*.flac" -or -name "*.ogg" \) ! -iname "*instr*" -print0 \
-    | xargs -0 -P $threads -L1 -ifile bash -c 'to_vorbis "file"'
+    # Create directory structure and copy the cover if they're not already there
+    outdir = os.path.dirname(outfile)
+    if not os.path.isdir(outdir):
+        os.makedirs(outdir, exist_ok=True)
+        indir = os.path.dirname(infile)
+        for coverfile in ["cover.png", "cover.jpg", "cover.jpeg"]:
+            coverpath = os.path.join(indir, coverfile)
+            if os.path.isfile(coverpath):
+                target = os.path.join(outdir, coverfile)
+                shutil.copy(coverpath, target)
+
+    probe = sp.check_output(ffprobe_cmd + [infile], stderr=sp.DEVNULL) \
+            .decode(locale_encoding)
+    probe = json.loads(probe)
+
+    encode_args = []
+    for stream in probe["streams"]:
+        if stream["codec_type"] == "audio":
+            index = stream["index"]
+
+            sample_rate = int(stream["sample_rate"])
+            if sample_rate > max_sample_rate:
+                target_sample_rate = int(sample_rate / math.ceil(sample_rate / max_sample_rate))
+                encode_args += shlex.split("-ar:0:{} {}".format(index, target_sample_rate))
+
+    encode_cmd = shlex.split("ffmpeg -y -i") \
+            + [infile] \
+            + shlex.split("-map 0:a -c:a libvorbis -q 8") \
+            + encode_args \
+            + [outfile]
+
+    sp.call(encode_cmd, stderr=sp.DEVNULL, stdin=sp.DEVNULL)
+
+def inpath(path):
+    return os.path.join(music_path, path)
+
+def main():
+    indirs = list(map(inpath, sys.argv[1:]))
+
+    if len(indirs) == 0:
+        print("No input")
+        return
+
+    enum_cmd = ["find"] \
+            + indirs \
+            + shlex.split("( -name *.flac -or -name *.ogg ) ! -iname *instr*")
+    infiles = sp.check_output(enum_cmd).decode(locale_encoding).splitlines()
+
+    with mp.Pool() as p:
+        p.map(transocde, infiles)
+
+main()
