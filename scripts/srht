@@ -12,11 +12,11 @@ source ~/.config/srht
 selection() {
     uploadme="/tmp/scrot.png"
 
-    eval $(slop -l -c 0.5,0.5,0.5,0.8 --nokeyboard)
-    if [[ "$Cancel" = "true" ]]; then
+    maim --hidecursor -s -l -c 0.5,0.5,0.5,0.8 --nokeyboard "$uploadme" 2> "/dev/null"
+    if [[ "$?" -ge 1 ]]; then
+        echo "Selection cancelled."
         exit 1
     fi
-    maim --hidecursor -g $G "$uploadme" 2> "/dev/null"
 
     word=selection
 }
@@ -25,13 +25,7 @@ selection() {
 active() {
     uploadme="/tmp/scrot.png"
 
-    eval $(xdotool getactivewindow getwindowgeometry --shell)
-    border=4
-    let X-=$border
-    let Y-=$border
-    let WIDTH+=$border
-    let HEIGHT+=$border
-    maim --hidecursor -x $X -y $Y -w $WIDTH -h $HEIGHT "$uploadme"
+    maim --hidecursor -i $(xdotool getactivewindow) "$uploadme"
 
     word=active
 }
