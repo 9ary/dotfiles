@@ -6,8 +6,7 @@ xrdb ~/dotfiles/x/Xresources
 xset b off
 
 # Mouse settings
-da2013ctl -w off -l off -f 1000
-razer-profile
+da2013ctl -w off -l off -f 1000 -r 2100
 
 xsettingsd &
 pulseaudio --start

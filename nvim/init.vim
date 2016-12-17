@@ -103,6 +103,7 @@ set tabstop=8
 set shiftwidth=4
 set expandtab
 set autoindent
+set cino=:0
 au BufRead,BufNewFile *.md setlocal textwidth=120
 au BufRead,BufNewFile *.txt setlocal textwidth=120
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces

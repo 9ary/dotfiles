@@ -46,13 +46,13 @@ bindsym $mod+d focus child
 # workspaces
 set $www 1:www
 workspace $www output HDMI-0
-assign [class="chromium"] $www
+assign [class="Chromium"] $www
 assign [class="Firefox"] $www
 
 set $im 2:im
 workspace $im output DVI-1
 assign [title="WeeChat"] $im
-assign [class="telegram-desktop"] $im
+assign [class="TelegramDesktop"] $im
 
 bindsym $mod+1 workspace $www
 bindsym $mod+2 workspace $im
