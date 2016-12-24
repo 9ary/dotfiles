@@ -45,12 +45,12 @@ bindsym $mod+d focus child
 
 # workspaces
 set $www 1:www
-workspace $www output HDMI-0
+workspace $www output HDMI-A-0
 assign [class="Chromium"] $www
 assign [class="Firefox"] $www
 
 set $im 2:im
-workspace $im output DVI-1
+workspace $im output DVI-I-1
 assign [title="WeeChat"] $im
 assign [class="TelegramDesktop"] $im
 
@@ -125,7 +125,7 @@ bar {
 	i3bar_command i3bar -t
 
 	status_command i3status -c ~/.i3/i3status.conf | i3status.py
-	tray_output HDMI-0
+	tray_output HDMI-A-0
 	separator_symbol -
 
 	colors {
@@ -151,11 +151,11 @@ new_window pixel 2
 # window rules
 for_window [class="mupen64plus"] floating enable
 for_window [class="Minecraft"] fullscreen enable
-for_window [class="Minecraft"] move container to output HDMI-0
+for_window [class="Minecraft"] move container to output HDMI-A-0
 for_window [class="hl2_linux"] fullscreen enable
 for_window [class="portal2_linux"] fullscreen enable
 for_window [class="Eom"] fullscreen enable
-for_window [class="mpv"] move container to output HDMI-0
+for_window [class="mpv"] move container to output HDMI-A-0
 for_window [class="BattleBlockTheater"] fullscreen enable
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
 
