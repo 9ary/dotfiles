@@ -1,32 +1,21 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
-# This script is a simple wrapper which prefixes each i3status line with custom
-# information. It is a python reimplementation of:
-# http://code.stapelberg.de/git/i3status/tree/contrib/wrapper.pl
-#
-# To use it, ensure your ~/.i3status.conf contains this line:
-#     output_format = "i3bar"
-# in the "general" section.
-# Then, in your ~/.i3/config, use:
-#     status_command i3status | ~/i3status/contrib/wrapper.py
-# In the "bar" section.
-#
-# In its current version it will display the cpu frequency governor, but you
-# are free to change it to display whatever you like, see the comment in the
-# source code below.
-#
-# © 2012 Valentin Haenel <valentin.haenel@gmx.de>
-#
-# This program is free software. It comes without any warranty, to the extent
-# permitted by applicable law. You can redistribute it and/or modify it under
-# the terms of the Do What The Fuck You Want To Public License (WTFPL), Version
-# 2, as published by Sam Hocevar. See http://sam.zoy.org/wtfpl/COPYING for more
-# details.
-
-import sys
+import fcntl
 import json
+import locale
+import socket
+import struct
+import sys
+
 from soco.core import SoCo
+
+locale_encoding = locale.nl_langinfo(locale.CODESET)
+
+iface = struct.pack("256s", "eno1".encode(locale_encoding))
+own_ip = socket.inet_aton("10.0.0.10")
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+if own_ip == fcntl.ioctl(s, 0x8915, iface)[20:24]: # SIOCGIFADDR
+    sonos = SoCo("10.0.0.11")
 
 color_good = "#38C060"
 color_degraded = "#C0C030"
@@ -49,8 +38,6 @@ def read_line():
     # exit on ctrl-c
     except KeyboardInterrupt:
         sys.exit()
-
-sonos = SoCo("10.0.0.11")
 
 if __name__ == "__main__":
     # Skip the first line which contains the version header.
