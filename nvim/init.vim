@@ -92,8 +92,8 @@ map <Leader>e <Plug>(easymotion-bd-e)
 map <Leader>E <Plug>(easymotion-bd-E)
 map <Leader>l <Plug>(easymotion-bd-jk)
 
-" ack.vim/ag
-let g:ackprg = 'ag --vimgrep'
+" ack.vim/rg
+let g:ackprg = 'rg -S --vimgrep'
 nnoremap <Leader>a :Ack!<Space>
 vnoremap <silent> <Leader>a y:Ack!<Space><C-r>"<CR>
 
