@@ -9,13 +9,11 @@ xset b off
 da2013ctl -w off -l off -f 1000 -r 2100
 
 xsettingsd &
-pulseaudio --start
 autocutsel -fork &
 dunst &
 keynav &
 unclutter --timeout 2 --jitter 2 &
 chromium &
-ytdl_server.py &
 killall -9 qbittorrent; qbittorrent &
 thunderbird &
 telegram-desktop &
