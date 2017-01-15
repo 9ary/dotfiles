@@ -117,6 +117,16 @@ if [[ $TERM != linux && $TERM != fbterm ]]; then
   }
 fi
 
+los_root="$HOME/source/lineageos"
+function chpwd() {
+  ls
+  if [ "${PWD#$los_root}" != "$PWD" ]
+  then
+    export PATH="$los_root/py2:$PATH"
+    typeset -U path
+  fi
+}
+
 # ls colors
 eval $(dircolors ~/dotfiles/zsh/dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
