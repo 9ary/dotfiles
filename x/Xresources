@@ -10,7 +10,7 @@ Xft.lcdfilter: none
 *.cursorColor:  #909090
 ! black
 *.color0:       #181818
-*.color8:       #484848
+*.color8:       #606060
 ! red
 *.color1:       #c03030
 *.color9:       #d84848
