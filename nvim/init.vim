@@ -9,7 +9,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'tikhomirov/vim-glsl'
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'chrisbra/SudoEdit.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
@@ -75,9 +75,14 @@ hi WarningMsg ctermbg=0
 hi YcmErrorSign ctermbg=18 ctermfg=1
 hi YcmWarningSign ctermbg=18 ctermfg=3
 
-" indentLine
-let g:indentLine_char = '│'
-let g:indentLine_concealcursor = ''
+" Indent guides
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesEven ctermbg=19
+hi IndentGuidesOdd ctermbg=8
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_default_mapping = 0
 
 " SudoEdit.vim
 let g:SudoEdit_skip_wundo=0
