@@ -1,4 +1,4 @@
-font pango:xos4 Terminus 9
+font pango:xos4 Terminus 10
 
 set $mod Mod4
 floating_modifier $mod
