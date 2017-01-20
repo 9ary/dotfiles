@@ -80,31 +80,24 @@ source ~/dotfiles/zsh/aliases
 
 # Prompt
 setopt PROMPT_SUBST
-autoload -U colors zsh/terminfo
-colors
-# make some aliases for the colours: (coud use normal escap.seq's too)
-for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-  eval PR_$color='%{$fg[${(L)color}]%}'
-  eval PR_${color}_BOLD='%{$fg_bold[${(L)color}]%}'
-done
-PR_NO_COLOR="%{$terminfo[sgr0]%}"
-eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
-# Check if we are on SSH or not
-if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-  eval PR_HOST='${PR_MAGENTA}@%M${PR_NO_COLOR}' #SSH
-else
-  eval PR_HOST='${PR_BLUE}@%M${PR_NO_COLOR}' # no SSH
-fi
-eval PR_PROMPT='${PR_WHITE_BOLD}\>\>${PR_NO_COLOR}'
+pr_fg() { echo -n "%{[38;5;${1}m%}" }
+pr_bold="%{[1m%}"
+pr_nocolor="%{$terminfo[sgr0]%}"
+pr_defaultcolor="${pr_nocolor}%{[48;5;18m%}"
+
+[[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]] \
+  && pr_hostcolor=$(pr_fg 13) \
+  || pr_hostcolor=$(pr_fg 12)
+[[ $UID -eq 0 ]] && pr_usercolor=$(pr_fg 9) || pr_usercolor=$(pr_fg 10)
+
 pr_gitstatus() { [[ -n $NO_GIT_PROMPT ]] || gitstatus.py }
 pr_cwd() {
-  pwd | perl -p -e "s|^$HOME|~|;" \
-    -e "s|(?!/)(.).*?/|\1/|g;" \
-    -e "s|/|$PR_RED/$PR_NO_COLOR|g;" \
-    -e "s|([^/%{}\n]*)\$|$PR_GREEN\1$PR_NO_COLOR|"
+  pwd | perl -p -e "s|^${HOME}|${pr_defaultcolor}~|;" \
+    -e "s|/|$(pr_fg 9)/${pr_defaultcolor}|g;" \
+    -e "s|([^/%{}\n]*)\$|$(pr_fg 10)\1${pr_defaultcolor}|"
 }
-PROMPT='
-$PR_USER$PR_HOST $(pr_cwd)$(pr_gitstatus) $PR_PROMPT '
+PROMPT='${pr_defaultcolor}${pr_usercolor}%n${pr_hostcolor}@%M${pr_defaultcolor}:$(pr_cwd)$(pr_gitstatus)%E
+${pr_nocolor}${pr_bold}$(pr_fg 15)>>> ${pr_nocolor}'
 
 if [[ $TERM != linux && $TERM != fbterm ]]; then
   precmd() {

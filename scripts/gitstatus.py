@@ -19,7 +19,7 @@ def call_sp(cmd):
         sys.exit()
 
 def color(c, bold = False):
-    ret = "%{\x1b[0"
+    ret = "%{\x1b[0;48;5;18"
     if c >= 0:
         ret += ";38;5;{}".format(c)
     if bold:
