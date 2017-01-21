@@ -112,7 +112,6 @@ fi
 
 los_root="$HOME/source/lineageos"
 function chpwd() {
-  ls
   if [ "${PWD#$los_root}" != "$PWD" ]
   then
     export PATH="$los_root/py2:$PATH"
