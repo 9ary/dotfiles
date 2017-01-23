@@ -163,4 +163,4 @@ for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move s
 # scripts
 exec_always --no-startup-id i3-dunst-autopause.py
 
-gaps inner 10
+gaps inner 7

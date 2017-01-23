@@ -68,7 +68,7 @@ if __name__ == "__main__":
         j = json.loads(line)
 
         # Truncate music titles
-        j[1]["short_text"] = j[1]["full_text"][:160] + "..."
+        j[1]["short_text"] = j[1]["full_text"][:80] + "..."
 
         try:
             block = { "name": "sonos" }
