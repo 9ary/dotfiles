@@ -158,6 +158,7 @@ for_window [class="portal2_linux"] fullscreen enable
 for_window [class="Eom"] fullscreen enable
 for_window [class="mpv"] move container to output HDMI-A-0
 for_window [class="BattleBlockTheater"] fullscreen enable
+for_window [class="mupen64plus"] fullscreen enable
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
 
 # scripts
