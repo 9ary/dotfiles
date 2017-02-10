@@ -58,7 +58,6 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tagbar#enabled = 0
 
 " Tagbar
 nmap <silent> <F8> :TagbarOpenAutoClose<CR>
