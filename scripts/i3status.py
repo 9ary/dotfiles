@@ -50,7 +50,7 @@ def read_line():
     except KeyboardInterrupt:
         sys.exit()
 
-sonos = SoCo("10.0.0.11")
+sonos = SoCo("192.0.0.11")
 
 if __name__ == "__main__":
     # Skip the first line which contains the version header.

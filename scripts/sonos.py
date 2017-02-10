@@ -3,7 +3,7 @@
 from soco.core import SoCo
 from sys import argv
 
-sonos = SoCo("10.0.0.11")
+sonos = SoCo("192.0.0.11")
 vol_step = 5
 
 if argv[1] == "line_in":
