@@ -102,9 +102,7 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
 bindsym $mod+c exec --no-startup-id passmenu --type
 
-bindsym Print exec --no-startup-id srht -w
-bindsym shift+Print exec --no-startup-id srht -s
-bindsym Ctrl+Print exec --no-startup-id srht
+bindsym Print exec --no-startup-id srht -s
 
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioNext exec --no-startup-id mpc next
