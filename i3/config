@@ -120,20 +120,18 @@ bindsym XF86Launch8 exec --no-startup-id exec razer-profile +
 bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
 
 bar {
-	i3bar_command i3bar -t
-
 	status_command i3status -c ~/.i3/i3status.conf | i3status.py
 	tray_output HDMI-3
 	separator_symbol -
 
 	colors {
 		separator #484848
-		background #181818E5
+		background #181818
 		statusline #909090
-		focused_workspace #909090E5 #909090E5 #181818
-		active_workspace #484848E5 #484848E5 #181818
-		inactive_workspace #303030E5 #303030E5 #909090
-		urgent_workspace #C03030E5 #C03030E5 #909090
+		focused_workspace #909090 #909090 #181818
+		active_workspace #484848 #484848 #181818
+		inactive_workspace #303030 #303030 #909090
+		urgent_workspace #C03030 #C03030 #909090
 	}
 }
 
