@@ -12,14 +12,22 @@ source ~/.config/srht
 selection() {
     uploadme="/tmp/scrot.png"
 
-    g=$(slop -f%g -l -c 0.5,0.5,0.5,0.8 --nokeyboard)
+    maim --hidecursor -s -l -c 0.5,0.5,0.5,0.8 --nokeyboard "$uploadme" 2> "/dev/null"
     if [[ "$?" -ge 1 ]]; then
         echo "Selection cancelled."
         exit 1
     fi
-    maim --hidecursor -g $g "$uploadme" 2> "/dev/null"
 
     word=selection
+}
+
+# This function sets $file to an active window scrot
+active() {
+    uploadme="/tmp/scrot.png"
+
+    maim --hidecursor -i $(xdotool getactivewindow) "$uploadme"
+
+    word=active
 }
 
 # This function sets $file to your clipboard contents
@@ -108,11 +116,15 @@ if [[ "$#" -ge 1 ]]; then
             echo "  -h,   --help            print help and exit"
             echo "  -p,   --paste               upload your clipboard as text"
             echo "  -s,   --selection       upload selection scrot"
+            echo "  -w,   --active          upload active window scrot"
             echo "  -v,   --version         print version and exit"
             exit 0
             ;;
         -s|--selection)
             selection
+            ;;
+        -w|--active)
+            active
             ;;
         -v|--version)
             echo "srht 0.9.1"
