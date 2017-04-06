@@ -42,7 +42,7 @@ def transocde(infile):
 
     encode_cmd = (shlex.split("ffmpeg -y -i")
             + [infile]
-            + shlex.split("-map 0:a -c:a libvorbis -q 8")
+            + shlex.split("-map 0:a -c:a libopus -b:a 262144 -vbr on")
             + encode_args
             + [outfile])
 
