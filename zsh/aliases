@@ -9,6 +9,7 @@ alias cp="cp -r"
 alias rsync="rsync -rPh"
 alias v="nvim"
 alias rg="rg -S"
+alias pgrep="pgrep -l"
 
 alias verynice="schedtool -B -n 15 -e ionice -c3 "
 
