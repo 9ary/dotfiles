@@ -162,6 +162,7 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_rust_src_path = $HOME . '/source/rust/src'
 let g:ycm_python_binary_path = 'python'
+let g:ycm_server_python_interpreter = 'python2'
 
 " Shortcuts
 "nnoremap <silent> <F4> :wa<CR>:split<CR>:terminal make run<CR>
