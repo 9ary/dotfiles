@@ -3,11 +3,10 @@
 import json
 import locale
 import math
-import multiprocessing as mp
+import multiprocessing
 from pathlib import Path
-import shlex
 import shutil
-import subprocess as sp
+import subprocess
 import sys
 
 music_path = Path("~/music").expanduser()
@@ -17,7 +16,7 @@ max_sample_rate = 48000
 
 locale_encoding = locale.nl_langinfo(locale.CODESET)
 
-ffprobe_cmd = shlex.split("ffprobe -print_format json -show_streams")
+ffprobe_cmd = "ffprobe -print_format json -show_streams".split()
 def transocde(infile):
     outfile = Path(infile).with_suffix(".ogg")
     outfile = ogg_path / outfile.relative_to(music_path)
@@ -26,9 +25,11 @@ def transocde(infile):
     print(str(outfile.relative_to(ogg_path)))
     outfile = str(outfile)
 
-    probe = (sp.check_output(ffprobe_cmd + [infile], stderr=sp.DEVNULL)
-            .decode(locale_encoding))
-    probe = json.loads(probe)
+    probe = subprocess.run(ffprobe_cmd + [infile], 
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            check=True)
+    probe = json.loads(probe.stdout.decode(locale_encoding))
 
     encode_args = []
     for stream in probe["streams"]:
@@ -38,30 +39,34 @@ def transocde(infile):
             sample_rate = int(stream["sample_rate"])
             if sample_rate > max_sample_rate:
                 target_sample_rate = int(sample_rate / math.ceil(sample_rate / max_sample_rate))
-                encode_args += shlex.split("-ar:0:{} {}".format(index, target_sample_rate))
+                encode_args += f"-ar:0:{format} {target_sample_rate}".split()
 
-    encode_cmd = (shlex.split("ffmpeg -y -i")
-            + [infile]
-            + shlex.split("-map 0:a -c:a libopus -b:a 262144 -vbr on")
-            + encode_args
-            + [outfile])
+    encode_cmd = "ffmpeg -y -i".split() \
+            + [infile] \
+            + "-map 0:a -c:a libopus -b:a 262144 -vbr on".split() \
+            + encode_args \
+            + [outfile]
 
-    sp.call(encode_cmd, stderr=sp.DEVNULL, stdin=sp.DEVNULL)
-
-def inpath(path):
-    return str(music_path / path)
+    subprocess.run(encode_cmd,
+            stderr=subprocess.DEVNULL,
+            stdin=subprocess.DEVNULL,
+            check=True)
 
 def main():
-    indirs = list(map(inpath, sys.argv[1:]))
+    indirs = [music_path / p for p in sys.argv[1:]]
 
     if len(indirs) == 0:
         print("No input")
         return
 
-    enum_cmd = (["find"]
-            + indirs
-            + shlex.split("( -name *.flac -or -name *.ogg ) ! -iname *instr*"))
-    infiles = sp.check_output(enum_cmd).decode(locale_encoding).splitlines()
+    enum_cmd = ["find"] \
+            + indirs \
+            + "( -name *.flac -or -name *.ogg ) ! -iname *instr*".split()
+    infiles = subprocess.run(enum_cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            check=True)
+    infiles = infiles.stdout.decode(locale_encoding).splitlines()
 
     for infile in infiles:
         infile = Path(infile)
@@ -78,7 +83,7 @@ def main():
                     target = outdir / coverfile
                     shutil.copy(str(coverpath), str(target))
 
-    with mp.Pool() as p:
+    with multiprocessing.Pool() as p:
         p.map(transocde, infiles)
 
 main()
