@@ -60,20 +60,23 @@ def mpd_query():
         if status["state"] != "play":
             return True, None
         else:
-            return False, "{} - {}".format(artist, title)
+            return False, f"{artist} - {title}"
 
-def type_title(title):
-    subprocess.call(["xdotool", "keyup", "--clearmodifiers", "Return"])
-    subprocess.call(["xdotool", "type", "--clearmodifiers", "--delay", "0", "/me np: " + title])
-    subprocess.call(["xdotool", "key", "--clearmodifiers", "Return"])
+def copy_title(title):
+    title = f"/me np: {title}".encode()
+    #subprocess.run(["xsel", "-x"], check=True)
+    subprocess.run(["xsel", "-b"], input=title, check=True)
+    subprocess.run(["xdotool", "keyup", "--clearmodifiers", "Return"], check=True)
+    subprocess.run(["xdotool", "key", "--clearmodifiers", "ctrl+v"], check=True)
+    #subprocess.run(["xsel", "-x"], check=True)
 
 def main():
     mpd_pause, mpd_title = mpd_query()
     mpv_pause, mpv_title = mpv_query()
     if not mpd_pause and mpd_title is not None:
-        type_title(mpd_title)
+        copy_title(mpd_title)
         return
     if mpv_title is not None:
-        type_title(mpv_title)
+        copy_title(mpv_title)
 
 main()
