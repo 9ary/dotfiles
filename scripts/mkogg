@@ -39,7 +39,7 @@ def transocde(infile):
             sample_rate = int(stream["sample_rate"])
             if sample_rate > max_sample_rate:
                 target_sample_rate = int(sample_rate / math.ceil(sample_rate / max_sample_rate))
-                encode_args += f"-ar:0:{format} {target_sample_rate}".split()
+                encode_args += f"-ar:0:{index} {target_sample_rate}".split()
 
     encode_cmd = "ffmpeg -y -i".split() \
             + [infile] \
