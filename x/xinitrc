@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+setopt nobgnice
+
 xrdb ~/dotfiles/x/Xresources
 
 # Don't ring bells
