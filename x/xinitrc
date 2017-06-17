@@ -16,7 +16,7 @@ dunst &
 keynav &
 unclutter --timeout 2 --jitter 2 &
 chromium &
-killall -9 qbittorrent; qbittorrent &
+transmission-gtk -m &
 thunderbird &
 telegram-desktop &
 $TERMINAL -title "WeeChat" -e weechat &
