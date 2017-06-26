@@ -59,7 +59,7 @@ URxvt*scrollTtyKeypress: true
 URxvt*saveLines: 10000
 
 ! Font
-URxvt*font: xft:xos4 terminus:size=10
+URxvt*font: xft:xos4 terminus:size=9
 
 ! Notifications
 URxvt*urgentOnBell: true
@@ -83,7 +83,7 @@ URxvt*clipboard.pastecmd: xclip -o -selection clipboard
 XTerm*locale: true
 XTerm*metaSendsEscape: true
 XTerm*saveLines: 4096
-XTerm*faceName: xft:xos4 terminus:size=10
+XTerm*faceName: xft:xos4 terminus:size=9
 
 ! Horrible hack to force ranger to behave
 ! Dont do this at home kids
