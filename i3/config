@@ -105,7 +105,6 @@ bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
 bindsym $mod+c exec --no-startup-id passmenu --type
-bindsym $mod+t exec i3-msg [class="Transmission-gtk"] kill && transmission-gtk && i3-msg [class="Transmission-gtk"] focus
 
 bindsym Print exec --no-startup-id srht -w
 bindsym shift+Print exec --no-startup-id srht -s
@@ -161,6 +160,7 @@ for_window [class="trine2_linux_32bit"] fullscreen enable
 
 for_window [class="mpv"] move container to output HDMI-A-0
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
+for_window [class="Transmission-gtk"] focus
 
 # scripts
 exec_always --no-startup-id i3-dunst-autopause.py
