@@ -15,7 +15,7 @@ autocutsel -fork &
 dunst &
 keynav &
 unclutter --timeout 2 --jitter 2 &
-chromium &
+firefox-nightly &
 transmission-gtk -m &
 thunderbird &
 telegram-desktop &
