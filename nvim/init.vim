@@ -165,7 +165,7 @@ let g:ycm_server_python_interpreter = 'python2'
 
 " Shortcuts
 "nnoremap <silent> <F4> :wa<CR>:split<CR>:terminal make run<CR>
-vnoremap <silent> // y/<C-r>"<CR>
+vmap <silent> // y/<C-r>"<CR>
 vnoremap <C-y> "+y
 inoremap <C-p> <ESC>"+pa
 map <silent> <F2> :set invpaste<CR>
