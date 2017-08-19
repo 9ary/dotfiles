@@ -30,6 +30,7 @@ setopt histreduceblanks
 setopt histsavenodups
 
 # Random options
+REPORTTIME=5
 unsetopt beep
 unsetopt nomatch
 
