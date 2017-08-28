@@ -11,13 +11,11 @@ xset b off
 da2013ctl -w off -l off -f 1000 -r 2100
 
 xsettingsd &
-autocutsel -fork &
 dunst &
 keynav &
 unclutter --timeout 2 --jitter 2 &
 firefox-nightly &
 transmission-gtk -m &
-thunderbird &
 telegram-desktop &
 $TERMINAL -title "WeeChat" -e weechat &
 dropbox &
