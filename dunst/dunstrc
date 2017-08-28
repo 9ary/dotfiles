@@ -136,7 +136,7 @@
     startup_notification = false
     
     # dmenu path.
-    dmenu = dmenu -p dunst:
+    dmenu = rofi -dmenu -p dunst:
     
     # Browser for opening urls in context menu.
     browser = rifle
