@@ -19,6 +19,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -101,6 +102,11 @@ map <Leader>l <Plug>(easymotion-bd-jk)
 let g:ackprg = 'rg -S --vimgrep'
 nnoremap <Leader>a :Ack!<Space>
 vnoremap <silent> <Leader>a y:Ack!<Space><C-r>"<CR>
+
+" Startify
+let g:startify_session_dir = $HOME . '/.nvim/sessions'
+let g:startify_session_autoload = 1
+let g:startify_session_persistence = 1
 
 " Formatting
 set encoding=utf-8
