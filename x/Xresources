@@ -99,3 +99,4 @@ rofi.color-active: argb:0181818, #48c060, argb:0181818, #48c060, #181818
 rofi.color-urgent: argb:0181818, #c03030, argb:0181818, #c03030, #181818
 rofi.font: xos4 terminus 9
 rofi.m: -1
+rofi.case-sensitive: false
