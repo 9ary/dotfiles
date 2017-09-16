@@ -20,6 +20,7 @@ Plug 'cespare/vim-toml'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
+Plug 'sjl/gundo.vim'
 
 call plug#end()
 
@@ -60,6 +61,9 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
+
+" Gundo
+nnoremap <F9> :GundoToggle<CR>
 
 " Tagbar
 nmap <silent> <F8> :TagbarOpenAutoClose<CR>
