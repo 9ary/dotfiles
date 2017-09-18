@@ -1,7 +1,9 @@
 #!/bin/bash
 #
 # srht - Upload files/scrots/urls to sr.ht (rip pomf & uguu)
-# By onodera, modified by SirCmpwn
+# By onodera, modified by SirCmpwn and Streetwalrus
+
+set -e
 
 ## CONFIGURATION
 source ~/.config/srht
@@ -12,11 +14,8 @@ source ~/.config/srht
 selection() {
     uploadme="/tmp/scrot.png"
 
-    maim --hidecursor -s -l -c 0.5,0.5,0.5,0.8 --nokeyboard "$uploadme" 2> "/dev/null"
-    if [[ "$?" -ge 1 ]]; then
-        echo "Selection cancelled."
-        exit 1
-    fi
+    geometry=$(slop -l -c 0.5,0.5,0.5,0.8 --nokeyboard --tolerance 0)
+    shotgun -g $geometry "$uploadme"
 
     word=selection
 }
@@ -25,7 +24,7 @@ selection() {
 active() {
     uploadme="/tmp/scrot.png"
 
-    maim --hidecursor -i $(xdotool getactivewindow) "$uploadme"
+    shotgun -i $(xdotool getactivewindow) "$uploadme"
 
     word=active
 }
@@ -65,7 +64,7 @@ file() {
 desktop() {
     uploadme="/tmp/scrot.png"
 
-    maim --hidecursor "$uploadme"
+    shotgun "$uploadme"
 
     word=desktop
 }
