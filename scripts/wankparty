@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-# srht - Upload files/scrots/urls to sr.ht (rip pomf & uguu)
+# wankparty - Upload files/scrots/urls to wank.party (bye sr.ht)
 # By onodera, modified by SirCmpwn and Streetwalrus
 
 set -e
 
 ## CONFIGURATION
-source ~/.config/srht
+source ~/.config/wankparty
 
 ## FUNCTIONS
 
@@ -14,8 +14,8 @@ source ~/.config/srht
 selection() {
     uploadme="/tmp/scrot.png"
 
-    geometry=$(slop -l -c 0.5,0.5,0.5,0.8 --nokeyboard --tolerance 0)
-    shotgun -g $geometry "$uploadme"
+    sel=$(slop -k -lc 0.5,0.5,0.5,0.8 -n -f "-i %i -g %g")
+    shotgun $sel "$uploadme"
 
     word=selection
 }
@@ -110,13 +110,12 @@ feedback() {
 if [[ "$#" -ge 1 ]]; then
     case "$@" in
         -h|--help)
-            echo "usage: srht [options] [file/url]"
+            echo "usage: wankparty [options] [file/url]"
             echo "options:"
             echo "  -h,   --help            print help and exit"
             echo "  -p,   --paste               upload your clipboard as text"
             echo "  -s,   --selection       upload selection scrot"
             echo "  -w,   --active          upload active window scrot"
-            echo "  -v,   --version         print version and exit"
             exit 0
             ;;
         -s|--selection)
@@ -124,10 +123,6 @@ if [[ "$#" -ge 1 ]]; then
             ;;
         -w|--active)
             active
-            ;;
-        -v|--version)
-            echo "srht 0.9.1"
-            exit 0
             ;;
         -p|--paste)
             clipboard
