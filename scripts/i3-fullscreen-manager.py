@@ -14,11 +14,12 @@ def on_window(self, e):
         else:
             notify_unpause.show()
 
-    # Use the fsglobal mark to transparently handle windows needing to be
+    # Use the *fsglobal mark to transparently handle windows needing to be
     # fullscreened globally or not
-    if e.container.fullscreen_mode == 1 and "fsglobal" in e.container.marks:
+    #print(e.change, e.container.name, e.container.fullscreen_mode, e.container.focused, e.container.marks)
+    if e.container.fullscreen_mode == 1 and e.container.focused and "*fsglobal" in e.container.marks:
         e.container.command("fullscreen enable global")
-    if e.container.fullscreen_mode == 2 and "fsglobal" not in e.container.marks:
+    if e.container.fullscreen_mode == 2 and "*fsglobal" not in e.container.marks:
         e.container.command("fullscreen enable")
 
 conn = i3ipc.Connection()
