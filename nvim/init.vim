@@ -32,7 +32,6 @@ set scrolloff=5
 set ruler
 set backspace=2
 set cursorline
-set lazyredraw
 set hidden
 set wildmenu
 set wildmode=longest:full
