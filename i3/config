@@ -102,7 +102,7 @@ bindsym $mod+shift+q exit
 
 bindsym XF86Sleep exec --no-startup-id systemctl suspend
 
-bindsym $mod+r exec rofi -show run -modi run
+bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
 bindsym $mod+c exec --no-startup-id passmenu --type

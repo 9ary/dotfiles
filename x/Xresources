@@ -88,15 +88,3 @@ XTerm*faceName: xft:xos4 terminus:size=9
 ! Horrible hack to force ranger to behave
 ! Dont do this at home kids
 !XTerm*termName: rxvt-unicode-256color
-
-!
-! ROFI
-!
-rofi.color-enabled: true
-rofi.color-window: argb:e5181818, #909090, #909090
-rofi.color-normal: argb:0181818, #909090, argb:0303030, #909090, #181818
-rofi.color-active: argb:0181818, #48c060, argb:0181818, #48c060, #181818
-rofi.color-urgent: argb:0181818, #c03030, argb:0181818, #c03030, #181818
-rofi.font: xos4 terminus 9
-rofi.m: -1
-rofi.case-sensitive: false
