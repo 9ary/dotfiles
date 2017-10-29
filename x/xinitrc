@@ -2,6 +2,10 @@
 
 setopt nobgnice
 
+xrandr --setmonitor topleft 1920/304x1080/174+0+0 DisplayPort-0
+xrandr --setmonitor topright 1920/304x1080/174+1920+0 none
+xrandr --setmonitor bottom 3840/608x1080/174+0+1080 none
+
 xrdb ~/dotfiles/x/Xresources
 
 # Don't ring bells

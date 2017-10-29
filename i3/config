@@ -1,4 +1,4 @@
-font pango:xos4 Terminus 9
+font pango:xos4 Terminus 14
 
 set $mod Mod4
 floating_modifier $mod
@@ -50,12 +50,12 @@ bindsym $mod+d focus child
 
 # workspaces
 set $www 1:www
-workspace $www output HDMI-A-0
+workspace $www output topleft
 assign [class="Chromium"] $www
 assign [class="Firefox"] $www
 
 set $im 2:im
-workspace $im output DVI-I-1
+workspace $im output topright
 assign [title="WeeChat"] $im
 assign [class="TelegramDesktop"] $im
 
@@ -128,8 +128,26 @@ bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
 
 bar {
 	status_command i3status -c ~/.i3/i3status.conf | i3status.py
-	tray_output HDMI-A-0
+	output bottom
+	position bottom
+	tray_output bottom
 	separator_symbol -
+
+	colors {
+		separator #484848
+		background #181818
+		statusline #909090
+		focused_workspace #909090 #909090 #181818
+		active_workspace #484848 #484848 #181818
+		inactive_workspace #303030 #303030 #909090
+		urgent_workspace #C03030 #C03030 #909090
+	}
+}
+
+bar {
+	output topleft
+	output topright
+	position top
 
 	colors {
 		separator #484848
@@ -159,11 +177,13 @@ for_window [class="BattleBlockTheater"] fullscreen enable
 for_window [class="mupen64plus"] fullscreen enable
 for_window [class="trine2_linux_32bit"] fullscreen enable
 
-for_window [class="mpv"] move container to output HDMI-A-0
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
 for_window [class="Transmission-gtk"] focus
 for_window [class="Pinentry"] floating enable
-#for_window [class="mpv"] mark *fsglobal
+
+for_window [class="mpv"] move container to output bottom
+for_window [class="mpv"] mark *fsglobal
+for_window [class="Firefox"] mark *fsglobal
 
 # scripts
 exec_always --no-startup-id i3-fullscreen-manager.py
