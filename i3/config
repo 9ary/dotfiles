@@ -148,6 +148,7 @@ bar {
 	output $topleft
 	output $topright
 	position top
+	tray_output none
 
 	colors {
 		separator #484848
