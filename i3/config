@@ -170,13 +170,6 @@ client.urgent #C03030 #C03030 #909090 #C03030
 new_window pixel 2
 
 # window rules
-for_window [class="hl2_linux"] fullscreen enable
-for_window [class="bms_linux"] fullscreen enable
-for_window [class="portal2_linux"] fullscreen enable
-for_window [class="BattleBlockTheater"] fullscreen enable
-for_window [class="mupen64plus"] fullscreen enable
-for_window [class="trine2_linux_32bit"] fullscreen enable
-
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
 for_window [class="Transmission-gtk"] focus
 for_window [class="Pinentry"] floating enable
