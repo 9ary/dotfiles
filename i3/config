@@ -15,7 +15,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Focus with the mouse wheel
+# focus with the mouse wheel
 bindsym --release --border --whole-window --exclude-titlebar button4 focus
 bindsym --release --border --whole-window --exclude-titlebar button5 focus
 
@@ -122,21 +122,44 @@ bar {
 	separator_symbol -
 
 	colors {
-		separator #484848
-		background #181818
-		statusline #909090
-		focused_workspace #909090 #909090 #181818
-		active_workspace #484848 #484848 #181818
-		inactive_workspace #303030 #303030 #909090
-		urgent_workspace #C03030 #C03030 #909090
+		separator $color19
+		background $color0
+		statusline $color7
+		focused_workspace $color7 $color7 $color0
+		active_workspace $color19 $color19 $color0
+		inactive_workspace $color18 $color18 $color7
+		urgent_workspace $color1 $color1 $color7
 	}
 }
 
 # colors
-client.focused #909090 #909090 #181818 #909090
-client.focused_inactive #484848 #484848 #181818 #484848
-client.unfocused #303030 #303030 #909090 #303030
-client.urgent #C03030 #C03030 #909090 #C03030
+set_from_resource $color0 i3wm.color0 error
+set_from_resource $color1 i3wm.color1 error
+set_from_resource $color2 i3wm.color2 error
+set_from_resource $color3 i3wm.color3 error
+set_from_resource $color4 i3wm.color4 error
+set_from_resource $color5 i3wm.color5 error
+set_from_resource $color6 i3wm.color6 error
+set_from_resource $color7 i3wm.color7 error
+set_from_resource $color8 i3wm.color8 error
+set_from_resource $color9 i3wm.color9 error
+set_from_resource $color10 i3wm.color10 error
+set_from_resource $color11 i3wm.color11 error
+set_from_resource $color12 i3wm.color12 error
+set_from_resource $color13 i3wm.color13 error
+set_from_resource $color14 i3wm.color14 error
+set_from_resource $color15 i3wm.color15 error
+set_from_resource $color16 i3wm.color16 error
+set_from_resource $color17 i3wm.color17 error
+set_from_resource $color18 i3wm.color18 error
+set_from_resource $color19 i3wm.color19 error
+set_from_resource $color20 i3wm.color20 error
+set_from_resource $color21 i3wm.color21 error
+
+client.focused $color7 $color7 $color0 $color7
+client.focused_inactive $color19 $color19 $color0 $color19
+client.unfocused $color18 $color18 $color7 $color18
+client.urgent $color1 $color1 $color7 $color1
 
 # borders
 new_window pixel 4
