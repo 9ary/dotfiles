@@ -36,7 +36,6 @@ bindsym $mod+semicolon split h
 bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
-bindsym $mod+g mark --toggle *fsglobal
 
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -49,18 +48,8 @@ bindsym $mod+a focus parent
 bindsym $mod+d focus child
 
 # workspaces
-set $www 1:www
-workspace $www output $topleft
-assign [class="Chromium"] $www
-assign [class="Firefox"] $www
-
-set $im 2:im
-workspace $im output $topright
-assign [title="WeeChat"] $im
-assign [class="TelegramDesktop"] $im
-
-bindsym $mod+1 workspace $www
-bindsym $mod+2 workspace $im
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
 bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
@@ -73,8 +62,8 @@ bindsym $mod+n workspace next_on_output
 bindsym $mod+p workspace prev_on_output
 bindsym $mod+Escape workspace back_and_forth
 
-bindsym $mod+Shift+1 move container to workspace $www
-bindsym $mod+Shift+2 move container to workspace $im
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
@@ -128,27 +117,8 @@ bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
 
 bar {
 	status_command i3status -c ~/.i3/i3status.conf | i3status.py
-	output $bottom
 	position bottom
-	tray_output $bottom
 	separator_symbol -
-
-	colors {
-		separator #484848
-		background #181818
-		statusline #909090
-		focused_workspace #909090 #909090 #181818
-		active_workspace #484848 #484848 #181818
-		inactive_workspace #303030 #303030 #909090
-		urgent_workspace #C03030 #C03030 #909090
-	}
-}
-
-bar {
-	output $topleft
-	output $topright
-	position top
-	tray_output none
 
 	colors {
 		separator #484848
@@ -168,21 +138,18 @@ client.unfocused #303030 #303030 #909090 #303030
 client.urgent #C03030 #C03030 #909090 #C03030
 
 # borders
-new_window pixel 2
+new_window pixel 4
 
 # window rules
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
 for_window [class="Transmission-gtk"] focus
 for_window [class="Pinentry"] floating enable
 
-for_window [class="mpv"] move container to output $bottom
-for_window [class="mpv"] mark *fsglobal
-for_window [class="Firefox"] mark *fsglobal
-
 # scripts
 exec_always --no-startup-id i3-fullscreen-manager.py
 
-fake-outputs 1920x1080+0+0,1920x1080+1920+0,3840x1080+0+1080
-set $topleft fake-0
-set $topright fake-1
-set $bottom fake-2
+# applications
+exec i3-msg "workspace 1; append_layout $HOME/.i3/ws-1.json"
+exec $BROWSER
+exec $TERMINAL -name WeeChat -e weechat
+exec telegram-desktop

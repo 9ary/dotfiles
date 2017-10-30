@@ -1,0 +1,32 @@
+{
+    "percent": 0.67,
+    "swallows": [
+        {
+            "window_role": "^browser$"
+        }
+    ]
+}
+
+{
+    "layout": "splitv",
+    "percent": 0.33,
+    "type": "con",
+    "nodes": [
+        {
+            "swallows": [
+               {
+                  "class": "^URxvt$",
+                  "instance": "^WeeChat$"
+               }
+            ]
+        },
+        {
+            "swallows": [
+               {
+                  "class": "^TelegramDesktop$"
+               }
+            ]
+        }
+    ]
+}
+

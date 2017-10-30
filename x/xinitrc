@@ -14,10 +14,7 @@ xsettingsd &
 dunst &
 keynav &
 unclutter --timeout 2 --jitter 2 &
-firefox-nightly &
 transmission-gtk -m &
-telegram-desktop &
-$TERMINAL -title "WeeChat" -e weechat &
 dropbox &
 nm-applet &
 udiskie &
