@@ -95,6 +95,7 @@ bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
 bindsym $mod+c exec --no-startup-id passmenu --type
+bindsym $mod+b exec $BROWSER --new-window
 
 bindsym Print exec --no-startup-id wankparty -w
 bindsym shift+Print exec --no-startup-id wankparty -s
