@@ -1,8 +1,13 @@
 {
+    "layout": "stacked",
     "percent": 0.67,
-    "swallows": [
+    "nodes": [
         {
-            "window_role": "^browser$"
+            "swallows": [
+               {
+                  "window_role": "^browser$"
+               }
+            ]
         }
     ]
 }
@@ -10,7 +15,6 @@
 {
     "layout": "splitv",
     "percent": 0.33,
-    "type": "con",
     "nodes": [
         {
             "swallows": [
