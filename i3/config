@@ -111,7 +111,7 @@ bindsym shift+XF86AudioRaiseVolume exec --no-startup-id sonos.py +
 bindsym shift+XF86AudioLowerVolume exec --no-startup-id sonos.py -
 bindsym shift+XF86AudioMute exec --no-startup-id sonos.py mute
 bindsym shift+XF86AudioPlay exec --no-startup-id sonos.py line_in
-bindsym XF86Tools exec $TERMINAL -e ncmpcpp
+bindsym XF86Tools exec $TERMINAL -name mpdclient -geometry 120x60 -e ncmpcpp
 
 bindsym XF86Launch8 exec --no-startup-id exec razer-profile +
 bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
@@ -168,6 +168,7 @@ new_window pixel 4
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
 for_window [class="Transmission-gtk"] focus
 for_window [class="Pinentry"] floating enable
+for_window [instance="mpdclient"] floating enable
 
 # scripts
 exec_always --no-startup-id i3-fullscreen-manager.py
