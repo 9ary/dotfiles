@@ -16,7 +16,6 @@ keynav &
 unclutter --timeout 2 --jitter 2 &
 transmission-gtk -m &
 dropbox &
-nm-applet &
 udiskie &
 redshift-gtk &
 
