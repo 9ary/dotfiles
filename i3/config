@@ -89,8 +89,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+shift+q exit
 
-bindsym XF86Sleep exec --no-startup-id systemctl suspend
-
 bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger

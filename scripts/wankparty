@@ -69,6 +69,14 @@ desktop() {
     word=desktop
 }
 
+jpeg() {
+    uploadme2="/tmp/scrot.jpg"
+
+    convert -quality 90 "$uploadme" "$uploadme2"
+
+    echo $uploadme2
+}
+
 # This function uploads the $file
 upload() {
     # Send notification
@@ -138,11 +146,13 @@ if [[ "$#" -ge 1 ]]; then
     esac
 else
     desktop
+    jpeg
 fi
 
 
 if [[ "$#" -eq 0 ]]; then
     desktop
+    uploadme=$(jpeg)
 fi
 
 upload

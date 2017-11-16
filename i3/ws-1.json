@@ -17,6 +17,7 @@
     "percent": 0.33,
     "nodes": [
         {
+            "percent": 0.40,
             "swallows": [
                {
                   "class": "^URxvt$",
@@ -25,6 +26,7 @@
             ]
         },
         {
+            "percent": 0.60,
             "swallows": [
                {
                   "class": "^TelegramDesktop$"
