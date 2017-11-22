@@ -1,0 +1,30 @@
+clear
+
+ctrl+semicolon start,windowzoom
+Escape end
+
+a history-back
+
+h cut-left
+j cut-down
+k cut-up
+l cut-right
+ctrl+h cut-left
+ctrl+j cut-down
+ctrl+k cut-up
+ctrl+l cut-right
+shift+h move-left
+shift+j move-down
+shift+k move-up
+shift+l move-right
+c cursorzoom 300 300
+
+Return warp,click 1,end
+space warp,click 1,end
+shift+space warp,click 3,end
+ctrl+space warp,click 2,end
+
+w warp
+1 click 1
+2 click 2
+3 click 3

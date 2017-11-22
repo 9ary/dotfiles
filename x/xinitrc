@@ -12,7 +12,7 @@ da2013ctl -w off -l off -f 1000 -r 2100
 
 xsettingsd -c ~/dotfiles/x/xsettingsd &
 dunst -config ~/dotfiles/dunstrc &
-keynav &
+keynav "loadconfig ~/dotfiles/keynavrc" &
 unclutter --timeout 2 --jitter 2 &
 transmission-gtk -m &
 dropbox &
