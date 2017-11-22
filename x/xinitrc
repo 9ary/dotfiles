@@ -10,8 +10,8 @@ xset b off
 # Mouse settings
 da2013ctl -w off -l off -f 1000 -r 2100
 
-xsettingsd &
-dunst &
+xsettingsd -c ~/dotfiles/x/xsettingsd &
+dunst -config ~/dotfiles/dunstrc &
 keynav &
 unclutter --timeout 2 --jitter 2 &
 transmission-gtk -m &
@@ -20,6 +20,6 @@ udiskie &
 redshift-gtk &
 
 ~/.fehbg &
-compton &
-exec i3
+compton --config ~/dotfiles/compton.conf &
+exec i3 -c ~/dotfiles/i3/config
 

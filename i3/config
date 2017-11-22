@@ -116,7 +116,7 @@ bindsym XF86Launch8 exec --no-startup-id exec razer-profile +
 bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
 
 bar {
-	status_command i3status -c ~/.i3/i3status.conf | i3status.py
+	status_command i3status -c ~/dotfiles/i3/i3status.conf | ~/dotfiles/i3/status_wrapper.py
 	position bottom
 	separator_symbol -
 
@@ -170,10 +170,10 @@ for_window [class="Pinentry"] floating enable
 for_window [instance="mpdclient"] floating enable
 
 # scripts
-exec_always --no-startup-id i3-fullscreen-manager.py
+exec_always --no-startup-id ~/dotfiles/i3/fullscreen-manager.py
 
 # applications
-exec i3-msg "workspace 1; append_layout $HOME/.i3/ws-1.json"
+exec i3-msg "workspace 1; append_layout $HOME/dotfiles/i3/ws-1.json"
 exec $BROWSER
 exec $TERMINAL -name WeeChat -e weechat
 exec telegram-desktop

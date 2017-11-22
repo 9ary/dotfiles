@@ -104,7 +104,7 @@ pr_defaultcolor="${pr_nocolor}%{[48;5;18m%}"
   || pr_hostcolor=$(pr_fg 12)
 [[ $UID -eq 0 ]] && pr_usercolor=$(pr_fg 9) || pr_usercolor=$(pr_fg 10)
 
-pr_gitstatus() { [[ -n $NO_GIT_PROMPT ]] || gitstatus.py }
+pr_gitstatus() { [[ -n $NO_GIT_PROMPT ]] || ~/dotfiles/zsh/gitstatus.py }
 pr_cwd() {
   pwd | perl -p -e "s|^${HOME}|${pr_defaultcolor}~|;" \
     -e "s|/|$(pr_fg 9)/${pr_defaultcolor}|g;" \
