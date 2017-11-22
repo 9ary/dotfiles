@@ -65,7 +65,8 @@ URxvt*font: xft:xos4 terminus:size=14
 URxvt*urgentOnBell: true
 
 ! Perl extensions
-URxvt*perl-ext-common: default,url-select2,clipboard
+URxvt*perl-lib: /home/streetwalrus/dotfiles/urxvt-ext
+URxvt*perl-ext-common: default,url-select,clipboard
 
 ! url-select
 URxvt*url-select.button: 1
