@@ -85,6 +85,7 @@ bindsym $mod+Ctrl+Down move workspace to output down
 bindsym $mod+Ctrl+Up move workspace to output up
 bindsym $mod+Ctrl+Right move workspace to output right
 
+bindsym $mod+Shift+u exec xdotool getactivewindow windowunmap windowmap
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+shift+q exit
