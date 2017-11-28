@@ -16,6 +16,6 @@ dropbox &
 udiskie &
 
 ~/.fehbg &
-compton --config ~/dotfiles/compton.conf &
+vblank_mode=0 compton --config ~/dotfiles/compton.conf &
 exec i3 -c ~/dotfiles/i3/config
 
