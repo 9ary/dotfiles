@@ -14,7 +14,6 @@ unclutter --timeout 2 --jitter 2 &
 transmission-gtk -m &
 dropbox &
 udiskie &
-redshift-gtk &
 
 ~/.fehbg &
 compton --config ~/dotfiles/compton.conf &
