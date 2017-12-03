@@ -14,6 +14,7 @@ unclutter --timeout 2 --jitter 2 &
 transmission-qt &
 dropbox &
 udiskie &
+redshift-gtk &
 
 ~/.fehbg &
 vblank_mode=0 compton --config ~/dotfiles/compton.conf &
