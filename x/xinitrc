@@ -11,7 +11,7 @@ xsettingsd -c ~/dotfiles/x/xsettingsd &
 dunst -config ~/dotfiles/dunstrc &
 keynav "loadconfig ~/dotfiles/keynavrc" &
 unclutter --timeout 2 --jitter 2 &
-transmission-qt &
+transmission-gtk -m &
 dropbox &
 udiskie &
 redshift-gtk &
