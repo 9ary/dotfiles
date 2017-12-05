@@ -30,7 +30,7 @@ def color(c, bold = False):
 git_status = call_sp(cmd_git_status)
 
 branchline = git_status[0][3:]
-branch_new = "Initial commit on "
+branch_new = "No commits yet on "
 if branchline[:len(branch_new)] == branch_new:
     branchline = branchline[len(branch_new):]
 
