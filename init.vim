@@ -1,26 +1,34 @@
 call plug#begin("~/.nvim/bundle")
 
+" UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-sleuth'
 Plug 'chriskempson/base16-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'Valloric/YouCompleteMe'
-Plug 'majutsushi/tagbar'
-Plug 'mitsuhiko/vim-jinja'
-Plug 'tikhomirov/vim-glsl'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'chrisbra/SudoEdit.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-startify'
+
+" Ergonomics
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+
+" Programming helpers
+Plug 'tpope/vim-sleuth'
+Plug 'Valloric/YouCompleteMe'
+Plug 'majutsushi/tagbar'
+
+" Extra
+Plug 'chrisbra/SudoEdit.vim'
+Plug 'mileszs/ack.vim'
+Plug 'sjl/gundo.vim'
+
+" Language support
+Plug 'mitsuhiko/vim-jinja'
+Plug 'tikhomirov/vim-glsl'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
-Plug 'mileszs/ack.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'mhinz/vim-startify'
-Plug 'sjl/gundo.vim'
 
 call plug#end()
 
