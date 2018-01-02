@@ -3,19 +3,18 @@
 gdb /usr/bin/telegram-desktop << EOF
 tbreak _ZN3App9initMediaEv
 commands
-    set {char}_ZN3App9msgRadiusEv=0xB8
-    set {int}(_ZN3App9msgRadiusEv+1)=3
-    set {char}(_ZN3App9msgRadiusEv+5)=0xC3
+    # TODO find a way to change this value (it's in RO data)
+    #set {int}(_ZN2st20historyMessageRadiusE) = 3
 
     set {char}_ZN13TextUtilities21ReplaceStringWithCharERK13QLatin1String5QCharR16TextWithEntitiesb = 0xC3
 
     set {char}(_ZNK5Image10pixCircledEii+0) = 0x41
     set {char}(_ZNK5Image10pixCircledEii+1) = 0xB8
-    set {int}(_ZNK5Image10pixCircledEii+2) = 0x0F
+    set {int}(_ZNK5Image10pixCircledEii+2) = 0xFFFF
     set {char}(_ZNK5Image10pixCircledEii+6) = 0xB9
     set {int}(_ZNK5Image10pixCircledEii+7) = 0x01
     set {char}(_ZNK5Image10pixCircledEii+11) = 0xE9
-    set {int}(_ZNK5Image10pixCircledEii+12) = (_ZNK5Image10pixRoundedEii16ImageRoundRadiusN4base5flagsI16ImageRoundCornerEE) - (_ZNK5Image10pixCircledEii + 16)
+    set {int}(_ZNK5Image10pixCircledEii+12) = (_ZNK5Image10pixRoundedEii16ImageRoundRadiusN4base5flagsI8RectPartEE) - (_ZNK5Image10pixCircledEii + 16)
 end
 run
 detach
