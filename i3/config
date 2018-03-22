@@ -1,4 +1,5 @@
-font pango:xos4 Terminus 14
+set_from_resource $font i3wm.font error
+font $font
 
 set $mod Mod4
 floating_modifier $mod
@@ -113,8 +114,8 @@ bindsym shift+XF86AudioMute exec --no-startup-id sonos.py mute
 bindsym shift+XF86AudioPlay exec --no-startup-id sonos.py line_in
 bindsym XF86Tools exec $TERMINAL -name mpdclient -geometry 120x60 -e ncmpcpp
 
-bindsym XF86Launch8 exec --no-startup-id exec razer-profile +
-bindsym XF86Launch9 exec --no-startup-id exec razer-profile -
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 bar {
 	status_command i3status -c ~/dotfiles/i3/i3status.conf | ~/dotfiles/i3/status_wrapper.py

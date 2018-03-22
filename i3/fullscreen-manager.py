@@ -14,10 +14,13 @@ def on_window(self, e):
         else:
             notify_unpause.show()
 
+    screenrect = conn.get_outputs()[0]["rect"]
+    w, h = screenrect["width"], screenrect["height"]
+
     if e.container.floating.endswith("on") \
             and e.container.fullscreen_mode == 0 \
-            and e.container.window_rect.width == 3840 \
-            and e.container.window_rect.height == 2160:
+            and e.container.window_rect.width == w \
+            and e.container.window_rect.height == h:
         e.container.command("fullscreen enable")
 
 conn = i3ipc.Connection()
