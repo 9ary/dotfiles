@@ -11,11 +11,22 @@ xsettingsd -c ~/dotfiles/x/xsettingsd &
 dunst -config ~/dotfiles/dunstrc &
 keynav "loadconfig ~/dotfiles/keynavrc" &
 unclutter --timeout 2 --jitter 2 &
-transmission-gtk -m &
-dropbox &
 udiskie &
 
+if [[ "$HOST" == "Akatsuki" ]]; then
+    transmission-gtk -m &
+    dropbox &
+    vblank_mode=0 compton --config ~/dotfiles/compton.conf &
+fi
+
+if [[ "$HOST" == "Hitagi" ]]; then
+    libinput-gestures &
+    redshift-gtk &
+    nm-applet &
+    compton --config ~/dotfiles/compton.conf \
+        --vsync none --xrender-sync --xrender-sync-fence &
+fi
+
 ~/.fehbg &
-vblank_mode=0 compton --config ~/dotfiles/compton.conf &
 exec i3 -c ~/dotfiles/i3/config
 
