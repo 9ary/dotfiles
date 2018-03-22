@@ -6,10 +6,8 @@ Xft.lcdfilter: none
 
 #ifdef SRVR_Akatsuki
     #define TERM_FONT xft:xos4 terminus:size=14
-    i3wm.font: pango:xos4 Terminus 14
 #else
     #define TERM_FONT xft:xos4 terminus:size=10
-    i3wm.font: pango:xos4 Terminus 10
 #endif
 
 ! special

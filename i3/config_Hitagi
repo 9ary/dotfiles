@@ -1,0 +1,5 @@
+font pango:xos4 Terminus 10
+
+assign [window_role="browser"] 1
+assign [instance="WeeChat"] 2
+assign [class="TelegramDesktop"] 2

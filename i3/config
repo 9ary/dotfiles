@@ -1,5 +1,4 @@
-set_from_resource $font i3wm.font error
-font $font
+set $config ~/dotfiles/i3
 
 set $mod Mod4
 floating_modifier $mod
@@ -87,8 +86,8 @@ bindsym $mod+Ctrl+Up move workspace to output up
 bindsym $mod+Ctrl+Right move workspace to output right
 
 bindsym $mod+Shift+u exec xdotool getactivewindow windowunmap windowmap
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+c exec $config/genconfig && i3-msg reload
+bindsym $mod+Shift+r exec $config/genconfig && i3-msg restart
 bindsym $mod+shift+q exit
 
 bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
@@ -118,7 +117,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 bar {
-	status_command i3status -c ~/dotfiles/i3/i3status.conf | ~/dotfiles/i3/status_wrapper.py
+	status_command i3status -c $config/i3status_$(hostname).conf | $config/status_wrapper_$(hostname).py
 	position bottom
 	separator_symbol -
 
@@ -172,10 +171,9 @@ for_window [class="Pinentry"] floating enable
 for_window [instance="mpdclient"] floating enable
 
 # scripts
-exec_always --no-startup-id ~/dotfiles/i3/fullscreen-manager.py
+exec_always --no-startup-id $config/fullscreen-manager.py
 
 # applications
-exec i3-msg "workspace 1; append_layout $HOME/dotfiles/i3/ws-1.json"
 exec $BROWSER
 exec $TERMINAL -name WeeChat -e weechat
 exec telegram-desktop
