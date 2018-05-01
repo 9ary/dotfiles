@@ -4,12 +4,6 @@ Xft.hintstyle: hintfull
 Xft.rgba: none
 Xft.lcdfilter: none
 
-#ifdef SRVR_Akatsuki
-    #define TERM_FONT xft:xos4 terminus:size=14
-#else
-    #define TERM_FONT xft:xos4 terminus:size=10
-#endif
-
 ! special
 *foreground:   #909090
 *background:   #181818
@@ -47,11 +41,6 @@ Xft.lcdfilter: none
 *color20:      #787878
 *color21:      #a8a8a8
 
-
-!
-! URxvt
-!
-
 ! Background
 URxvt*fading: 0
 URxvt*depth: 32
@@ -65,7 +54,11 @@ URxvt*scrollTtyKeypress: true
 URxvt*saveLines: 10000
 
 ! Font
-URxvt*font: TERM_FONT
+#ifdef SRVR_Akatsuki
+URxvt*font: xft:xos4 terminus:size=14
+#else
+URxvt*font: xft:xos4 terminus:size=10
+#endif
 
 ! Notifications
 URxvt*urgentOnBell: true
@@ -86,12 +79,3 @@ URxvt*keysym.Shift-Control-C: perl:clipboard:copy
 URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 URxvt*clipboard.copycmd: xclip -i -selection clipboard
 URxvt*clipboard.pastecmd: xclip -o -selection clipboard
-
-XTerm*locale: true
-XTerm*metaSendsEscape: true
-XTerm*saveLines: 4096
-XTerm*faceName: TERM_FONT
-
-! Horrible hack to force ranger to behave
-! Dont do this at home kids
-!XTerm*termName: rxvt-unicode-256color
