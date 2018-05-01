@@ -6,6 +6,9 @@
             "swallows": [
                {
                   "window_role": "^browser$"
+               },
+               {
+                  "class": "^Nightly"
                }
             ]
         }
