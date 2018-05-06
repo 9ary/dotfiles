@@ -4,7 +4,7 @@ call plug#begin("~/.nvim/bundle")
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 
@@ -87,14 +87,12 @@ hi WarningMsg ctermbg=0
 hi YcmErrorSign ctermbg=18 ctermfg=1
 hi YcmWarningSign ctermbg=18 ctermfg=3
 
-" Indent guides
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesEven ctermbg=19
-hi IndentGuidesOdd ctermbg=8
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_default_mapping = 0
+" indentLine
+let g:indentLine_color_term = 20
+let g:indentLine_char = '│'
+let g:indentLine_concealcursor = ''
+let g:indentLine_indentLevel = 25
+let g:indentLine_fileType = ['vhdl']
 
 " SudoEdit.vim
 let g:SudoEdit_skip_wundo=0
@@ -130,7 +128,7 @@ au BufRead,BufNewFile *.md setlocal textwidth=120
 au BufRead,BufNewFile *.txt setlocal textwidth=120
 au BufRead,BufNewFile *.py setlocal textwidth=79
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
-set list listchars=tab:▏\ ,trail:•,precedes:…,extends:…
+set list listchars=tab:\ \ ,trail:•,precedes:…,extends:…
 xmap ga <Plug>(EasyAlign)
 
 " Line numbering
