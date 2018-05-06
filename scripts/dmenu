@@ -1,7 +1,12 @@
 #!/usr/bin/bash
 
-[[ "$HOSTNAME" == "Akatsuki" ]] && fontsize=14 || fontsize=10
-let height=fontsize+10
+if [ "$HOSTNAME" == "Akatsuki" ]; then
+    fontsize=16
+    height=28
+else
+    fontsize=10
+    height=20
+fi
 
 /usr/bin/dmenu -fn "xos4 terminus -$fontsize" -h $height -b -i -nb '#181818' -nf '#909090' -sb '#909090' -sf '#181818' -dim .65 -dc '#181818' $@
 
