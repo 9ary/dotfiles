@@ -16,7 +16,6 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 
 " Programming helpers
 Plug 'tpope/vim-sleuth'
-Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 
 " Extra
@@ -129,7 +128,6 @@ au BufRead,BufNewFile *.txt setlocal textwidth=120
 au BufRead,BufNewFile *.py setlocal textwidth=79
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
 set list listchars=tab:\ \ ,trail:•,precedes:…,extends:…
-xmap ga <Plug>(EasyAlign)
 
 " Line numbering
 set number
@@ -178,7 +176,6 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_rust_src_path = $HOME . '/source/rust/src'
 let g:ycm_python_binary_path = 'python'
-let g:ycm_server_python_interpreter = 'python2'
 
 " Shortcuts
 "nnoremap <silent> <F4> :wa<CR>:split<CR>:terminal make run<CR>
