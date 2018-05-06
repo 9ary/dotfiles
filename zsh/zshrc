@@ -111,7 +111,7 @@ pr_cwd() {
     -e "s|([^/%{}\n]*)\$|$(pr_fg 10)\1${pr_defaultcolor}|"
 }
 PROMPT='${pr_defaultcolor}${pr_usercolor}%n${pr_hostcolor}@%M${pr_defaultcolor}:$(pr_cwd)$(pr_gitstatus)%E
-${pr_nocolor}${pr_bold}$(pr_fg 15)>>> ${pr_nocolor}'
+${pr_nocolor}${pr_bold}$(pr_fg 15)$ ${pr_nocolor}'
 
 if [[ $TERM != linux && $TERM != fbterm ]]; then
   precmd() {

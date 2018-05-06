@@ -82,7 +82,7 @@ set background=dark
 let base16colorspace=256
 colorscheme base16-default-dark
 hi Normal ctermbg=NONE
-hi Comment ctermfg=20
+hi Comment ctermfg=20 cterm=italic
 hi WarningMsg ctermbg=0
 hi YcmErrorSign ctermbg=18 ctermfg=1
 hi YcmWarningSign ctermbg=18 ctermfg=3
