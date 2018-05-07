@@ -123,9 +123,9 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set cino=:0
-au BufRead,BufNewFile *.md setlocal textwidth=120
-au BufRead,BufNewFile *.txt setlocal textwidth=120
-au BufRead,BufNewFile *.py setlocal textwidth=79
+set textwidth=79
+au BufRead,BufNewFile *.md,*.txt setlocal textwidth=120
+let g:rust_recommended_style = 0
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
 set list listchars=tab:\ \ ,trail:•,precedes:…,extends:…
 
