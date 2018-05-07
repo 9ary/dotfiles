@@ -204,10 +204,12 @@ set directory=~/.nvim/backup
 
 " Vimpager
 if exists("vimpager")
-    set nonumber
-    set nornu
-    set laststatus=0
+    au BufRead * set scrolloff=0
+    set noruler
     set nocursorline
+    set colorcolumn=
+    set nonumber
+    au BufRead * set laststatus=0
     let g:airline#extensions#tabline#enabled = 0
 endif
 let vimpager_disable_ansiesc = 1
