@@ -16,7 +16,7 @@ if [[ "$HOST" == "Akatsuki" ]]; then
     dunst -config ~/dotfiles/dunstrc &
     transmission-gtk -m &
     dropbox &
-    vblank_mode=0 compton --config ~/dotfiles/compton.conf &
+    compton --config ~/dotfiles/compton.conf &
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then
@@ -26,7 +26,7 @@ if [[ "$HOST" == "Hitagi" ]]; then
     redshift-gtk &
     nm-applet &
     compton --config ~/dotfiles/compton.conf \
-        --vsync none --xrender-sync --xrender-sync-fence &
+        --xrender-sync --xrender-sync-fence &
 fi
 
 ~/.fehbg &
