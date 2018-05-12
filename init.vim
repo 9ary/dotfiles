@@ -214,5 +214,4 @@ if exists("vimpager")
     let g:airline#extensions#tabline#enabled = 0
 endif
 let vimpager_disable_ansiesc = 1
-let vimpager_passthrough = 0
 
