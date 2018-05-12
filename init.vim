@@ -73,6 +73,7 @@ nnoremap <F9> :GundoToggle<CR>
 
 " Tagbar
 nmap <silent> <F8> :TagbarOpenAutoClose<CR>
+let g:tagbar_sort = 0
 
 " Syntax coloring
 syntax enable
