@@ -14,7 +14,9 @@ source ~/.config/wankparty
 selection() {
     uploadme="/tmp/scrot.png"
 
-    sel=$(slop -k -lc 0.5,0.5,0.5,0.8 -n -f "-i %i -g %g")
+    # #4860d8
+    color="0.2823529411764706,0.3764705882352941,0.8470588235294118"
+    sel=$(slop -k -b 4 -c $color -n -f "-i %i -g %g")
     shotgun $sel "$uploadme"
 
     word=selection
