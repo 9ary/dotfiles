@@ -16,7 +16,6 @@ def wrap(j):
         mute = sonos.mute
         icon = "♫"
         if mute:
-            icon = "✕"
             block["color"] = status_wrapper.color_degraded
         block["full_text"] = "{} {}%".format(icon, volume)
         j.insert(0, block)
