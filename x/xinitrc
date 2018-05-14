@@ -16,7 +16,6 @@ if [[ "$HOST" == "Akatsuki" ]]; then
     dunst -config ~/dotfiles/dunstrc &
     transmission-gtk -m &
     dropbox &
-    compton --config ~/dotfiles/compton.conf &
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then
@@ -25,11 +24,10 @@ if [[ "$HOST" == "Hitagi" ]]; then
     libinput-gestures &
     redshift-gtk &
     nm-applet &
-    compton --config ~/dotfiles/compton.conf \
-        --xrender-sync --xrender-sync-fence &
 fi
 
 ~/.fehbg &
+compton --config ~/dotfiles/compton.conf &
 
 ~/dotfiles/i3/genconfig
 exec i3 -c /var/run/user/$UID/i3config
