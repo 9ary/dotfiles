@@ -6,9 +6,6 @@ commands
     # TODO find a way to change this value (it's in RO data)
     #set {int}(_ZN2st20historyMessageRadiusE) = 3
 
-    # Kill special character replacement
-    set {char}_ZN13TextUtilities21ReplaceStringWithCharERK13QLatin1String5QCharR16TextWithEntitiesb = 0xC3
-
     # Make all circled images into rounded rectangles
     set {char}(_ZNK5Image10pixCircledEii+0) = 0x41
     set {char}(_ZNK5Image10pixCircledEii+1) = 0xB8
