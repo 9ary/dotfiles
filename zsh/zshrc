@@ -1,13 +1,16 @@
-# Autocompletion
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+# Fancy matcher:
+# - behaves like vim's smartcase
+# - matches - and _ agnostically
+# - fuzzy matching (priority is given to exact matches)
 zstyle ':completion:*' matcher-list \
-  'm:{[:lower:]-_}={[:upper:]_-}' \
-  'r:[[:graph:]]||[[:graph:]]=** r:|=* m:{[:lower:]-_}={[:upper:]_-}'
+    'm:{[:lower:]-_}={[:upper:]_-}' \
+    'r:[[:graph:]]||[[:graph:]]=** r:|=* m:{[:lower:]-_}={[:upper:]_-}'
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' original true
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
@@ -18,124 +21,121 @@ zstyle ':completion:*' rehash true
 autoload -Uz compinit
 compinit
 
-# History
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 setopt histexpiredupsfirst
 setopt histfindnodups
-setopt histignorealldups
 setopt histreduceblanks
-setopt histsavenodups
 
-# Random options
 REPORTTIME=5
 unsetopt beep
 unsetopt nomatch
 
-# Keyboard stuffs
 bindkey -e
-
-# create a zkbd compatible hash;
-# to add other keys to this hash, see: man 5 terminfo
-typeset -A key
-
-key[Home]=${terminfo[khome]}
-key[End]=${terminfo[kend]}
-key[Insert]=${terminfo[kich1]}
-key[Delete]=${terminfo[kdch1]}
-key[Up]=${terminfo[kcuu1]}
-key[Down]=${terminfo[kcud1]}
-key[Left]=${terminfo[kcub1]}
-key[Right]=${terminfo[kcuf1]}
-key[PageUp]=${terminfo[kpp]}
-key[PageDown]=${terminfo[knp]}
-
-[[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"    beginning-of-line
-[[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"     end-of-line
-[[ -n "${key[Insert]}"   ]]  && bindkey  "${key[Insert]}"  overwrite-mode
-[[ -n "${key[Delete]}"   ]]  && bindkey  "${key[Delete]}"  delete-char
-[[ -n "${key[Up]}"       ]]  && bindkey  "${key[Up]}"      history-substring-search-up
-[[ -n "${key[Down]}"     ]]  && bindkey  "${key[Down]}"    history-substring-search-down
-bindkey "" history-substring-search-up
-bindkey "" history-substring-search-down
-[[ -n "${key[Left]}"     ]]  && bindkey  "${key[Left]}"    backward-char
-[[ -n "${key[Right]}"    ]]  && bindkey  "${key[Right]}"   forward-char
+function terminfo-bindkey() {
+    [[ -n "${terminfo[$1]}" ]] && bindkey "${terminfo[$1]}" $2
+}
+terminfo-bindkey khome beginning-of-line
+terminfo-bindkey kend end-of-line
+# Insert
+terminfo-bindkey kich1 overwrite-mode
+# Delete
+terminfo-bindkey kdch1 delete-char
+# Up
+terminfo-bindkey kcuu1 history-substring-search-up
+# Down
+terminfo-bindkey kcud1 history-substring-search-down
+bindkey  history-substring-search-up
+bindkey  history-substring-search-down
+unset -f terminfo-bindkey
 
 # Foreground suspended program
 # Taken from grml
 function grml-zsh-fg () {
-  if (( ${#jobstates} )); then
-    zle .push-input
-    [[ -o hist_ignore_space ]] && BUFFER=' ' || BUFFER=''
-    BUFFER="${BUFFER}fg"
-    zle .accept-line
-  fi
+    if (( ${#jobstates} )); then
+        zle .push-input
+        [[ -o hist_ignore_space ]] && BUFFER=' ' || BUFFER=''
+        BUFFER="${BUFFER}fg"
+        zle .accept-line
+    fi
 }
 zle -N grml-zsh-fg
-bindkey "" grml-zsh-fg
+bindkey  grml-zsh-fg
 
-# Finally, make sure the terminal is in application mode, when zle is
-# active. Only then are the values from $terminfo valid.
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-    function zle-line-init () {
-        printf '%s' "${terminfo[smkx]}"
-    }
-    function zle-line-finish () {
-        printf '%s' "${terminfo[rmkx]}"
-    }
-    zle -N zle-line-init
-    zle -N zle-line-finish
-fi
-
-# Aliases (duh)
-source ~/dotfiles/zsh/aliases
+alias ls='ls --color=auto -Fh'
+alias lsa='ls --color=auto -FAh'
+alias ll='ls --color=auto -Fhl'
+alias lla='ls --color=auto -FAhl'
+alias cp='cp -r'
+alias rsync='rsync -rPh'
+alias v='nvim'
+alias rg='rg -S'
+alias pgrep='pgrep -l'
+alias verynice='schedtool -B -n 15 -e ionice -c3'
 
 # Prompt
-setopt PROMPT_SUBST
-pr_fg() { echo -n "%{[38;5;${1}m%}" }
-pr_bold="%{[1m%}"
-pr_nocolor="%{$terminfo[sgr0]%}"
-pr_defaultcolor="${pr_nocolor}%{[48;5;18m%}"
-
-[[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]] \
-  && pr_hostcolor=$(pr_fg 13) \
-  || pr_hostcolor=$(pr_fg 12)
-[[ $UID -eq 0 ]] && pr_usercolor=$(pr_fg 9) || pr_usercolor=$(pr_fg 10)
-
-pr_gitstatus() { [[ -n $NO_GIT_PROMPT ]] || ~/dotfiles/zsh/gitstatus.py }
-pr_cwd() {
-  pwd | perl -p -e "s|^${HOME}|${pr_defaultcolor}~|;" \
-    -e "s|/|$(pr_fg 9)/${pr_defaultcolor}|g;" \
-    -e "s|([^/%{}\n]*)\$|$(pr_fg 10)\1${pr_defaultcolor}|"
+function pr_fg() {
+    echo -n "%{[38;5;${1}m%}"
 }
-PROMPT='${pr_defaultcolor}${pr_usercolor}%n${pr_hostcolor}@%M${pr_defaultcolor}:$(pr_cwd)$(pr_gitstatus)%E
-${pr_nocolor}${pr_bold}$(pr_fg 15)$ ${pr_nocolor}'
+pr_nofg='%{[39m%}'
+pr_bg='%{[48;5;18m%}'
+pr_nobg='%{[49m%}'
+pr_bold='%{[1m%}'
+pr_nobold='%{[21m%}'
+pr_reset='%{[0m'
 
-if [[ $TERM != linux && $TERM != fbterm ]]; then
-  precmd() {
-    echo -ne '\a' # BELL
-    print -Pn '\e]0;%n@%M:%~ - zsh\a' # Window title
-  }
-
-  preexec() {
-    print -Pn '\e]0;%n@%M:%~ - $1\a' # Window title
-  }
+if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+    pr_host="$(pr_fg 13)@$HOST"
+else
+    pr_host="$(pr_fg 12)@$HOST"
 fi
 
-los_root="$HOME/source/lineageos"
-function chpwd() {
-  if [ "${PWD#$los_root}" != "$PWD" ]
-  then
-    export PATH="$los_root/py2:$PATH"
-    typeset -U path
-  fi
+if [[ $UID -eq 0 ]]; then
+    pr_user="$(pr_fg 9)$USERNAME"
+else
+    pr_user="$(pr_fg 10)$USERNAME"
+fi
+
+function pr_pwd() {
+    echo -n "${pr_nofg}:"
+    # Format pwd like so:
+    # - $HOME becomes ~
+    # - slashes are colored red
+    # - the last component of the path is colored green
+    pwd | perl -p -e "s|^${HOME}|${pr_nofg}~|;" \
+        -e "s|/|$(pr_fg 9)/${pr_nofg}|g;" \
+        -e "s|([^/%{}\n]*)\$|$(pr_fg 10)\1${pr_nofg}|"
 }
+
+function pr_git() {
+    # Wrap SGR sequences with %{ and %} to avoid confusing zsh's length calculation
+    gitprompt-rs | perl -p -e 's/(\[.+?m)/%{\1%}/g'
+}
+
+# We enable promptsubst and use single quotes here so that the prompt gets expanded at runtime
+setopt promptsubst
+PROMPT='${pr_bg}${pr_user}${pr_host}$(pr_pwd)$(pr_git)%E
+${pr_nobg}${pr_bold}$(pr_fg 15)$ ${pr_reset}'
 
 # ls colors
 eval $(dircolors ~/dotfiles/zsh/dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Issue a BELL when a command is done
+function precmd() {
+    echo -ne '\a'
+}
+
+# Hack to force python2 in the lineage source tree
+los_root="$HOME/source/lineageos"
+function chpwd() {
+    if [[ "${PWD#$los_root}" != "$PWD" ]]; then
+        export PATH="$los_root/py2:$PATH"
+        typeset -U path
+    fi
+}
 
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
