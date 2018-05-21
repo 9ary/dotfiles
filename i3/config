@@ -113,8 +113,8 @@ bindsym shift+XF86AudioMute exec --no-startup-id sonos.sh x
 bindsym shift+XF86AudioPlay exec --no-startup-id sonos.sh l
 bindsym XF86Tools exec $TERMINAL -name mpdclient -geometry 120x60 -e ncmpcpp
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 bar {
 	status_command $config/status.py
