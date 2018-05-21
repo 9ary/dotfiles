@@ -1,3 +1,7 @@
+#ifdef SRVR_Akatsuki
+Xcursor.size: 32
+#endif
+
 Xft.antialias: 1
 Xft.hinting: 1
 Xft.hintstyle: hintfull
