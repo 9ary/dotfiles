@@ -107,17 +107,17 @@ bindsym XF86AudioPrev exec --no-startup-id mpc cdprev
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym shift+XF86AudioRaiseVolume exec --no-startup-id sonos.py +
-bindsym shift+XF86AudioLowerVolume exec --no-startup-id sonos.py -
-bindsym shift+XF86AudioMute exec --no-startup-id sonos.py mute
-bindsym shift+XF86AudioPlay exec --no-startup-id sonos.py line_in
+bindsym shift+XF86AudioRaiseVolume exec --no-startup-id sonos.sh +
+bindsym shift+XF86AudioLowerVolume exec --no-startup-id sonos.sh -
+bindsym shift+XF86AudioMute exec --no-startup-id sonos.sh x
+bindsym shift+XF86AudioPlay exec --no-startup-id sonos.sh l
 bindsym XF86Tools exec $TERMINAL -name mpdclient -geometry 120x60 -e ncmpcpp
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 bar {
-	status_command i3status -c $config/i3status_$(hostname).conf | $config/status_wrapper_$(hostname).py
+	status_command $config/status.py
 	position bottom
 	separator_symbol -
 
