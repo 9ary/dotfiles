@@ -24,6 +24,7 @@ if [[ "$HOST" == "Hitagi" ]]; then
     libinput-gestures &
     redshift-gtk &
     nm-applet &
+    blueman-applet &
 fi
 
 ~/.fehbg &
