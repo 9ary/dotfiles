@@ -9,10 +9,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 
 " Ergonomics
-Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
 
 " Programming helpers
 Plug 'tpope/vim-sleuth'
@@ -97,16 +94,6 @@ let g:indentLine_fileType = ['vhdl']
 " SudoEdit.vim
 let g:SudoEdit_skip_wundo=0
 
-" EasyMotion
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = "QWERTYUIOPASDFGHJKLZXCVBNM"
-let g:EasyMotion_do_mapping = 0
-map <Leader>w <Plug>(easymotion-bd-w)
-map <Leader>W <Plug>(easymotion-bd-W)
-map <Leader>e <Plug>(easymotion-bd-e)
-map <Leader>E <Plug>(easymotion-bd-E)
-map <Leader>l <Plug>(easymotion-bd-jk)
-
 " ack.vim/rg
 let g:ackprg = 'rg -S --vimgrep'
 nnoremap <Leader>a :Ack!<Space>
@@ -133,27 +120,14 @@ set list listchars=tab:\ \ ,trail:•,precedes:…,extends:…
 set number
 
 " Search
-set incsearch
-set hlsearch
 set ignorecase
 set smartcase
 
-function! s:config_easyfuzzymotion(...) abort
-    return extend(copy({
-    \   'converters': [incsearch#config#fuzzy#converter()],
-    \   'modules': [incsearch#config#easymotion#module()],
-    \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-    \   'is_expr': 0,
-    \   'is_stay': 1
-    \ }), get(a:, 1, {}))
-endfunction
-
-map / <Plug>(incsearch-easymotion-/)
-map ? <Plug>(incsearch-easymotion-?)
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-noremap <silent><expr> <Leader>/ incsearch#go(<SID>config_easyfuzzymotion())
-noremap <silent><expr> <Leader>? incsearch#go(<SID>config_easyfuzzymotion({'command': '?'}))
-map <Leader>g/ <Plug>(incsearch-fuzzy-stay)
+
+set hlsearch
 let g:incsearch#auto_nohlsearch = 1
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
@@ -178,7 +152,6 @@ let g:ycm_python_binary_path = 'python'
 
 " Shortcuts
 "nnoremap <silent> <F4> :wa<CR>:split<CR>:terminal make run<CR>
-vmap <silent> // y:call setreg('/', @", '')<CR>n
 vnoremap <C-y> "+y
 inoremap <C-p> <ESC>"+pa
 map <silent> <F2> :set invpaste<CR>
