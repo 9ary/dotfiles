@@ -15,6 +15,7 @@ import soco
 import mpd
 
 HOST = platform.node()
+INTERVAL = 1
 COLOR_GOOD = "#38C060"
 COLOR_DEGRADED = "#C0C030"
 COLOR_BAD = "#C03030"
@@ -173,8 +174,11 @@ async def main():
                 render.append(r)
         print_unbuffered(json.dumps(render) + ",")
 
+        if not updates:
+            await asyncio.sleep(INTERVAL)
+            continue
         done, pending = await asyncio.wait(
-                updates, timeout=1, return_when=asyncio.FIRST_COMPLETED)
+                updates, timeout=INTERVAL, return_when=asyncio.FIRST_COMPLETED)
         for update in done:
             # Updates return the block they belong to so it's easier to queue
             # a new update again
