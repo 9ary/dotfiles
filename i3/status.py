@@ -87,10 +87,9 @@ class Battery:
             elif k == "STATUS":
                 status = self.BATTERY_STATUSES.get(v, "?")
 
-        if charge is not None and charge_full_design is not None:
-            charge_rel = charge / charge_full_design
-        elif charge is not None and charge_full is not None:
-            charge_rel = charge / charge_full
+        full = charge_full_design or charge_full
+        if charge is not None and full is not None:
+            charge_rel = charge / full
 
         if not watts and discharge_rate is not None and voltage is not None:
             discharge_rate *= voltage
