@@ -48,6 +48,56 @@ class Time:
         return {"full_text": time.strftime(self.format)}
 
 
+class Battery:
+    BATTERY_STATUSES = {
+            "Charging": "C",
+            "Full": "F",
+            "Discharging": "B"}
+
+    def __init__(self, path):
+        self.file = open(path)
+
+    def render(self):
+        charge = None
+        charge_rel = None
+        charge_full = None
+        charge_full_design = None
+        watts = None
+        discharge_rate = None
+        voltage = None
+        status = "?"
+
+        self.file.seek(0, 0)
+        for line in self.file.readlines():
+            k, v = line.rstrip("\n").split("=", 1)
+            k = k.replace("POWER_SUPPLY_", "")
+            if k in ("ENERGY_NOW", "CHARGE_NOW"):
+                charge = int(v)
+            elif k.endswith("_FULL"):
+                charge_full = int(v)
+            elif k.endswith("_FULL_DESIGN"):
+                charge_full_design = int(v)
+            elif k == "CAPACITY":
+                charge_rel = int(v) / 100
+            elif k in ("POWER_NOW", "CURRENT_NOW"):
+                watts = k.startswith("POWER")
+                discharge_rate = int(v) / 1e6
+            elif k == "VOLTAGE_NOW":
+                voltage = int(v) / 1e3
+            elif k == "STATUS":
+                status = self.BATTERY_STATUSES.get(v, "?")
+
+        if charge is not None and charge_full_design is not None:
+            charge_rel = charge / charge_full_design
+        elif charge is not None and charge_full is not None:
+            charge_rel = charge / charge_full
+
+        if not watts and discharge_rate is not None and voltage is not None:
+            discharge_rate *= voltage
+
+        return {"full_text": f"{status}:{charge_rel:.0%} {discharge_rate:.2f}W"}
+
+
 class Mpd:
     def __init__(self):
         self.mpd = mpd.MpdClient()
@@ -143,6 +193,9 @@ if HOST == "Akatsuki":
             "GPU",
             "/sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0"
             "/hwmon/hwmon*/temp1_input"))
+
+if HOST == "Hitagi":
+    blocks.append(Battery("/sys/class/power_supply/BAT1/uevent"))
 
 blocks.append(Time("%a %d %b %H:%M"))
 
