@@ -96,8 +96,9 @@ let g:SudoEdit_skip_wundo=0
 
 " ack.vim/rg
 let g:ackprg = 'rg -S --vimgrep'
-nnoremap <Leader>a :Ack!<Space>
-vnoremap <silent> <Leader>a y:Ack!<Space><C-r>"<CR>
+nnoremap <Leader>a "zyiw:exe 'Ack! \\b'.@z.'\\b'<CR>
+nnoremap <Leader>A :Ack!<Space>
+vnoremap <silent> <Leader>a "zy:exe 'Ack! '.@z<CR>
 
 " Startify
 let g:startify_session_dir = $HOME . '/.nvim/sessions'
