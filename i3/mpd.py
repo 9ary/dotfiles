@@ -27,7 +27,7 @@ class MpdClient:
         return {k.lower(): v async for k, v in self._read_pairs()}
 
     async def _read_list(self):
-        return {pair[1] async for pair in self._read_pairs()}
+        return {v async for k, v in self._read_pairs()}
 
     def _command(self, cmd, parser):
         fut = asyncio.Future()
