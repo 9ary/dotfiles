@@ -9,6 +9,7 @@ import platform
 import sys
 import time
 
+import alsaaudio
 import psutil
 import soco
 
@@ -19,6 +20,13 @@ INTERVAL = 1
 COLOR_GOOD = "#38C060"
 COLOR_DEGRADED = "#C0C030"
 COLOR_BAD = "#C03030"
+
+
+def await_fd(fd, loop=asyncio.get_event_loop()):
+    fut = asyncio.Future()
+    fut.add_done_callback(lambda: loop.remove_reader(fd))
+    loop.add_reader(fd, fut.set_result, None)
+    return fut
 
 
 class CpuLoad:
@@ -95,6 +103,26 @@ class Battery:
             discharge_rate *= voltage
 
         return {"full_text": f"{status}:{charge_rel:.0%} {discharge_rate:.2f}W"}
+
+
+class AlsaVolume:
+    def __init__(self):
+        self.mixer = alsaaudio.Mixer()
+        self.pollfd = self.mixer.polldescriptors()[0][0]
+        self.volume = None
+
+    async def update(self):
+        await await_fd(self.pollfd)
+        self.mixer.handleevents()
+        self.volume = self.mixer.getvolume()[0]
+        self.mute = bool(self.mixer.getmute()[0])
+        return self
+
+    def render(self):
+        if self.volume is not None:
+            return {
+                    "full_text": f"♫ {self.volume}%",
+                    "color": COLOR_DEGRADED if self.mute else None}
 
 
 class Mpd:
@@ -179,6 +207,8 @@ class SonosVolume:
 
 
 blocks = []
+
+blocks.append(AlsaVolume())
 
 if HOST == "Akatsuki":
     blocks.append(SonosVolume("La Grotte"))
