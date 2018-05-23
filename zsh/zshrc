@@ -128,15 +128,6 @@ function precmd() {
     echo -ne '\a'
 }
 
-# Hack to force python2 in the lineage source tree
-los_root="$HOME/source/lineageos"
-function chpwd() {
-    if [[ "${PWD#$los_root}" != "$PWD" ]]; then
-        export PATH="$los_root/py2:$PATH"
-        typeset -U path
-    fi
-}
-
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
