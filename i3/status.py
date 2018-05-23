@@ -244,7 +244,10 @@ async def main():
         except AttributeError:
             pass
 
-    header = {"version": 1}
+    header = {
+            "version": 1,
+            "stop_signal": 0,
+            "cont_signal": 0}
     print_unbuffered(json.dumps(header), "[")
 
     while True:
