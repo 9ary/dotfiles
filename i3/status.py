@@ -159,16 +159,26 @@ class SonosVolume:
 
     def __init__(self, zone):
         self.volume = None
-        self.device = soco.discovery.by_name(zone)
+        self.zone = zone
+        self.device = None
+        asyncio.get_event_loop().create_task(self._connect())
+
+    async def _connect(self):
+        while True:
+            try:
+                self.device = soco.discovery.by_name(self.zone)
+                break
+            except OSError:
+                await asyncio.sleep(1)
         self.rendering_control = self.device.renderingControl.subscribe(
                 auto_renew=True)
         self.executor = ThreadPoolExecutor(max_workers=1)
         self.volume_server = asyncio.get_event_loop().create_task(
                 asyncio.start_unix_server(
-                    self.volume_client_connnected,
+                    self._volume_client_connnected,
                     path=f"/run/user/{os.getuid()}/sonos_volume"))
 
-    async def volume_client_connnected(self, r, w):
+    async def _volume_client_connnected(self, r, w):
         data = await r.read()
         for byte in data:
             if byte == ord("+"):
@@ -185,6 +195,10 @@ class SonosVolume:
         w.write_eof()
 
     async def update(self):
+        if self.device is None:
+            await asyncio.sleep(1)
+            return self
+
         event = await asyncio.get_event_loop().run_in_executor(
                 self.executor, self.rendering_control.events.get)
         volume = event.variables.get("volume")
