@@ -168,7 +168,7 @@ class SonosVolume:
             try:
                 self.device = soco.discovery.by_name(self.zone)
                 break
-            except OSError:
+            except (OSError, TypeError):
                 await asyncio.sleep(1)
         self.rendering_control = self.device.renderingControl.subscribe(
                 auto_renew=True)
