@@ -10,6 +10,7 @@ Plug 'mhinz/vim-startify'
 
 " Ergonomics
 Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/vim-asterisk'
 
 " Programming helpers
 Plug 'tpope/vim-sleuth'
@@ -122,19 +123,18 @@ set number
 " Search
 set ignorecase
 set smartcase
-
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+let g:incsearch#consistent_n_direction = 1
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-
-set hlsearch
-let g:incsearch#auto_nohlsearch = 1
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+map *  <Plug>(incsearch-nohl)<Plug>(asterisk-*)
+map #  <Plug>(incsearch-nohl)<Plug>(asterisk-g*)
+map g* <Plug>(incsearch-nohl)<Plug>(asterisk-#)
+map g# <Plug>(incsearch-nohl)<Plug>(asterisk-g#)
 
 " Undos
 set undofile
