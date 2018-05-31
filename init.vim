@@ -64,7 +64,7 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Misc bindings
 let mapleader=','
 vnoremap <C-y> "+y
-map <silent> <F2> :set invpaste<CR>
+nnoremap <silent> <F2> :set invpaste<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -96,7 +96,7 @@ let g:airline#extensions#tabline#show_tab_type=0
 nnoremap <F9> :GundoToggle<CR>
 
 " Tagbar
-nmap <silent> <F8> :TagbarOpenAutoClose<CR>
+nnoremap <silent> <F8> :TagbarOpenAutoClose<CR>
 let g:tagbar_sort=0
 
 " indentLine
