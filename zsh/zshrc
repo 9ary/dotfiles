@@ -75,7 +75,7 @@ alias rg='rg -S'
 alias pgrep='pgrep -l'
 alias verynice='schedtool -B -n 15 -e ionice -c3'
 function man() {
-    nvim -c "Man $1 $2" -c 'silent only'
+    nvim -c "Man $1 $2 | only"
 }
 
 # Prompt
