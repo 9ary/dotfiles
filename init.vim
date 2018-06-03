@@ -24,6 +24,18 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 
+" Code completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Shougo/neopairs.vim'
+
+" Local plugin
+Plug '~/dotfiles/nvim'
+
 call plug#end()
 
 " General settings
@@ -120,11 +132,31 @@ map #  <Plug>(is-nohl)<Plug>(asterisk-#)
 map g* <Plug>(is-nohl)<Plug>(asterisk-g*)
 map g# <Plug>(is-nohl)<Plug>(asterisk-g#)
 
-" YouCompleteMe
-let g:ycm_confirm_extra_conf=0
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_complete_in_comments=1
-let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_python_binary_path='python'
-hi YcmErrorSign ctermbg=18 ctermfg=1
-hi YcmWarningSign ctermbg=18 ctermfg=3
+" Deoplete
+let g:deoplete#enable_at_startup=1
+let g:deoplete#sources#jedi#show_docstring=1
+autocmd InsertLeave * silent! pclose!
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+call deoplete#custom#source('LanguageClient', 'converters', [
+    \ 'converter_lc_signature',
+    \ 'converter_remove_overlap',
+    \ 'converter_truncate_abbr',
+    \ 'converter_truncate_menu',
+    \ ])
+inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
+inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
+
+" LanguageClient
+let g:LanguageClient_serverCommands={
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+let g:LanguageClient_diagnosticsDisplay={}
+for i in range(1, 4)
+    let g:LanguageClient_diagnosticsDisplay[i]={ 'signText': '>>' }
+endfor
+hi ALEErrorSign ctermbg=18 ctermfg=1
+hi ALEWarningSign ctermbg=18 ctermfg=3
+hi ALEInfoSign ctermbg=18 ctermfg=4
+hi ALEError ctermfg=1
+hi ALEWarning ctermfg=3
+hi ALEInfo ctermfg=4
