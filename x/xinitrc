@@ -11,6 +11,7 @@ xsettingsd -c ~/dotfiles/x/xsettingsd &
 keynav "loadconfig ~/dotfiles/keynavrc" &
 unclutter --timeout 2 --jitter 2 &
 udiskie &
+redshift-gtk &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
     dunst -config ~/dotfiles/dunstrc &
@@ -22,7 +23,6 @@ if [[ "$HOST" == "Hitagi" ]]; then
     dunst -config ~/dotfiles/dunstrc \
         -geometry "300x5-20+20" -font "Ubuntu Mono 11.5" &
     libinput-gestures &
-    redshift-gtk &
     nm-applet &
     blueman-applet &
 fi
