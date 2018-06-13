@@ -135,6 +135,10 @@ map g# <Plug>(is-nohl)<Plug>(asterisk-g#)
 let g:deoplete#enable_at_startup=1
 let g:deoplete#sources#jedi#show_docstring=1
 autocmd InsertLeave * silent! pclose!
+autocmd WinEnter * if &previewwindow
+    \| setlocal wrap linebreak
+    \| resize 12
+    \| endif
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 call deoplete#custom#source('LanguageClient', 'converters', [
     \ 'converter_lc_signature',
