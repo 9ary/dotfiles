@@ -15,7 +15,6 @@ Plug 'mileszs/ack.vim'
 " Misc
 Plug 'tpope/vim-sleuth'
 Plug 'majutsushi/tagbar'
-Plug 'chrisbra/SudoEdit.vim'
 Plug 'sjl/gundo.vim'
 
 " Language support
