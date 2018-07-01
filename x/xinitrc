@@ -7,7 +7,6 @@ xrdb ~/dotfiles/x/Xresources
 # Don't ring bells
 xset b off
 
-xsettingsd -c ~/dotfiles/x/xsettingsd &
 keynav "loadconfig ~/dotfiles/keynavrc" &
 unclutter --timeout 2 --jitter 2 &
 udiskie &
