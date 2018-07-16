@@ -8,47 +8,36 @@ Xft.hintstyle: hintfull
 Xft.rgba: none
 Xft.lcdfilter: none
 
-! special
-*foreground:   #909090
-*background:   #181818
-*cursorColor:  #909090
-! black
-*color0:       #181818
-*color8:       #606060
-! red
-*color1:       #c03030
-*color9:       #d84848
-! green
-*color2:       #48c060
-*color10:      #60d878
-! yellow
-*color3:       #c0c030
-*color11:      #d8d848
-! blue
-*color4:       #4860d8
-*color12:      #6078d8
-! magenta
-*color5:       #c03090
-*color13:      #d848a8
-! cyan
-*color6:       #30c0a8
-*color14:      #48d8c0
-! white
-*color7:       #909090
-*color15:      #c0c0c0
-! base16 extra colors
-*color16:      #f09090
-*color17:      #c06030
-! base16 extra gray shades
-*color18:      #303030
-*color19:      #484848
-*color20:      #787878
-*color21:      #a8a8a8
+*foreground: #85A1B2
+*background: #262E33
+*cursorColor: #85A1B2
+*color0: #262E33
+*color1: #D86161
+*color2: #93D861
+*color3: #D8D861
+*color4: #61ABD8
+*color5: #D8619D
+*color6: #61D8D8
+*color7: #85A1B2
+*color8: #5F737F
+*color9: #FF5959
+*color10: #9EFF59
+*color11: #FFFF59
+*color12: #59BFFF
+*color13: #FF59AC
+*color14: #59FFFF
+*color15: #ACCFE5
+*color16: #D8829E
+*color17: #D88561
+*color18: #39454C
+*color19: #4C5C66
+*color20: #728A99
+*color21: #99B8CC
 
 ! Background
 URxvt*fading: 0
 URxvt*depth: 32
-URxvt*background: [90]#181818
+!URxvt*background: [90]#85A1B2
 
 ! Scrolling stuffs
 URxvt*scrollBar: false

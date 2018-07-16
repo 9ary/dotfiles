@@ -1,0 +1,80 @@
+# Very simple script to generate Xresources colors
+
+import colorsys
+
+base16 = []
+
+ramp_hue = 203 / 360
+ramp_sat = .25
+for i in range(8):
+    v = (i + 2) / 10
+    base16.append(colorsys.hsv_to_rgb(ramp_hue, ramp_sat, v))
+
+colors_sat = .55
+colors_v = .85
+colors = [
+    0,  # Red
+    (340 / 360, .4, colors_v),  # Orange/salmon
+    60,  # Yellow
+    95,  # Green
+    180,  # Cyan
+    203,  # Blue
+    330,  # Magenta/pink
+    18,  # Brown/orange
+]
+for c in colors:
+    if isinstance(c, tuple):
+        base16.append(colorsys.hsv_to_rgb(*c))
+    else:
+        base16.append(colorsys.hsv_to_rgb(c / 360, colors_sat, colors_v))
+
+bright_sat = .65
+bright_v = 1
+for c in colors:
+    if isinstance(c, tuple):
+        base16.append(colorsys.hsv_to_rgb(*c))
+    else:
+        base16.append(colorsys.hsv_to_rgb(c / 360, bright_sat, bright_v))
+
+ansi_map = [
+    0x00,
+    0x08,
+    0x0B,
+    0x0A,
+    0x0D,
+    0x0E,
+    0x0C,
+    0x05,
+    0x03,
+    0x08 + 8,
+    0x0B + 8,
+    0x0A + 8,
+    0x0D + 8,
+    0x0E + 8,
+    0x0C + 8,
+    0x07,
+    0x09,
+    0x0F,
+    0x01,
+    0x02,
+    0x04,
+    0x06,
+]
+fg_map = ansi_map[7]
+bg_map = ansi_map[0]
+cur_map = fg_map
+
+
+def base16_to_rgb(i):
+    c = base16[i]
+    r = int(c[0] * 255)
+    g = int(c[1] * 255)
+    b = int(c[2] * 255)
+    return f"#{r:0{2}X}{g:0{2}X}{b:0{2}X}"
+
+
+print(f"*foreground: {base16_to_rgb(fg_map)}")
+print(f"*background: {base16_to_rgb(bg_map)}")
+print(f"*cursorColor: {base16_to_rgb(cur_map)}")
+for n, c in enumerate(ansi_map):
+    print(f"*color{n}: {base16_to_rgb(c)}")

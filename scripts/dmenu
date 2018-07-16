@@ -8,5 +8,5 @@ else
     height=20
 fi
 
-/usr/bin/dmenu -fn "xos4 terminus -$fontsize" -h $height -b -i -nb '#181818' -nf '#909090' -sb '#909090' -sf '#181818' -dim .65 -dc '#181818' $@
+/usr/bin/dmenu -fn "xos4 terminus -$fontsize" -h $height -b -i -nb '#262E33' -nf '#85A1B2' -sb '#85A1B2' -sf '#262E33' -dim .65 -dc '#262E33' $@
 

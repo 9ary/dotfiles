@@ -17,9 +17,9 @@ import mpd
 
 HOST = platform.node()
 INTERVAL = 1
-COLOR_GOOD = "#38C060"
-COLOR_DEGRADED = "#C0C030"
-COLOR_BAD = "#C03030"
+COLOR_GOOD = "#93D861"
+COLOR_DEGRADED = "#D8D861"
+COLOR_BAD = "#D86161"
 
 
 def await_fd(fd, loop=asyncio.get_event_loop()):
