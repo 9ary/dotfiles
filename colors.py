@@ -11,30 +11,24 @@ for i in range(8):
     base16.append(colorsys.hsv_to_rgb(ramp_hue, ramp_sat, v))
 
 colors_sat = .55
-colors_v = .85
+colors_v = .7
 colors = [
     0,  # Red
-    (340 / 360, .4, colors_v),  # Orange/salmon
+    18,  # Orange/salmon
     60,  # Yellow
     95,  # Green
     180,  # Cyan
     203,  # Blue
     330,  # Magenta/pink
-    18,  # Brown/orange
+    34,  # Brown/orange
 ]
 for c in colors:
-    if isinstance(c, tuple):
-        base16.append(colorsys.hsv_to_rgb(*c))
-    else:
-        base16.append(colorsys.hsv_to_rgb(c / 360, colors_sat, colors_v))
+    base16.append(colorsys.hsv_to_rgb(c / 360, colors_sat, colors_v))
 
 bright_sat = .65
-bright_v = 1
+bright_v = .8
 for c in colors:
-    if isinstance(c, tuple):
-        base16.append(colorsys.hsv_to_rgb(*c))
-    else:
-        base16.append(colorsys.hsv_to_rgb(c / 360, bright_sat, bright_v))
+    base16.append(colorsys.hsv_to_rgb(c / 360, bright_sat, bright_v))
 
 ansi_map = [
     0x00,

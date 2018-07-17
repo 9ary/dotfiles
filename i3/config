@@ -156,9 +156,9 @@ set_from_resource $color19 i3wm.color19 error
 set_from_resource $color20 i3wm.color20 error
 set_from_resource $color21 i3wm.color21 error
 
-client.focused $color7 $color7 $color0 $color7
-client.focused_inactive $color19 $color19 $color0 $color19
-client.unfocused $color18 $color18 $color7 $color18
+client.focused $color19 $color19 $color7 $color19
+client.focused_inactive $color0 $color0 $color20 $color0
+client.unfocused $color0 $color0 $color20 $color0
 client.urgent $color1 $color1 $color7 $color1
 
 # borders

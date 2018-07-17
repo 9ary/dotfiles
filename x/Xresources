@@ -8,31 +8,7 @@ Xft.hintstyle: hintfull
 Xft.rgba: none
 Xft.lcdfilter: none
 
-*foreground: #85A1B2
-*background: #262E33
-*cursorColor: #85A1B2
-*color0: #262E33
-*color1: #D86161
-*color2: #93D861
-*color3: #D8D861
-*color4: #61ABD8
-*color5: #D8619D
-*color6: #61D8D8
-*color7: #85A1B2
-*color8: #5F737F
-*color9: #FF5959
-*color10: #9EFF59
-*color11: #FFFF59
-*color12: #59BFFF
-*color13: #FF59AC
-*color14: #59FFFF
-*color15: #ACCFE5
-*color16: #D8829E
-*color17: #D88561
-*color18: #39454C
-*color19: #4C5C66
-*color20: #728A99
-*color21: #99B8CC
+#include "colors.xresources"
 
 ! Background
 URxvt*fading: 0
