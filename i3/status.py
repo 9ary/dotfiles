@@ -102,7 +102,10 @@ class Battery:
         if not watts and discharge_rate is not None and voltage is not None:
             discharge_rate *= voltage
 
-        return {"full_text": f"{status}:{charge_rel:.0%} {discharge_rate:.2f}W"}
+        return {
+                "full_text":
+                        f"{status}:{charge_rel:.0%} {discharge_rate:.2f}W",
+                "color": COLOR_BAD if charge_rel <= .2 else None}
 
 
 class AlsaVolume:
