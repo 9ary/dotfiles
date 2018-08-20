@@ -68,7 +68,7 @@ def base16_to_rgb(i):
 
 
 print(f"*foreground: {base16_to_rgb(fg_map)}")
-print(f"*background: {base16_to_rgb(bg_map)}")
+print(f"*background: [background_opacity]{base16_to_rgb(bg_map)}")
 print(f"*cursorColor: {base16_to_rgb(cur_map)}")
 for n, c in enumerate(ansi_map):
     print(f"*color{n}: {base16_to_rgb(c)}")

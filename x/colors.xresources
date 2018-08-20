@@ -1,5 +1,5 @@
 *foreground: #85A1B2
-*background: #262E33
+*background: [background_opacity]#262E33
 *cursorColor: #85A1B2
 *color0: #262E33
 *color1: #B25050

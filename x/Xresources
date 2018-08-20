@@ -8,12 +8,12 @@ Xft.hintstyle: hintfull
 Xft.rgba: none
 Xft.lcdfilter: none
 
+#define background_opacity 95
 #include "colors.xresources"
 
 ! Background
 URxvt*fading: 0
 URxvt*depth: 32
-URxvt*background: [90]#262E33
 
 ! Scrolling stuffs
 URxvt*scrollBar: false
