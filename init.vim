@@ -30,7 +30,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-Plug 'Shougo/neopairs.vim'
 
 " Local plugin
 Plug '~/dotfiles/nvim'
@@ -137,7 +136,6 @@ let g:deoplete#sources#jedi#show_docstring=1
 autocmd InsertLeave * silent! pclose!
 autocmd WinEnter * if &previewwindow
     \| setlocal wrap linebreak
-    \| resize 12
     \| endif
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 call deoplete#custom#source('LanguageClient', 'converters', [
