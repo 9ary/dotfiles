@@ -16,7 +16,7 @@ commands
     set {int}(_ZNK5Image10pixCircledEii+12) = (_ZNK5Image10pixRoundedEii16ImageRoundRadiusN4base5flagsI8RectPartEE) - (_ZNK5Image10pixCircledEii + 16)
 
     # Make pins not notify by default
-    set {int}(_ZN13PinMessageBox7prepareEv+616) = 0x0
+    set {int}(_ZN13PinMessageBox7prepareEv+671) = 0x0
 end
 run
 detach
