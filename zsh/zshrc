@@ -110,14 +110,9 @@ function pr_pwd() {
         -e "s|([^/%{}\n]*)\$|$(pr_fg 10)\1${pr_nofg}|"
 }
 
-function pr_git() {
-    # Wrap SGR sequences with %{ and %} to avoid confusing zsh's length calculation
-    gitprompt-rs | perl -p -e 's/(\[.+?m)/%{\1%}/g'
-}
-
 # We enable promptsubst and use single quotes here so that the prompt gets expanded at runtime
 setopt promptsubst
-PROMPT='${pr_bg}${pr_user}${pr_host}$(pr_pwd)$(pr_git)%E
+PROMPT='${pr_bg}${pr_user}${pr_host}$(pr_pwd)$(gitprompt-rs zsh)%E
 ${pr_nobg}${pr_bold}$(pr_fg 15)$ ${pr_reset}'
 
 # ls colors
