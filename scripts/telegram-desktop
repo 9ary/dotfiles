@@ -7,13 +7,14 @@ commands
     #set {int}(_ZN2st20historyMessageRadiusE) = 3
 
     # Make all circled images into rounded rectangles
-    set {char}(_ZNK5Image10pixCircledEii+0) = 0x41
-    set {char}(_ZNK5Image10pixCircledEii+1) = 0xB8
-    set {int}(_ZNK5Image10pixCircledEii+2) = 0xFFFF
-    set {char}(_ZNK5Image10pixCircledEii+6) = 0xB9
-    set {int}(_ZNK5Image10pixCircledEii+7) = 0x01
-    set {char}(_ZNK5Image10pixCircledEii+11) = 0xE9
-    set {int}(_ZNK5Image10pixCircledEii+12) = (_ZNK5Image10pixRoundedEii16ImageRoundRadiusN4base5flagsI8RectPartEE) - (_ZNK5Image10pixCircledEii + 16)
+    set {char}(_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii+0) = 0x41
+    set {char}(_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii+1) = 0xB9
+    set {int}(_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii+2) = 0xFFFF
+    set {char}(_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii+6) = 0x41
+    set {char}(_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii+7) = 0xB8
+    set {int}(_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii+8) = 0x01
+    set {char}(_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii+12) = 0xE9
+    set {int}(_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii+13) = (_ZNK5Image10pixRoundedEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii16ImageRoundRadiusNS0_5flagsI8RectPartEE) - (_ZNK5Image10pixCircledEN4base16optional_variantIJ9FullMsgIdN4Data19FileOriginUserPhotoENS3_19FileOriginPeerPhotoENS3_20FileOriginStickerSetENS3_19FileOriginSavedGifsEEEEii + 17)
 
     # Make pins not notify by default
     set {int}(_ZN13PinMessageBox7prepareEv+671) = 0x0
