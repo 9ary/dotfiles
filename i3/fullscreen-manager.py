@@ -21,7 +21,7 @@ def on_window(self, e):
             and e.container.fullscreen_mode == 0 \
             and e.container.window_rect.width == w \
             and e.container.window_rect.height == h:
-        e.container.command("move absolute position center")
+        e.container.command("border none move absolute position center")
 
 conn = i3ipc.Connection()
 conn.on('window', on_window)
