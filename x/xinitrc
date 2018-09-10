@@ -27,7 +27,6 @@ if [[ "$HOST" == "Hitagi" ]]; then
 fi
 
 ~/.fehbg &
-compton --config ~/dotfiles/compton.conf &
 
 ~/dotfiles/i3/genconfig
 exec i3 -c /var/run/user/$UID/i3config
