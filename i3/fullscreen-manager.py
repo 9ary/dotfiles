@@ -8,6 +8,11 @@ notify_pause = Notify.Notification.new("DUNST_COMMAND_PAUSE", "", "dialog-inform
 notify_unpause = Notify.Notification.new("DUNST_COMMAND_RESUME", "", "dialog-information")
 
 def on_window(self, e):
+    if e.container.window_class == "TelegramDesktop" \
+            and e.container.name == "Media viewer":
+        e.container.command("move absolute position center")
+        return
+
     if e.container.focused:
         if e.container.fullscreen_mode:
             notify_pause.show()
@@ -21,7 +26,7 @@ def on_window(self, e):
             and e.container.fullscreen_mode == 0 \
             and e.container.window_rect.width == w \
             and e.container.window_rect.height == h:
-        e.container.command("border none move absolute position center")
+        e.container.command("fullscreen enable")
 
 conn = i3ipc.Connection()
 conn.on('window', on_window)
