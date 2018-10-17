@@ -6,6 +6,7 @@ import glob
 import json
 import os
 import platform
+from queue import Empty
 import sys
 import time
 
@@ -202,8 +203,16 @@ class SonosVolume:
             await asyncio.sleep(1)
             return self
 
-        event = await asyncio.get_event_loop().run_in_executor(
-                self.executor, self.rendering_control.events.get)
+        try:
+            event = await asyncio.get_event_loop().run_in_executor(
+                    self.executor,
+                    lambda: self.rendering_control.events.get(timeout=5))
+        except Empty:
+            if self.rendering_control.time_left == 0:
+                self.rendering_control.unsubscribe()
+                self.rendering_control.subscribe(auto_renew=True)
+            return self
+
         volume = event.variables.get("volume")
         if volume is not None:
             self.volume = int(volume["Master"])
