@@ -14,8 +14,6 @@ redshift-gtk &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
     dunst -config ~/dotfiles/dunstrc &
-    transmission-gtk -m &
-    dropbox &
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then

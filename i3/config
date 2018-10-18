@@ -95,7 +95,7 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
 bindsym $mod+c exec --no-startup-id passmenu --type
 bindsym $mod+b exec $BROWSER --new-window
-bindsym $mod+t exec transmission-gtk
+bindsym $mod+t exec $TERMINAL -e transmission-remote-cli
 
 bindsym Print exec --no-startup-id wankparty -w
 bindsym shift+Print exec --no-startup-id wankparty -s
@@ -166,7 +166,6 @@ new_window pixel 4
 
 # window rules
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
-for_window [class="Transmission-gtk"] focus
 for_window [class="Pinentry"] floating enable
 for_window [instance="mpdclient"] floating enable
 
