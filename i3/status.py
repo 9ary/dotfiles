@@ -209,7 +209,6 @@ class SonosVolume:
                     lambda: self.rendering_control.events.get(timeout=5))
         except Empty:
             if self.rendering_control.time_left == 0:
-                self.rendering_control.unsubscribe()
                 self.rendering_control.subscribe(auto_renew=True)
             return self
 
