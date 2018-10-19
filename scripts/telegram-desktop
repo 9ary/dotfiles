@@ -18,6 +18,9 @@ commands
 
     # Make pins not notify by default
     set {int}(_ZN13PinMessageBox7prepareEv+671) = 0x0
+
+    # Delete messages for everyone by default
+    set {short}(_ZN17DeleteMessagesBox7prepareEv+2964) = 0xC1FF
 end
 run
 detach
