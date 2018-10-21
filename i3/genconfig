@@ -1,5 +1,4 @@
 #!/bin/bash
 
-i3dotfiles=~/dotfiles/i3
-cat $i3dotfiles/config_$(hostname) $i3dotfiles/config > /var/run/user/$UID/i3config
+cat ~/dotfiles/i3/{config_$(hostname),colors,config} > /var/run/user/$UID/i3config
 

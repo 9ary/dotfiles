@@ -1,6 +1,7 @@
 # Very simple script to generate Xresources colors
 
 import colorsys
+from pathlib import Path
 
 base16 = []
 
@@ -67,8 +68,13 @@ def base16_to_rgb(i):
     return f"#{r:0{2}X}{g:0{2}X}{b:0{2}X}"
 
 
-print(f"*foreground: {base16_to_rgb(fg_map)}")
-print(f"*background: [background_opacity]{base16_to_rgb(bg_map)}")
-print(f"*cursorColor: {base16_to_rgb(cur_map)}")
-for n, c in enumerate(ansi_map):
-    print(f"*color{n}: {base16_to_rgb(c)}")
+with Path("~/dotfiles/x/colors.xresources").expanduser().open("w") as f:
+    f.write(f"*foreground: {base16_to_rgb(fg_map)}\n")
+    f.write(f"*background: [background_opacity]{base16_to_rgb(bg_map)}\n")
+    f.write(f"*cursorColor: {base16_to_rgb(cur_map)}\n")
+    for n, c in enumerate(ansi_map):
+        f.write(f"*color{n}: {base16_to_rgb(c)}\n")
+
+with Path("~/dotfiles/i3/colors").expanduser().open("w") as f:
+    for n, c in enumerate(ansi_map):
+        f.write(f"set $color{n} {base16_to_rgb(c)}\n")

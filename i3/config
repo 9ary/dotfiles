@@ -132,34 +132,10 @@ bar {
 	}
 }
 
-# colors
-set_from_resource $color0 i3wm.color0 error
-set_from_resource $color1 i3wm.color1 error
-set_from_resource $color2 i3wm.color2 error
-set_from_resource $color3 i3wm.color3 error
-set_from_resource $color4 i3wm.color4 error
-set_from_resource $color5 i3wm.color5 error
-set_from_resource $color6 i3wm.color6 error
-set_from_resource $color7 i3wm.color7 error
-set_from_resource $color8 i3wm.color8 error
-set_from_resource $color9 i3wm.color9 error
-set_from_resource $color10 i3wm.color10 error
-set_from_resource $color11 i3wm.color11 error
-set_from_resource $color12 i3wm.color12 error
-set_from_resource $color13 i3wm.color13 error
-set_from_resource $color14 i3wm.color14 error
-set_from_resource $color15 i3wm.color15 error
-set_from_resource $color16 i3wm.color16 error
-set_from_resource $color17 i3wm.color17 error
-set_from_resource $color18 i3wm.color18 error
-set_from_resource $color19 i3wm.color19 error
-set_from_resource $color20 i3wm.color20 error
-set_from_resource $color21 i3wm.color21 error
-
-client.focused $color8 $color8 $color21 $color8
-client.focused_inactive $color18 $color18 $color20 $color18
-client.unfocused $color0 $color0 $color20 $color0
-client.urgent $color1 $color1 $color7 $color1
+client.focused $color8 $color8 $color21 $color8 $color8
+client.focused_inactive $color18 $color18 $color20 $color18 $color18
+client.unfocused $color0 $color0 $color20 $color0 $color0
+client.urgent $color1 $color1 $color7 $color1 $color1
 
 # borders
 new_window pixel 4
