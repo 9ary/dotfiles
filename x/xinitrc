@@ -14,6 +14,8 @@ redshift-gtk &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
     dunst -config ~/dotfiles/dunstrc &
+    vblank_mode=0 compton --vsync=drm \
+        --config ~/dotfiles/compton.conf &
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then
@@ -22,6 +24,8 @@ if [[ "$HOST" == "Hitagi" ]]; then
     libinput-gestures &
     nm-applet &
     blueman-applet &
+    compton --vsync=opengl-mswc --xrender-sync --xrender-sync-fence \
+        --config ~/dotfiles/compton.conf &
 fi
 
 ~/.fehbg &
