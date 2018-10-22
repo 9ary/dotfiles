@@ -23,7 +23,6 @@ if [[ "$HOST" == "Hitagi" ]]; then
         -geometry "300x5-20+20" -font "Ubuntu Mono 11.5" &
     libinput-gestures &
     nm-applet &
-    blueman-applet &
     compton --vsync=opengl-mswc --xrender-sync --xrender-sync-fence \
         --config ~/dotfiles/compton.conf &
 fi
