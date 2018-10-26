@@ -14,8 +14,6 @@ redshift-gtk &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
     dunst -config ~/dotfiles/dunstrc &
-    vblank_mode=0 compton --vsync=drm \
-        --config ~/dotfiles/compton.conf &
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then
@@ -23,8 +21,6 @@ if [[ "$HOST" == "Hitagi" ]]; then
         -geometry "300x5-20+20" -font "Ubuntu Mono 11.5" &
     libinput-gestures &
     nm-applet &
-    compton --vsync=opengl-mswc --xrender-sync --xrender-sync-fence \
-        --config ~/dotfiles/compton.conf &
 fi
 
 ~/.fehbg &
