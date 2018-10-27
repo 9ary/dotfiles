@@ -25,7 +25,7 @@ COLOR_BAD = "#B25050"
 
 def await_fd(fd, loop=asyncio.get_event_loop()):
     fut = asyncio.Future()
-    fut.add_done_callback(lambda: loop.remove_reader(fd))
+    fut.add_done_callback(lambda _: loop.remove_reader(fd))
     loop.add_reader(fd, fut.set_result, None)
     return fut
 
@@ -175,7 +175,7 @@ class SonosVolume:
             except (OSError, TypeError):
                 await asyncio.sleep(1)
         self.rendering_control = self.device.renderingControl.subscribe(
-                auto_renew=True)
+                auto_renew=True, requested_timeout=15)
         self.executor = ThreadPoolExecutor(max_workers=1)
         self.volume_server = asyncio.get_event_loop().create_task(
                 asyncio.start_unix_server(
@@ -209,7 +209,8 @@ class SonosVolume:
                     lambda: self.rendering_control.events.get(timeout=5))
         except Empty:
             if self.rendering_control.time_left == 0:
-                self.rendering_control.subscribe(auto_renew=True)
+                self.rendering_control.subscribe(auto_renew=True,
+                        requested_timeout=15)
             return self
 
         volume = event.variables.get("volume")
