@@ -209,8 +209,12 @@ class SonosVolume:
                     lambda: self.rendering_control.events.get(timeout=5))
         except Empty:
             if self.rendering_control.time_left == 0:
-                self.rendering_control.subscribe(auto_renew=True,
-                        requested_timeout=15)
+                while True:
+                    try:
+                        self.rendering_control.subscribe(auto_renew=True)
+                        break
+                    except OSError:
+                        await asyncio.sleep(1)
             return self
 
         volume = event.variables.get("volume")
