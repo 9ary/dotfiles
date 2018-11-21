@@ -1,12 +1,12 @@
 #!/usr/bin/bash
 
 if [ "$HOSTNAME" == "Akatsuki" ]; then
-    fontsize=16
-    height=28
+    fontsize=14
+    height=24
 else
     fontsize=10
     height=20
 fi
 
-/usr/bin/dmenu -fn "xos4 terminus -$fontsize" -h $height -b -i -nb '#262E33' -nf '#85A1B2' -sb '#85A1B2' -sf '#262E33' -dim .65 -dc '#262E33' $@
+/usr/bin/dmenu -fn "xos4 terminus -$fontsize" -h $height -b -i -nb '#262E33' -nf '#85A1B2' -sb '#85A1B2' -sf '#262E33' -dim 0 -dc '#262E33' $@
 
