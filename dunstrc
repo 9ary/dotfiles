@@ -64,7 +64,7 @@
     frame_width = 4
 
     # Defines color of the frame around the notification window.
-    frame_color = "#B2B2B2"
+    frame_color = "#666666"
 
     # Define a color for the separator.
     # possible values are:
