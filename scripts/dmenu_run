@@ -1,0 +1,5 @@
+#!/bin/sh
+(
+    IFS=:
+    stest -flx $PATH | sort -u | dmenu "$@"
+) | ${SHELL:-"/bin/sh"}
