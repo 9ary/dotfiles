@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Very simple script to generate Xresources colors
 
 import colorsys
@@ -5,8 +7,8 @@ from pathlib import Path
 
 base16 = []
 
-ramp_hue = 203 / 360
-ramp_sat = .25
+ramp_hue = 0 / 360
+ramp_sat = 0
 for i in range(8):
     v = (i + 2) / 10
     base16.append(colorsys.hsv_to_rgb(ramp_hue, ramp_sat, v))
@@ -17,10 +19,10 @@ colors = [
     0,  # Red
     18,  # Orange/salmon
     60,  # Yellow
-    95,  # Green
-    180,  # Cyan
-    203,  # Blue
-    330,  # Magenta/pink
+    110,  # Green
+    160,  # Cyan
+    210,  # Blue
+    300,  # Magenta/pink
     34,  # Brown/orange
 ]
 for c in colors:
@@ -76,5 +78,5 @@ with Path("~/dotfiles/x/colors.xresources").expanduser().open("w") as f:
         f.write(f"*color{n}: {base16_to_rgb(c)}\n")
 
 with Path("~/dotfiles/i3/colors").expanduser().open("w") as f:
-    for n, c in enumerate(ansi_map):
-        f.write(f"set $color{n} {base16_to_rgb(c)}\n")
+    for i in range(16):
+        f.write(f"set $base{i:0{2}X} {base16_to_rgb(i)}\n")

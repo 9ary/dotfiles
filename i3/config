@@ -122,20 +122,20 @@ bar {
 	separator_symbol -
 
 	colors {
-		separator $color19
-		background $color0
-		statusline $color7
-		focused_workspace $color7 $color7 $color0
-		active_workspace $color19 $color19 $color0
-		inactive_workspace $color18 $color18 $color7
-		urgent_workspace $color1 $color1 $color7
+		separator $base02
+		background $base00
+		statusline $base05
+		focused_workspace $base02 $base02 $base05
+		active_workspace $base01 $base01 $base05
+		inactive_workspace $base00 $base00 $base05
+		urgent_workspace $base08 $base08 $base05
 	}
 }
 
-client.focused $color8 $color8 $color21 $color8 $color8
-client.focused_inactive $color18 $color18 $color20 $color18 $color18
-client.unfocused $color0 $color0 $color20 $color0 $color0
-client.urgent $color1 $color1 $color7 $color1 $color1
+client.focused $base02 $base02 $base05 $base02 $base02
+client.focused_inactive $base01 $base01 $base05 $base01 $base01
+client.unfocused $base00 $base00 $base05 $base00 $base00
+client.urgent $base08 $base08 $base05 $base08 $base08
 
 # borders
 new_window pixel 4
