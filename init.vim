@@ -25,7 +25,7 @@ Plug 'cespare/vim-toml'
 
 " Code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/echodoc.vim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -50,6 +50,8 @@ set number
 set cursorline
 set colorcolumn=+1
 set list listchars=tab:\ \ ,trail:•,precedes:…,extends:…
+set noshowmode
+set signcolumn=yes
 
 " Syntax highlighting
 syntax enable
@@ -74,7 +76,6 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Misc bindings
 let mapleader=','
 vnoremap <C-y> "+y
-nnoremap <silent> <F2> :set invpaste<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -132,24 +133,32 @@ map g# <Plug>(is-nohl)<Plug>(asterisk-g#)
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
-let g:deoplete#sources#jedi#show_docstring=1
-autocmd InsertLeave * silent! pclose!
-autocmd WinEnter * if &previewwindow
-    \| setlocal wrap linebreak
-    \| endif
+set completeopt=menu
+call deoplete#custom#option('async_timeout', 0)
+call deoplete#custom#option('auto_complete_delay', 0)
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-call deoplete#custom#source('LanguageClient', 'converters', [
-    \ 'converter_lc_signature',
+call deoplete#custom#source('_', 'converters', [
+    \ 'converter_remove_info',
     \ 'converter_remove_overlap',
-    \ 'converter_truncate_abbr',
-    \ 'converter_truncate_menu',
     \ ])
 inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
 inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
 
+" echodoc
+let g:echodoc#enable_at_startup=1
+
 " LanguageClient
+function LC_maps()
+    if has_key(g:LanguageClient_serverCommands, &filetype)
+        nnoremap <buffer><silent> K :call LanguageClient#textDocument_hover()<CR>
+        nnoremap <buffer><silent> gd :call LanguageClient#textDocument_definition()<CR>
+        nnoremap <buffer><silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+    endif
+endfunction
+autocmd FileType * call LC_maps()
 let g:LanguageClient_serverCommands={
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'python': ['pyls'],
+    \ 'rust': ['rls'],
     \ }
 let g:LanguageClient_diagnosticsDisplay={}
 for i in range(1, 4)
