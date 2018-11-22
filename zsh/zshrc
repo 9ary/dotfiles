@@ -65,10 +65,10 @@ zle -N grml-zsh-fg
 bindkey  grml-zsh-fg
 
 alias sudo="sudo "
-alias ls='ls --color=auto -Fh'
-alias lsa='ls --color=auto -FAh'
-alias ll='ls --color=auto -Fhl'
-alias lla='ls --color=auto -FAhl'
+alias ls='ls --color=auto --dereference-command-line-symlink-to-dir -Fh'
+alias lsa='ls --color=auto --dereference-command-line-symlink-to-dir -FAh'
+alias ll='ls --color=auto --dereference-command-line-symlink-to-dir -Fhl'
+alias lla='ls --color=auto --dereference-command-line-symlink-to-dir -FAhl'
 alias cp='cp -r'
 alias rsync='rsync -rPh --info=PROGRESS2'
 alias v='nvim'
