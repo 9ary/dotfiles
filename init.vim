@@ -60,8 +60,6 @@ set background=dark
 let base16colorspace=256
 colorscheme base16-default-dark
 hi Normal ctermbg=NONE
-hi Comment ctermfg=20 cterm=italic
-hi WarningMsg ctermbg=0
 
 " Formatting rules
 set encoding=utf-8
