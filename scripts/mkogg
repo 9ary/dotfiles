@@ -61,7 +61,7 @@ def main():
 
     enum_cmd = ["find"] \
             + indirs \
-            + "( -name *.flac -or -name *.ogg ) ! -iname *instr*".split()
+            + "( -name *.flac -or -name *.ogg ) ! -iname *instrumental*".split()
     infiles = subprocess.run(enum_cmd,
             stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
