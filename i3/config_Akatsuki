@@ -1,3 +1,7 @@
 font pango:xos4 Terminus 14
 
 exec i3-msg "workspace 1; append_layout $HOME/dotfiles/i3/ws-1.json"
+
+bindsym $mod+g gaps horizontal current toggle 640
+gaps horizontal 640
+smart_gaps inverse_outer
