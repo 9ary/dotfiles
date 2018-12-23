@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
 if [ "$HOSTNAME" == "Akatsuki" ]; then
-    fontsize=14
-    height=24
+    fontsize=16
+    height=28
 else
     fontsize=10
     height=20

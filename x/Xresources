@@ -24,7 +24,7 @@ URxvt*saveLines: 10000
 
 ! Font
 #ifdef SRVR_Akatsuki
-URxvt*font: xft:Ubuntu Mono:size=14
+URxvt*font: xft:Ubuntu Mono:size=16
 #else
 URxvt*font: xft:Ubuntu Mono:size=11.5
 #endif
