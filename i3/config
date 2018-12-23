@@ -5,10 +5,10 @@ floating_modifier $mod
 
 bindsym $mod+q kill
 
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+y focus left
+bindsym $mod+n focus down
+bindsym $mod+e focus up
+bindsym $mod+o focus right
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -22,10 +22,10 @@ bindsym --release --border --whole-window --exclude-titlebar button5 focus
 focus_follows_mouse no
 focus_on_window_activation urgent
 
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+y move left
+bindsym $mod+Shift+n move down
+bindsym $mod+Shift+e move up
+bindsym $mod+Shift+o move right
 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -39,7 +39,7 @@ bindsym $mod+f fullscreen toggle
 
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+l layout toggle split
 
 bindsym $mod+Shift+space floating toggle
 
@@ -58,7 +58,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-bindsym $mod+n workspace next_on_output
+bindsym $mod+k workspace next_on_output
 bindsym $mod+p workspace prev_on_output
 bindsym $mod+Escape workspace back_and_forth
 
@@ -72,13 +72,13 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
-bindsym $mod+Shift+n move container to workspace next_on_output
+bindsym $mod+Shift+k move container to workspace next_on_output
 bindsym $mod+Shift+p move container to workspace prev_on_output
 
-bindsym $mod+Ctrl+h move workspace to output left
-bindsym $mod+Ctrl+j move workspace to output down
-bindsym $mod+Ctrl+k move workspace to output up
-bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+y move workspace to output left
+bindsym $mod+Ctrl+n move workspace to output down
+bindsym $mod+Ctrl+e move workspace to output up
+bindsym $mod+Ctrl+o move workspace to output right
 
 bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Down move workspace to output down

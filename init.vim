@@ -73,16 +73,39 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Misc bindings
 let mapleader=','
-vnoremap <C-y> "+y
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+vnoremap <C-h> "+y
+nnoremap <C-y> <C-w>h
+nnoremap <C-n> <C-w>j
+nnoremap <C-e> <C-w>k
+nnoremap <C-o> <C-w>l
 nnoremap <silent> <C-t> :tabnew<CR>
 nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
 nnoremap <C-[> <C-t>
-noremap ; :
+noremap I :
+
+" Workman
+noremap l o
+noremap o l
+noremap L O
+noremap O L
+map j <Plug>(is-n)
+noremap n j
+map J <Plug>(is-N)
+noremap N J
+noremap gn gj
+noremap gj gn
+noremap k e
+noremap e k
+noremap K E
+noremap E <nop>
+noremap gk ge
+noremap ge gk
+noremap h y
+noremap h y
+noremap y h
+noremap H Y
+noremap Y H
 
 " Airline
 if !exists('g:airline_symbols')
