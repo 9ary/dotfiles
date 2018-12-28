@@ -1,6 +1,6 @@
 clear
 
-mod4+i start,windowzoom
+super+i start,windowzoom
 Escape end
 
 a history-back
