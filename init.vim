@@ -79,33 +79,13 @@ nnoremap <C-n> <C-w>j
 nnoremap <C-e> <C-w>k
 nnoremap <C-o> <C-w>l
 nnoremap <silent> <C-t> :tabnew<CR>
-nnoremap <silent> <C-n> :tabnext<CR>
+nnoremap <silent> <C-k> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
 nnoremap <C-[> <C-t>
 noremap I :
 
 " Workman
-noremap l o
-noremap o l
-noremap L O
-noremap O L
-map j <Plug>(is-n)
-noremap n j
-map J <Plug>(is-N)
-noremap N J
-noremap gn gj
-noremap gj gn
-noremap k e
-noremap e k
-noremap K E
-noremap E <nop>
-noremap gk ge
-noremap ge gk
-noremap h y
-noremap h y
-noremap y h
-noremap H Y
-noremap Y H
+set langmap=yh,hy,nj,jn,ek,ke,ol,lo,YH,HY,NJ,JN,EK,KE,OL,LO
 
 " Airline
 if !exists('g:airline_symbols')
@@ -171,7 +151,7 @@ let g:echodoc#enable_at_startup=1
 " LanguageClient
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
-        nnoremap <buffer><silent> K :call LanguageClient#textDocument_hover()<CR>
+        nnoremap <buffer><silent> E :call LanguageClient#textDocument_hover()<CR>
         nnoremap <buffer><silent> gd :call LanguageClient#textDocument_definition()<CR>
         nnoremap <buffer><silent> <F2> :call LanguageClient#textDocument_rename()<CR>
     endif
