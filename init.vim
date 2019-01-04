@@ -73,19 +73,16 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Misc bindings
 let mapleader=','
-vnoremap <C-h> "+y
-nnoremap <C-y> <C-w>h
-nnoremap <C-n> <C-w>j
-nnoremap <C-e> <C-w>k
-nnoremap <C-o> <C-w>l
+vnoremap <C-y> "+y
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 nnoremap <silent> <C-t> :tabnew<CR>
-nnoremap <silent> <C-k> :tabnext<CR>
+nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
 nnoremap <C-[> <C-t>
-noremap I :
-
-" Workman
-set langmap=yh,hy,nj,jn,ek,ke,ol,lo,YH,HY,NJ,JN,EK,KE,OL,LO
+noremap ; :
 
 " Airline
 if !exists('g:airline_symbols')
@@ -151,7 +148,7 @@ let g:echodoc#enable_at_startup=1
 " LanguageClient
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
-        nnoremap <buffer><silent> E :call LanguageClient#textDocument_hover()<CR>
+        nnoremap <buffer><silent> K :call LanguageClient#textDocument_hover()<CR>
         nnoremap <buffer><silent> gd :call LanguageClient#textDocument_definition()<CR>
         nnoremap <buffer><silent> <F2> :call LanguageClient#textDocument_rename()<CR>
     endif

@@ -1,22 +1,22 @@
 clear
 
-super+i start,windowzoom
+ctrl+semicolon start,windowzoom
 Escape end
 
 a history-back
 
-y cut-left
-n cut-down
-e cut-up
-o cut-right
-ctrl+y cut-left
-ctrl+y cut-down
-ctrl+n cut-up
-ctrl+o cut-right
-shift+y move-left
-shift+n move-down
-shift+e move-up
-shift+o move-right
+h cut-left
+j cut-down
+k cut-up
+l cut-right
+ctrl+h cut-left
+ctrl+j cut-down
+ctrl+k cut-up
+ctrl+l cut-right
+shift+h move-left
+shift+j move-down
+shift+k move-up
+shift+l move-right
 c cursorzoom 300 300
 
 Return warp,click 1,end
