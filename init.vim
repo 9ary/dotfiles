@@ -57,7 +57,6 @@ set signcolumn=yes
 syntax enable
 set synmaxcol=1024
 set background=dark
-let base16colorspace=256
 colorscheme base16-default-dark
 hi Normal ctermbg=NONE
 
