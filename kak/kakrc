@@ -15,6 +15,7 @@ set global ui_options ncurses_assistant=off
 colorscheme base16_termcolors
 add-highlighter global/ show-matching
 add-highlighter global/ line '%val{cursor_line}' CursorLine
+add-highlighter global/ dynregex '%reg{/}' 0:SearchMatches
 hook global BufCreate .* %{
     # Enable these on BufCreate so we can:
     # - disable them per buffer later on

@@ -48,8 +48,8 @@ evaluate-commands %sh{
     ## builtin
     echo "
         face global Default ${base05}
-        face global PrimarySelection ${base05},${base02}
-        face global SecondarySelection ${base04},${base01}
+        face global PrimarySelection ${base05},${base02}+fg
+        face global SecondarySelection ${base04},${base01}+fg
         face global PrimaryCursor ${base00},${base05}+fg
         face global SecondaryCursor ${base00},${base04}+fg
         face global PrimaryCursorEol ${base00},${base04}+fg
@@ -78,5 +78,6 @@ evaluate-commands %sh{
     	face global GitDiffFlags default,${base01}
     	face global LineFlagErrors ${base08},${base01}
         face global CursorLine default,${base01}
+        face global SearchMatches ${base01},${base0A}+f
     "
 }
