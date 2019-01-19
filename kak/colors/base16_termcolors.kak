@@ -75,8 +75,9 @@ evaluate-commands %sh{
 
     ## extras
     echo "
-    	face global GitDiffFlags default,${base01}
-    	face global LineFlagErrors ${base08},${base01}
+        face global GitDiffFlags default,${base01}
+        face global GitBlame ${base03},${base01}
+        face global LineFlagErrors ${base08},${base01}
         face global CursorLine default,${base01}
         face global SearchMatches ${base01},${base0A}+f
     "

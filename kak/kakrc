@@ -1,8 +1,8 @@
 ## Plugins
 eval %sh{
     kak-lsp --kakoune -s $kak_session && echo "
-    	lsp-enable
-    	lsp-diagnostic-lines-disable global
+        lsp-enable
+        lsp-diagnostic-lines-disable global
     "
 }
 
