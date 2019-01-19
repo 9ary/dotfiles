@@ -1,0 +1,37 @@
+## Plugins
+eval %sh{
+    kak-lsp --kakoune -s $kak_session && echo "
+    	lsp-enable
+    	lsp-diagnostic-lines-disable global
+    "
+}
+
+## General options
+set global scrolloff 3,3
+set global startup_info_version -1
+set global ui_options ncurses_assistant=off
+
+## Visuals
+colorscheme base16_termcolors
+add-highlighter global/ show-matching
+hook global BufCreate .* %{
+    # Enable these on BufCreate so we can:
+    # - disable them per buffer later on
+    # - precisely define in which order they should be displayed
+    add-highlighter buffer/ number-lines -hlcursor -separator ' '
+    try %{ lsp-diagnostic-lines-enable buffer }
+    add-highlighter buffer/git-diff flag-lines GitDiffFlags git_diff_flags
+    git update-diff
+}
+hook global BufWritePost .* %{ git update-diff }
+
+## Misc bindings
+map global normal <C-w> %{ : new<ret> }
+map global normal <C-y> %{ $ xsel -ib<ret> }
+
+## Pager use
+def -hidden pager-mode %{
+    map buffer normal q %{: quit<ret>}
+    remove-highlighter 'buffer/number-lines_-hlcursor_-separator_ '
+}
+hook global BufSetOption filetype=man %{ pager-mode }

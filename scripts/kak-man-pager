@@ -1,0 +1,3 @@
+#!/bin/sh
+
+$(dirname $0)/kak-pager 'set buffer filetype man'
