@@ -67,7 +67,7 @@ evaluate-commands %sh{
         face global Prompt ${base01},${base04}
         face global BufferPadding ${base03}
         face global LineNumbers ${base03},${base01}
-        face global LineNumberCursor ${base01},${base04}
+        face global LineNumberCursor ${base04},${base01}
         face global LineNumbersWrapped ${base01},${base01}
         face global MatchingChar ${base00},${base04}+fg
         face global Whitespace ${base03}+f
@@ -77,5 +77,6 @@ evaluate-commands %sh{
     echo "
     	face global GitDiffFlags default,${base01}
     	face global LineFlagErrors ${base08},${base01}
+        face global CursorLine default,${base01}
     "
 }

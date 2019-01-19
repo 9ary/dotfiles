@@ -14,11 +14,12 @@ set global ui_options ncurses_assistant=off
 ## Visuals
 colorscheme base16_termcolors
 add-highlighter global/ show-matching
+add-highlighter global/ line '%val{cursor_line}' CursorLine
 hook global BufCreate .* %{
     # Enable these on BufCreate so we can:
     # - disable them per buffer later on
     # - precisely define in which order they should be displayed
-    add-highlighter buffer/ number-lines -hlcursor -separator ' '
+    add-highlighter buffer/number-lines number-lines -hlcursor -separator ' '
     try %{ lsp-diagnostic-lines-enable buffer }
     add-highlighter buffer/git-diff flag-lines GitDiffFlags git_diff_flags
     git update-diff
@@ -32,6 +33,6 @@ map global normal <C-y> %{ $ xsel -ib<ret> }
 ## Pager use
 def -hidden pager-mode %{
     map buffer normal q %{: quit<ret>}
-    remove-highlighter 'buffer/number-lines_-hlcursor_-separator_ '
+    remove-highlighter buffer/number-lines
 }
 hook global BufSetOption filetype=man %{ pager-mode }
