@@ -16,14 +16,13 @@ colorscheme base16_termcolors
 add-highlighter global/ show-matching
 add-highlighter global/ line '%val{cursor_line}' CursorLine
 add-highlighter global/ dynregex '%reg{/}' 0:SearchMatches
-hook global BufCreate .* %{
-    # Enable these on BufCreate so we can:
-    # - disable them per buffer later on
+hook global WinCreate .* %{
+    # Enable these on WinCreate so we can:
+    # - disable them per window later on
     # - precisely define in which order they should be displayed
-    add-highlighter buffer/number-lines number-lines -hlcursor -separator ' '
-    try %{ lsp-diagnostic-lines-enable buffer }
-    add-highlighter buffer/git-diff flag-lines GitDiffFlags git_diff_flags
-    git update-diff
+    add-highlighter window/number-lines number-lines -hlcursor -separator ' '
+    try %{ lsp-diagnostic-lines-enable window }
+    git show-diff
 }
 hook global BufWritePost .* %{ git update-diff }
 
@@ -33,10 +32,10 @@ map global normal <C-y> %{ <A-|> xsel -ib<ret> }
 
 ## Pager use
 def -hidden pager-mode %{
-    map buffer normal q %{: quit<ret>}
-    remove-highlighter buffer/number-lines
+    map window normal q %{: quit<ret>}
+    remove-highlighter window/number-lines
 }
-hook global BufSetOption filetype=man %{ pager-mode }
+hook global WinSetOption filetype=man %{ pager-mode }
 
 hook -group git-highlight global WinSetOption filetype=git %{
     add-highlighter window/git group
