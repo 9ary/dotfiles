@@ -29,7 +29,7 @@ hook global BufWritePost .* %{ git update-diff }
 
 ## Misc bindings
 map global normal <C-w> %{ : new<ret> }
-map global normal <C-y> %{ $ xsel -ib<ret> }
+map global normal <C-y> %{ <A-|> xsel -ib<ret> }
 
 ## Pager use
 def -hidden pager-mode %{
