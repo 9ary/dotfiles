@@ -37,3 +37,11 @@ def -hidden pager-mode %{
     remove-highlighter buffer/number-lines
 }
 hook global BufSetOption filetype=man %{ pager-mode }
+
+hook -group git-highlight global WinSetOption filetype=git %{
+    add-highlighter window/git group
+    add-highlighter window/git/ regex '^(commit) ([0-9a-f]+)(.*?)$' 1:yellow 2:red
+    add-highlighter window/git/ regex '^([a-zA-Z_-]+:) (.*?)$' 1:green 2:magenta
+    add-highlighter window/git/ ref diff
+}
+hook -group git-highlight global WinSetOption filetype=(?!git).* %{ remove-highlighter window/git }
