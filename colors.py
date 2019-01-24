@@ -28,6 +28,11 @@ colors = [
 for c in colors:
     base16.append(colorsys.hsv_to_rgb(c / 360, colors_sat, colors_v))
 
+bright_sat = .65
+bright_v = .8
+for c in colors:
+    base16.append(colorsys.hsv_to_rgb(c / 360, bright_sat, bright_v))
+
 ansi_map = [
     0x00,
     0x08,
@@ -38,13 +43,19 @@ ansi_map = [
     0x0C,
     0x05,
     0x03,
+    0x08 + 8,
+    0x0B + 8,
+    0x0A + 8,
+    0x0D + 8,
+    0x0E + 8,
+    0x0C + 8,
+    0x07,
     0x09,
+    0x0F,
     0x01,
     0x02,
     0x04,
     0x06,
-    0x0F,
-    0x07,
 ]
 fg_map = ansi_map[7]
 bg_map = ansi_map[0]

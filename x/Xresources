@@ -10,7 +10,6 @@ Xft.lcdfilter: none
 
 #define background_opacity 95
 #include "colors.xresources"
-URxvt*intensityStyles: false
 
 ! Background
 URxvt*fading: 0

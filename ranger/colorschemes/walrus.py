@@ -13,10 +13,4 @@ class Scheme(Default):
             bg = 8
             attr |= bold
 
-        if fg > 8 and fg < 15:
-            fg -= 8
-
-        if bg > 8 and bg < 15:
-            bg -= 8
-
         return fg, bg, attr

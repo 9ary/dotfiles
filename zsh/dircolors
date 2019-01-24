@@ -62,7 +62,7 @@ TERM xterm-debian
 # Background color codes:
 # 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 NORMAL                  00      # global default, although everything should be something.
-FILE                    38;5;12   # normal file
+FILE                    38;5;20   # normal file
 RESET                   00;38;5;7   # reset to "normal" color
 DIR                     00;38;5;4   # directory
 LINK                    00;38;5;6   # symbolic link.  (If you set this to 'target' instead of a
@@ -71,8 +71,8 @@ MULTIHARDLINK           00;38;5;7   # regular file with more than one link
 FIFO                    48;5;0;38;5;3   # pipe
 SOCK                    00;38;5;5   # socket
 DOOR                    00;38;5;5   # door
-BLK                     48;5;0;38;5;11;01    # block device driver
-CHR                     48;5;0;38;5;11;01    # character device driver
+BLK                     48;5;0;38;5;19;01    # block device driver
+CHR                     48;5;0;38;5;19;01    # character device driver
 ORPHAN                  00;05;38;5;7;48;5;1 # orphaned syminks
 MISSING                 00;05;38;5;7;48;5;1 # ... and the files they point to
 SETUID                  38;5;7;48;5;1   # file that is setuid (u+s)
@@ -91,38 +91,38 @@ EXEC                    00;38;5;2   # This is for files with execute permission:
 .bat 00;38;5;3
 
 ## Archives or compressed (red)
-.tar    38;5;9
-.tgz    38;5;9
-.arj    38;5;9
-.taz    38;5;9
-.lzh    38;5;9
-.lzma   38;5;9
-.tlz    38;5;9
-.txz    38;5;9
-.zip    38;5;9
-.z      38;5;9
-.Z      38;5;9
-.dz     38;5;9
-.gz     38;5;9
-.lz     38;5;9
-.xz     38;5;9
-.bz     38;5;9
-.bz2    38;5;9
-.bzip2  38;5;9
-.tbz    38;5;9
-.tbz2   38;5;9
-.tz     38;5;9
-.deb    38;5;9
-.rpm    38;5;9
-.jar    38;5;9
-.rar    38;5;9  # rar
-.ace    38;5;9  # unace
-.zoo    38;5;9  # zoo
-.cpio   38;5;9 # cpio
-.7z     38;5;9  # p7zip
-.rz     38;5;9  # rzip
-.apk    38;5;9  # rzip
-.gem    38;5;9  # rzip
+.tar    38;5;16
+.tgz    38;5;16
+.arj    38;5;16
+.taz    38;5;16
+.lzh    38;5;16
+.lzma   38;5;16
+.tlz    38;5;16
+.txz    38;5;16
+.zip    38;5;16
+.z      38;5;16
+.Z      38;5;16
+.dz     38;5;16
+.gz     38;5;16
+.lz     38;5;16
+.xz     38;5;16
+.bz     38;5;16
+.bz2    38;5;16
+.bzip2  38;5;16
+.tbz    38;5;16
+.tbz2   38;5;16
+.tz     38;5;16
+.deb    38;5;16
+.rpm    38;5;16
+.jar    38;5;16
+.rar    38;5;16  # rar
+.ace    38;5;16  # unace
+.zoo    38;5;16  # zoo
+.cpio   38;5;16 # cpio
+.7z     38;5;16  # p7zip
+.rz     38;5;16  # rzip
+.apk    38;5;16  # rzip
+.gem    38;5;16  # rzip
 
 ## image formats (magenta)
 .jpg    00;38;5;5
@@ -175,59 +175,59 @@ EXEC                    00;38;5;2   # This is for files with execute permission:
 .odt    00;38;5;2 # OpenDocument text document
 
 ## Template files (bright green)
-.pt     38;5;2 # Zope page template
-.tmpl   38;5;2
-.in     38;5;2
-.ots    38;5;2 # OpenDocument spreadsheet template
-.ott    38;5;2 # OpenDocument text document template
+.pt     38;5;10 # Zope page template
+.tmpl   38;5;10
+.in     38;5;10
+.ots    38;5;10 # OpenDocument spreadsheet template
+.ott    38;5;10 # OpenDocument text document template
 
 ## Audio formats (bright red)
-.aac    38;5;14
-.au     38;5;14
-.flac   38;5;14
-.mid    38;5;14
-.midi   38;5;14
-.mka    38;5;14
-.mp3    38;5;14
-.mpc    38;5;14
-.ogg    38;5;14
-.ra     38;5;14
-.wav    38;5;14
-.m4a    38;5;14
-.axa    38;5;14
-.oga    38;5;14
-.spx    38;5;14
-.xspf   38;5;14
+.aac    38;5;17
+.au     38;5;17
+.flac   38;5;17
+.mid    38;5;17
+.midi   38;5;17
+.mka    38;5;17
+.mp3    38;5;17
+.mpc    38;5;17
+.ogg    38;5;17
+.ra     38;5;17
+.wav    38;5;17
+.m4a    38;5;17
+.axa    38;5;17
+.oga    38;5;17
+.spx    38;5;17
+.xspf   38;5;17
 
-## Video form14s (as audio + bold)
-.mov    38;5;14
-.mpg    38;5;14
-.mpeg   38;5;14
-.m2v    38;5;14
-.mkv    38;5;14
-.ogm    38;5;14
-.mp4    38;5;14
-.m4v    38;5;14
-.mp4v   38;5;14
-.vob    38;5;14
-.qt     38;5;14
-.nuv    38;5;14
-.wmv    38;5;14
-.asf    38;5;14
-.rm     38;5;14
-.rmvb   38;5;14
-.flc    38;5;14
-.avi    38;5;14
-.fli    38;5;14
-.flv    38;5;14
-.gl     38;5;14
-.m2ts   38;5;14
-.divx   38;5;14
-.webm   38;5;14
-.axv    38;5;14
-.anx    38;5;14
-.ogv    38;5;14
-.ogx    38;5;14
+## Video formats (as audio + bold)
+.mov    38;5;17
+.mpg    38;5;17
+.mpeg   38;5;17
+.m2v    38;5;17
+.mkv    38;5;17
+.ogm    38;5;17
+.mp4    38;5;17
+.m4v    38;5;17
+.mp4v   38;5;17
+.vob    38;5;17
+.qt     38;5;17
+.nuv    38;5;17
+.wmv    38;5;17
+.asf    38;5;17
+.rm     38;5;17
+.rmvb   38;5;17
+.flc    38;5;17
+.avi    38;5;17
+.fli    38;5;17
+.flv    38;5;17
+.gl     38;5;17
+.m2ts   38;5;17
+.divx   38;5;17
+.webm   38;5;17
+.axv    38;5;17
+.anx    38;5;17
+.ogv    38;5;17
+.ogx    38;5;17
 
 ## Config files (cyan)
 .conf       00;38;5;6

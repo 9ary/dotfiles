@@ -82,22 +82,22 @@ function pr_fg() {
     echo -n "%{[38;5;${1}m%}"
 }
 pr_nofg='%{[39m%}'
-pr_bg='%{[48;5;10m%}'
+pr_bg='%{[48;5;18m%}'
 pr_nobg='%{[49m%}'
 pr_bold='%{[1m%}'
 pr_nobold='%{[21m%}'
 pr_reset='%{[0m'
 
 if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-    pr_host="$(pr_fg 5)@$HOST"
+    pr_host="$(pr_fg 13)@$HOST"
 else
-    pr_host="$(pr_fg 4)@$HOST"
+    pr_host="$(pr_fg 12)@$HOST"
 fi
 
 if [[ $UID -eq 0 ]]; then
-    pr_user="$(pr_fg 1)$USERNAME"
+    pr_user="$(pr_fg 9)$USERNAME"
 else
-    pr_user="$(pr_fg 2)$USERNAME"
+    pr_user="$(pr_fg 10)$USERNAME"
 fi
 
 function pr_pwd() {
@@ -107,14 +107,14 @@ function pr_pwd() {
     # - slashes are colored red
     # - the last component of the path is colored green
     pwd | perl -p -e "s|^${HOME}|${pr_nofg}~|;" \
-        -e "s|/|$(pr_fg 1)/${pr_nofg}|g;" \
-        -e "s|([^/%{}\n]*)\$|$(pr_fg 2)\1${pr_nofg}|"
+        -e "s|/|$(pr_fg 9)/${pr_nofg}|g;" \
+        -e "s|([^/%{}\n]*)\$|$(pr_fg 10)\1${pr_nofg}|"
 }
 
 # We enable promptsubst and use single quotes here so that the prompt gets expanded at runtime
 setopt promptsubst
 PROMPT='${pr_bg}${pr_user}${pr_host}$(pr_pwd)$(gitprompt-rs zsh)%E
-${pr_nobg}${pr_bold}$(pr_fg 7)$ ${pr_reset}'
+${pr_nobg}${pr_bold}$(pr_fg 15)$ ${pr_reset}'
 
 # ls colors
 eval $(dircolors ~/dotfiles/zsh/dircolors)
