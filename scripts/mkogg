@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
 import json
-import locale
 import math
 import multiprocessing
+import os
 from pathlib import Path
-import shutil
 import subprocess
 import sys
 
@@ -14,22 +13,22 @@ ogg_path = Path("~/ogg").expanduser()
 
 max_sample_rate = 48000
 
-locale_encoding = locale.nl_langinfo(locale.CODESET)
-
 ffprobe_cmd = "ffprobe -print_format json -show_streams".split()
 def transocde(infile):
-    outfile = Path(infile).with_suffix(".ogg")
+    outfile = infile.with_suffix(".ogg")
     outfile = ogg_path / outfile.relative_to(music_path)
     if outfile.is_file():
         return
-    print(str(outfile.relative_to(ogg_path)))
-    outfile = str(outfile)
+    print(outfile.relative_to(ogg_path))
+    outfile.parent.mkdir(parents=True, exist_ok=True)
 
-    probe = subprocess.run(ffprobe_cmd + [infile], 
-            stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL,
-            check=True)
-    probe = json.loads(probe.stdout.decode(locale_encoding))
+    probe = subprocess.run(
+        [*ffprobe_cmd, infile],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        check=True
+    )
+    probe = json.loads(probe.stdout.decode())
 
     encode_args = []
     for stream in probe["streams"]:
@@ -38,50 +37,40 @@ def transocde(infile):
 
             sample_rate = int(stream["sample_rate"])
             if sample_rate > max_sample_rate:
-                target_sample_rate = int(sample_rate / math.ceil(sample_rate / max_sample_rate))
+                target_sample_rate = int(
+                    sample_rate / math.ceil(sample_rate / max_sample_rate)
+                )
                 encode_args += f"-ar:0:{index} {target_sample_rate}".split()
 
-    encode_cmd = "ffmpeg -y -i".split() \
-            + [infile] \
-            + "-map 0:a -c:a libopus -b:a 262144 -vbr on".split() \
-            + encode_args \
-            + [outfile]
+    encode_cmd = [
+        *"ffmpeg -y -i".split(),
+        infile,
+        *"-map 0:a -c:a libvorbis -q 6".split(),
+        *encode_args,
+        outfile,
+    ]
 
-    subprocess.run(encode_cmd,
-            stderr=subprocess.DEVNULL,
-            stdin=subprocess.DEVNULL,
-            check=True)
+    subprocess.run(
+        encode_cmd,
+        stderr=subprocess.DEVNULL,
+        stdin=subprocess.DEVNULL,
+        check=True
+    )
 
 def main():
-    indirs = [music_path / p for p in sys.argv[1:]]
-
-    if len(indirs) == 0:
+    if len(sys.argv) <= 1:
         print("No input")
         return
 
-    enum_cmd = ["find"] \
-            + indirs \
-            + "( -name *.flac -or -name *.ogg ) ! -iname *instrumental*".split()
-    infiles = subprocess.run(enum_cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL,
-            check=True)
-    infiles = infiles.stdout.decode(locale_encoding).splitlines()
-
-    for infile in infiles:
-        infile = Path(infile)
-        outfile = ogg_path / infile.relative_to(music_path)
-
-        # Create directory structure and copy the cover if they're not already there
-        outdir = outfile.parent
-        if not outdir.is_dir():
-            outdir.mkdir(parents=True, exist_ok=True)
-            indir = infile.parent
-            for coverfile in ["cover.png", "cover.jpg", "cover.jpeg"]:
-                coverpath = indir / coverfile
-                if coverpath.is_file():
-                    target = outdir / coverfile
-                    shutil.copy(str(coverpath), str(target))
+    infiles = []
+    for arg in sys.argv[1:]:
+        for root, dirs, files in os.walk(music_path / arg):
+            root = Path(root)
+            for f in files:
+                f = root / f
+                if f.suffix.lower() in (".flac", ".ogg") \
+                        and "instrumental" not in f.name.lower():
+                    infiles.append(f)
 
     with multiprocessing.Pool() as p:
         p.map(transocde, infiles)
