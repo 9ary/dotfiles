@@ -1,3 +1,4 @@
 font pango:xos4 Terminus 15
 
 exec i3-msg "workspace 1; append_layout $HOME/dotfiles/i3/ws-1.json"
+for_window [class=".*"] exec xprop -id $(xdotool getactivewindow) -f _VARIABLE_REFRESH 32c -set _VARIABLE_REFRESH 1
