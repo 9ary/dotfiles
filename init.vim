@@ -168,3 +168,4 @@ hi ALEInfoSign ctermbg=18 ctermfg=4
 hi ALEError ctermfg=1
 hi ALEWarning ctermfg=3
 hi ALEInfo ctermfg=4
+let g:LanguageClient_useVirtualText=0
