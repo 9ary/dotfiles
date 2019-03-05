@@ -186,13 +186,16 @@ class SonosVolume:
         data = await r.read()
         for byte in data:
             if byte == ord("+"):
-                self.device.volume = (
+                self.volume = (
                     (self.volume // self.VOLUME_STEP + 1) * self.VOLUME_STEP)
+                self.device.volume = self.volume
             elif byte == ord("-"):
-                self.device.volume = (
+                self.volume = (
                     (self.volume // self.VOLUME_STEP - 1) * self.VOLUME_STEP)
+                self.device.volume = self.volume
             elif byte == ord("x"):
-                self.device.mute = not self.mute
+                self.mute = not self.mute
+                self.device.mute = self.mute
             elif byte == ord("l"):
                 self.device.switch_to_line_in()
                 self.device.play()
