@@ -175,7 +175,7 @@ class SonosVolume:
             except (OSError, TypeError):
                 await asyncio.sleep(1)
         self.rendering_control = self.device.renderingControl.subscribe(
-                auto_renew=True, requested_timeout=15)
+                auto_renew=True)
         self.executor = ThreadPoolExecutor(max_workers=1)
         self.volume_server = asyncio.get_event_loop().create_task(
                 asyncio.start_unix_server(
