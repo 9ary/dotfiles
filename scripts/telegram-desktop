@@ -3,10 +3,10 @@
 gdb --args /usr/bin/telegram-desktop "$@" << EOF
 tbreak _ZN3App9initMediaEv
 commands
-    # TODO find a way to change this value (it's in RO data)
-    #set {int}(_ZN2st20historyMessageRadiusE) = 3
-
     # Make all circled images into rounded rectangles
+    # Original code doesn't matter much
+    # This sets some arguments specific to pixRounded and jumps to it
+    # The first few arguments are in the same order so no need to touch them
     # mov $0xffff,%r9d
     set {short}(_ZNK5Image10pixCircledEN4Data10FileOriginEii+0) = 0xB941
     set {int}(_ZNK5Image10pixCircledEN4Data10FileOriginEii+2) = 0xFFFF
@@ -18,15 +18,27 @@ commands
     set {int}(_ZNK5Image10pixCircledEN4Data10FileOriginEii+13) = (_ZNK5Image10pixRoundedEN4Data10FileOriginEii16ImageRoundRadiusN4base5flagsI8RectPartEE) - (_ZNK5Image10pixCircledEN4Data10FileOriginEii + 17)
 
     # Make pins not notify by default
-    # mov $0x0,%ecx (imm part only)
+    # -mov $0x1,%ecx (imm part only)
+    # +mov $0x0,%ecx (imm part only)
+    # ...
+    # addr32 callq <_ZN2Ui8CheckboxC2EP7QWidgetRK7QStringbRKN5style8CheckboxERKNS6_5CheckE>
     set {int}(_ZN13PinMessageBox7prepareEv+488) = 0x0
 
     # Delete messages for everyone by default
-    # inc %ecx
+    # -xor %ecx,%ecx
+    # +inc %ecx
+    # ...
+    # addr32 callq <_ZN2Ui8CheckboxC2EP7QWidgetRK7QStringbRKN5style8CheckboxERKNS6_5CheckE>
     set {short}(_ZN17DeleteMessagesBox7prepareEv+3064) = 0xC1FF
 
-    # Patch out calls to HistoryWidget::enqueueMessageHighlight when mentioned
-    # All NOPs
+    # Don't pulse mentions
+    # -addr32 callq <_ZN13HistoryWidget23enqueueMessageHighlightEN3gsl8not_nullIPN11HistoryView7ElementEEE>
+    # +nop
+    # +nop
+    # +nop
+    # +nop
+    # +nop
+    # +nop
     set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3371) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
     set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3657) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
 end
