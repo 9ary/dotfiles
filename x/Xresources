@@ -8,7 +8,7 @@ Xft.hintstyle: hintfull
 Xft.rgba: none
 Xft.lcdfilter: none
 
-#define background_opacity 95
+#define background_opacity 100
 #include "colors.xresources"
 
 ! Background
