@@ -15,7 +15,7 @@ Plug 'mileszs/ack.vim'
 " Misc
 Plug 'tpope/vim-sleuth'
 Plug 'majutsushi/tagbar'
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 
 " Language support
 Plug 'mitsuhiko/vim-jinja'
@@ -101,8 +101,11 @@ let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline#extensions#tabline#show_tab_nr=0
 let g:airline#extensions#tabline#show_tab_type=0
 
-" Gundo
-nnoremap <F9> :GundoToggle<CR>
+" undotree
+nnoremap <F9> :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle=1
+let g:undotree_ShortIndicators=1
+let g:undotree_HighlightChangedText=0
 
 " Tagbar
 nnoremap <silent> <F8> :TagbarOpenAutoClose<CR>
