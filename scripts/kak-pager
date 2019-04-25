@@ -1,3 +1,0 @@
-#!/bin/sh
-
-ansifilter | kak -e "pager-mode; $@"
