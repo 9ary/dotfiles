@@ -8,7 +8,7 @@
                   "window_role": "^browser$"
                },
                {
-                  "class": "^Nightly"
+                  "class": "^firefox"
                }
             ]
         }
