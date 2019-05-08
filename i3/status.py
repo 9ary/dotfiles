@@ -23,11 +23,24 @@ COLOR_DEGRADED = "#B2B250"
 COLOR_BAD = "#B25050"
 
 
-def await_fd(fd, loop=asyncio.get_event_loop()):
-    fut = asyncio.Future()
-    fut.add_done_callback(lambda _: loop.remove_reader(fd))
-    loop.add_reader(fd, fut.set_result, None)
-    return fut
+class FdWatcher:
+    def __init__(self, fd):
+        self.fd = fd
+        self.queue = asyncio.Queue()
+        def done():
+            while not self.queue.empty():
+                self.queue.get_nowait().set_result(None)
+                self.queue.task_done()
+        self.loop = asyncio.get_running_loop()
+        self.loop.add_reader(self.fd, done)
+
+    def __del__(self):
+        self.loop.remove_reader(self.fd)
+
+    def poll(self):
+        fut = asyncio.Future()
+        self.queue.put_nowait(fut)
+        return fut
 
 
 class CpuLoad:
@@ -112,11 +125,13 @@ class Battery:
 class AlsaVolume:
     def __init__(self):
         self.mixer = alsaaudio.Mixer()
-        self.pollfd = self.mixer.polldescriptors()[0][0]
+        self.watcher = None
         self.volume = None
 
     async def update(self):
-        await await_fd(self.pollfd)
+        if self.watcher is None:
+            self.watcher = FdWatcher(self.mixer.polldescriptors()[0][0])
+        await self.watcher.poll()
         self.mixer.handleevents()
         self.volume = self.mixer.getvolume()[0]
         self.mute = bool(self.mixer.getmute()[0])
@@ -165,7 +180,6 @@ class SonosVolume:
         self.volume = None
         self.zone = zone
         self.device = None
-        asyncio.get_event_loop().create_task(self._connect())
 
     async def _connect(self):
         while True:
@@ -177,7 +191,7 @@ class SonosVolume:
         self.rendering_control = self.device.renderingControl.subscribe(
                 auto_renew=True)
         self.executor = ThreadPoolExecutor(max_workers=1)
-        self.volume_server = asyncio.get_event_loop().create_task(
+        self.volume_server = asyncio.create_task(
                 asyncio.start_unix_server(
                     self._volume_client_connnected,
                     path=f"/run/user/{os.getuid()}/sonos_volume"))
@@ -203,11 +217,10 @@ class SonosVolume:
 
     async def update(self):
         if self.device is None:
-            await asyncio.sleep(1)
-            return self
+            await self._connect()
 
         try:
-            event = await asyncio.get_event_loop().run_in_executor(
+            event = await asyncio.get_running_loop().run_in_executor(
                     self.executor,
                     lambda: self.rendering_control.events.get(timeout=5))
         except Empty:
@@ -304,4 +317,4 @@ async def main():
             updates.remove(update)
 
 
-asyncio.get_event_loop().run_until_complete(main())
+asyncio.run(main())

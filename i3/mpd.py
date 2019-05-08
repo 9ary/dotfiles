@@ -4,11 +4,10 @@ import os
 
 class MpdClient:
     def __init__(self):
-        self.host = os.getenv("MPD_HOST") or "localhost"
-        self.port = os.getenv("MPD_PORT") or 6600
-        self.queue = asyncio.Queue()
+        self.host = os.getenv("MPD_HOST", "localhost")
+        self.port = os.getenv("MPD_PORT", 6600)
+        self.queue = None
         self._r = None
-        asyncio.get_event_loop().create_task(self._event_loop())
 
     async def _read(self):
         line = await self._r.readline()
@@ -30,6 +29,10 @@ class MpdClient:
         return {v async for k, v in self._read_pairs()}
 
     def _command(self, cmd, parser):
+        if self.queue is None:
+            self.queue = asyncio.Queue()
+            asyncio.create_task(self._event_loop())
+
         fut = asyncio.Future()
         self.queue.put_nowait((cmd, fut, parser))
         return fut
@@ -67,7 +70,7 @@ class MpdClient:
             except ConnectionError:
                 # Queue that command again and reconnect
                 self.queue.put_nowait((cmd, fut, parser))
-                asyncio.get_event_loop().create_task(self._event_loop())
+                asyncio.create_task(self._event_loop())
                 return
             finally:
                 self.queue.task_done()
