@@ -25,14 +25,14 @@ commands
     set {int}(_ZN13PinMessageBox7prepareEv+488) = 0x00
 
     # Delete messages for everyone by default
-    # -movb $0x00,0xF0(%rsp) (last byte only)
-    # +movb $0x01,0xF0(%rsp) (last byte only)
+    # -movb $0x00,0xE0(%rsp) (last byte only)
+    # +movb $0x01,0xE0(%rsp) (last byte only)
     # ...
     # addr32 callq <_ZN10object_ptrIN2Ui8CheckboxEE6createIP17DeleteMessagesBoxJR7QStringbRKN5style8CheckboxEEEEPS1_OT_DpOT0_>
     # Clear history
     set {char}(_ZN17DeleteMessagesBox7prepareEv+2423) = 0x01
     # Delete messages
-    set {char}(_ZN17DeleteMessagesBox7prepareEv+4143) = 0x01
+    set {char}(_ZN17DeleteMessagesBox7prepareEv+3919) = 0x01
 
     # Don't pulse mentions
     # -addr32 callq <_ZN13HistoryWidget23enqueueMessageHighlightEN3gsl8not_nullIPN11HistoryView7ElementEEE>
@@ -42,8 +42,8 @@ commands
     # +nop
     # +nop
     # +nop
-    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3371) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
-    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3657) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
+    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3383) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
+    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3801) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
 
     # Disable emoji button hover (JuanPotato)
     # -jmpq   0xD84300 <_ZN11ChatHelpers11TabbedPanel12showAnimatedEv>
@@ -54,7 +54,7 @@ commands
     # -jne <_ZN13HistoryWidget24toggleTabbedSelectorModeEv+168>
     # +nop
     # +nop
-    set {short}(_ZN13HistoryWidget24toggleTabbedSelectorModeEv+77) = 0x9090
+    set {short}(_ZN13HistoryWidget24toggleTabbedSelectorModeEv+74) = 0x9090
 
     # Always default to sending photo or album when possible (udf)
     # addr32 callq <_Z4Authv>
@@ -62,8 +62,8 @@ commands
     # +xor %eax,%eax
     # +nop
     # cmp $0x2,%eax
-    set {short}(_ZN12SendFilesBox11initSendWayEv+62) = 0xC031
-    set {char}(_ZN12SendFilesBox11initSendWayEv+64) = 0x90
+    set {short}(_ZN12SendFilesBox11initSendWayEv+60) = 0xC031
+    set {char}(_ZN12SendFilesBox11initSendWayEv+62) = 0x90
 end
 run
 detach
