@@ -161,14 +161,4 @@ let g:LanguageClient_serverCommands={
     \ 'python': ['pyls'],
     \ 'rust': ['rls'],
     \ }
-let g:LanguageClient_diagnosticsDisplay={}
-for i in range(1, 4)
-    let g:LanguageClient_diagnosticsDisplay[i]={ 'signText': '>>' }
-endfor
-hi ALEErrorSign ctermbg=18 ctermfg=1
-hi ALEWarningSign ctermbg=18 ctermfg=3
-hi ALEInfoSign ctermbg=18 ctermfg=4
-hi ALEError ctermfg=1
-hi ALEWarning ctermfg=3
-hi ALEInfo ctermfg=4
-let g:LanguageClient_useVirtualText=0
+let g:LanguageClient_diagnosticsEnable=0
