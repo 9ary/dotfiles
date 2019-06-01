@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatically toggle loopback mixing depending on input stream
+After=pulseaudio.service
+
+[Service]
+Type=simple
+ExecStart=/home/%u/dotfiles/autoloopback/target/release/autoloopback
+
+[Install]
+WantedBy=default.target

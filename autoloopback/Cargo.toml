@@ -1,0 +1,8 @@
+[package]
+name = "autoloopback"
+version = "0.1.0"
+authors = ["Dan Elkouby <streetwalkermc@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+alsa = "0.2.2"
