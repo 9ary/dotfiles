@@ -86,7 +86,7 @@ upload() {
         notify-send "Uploading" "$uploadme"
     fi
 
-    url="$(curl -F key="$key" -F file="@$uploadme" "https://wank.party/api/upload" | grep -o -i "https://wank.party/*.[a-z0-9._-]*")"
+    url="$(curl -F key="$key" -F file="@$uploadme" --http1.1 "https://wank.party/api/upload" | grep -o -i "https://wank.party/*.[a-z0-9._-]*")"
 }
 
 # This function logs the url,  copies the url to the clipboard, and/or opens the url in your browser
