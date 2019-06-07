@@ -15,10 +15,13 @@ max_sample_rate = 48000
 
 ffprobe_cmd = "ffprobe -print_format json -show_streams".split()
 def transocde(infile):
-    outfile = infile.with_suffix(".ogg")
-    outfile = ogg_path / outfile.relative_to(music_path)
+    outfile_tmp = infile.with_suffix(".ogg.tmp")
+    outfile_tmp = ogg_path / outfile_tmp.relative_to(music_path)
+    outfile = outfile_tmp.with_suffix("")
     if outfile.is_file():
         return
+    if outfile_tmp.is_file():
+        outfile_tmp.unlink()
     print(outfile.relative_to(ogg_path))
     outfile.parent.mkdir(parents=True, exist_ok=True)
 
@@ -45,9 +48,9 @@ def transocde(infile):
     encode_cmd = [
         *"ffmpeg -y -i".split(),
         infile,
-        *"-map 0:a -c:a libopus -b:a 262144 -vbr on".split(),
+        *"-map 0:a -c:a libopus -b:a 262144 -vbr on -f ogg".split(),
         *encode_args,
-        outfile,
+        outfile_tmp,
     ]
 
     subprocess.run(
@@ -56,6 +59,8 @@ def transocde(infile):
         stdin=subprocess.DEVNULL,
         check=True
     )
+
+    outfile_tmp.rename(outfile)
 
 def main():
     if len(sys.argv) <= 1:
