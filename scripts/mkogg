@@ -45,7 +45,7 @@ def transocde(infile):
     encode_cmd = [
         *"ffmpeg -y -i".split(),
         infile,
-        *"-map 0:a -c:a libvorbis -q 6".split(),
+        *"-map 0:a -c:a libopus -b:a 262144 -vbr on".split(),
         *encode_args,
         outfile,
     ]
