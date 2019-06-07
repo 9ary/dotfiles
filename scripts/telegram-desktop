@@ -25,14 +25,14 @@ commands
     set {int}(_ZN13PinMessageBox7prepareEv+488) = 0x00
 
     # Delete messages for everyone by default
-    # -movb $0x00,0xE0(%rsp) (last byte only)
-    # +movb $0x01,0xE0(%rsp) (last byte only)
+    # -movb $0x00,0xXX(%rsp) (last byte only)
+    # +movb $0x01,0xXX(%rsp) (last byte only)
     # ...
     # addr32 callq <_ZN10object_ptrIN2Ui8CheckboxEE6createIP17DeleteMessagesBoxJR7QStringbRKN5style8CheckboxEEEEPS1_OT_DpOT0_>
     # Clear history
     set {char}(_ZN17DeleteMessagesBox7prepareEv+2423) = 0x01
     # Delete messages
-    set {char}(_ZN17DeleteMessagesBox7prepareEv+3919) = 0x01
+    set {char}(_ZN17DeleteMessagesBox7prepareEv+3871) = 0x01
 
     # Don't pulse mentions
     # -addr32 callq <_ZN13HistoryWidget23enqueueMessageHighlightEN3gsl8not_nullIPN11HistoryView7ElementEEE>
