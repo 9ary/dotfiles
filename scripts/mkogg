@@ -67,12 +67,14 @@ def transocde(infile):
 
 def main():
     if len(sys.argv) <= 1:
-        print("No input")
-        return
+        print("Transcoding entire library")
+        search_paths = ["."]
+    else:
+        search_paths = sys.argv[1:]
 
     infiles = []
-    for arg in sys.argv[1:]:
-        for root, dirs, files in os.walk(music_path / arg):
+    for p in search_paths:
+        for root, dirs, files in os.walk(music_path / p):
             root = Path(root)
             for f in files:
                 f = root / f
