@@ -48,7 +48,10 @@ def transocde(infile):
     encode_cmd = [
         *"ffmpeg -y -i".split(),
         infile,
-        *"-map 0:a -c:a libopus -b:a 192k -vbr on -f ogg".split(),
+        *(
+            "-map 0:a -metadata R128_ALBUM_GAIN= -metadata R128_TRACK_GAIN= "
+            "-c:a libopus -b:a 192k -vbr on -f ogg"
+        ).split(),
         *encode_args,
         outfile_tmp,
     ]
