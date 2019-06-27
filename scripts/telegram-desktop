@@ -22,7 +22,7 @@ commands
     # +mov $0x00,%ecx (imm part only)
     # ...
     # addr32 callq <_ZN2Ui8CheckboxC2EP7QWidgetRK7QStringbRKN5style8CheckboxERKNS6_5CheckE>
-    set {int}(_ZN13PinMessageBox7prepareEv+488) = 0x00
+    set {int}(_ZN13PinMessageBox7prepareEv+424) = 0x00
 
     # Delete messages for everyone by default
     # -movb $0x00,0xXX(%rsp) (last byte only)
@@ -30,9 +30,9 @@ commands
     # ...
     # addr32 callq <_ZN10object_ptrIN2Ui8CheckboxEE6createIP17DeleteMessagesBoxJR7QStringbRKN5style8CheckboxEEEEPS1_OT_DpOT0_>
     # Clear history
-    set {char}(_ZN17DeleteMessagesBox7prepareEv+2423) = 0x01
+    set {char}(_ZN17DeleteMessagesBox7prepareEv+2510) = 0x01
     # Delete messages
-    set {char}(_ZN17DeleteMessagesBox7prepareEv+3871) = 0x01
+    set {char}(_ZN17DeleteMessagesBox7prepareEv+3522) = 0x01
 
     # Don't pulse mentions
     # -addr32 callq <_ZN13HistoryWidget23enqueueMessageHighlightEN3gsl8not_nullIPN11HistoryView7ElementEEE>
@@ -42,8 +42,8 @@ commands
     # +nop
     # +nop
     # +nop
-    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3383) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
-    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3801) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
+    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3297) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
+    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3612) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
 
     # Disable emoji button hover (JuanPotato)
     # -jmpq   0xD84300 <_ZN11ChatHelpers11TabbedPanel12showAnimatedEv>
