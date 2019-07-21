@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DESKTOP_SESSION=gnome
+
 gdb --args /usr/bin/telegram-desktop "$@" << EOF
 tbreak main
 commands
