@@ -9,7 +9,7 @@ xset b off
 
 keynav "loadconfig ~/dotfiles/keynavrc" &
 unclutter --timeout 2 --jitter 2 &
-udiskie &
+udiskie -s &
 redshift-gtk &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
