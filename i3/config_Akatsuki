@@ -1,3 +1,3 @@
-font pango:xos4 Terminus 15
+font pango:Terminus (TTF) 15
 
 exec i3-msg "workspace 1; append_layout $HOME/dotfiles/i3/ws-1.json"

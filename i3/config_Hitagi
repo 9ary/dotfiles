@@ -1,4 +1,4 @@
-font pango:xos4 Terminus 10
+font pango:Terminus (TTF) 10
 
 assign [window_role="browser"] 1
 assign [instance="WeeChat"] 2
