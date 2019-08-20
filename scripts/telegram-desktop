@@ -23,21 +23,21 @@ commands
     # -mov $0x01,%ecx (imm part only)
     # +mov $0x00,%ecx (imm part only)
     # ...
-    # addr32 callq <_ZN2Ui8CheckboxC2EP7QWidgetRK7QStringbRKN5style8CheckboxERKNS6_5CheckE>
+    # callq <_ZN2Ui8CheckboxC2EP7QWidgetRK7QStringbRKN5style8CheckboxERKNS6_5CheckE>
     set {int}(_ZN13PinMessageBox7prepareEv+424) = 0x00
 
     # Delete messages for everyone by default
     # -movb $0x00,0xXX(%rsp) (last byte only)
     # +movb $0x01,0xXX(%rsp) (last byte only)
     # ...
-    # addr32 callq <_ZN10object_ptrIN2Ui8CheckboxEE6createIP17DeleteMessagesBoxJR7QStringbRKN5style8CheckboxEEEEPS1_OT_DpOT0_>
+    # callq <_ZN10object_ptrIN2Ui8CheckboxEE6createIP17DeleteMessagesBoxJR7QStringbRKN5style8CheckboxEEEEPS1_OT_DpOT0_>
     # Clear history
     set {char}(_ZN17DeleteMessagesBox7prepareEv+2510) = 0x01
     # Delete messages
     set {char}(_ZN17DeleteMessagesBox7prepareEv+3522) = 0x01
 
     # Don't pulse mentions
-    # -addr32 callq <_ZN13HistoryWidget23enqueueMessageHighlightEN3gsl8not_nullIPN11HistoryView7ElementEEE>
+    # -callq <_ZN13HistoryWidget23enqueueMessageHighlightEN3gsl8not_nullIPN11HistoryView7ElementEEE>
     # +nop
     # +nop
     # +nop
@@ -59,13 +59,13 @@ commands
     set {short}(_ZN13HistoryWidget24toggleTabbedSelectorModeEv+74) = 0x9090
 
     # Always default to sending photo or album when possible (udf)
-    # addr32 callq <_Z4Authv>
-    # -mov 0x6C(%rax),%eax
+    # callq <_ZNK6Window17SessionNavigation7sessionEv>
+    # -mov 0x74(%rax),%eax
     # +xor %eax,%eax
     # +nop
     # cmp $0x2,%eax
-    set {short}(_ZN12SendFilesBox11initSendWayEv+60) = 0xC031
-    set {char}(_ZN12SendFilesBox11initSendWayEv+62) = 0x90
+    set {short}(_ZN12SendFilesBox11initSendWayEv+103) = 0xC031
+    set {char}(_ZN12SendFilesBox11initSendWayEv+105) = 0x90
 end
 run
 detach
