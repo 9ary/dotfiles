@@ -261,13 +261,18 @@ if HOST == "Akatsuki":
     blocks.append(Mpd())
 
 blocks.append(CpuLoad())
-blocks.append(Temperature(
-        "CPU", "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"))
 if HOST == "Akatsuki":
     blocks.append(Temperature(
+            "CPU",
+            "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon*/temp1_input"))
+    blocks.append(Temperature(
             "GPU",
-            "/sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0"
+            "/sys/devices/pci0000:00/0000:00:03.1/0000:09:00.0"
             "/hwmon/hwmon*/temp1_input"))
+else:
+    blocks.append(Temperature(
+            "CPU",
+            "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"))
 
 if HOST == "Hitagi":
     blocks.append(Battery("/sys/class/power_supply/BAT1/uevent"))
