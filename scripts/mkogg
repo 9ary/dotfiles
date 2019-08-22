@@ -43,7 +43,7 @@ def transocde(infile):
                 target_sample_rate = int(
                     sample_rate / math.ceil(sample_rate / max_sample_rate)
                 )
-                encode_args += f"-ar:0:{index} {target_sample_rate}".split()
+                #encode_args += f"-ar:0:{index} {target_sample_rate}".split()
 
     encode_cmd = [
         *"ffmpeg -y -i".split(),
@@ -53,14 +53,17 @@ def transocde(infile):
         outfile_tmp,
     ]
 
-    subprocess.run(
-        encode_cmd,
-        stderr=subprocess.DEVNULL,
-        stdin=subprocess.DEVNULL,
-        check=True
-    )
-
-    outfile_tmp.rename(outfile)
+    result = subprocess.run(encode_cmd, capture_output=True)
+    try:
+        result.check_returncode()
+    except subprocess.CalledProcessError:
+        print(
+            f"Command failed: {encode_cmd}",
+            result.stderr.decode(),
+            sep="\n"
+        )
+    else:
+        outfile_tmp.rename(outfile)
 
 def main():
     if len(sys.argv) <= 1:
