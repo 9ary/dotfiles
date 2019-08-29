@@ -20,8 +20,8 @@ def on_window(self, e):
         else:
             notify_unpause.show()
 
-    screenrect = conn.get_outputs()[0]["rect"]
-    w, h = screenrect["width"], screenrect["height"]
+    screenrect = conn.get_outputs()[0].rect
+    w, h = screenrect.width, screenrect.height
 
     if e.container.floating.endswith("on") \
             and e.container.fullscreen_mode == 0 \
