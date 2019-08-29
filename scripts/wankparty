@@ -16,7 +16,7 @@ selection() {
 
     # #5081B2
     color="0.3137254901960784, 0.5058823529411764, 0.6980392156862745"
-    sel=$(slop -k -b 4 -c "$color" -n -f "-i %i -g %g")
+    sel=$(slop -ko -b 4 -c "$color" -n -f "-i %i -g %g")
     shotgun $sel "$uploadme"
 
     word=selection
