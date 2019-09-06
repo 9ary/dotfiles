@@ -77,6 +77,14 @@ alias rg='rg -S'
 alias pgrep='pgrep -l'
 alias verynice='schedtool -B -n 15 -e ionice -c3'
 
+function kpatch() {
+    patch=$1
+    shift
+    git send-email \
+        --cc-cmd="./scripts/get_maintainer.pl --norolestats $patch" \
+        $@ $patch
+}
+
 # Prompt
 function pr_fg() {
     echo -n "%{[38;5;${1}m%}"
