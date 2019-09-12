@@ -34,7 +34,7 @@ commands
     # Clear history
     set {char}(_ZN17DeleteMessagesBox7prepareEv+2510) = 0x01
     # Delete messages
-    set {char}(_ZN17DeleteMessagesBox7prepareEv+3522) = 0x01
+    set {char}(_ZN17DeleteMessagesBox7prepareEv+3559) = 0x01
 
     # Don't pulse mentions
     # -callq <_ZN13HistoryWidget23enqueueMessageHighlightEN3gsl8not_nullIPN11HistoryView7ElementEEE>
@@ -53,10 +53,10 @@ commands
     set {char}(_ZN11ChatHelpers11TabbedPanel10otherEnterEv+0) = 0xC3
 
     # Toggle emoji popup with button click (JuanPotato)
-    # -jne <_ZN13HistoryWidget24toggleTabbedSelectorModeEv+168>
+    # -jne <_ZN13HistoryWidget24toggleTabbedSelectorModeEv+96> (first jne)
     # +nop
     # +nop
-    set {short}(_ZN13HistoryWidget24toggleTabbedSelectorModeEv+74) = 0x9090
+    set {short}(_ZN13HistoryWidget24toggleTabbedSelectorModeEv+59) = 0x9090
 
     # Always default to sending photo or album when possible (udf)
     # callq <_ZNK6Window17SessionNavigation7sessionEv>
