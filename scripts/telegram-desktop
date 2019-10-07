@@ -44,8 +44,8 @@ commands
     # +nop
     # +nop
     # +nop
-    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3297) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
-    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3612) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
+    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3305) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
+    set {char [6]}(_ZN12HistoryInner10paintEventEP11QPaintEvent+3628) = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }
 
     # Disable emoji button hover (JuanPotato)
     # -jmpq   0xD84300 <_ZN11ChatHelpers11TabbedPanel12showAnimatedEv>
