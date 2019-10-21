@@ -12,7 +12,7 @@ def on_window(self, e):
     screenrect = conn.get_outputs()[0].rect
     w, h = screenrect.width, screenrect.height
 
-    if e.container.floating.endswith("on") \
+    if e.container.type == "floating_con" \
             and e.container.fullscreen_mode == 0 \
             and e.container.window_rect.width == w \
             and e.container.window_rect.height == h:

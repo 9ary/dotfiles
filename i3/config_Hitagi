@@ -3,3 +3,29 @@ font pango:Terminus 10
 assign [window_role="browser"] 1
 assign [instance="WeeChat"] 2
 assign [class="TelegramDesktop"] 2
+
+#exec xrdb ~/dotfiles/x/Xresources
+seat * hide_cursor 2000
+exec udiskie -s
+exec redshift
+
+# TODO: replace with mako
+exec dunst -config ~/dotfiles/dunstrc -geometry "300x5-20+20" -font "Ubuntu Mono 11.5"
+exec ydotoold
+exec libinput-gestures
+
+output * background ~/.swaybg fill
+
+exec_always import-gsettings \
+    gtk-theme:gtk-theme-name \
+    icon-theme:gtk-icon-theme-name \
+    cursor-theme:gtk-cursor-theme-name
+
+input type:keyboard xkb_layout us
+input type:pointer accel_profile flat
+input type:touchpad {
+    click_method clickfinger
+    natural_scroll enabled
+    tap enabled
+}
+input 1386:890:Wacom_One_by_Wacom_S_Pen map_from_region .0x.1 1x1

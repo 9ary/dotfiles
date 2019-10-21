@@ -16,8 +16,8 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # focus with the mouse wheel
-bindsym --release --border --whole-window --exclude-titlebar button4 focus
-bindsym --release --border --whole-window --exclude-titlebar button5 focus
+#bindsym --release --border --whole-window --exclude-titlebar button4 focus
+#bindsym --release --border --whole-window --exclude-titlebar button5 focus
 
 focus_follows_mouse no
 focus_on_window_activation urgent
@@ -146,9 +146,9 @@ for_window [class="Pinentry"] floating enable
 for_window [instance="mpdclient"] floating enable
 
 # scripts
-exec_always --no-startup-id $config/fullscreen-manager.py
+exec --no-startup-id $config/fullscreen-manager.py
 
 # applications
 exec $BROWSER
-exec $TERMINAL -name WeeChat -e weechat
+exec xrdb ~/dotfiles/x/Xresources && $TERMINAL -name WeeChat -e weechat
 exec telegram-desktop
