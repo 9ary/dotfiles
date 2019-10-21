@@ -2,7 +2,7 @@ font pango:Terminus 10
 
 assign [window_role="browser"] 1
 assign [instance="WeeChat"] 2
-assign [class="TelegramDesktop"] 2
+assign [app_id="telegramdesktop"] 2
 
 #exec xrdb ~/dotfiles/x/Xresources
 seat * hide_cursor 2000
