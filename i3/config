@@ -138,7 +138,7 @@ client.unfocused $base00 $base00 $base05 $base00 $base00
 client.urgent $base08 $base08 $base05 $base08 $base08
 
 # borders
-new_window pixel 4
+default_border pixel 4
 
 # window rules
 for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
