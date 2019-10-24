@@ -264,11 +264,10 @@ blocks.append(CpuLoad())
 if HOST == "Akatsuki":
     blocks.append(Temperature(
             "CPU",
-            "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon*/temp1_input"))
+            "/sys/bus/pci/drivers/k10temp/0000:*/hwmon/hwmon*/temp1_input"))
     blocks.append(Temperature(
             "GPU",
-            "/sys/devices/pci0000:00/0000:00:03.1/0000:09:00.0"
-            "/hwmon/hwmon*/temp1_input"))
+            "/sys/bus/pci/drivers/amdgpu/0000:*/hwmon/hwmon*/temp1_input"))
 else:
     blocks.append(Temperature(
             "CPU",
