@@ -93,7 +93,7 @@ bindsym $mod+shift+q exit
 bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
-bindsym $mod+c exec --no-startup-id passmenu --type
+bindsym $mod+c exec --no-startup-id passmenu
 bindsym $mod+b exec $BROWSER --new-window
 bindsym $mod+t [class="qBittorrent"] kill; exec qbittorrent
 
