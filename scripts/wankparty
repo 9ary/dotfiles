@@ -10,12 +10,20 @@ source ~/.config/wankparty
 
 ## FUNCTIONS
 
+get_window_rects() {
+    swaymsg -t get_tree \
+        | jq -r '..
+            | select('"$1"') as $node
+            | .window_rect
+            | "\($node.rect.x + .x),\($node.rect.y + .y) \(.width)x\(.height)"'
+}
+
 # This function sets $file to a selection scrot
 selection() {
     uploadme="/tmp/scrot.png"
 
-    sel=$(hacksaw -s 4 -g 2 -c 5081B2 -r 1 -f "-i %i -g %g")
-    shotgun $sel "$uploadme"
+    sel=$(get_window_rects '.pid? and .visible?' | slurp -b 00000000 -s 00000000 -c 5081B2 -w 4)
+    grim -g "$sel" "$uploadme"
 
     word=selection
 }
@@ -24,7 +32,7 @@ selection() {
 active() {
     uploadme="/tmp/scrot.png"
 
-    shotgun -i $(xdotool getactivewindow) "$uploadme"
+    grim -g "$(get_window_rects '.focused?')" "$uploadme"
 
     word=active
 }
@@ -33,7 +41,7 @@ active() {
 clipboard() {
     uploadme="/tmp/scrot.txt"
 
-    xclip -o > "$uploadme"
+    wl-paste > "$uploadme"
 
     word=clipboard
 }
@@ -64,7 +72,7 @@ file() {
 desktop() {
     uploadme="/tmp/scrot.png"
 
-    shotgun "$uploadme"
+    grim "$uploadme"
 
     word=desktop
 }
@@ -91,8 +99,8 @@ upload() {
 feedback() {
     # Copy url to clipboard
     if [[ "$clipboard" == true ]]; then
-        echo -n "$url" | xclip -selection primary
-        echo -n "$url" | xclip -selection clipboard
+        echo -n "$url" | wl-copy
+        echo -n "$url" | wl-copy --primary
     fi
 
     # Log url
