@@ -142,6 +142,8 @@ function chpwd() {
     fi
 }
 
+which direnv > /dev/null && eval "$(direnv hook zsh)"
+
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 zle -N history-substring-search-up

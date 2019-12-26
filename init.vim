@@ -22,6 +22,7 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'tikhomirov/vim-glsl'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
+Plug 'LnL7/vim-nix'
 
 " Code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
