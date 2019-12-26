@@ -60,7 +60,7 @@ def get_title():
 def copy_title():
     title = get_title()
     if title is not None:
-        subprocess.run(["xsel", "-b"], input=title.encode(), check=True)
+        subprocess.run(["wl-copy"], input=title.encode(), check=True)
 
 def weechat_np(data, buffer, args):
     title = get_title()

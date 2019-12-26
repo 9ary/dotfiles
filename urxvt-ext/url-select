@@ -46,7 +46,7 @@ sub on_start {
 	if ($self->x_resource('url-select.autocopy') eq 'true') {
 		$self->{autocopy} = 1;
 	}
-	$self->{copy_cmd} = $self->x_resource('clipboard.copycmd') || 'xsel -ib';
+	$self->{copy_cmd} = $self->x_resource('clipboard.copycmd') || 'wl-copy';
 
 
 	$self->{state} = 0;
