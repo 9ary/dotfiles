@@ -1,4 +1,6 @@
 set $config ~/dotfiles/i3
+include config_$(hostname)
+include colors
 
 set $mod Mod4
 floating_modifier $mod
@@ -21,6 +23,7 @@ bindsym $mod+Right focus right
 
 focus_follows_mouse no
 focus_on_window_activation urgent
+seat * hide_cursor 2000
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -47,7 +50,6 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+d focus child
 
-# workspaces
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -86,35 +88,34 @@ bindsym $mod+Ctrl+Up move workspace to output up
 bindsym $mod+Ctrl+Right move workspace to output right
 
 bindsym $mod+Shift+u exec xdotool getactivewindow windowunmap windowmap
-bindsym $mod+Shift+c exec $config/genconfig && i3-msg reload
-bindsym $mod+Shift+r exec $config/genconfig && i3-msg restart
+bindsym $mod+Shift+c reload
 bindsym $mod+shift+q exit
 
-bindsym $mod+r exec --no-startup-id dmenu_run -p '>'
+bindsym $mod+r exec dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
-bindsym $mod+c exec --no-startup-id passmenu
+bindsym $mod+c exec passmenu
 bindsym $mod+b exec $BROWSER --new-window
 bindsym $mod+t [class="qBittorrent"] kill; exec qbittorrent
 
-bindsym Print exec --no-startup-id wankparty -w
-bindsym shift+Print exec --no-startup-id wankparty -s
-bindsym Ctrl+Print exec --no-startup-id wankparty
+bindsym Print exec wankparty -w
+bindsym shift+Print exec wankparty -s
+bindsym Ctrl+Print exec wankparty
 
-bindsym XF86AudioPlay exec --no-startup-id mpc toggle
-bindsym XF86AudioNext exec --no-startup-id mpc next
-bindsym XF86AudioPrev exec --no-startup-id mpc cdprev
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym shift+XF86AudioRaiseVolume exec --no-startup-id sonos.sh +
-bindsym shift+XF86AudioLowerVolume exec --no-startup-id sonos.sh -
-bindsym shift+XF86AudioMute exec --no-startup-id sonos.sh x
-bindsym shift+XF86AudioPlay exec --no-startup-id sonos.sh l
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc cdprev
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym shift+XF86AudioRaiseVolume exec sonos.sh +
+bindsym shift+XF86AudioLowerVolume exec sonos.sh -
+bindsym shift+XF86AudioMute exec sonos.sh x
+bindsym shift+XF86AudioPlay exec sonos.sh l
 bindsym XF86Tools exec $TERMINAL -name mpdclient -geometry 120x60 -e ncmpcpp
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -perceived -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -perceived -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -perceived -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -perceived -dec 5
 
 bar {
 	status_command $config/status.py
@@ -136,19 +137,21 @@ client.focused $base03 $base03 $base06 $base03 $base03
 client.focused_inactive $base01 $base01 $base05 $base01 $base01
 client.unfocused $base00 $base00 $base05 $base00 $base00
 client.urgent $base08 $base08 $base05 $base08 $base08
-
-# borders
 default_border pixel 4
+output * background ~/.swaybg fill
 
 # window rules
-for_window [title=" is sharing (your screen|a window) with "] exec i3-msg move scratchpad
 for_window [class="Pinentry"] floating enable
 for_window [instance="mpdclient"] floating enable
 
-# scripts
-exec --no-startup-id $config/fullscreen-manager.py
+input type:keyboard xkb_layout us
+input type:pointer accel_profile flat
+input type:touchpad {
+	click_method clickfinger
+	natural_scroll enabled
+	tap enabled
+	dwt disabled
+}
+input 1386:890:Wacom_One_by_Wacom_S_Pen map_from_region .0x.1 1x1
 
-# applications
-exec $BROWSER
-exec xrdb ~/dotfiles/x/Xresources && $TERMINAL -name WeeChat -e weechat
-exec telegram-desktop
+exec $config/startup.zsh

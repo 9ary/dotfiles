@@ -1,4 +1,0 @@
-#!/bin/bash
-
-~/dotfiles/i3/genconfig
-exec sway -c /var/run/user/$UID/i3config

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cat ~/dotfiles/i3/{config_$(hostname),colors,config} > /var/run/user/$UID/i3config
-
