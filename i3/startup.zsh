@@ -30,6 +30,6 @@ fi
 if [[ "$HOST" == "Hitagi" ]]; then
     dunst -config ~/dotfiles/dunstrc \
         -geometry "300x5-20+20" -font "Ubuntu Mono 11.5" &
-    libinput-gestures &
+    pkill libinput-debug-; libinput-gestures &
     swayidle -w before-sleep 'swaylock -fFc 333333' &
 fi
