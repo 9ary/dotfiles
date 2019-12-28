@@ -17,10 +17,6 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# focus with the mouse wheel
-#bindsym --release --border --whole-window --exclude-titlebar button4 focus
-#bindsym --release --border --whole-window --exclude-titlebar button5 focus
-
 focus_follows_mouse no
 focus_on_window_activation urgent
 seat * hide_cursor 2000
