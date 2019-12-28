@@ -24,12 +24,12 @@ telegram-desktop &
 qbittorrent &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
-    dunst -config ~/dotfiles/dunstrc &
+    mako --anchor bottom-center --width 600 --font "Ubuntu Mono 15" &
+else
+    mako &
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then
-    dunst -config ~/dotfiles/dunstrc \
-        -geometry "300x5-20+20" -font "Ubuntu Mono 11.5" &
     pkill libinput-debug-; libinput-gestures &
     swayidle -w before-sleep 'swaylock -fFc 333333' &
 fi

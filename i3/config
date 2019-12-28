@@ -113,6 +113,9 @@ bindsym XF86Tools exec $TERMINAL -name mpdclient -geometry 120x60 -e ncmpcpp
 bindsym XF86MonBrightnessUp exec xbacklight -perceived -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -perceived -dec 5
 
+bindsym Ctrl+space exec makoctl dismiss
+bindsym Ctrl+Shift+space exec makoctl dismiss --all
+
 bar {
 	status_command $config/status.py
 	position bottom
