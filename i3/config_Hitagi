@@ -1,4 +1,5 @@
 font pango:Terminus 10
 
+assign [app_id="^firefox"] 1
 assign [instance="WeeChat"] 2
 assign [app_id="telegramdesktop"] 2
