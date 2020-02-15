@@ -18,6 +18,7 @@ keynav "loadconfig ~/dotfiles/keynavrc" &
 unclutter --timeout 2 --jitter 2 &
 udiskie -s &
 redshift-gtk &
+qbittorrent &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
     dunst -config ~/dotfiles/dunstrc &

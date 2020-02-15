@@ -95,7 +95,7 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
 bindsym $mod+c exec --no-startup-id passmenu --type
 bindsym $mod+b exec $BROWSER --new-window
-bindsym $mod+t exec $TERMINAL -e tremc
+bindsym $mod+t [class="qBittorrent"] kill; exec qbittorrent
 
 bindsym Print exec --no-startup-id wankparty -w
 bindsym shift+Print exec --no-startup-id wankparty -s
