@@ -184,10 +184,7 @@ class SonosVolume:
         self.fifo = None
 
     async def _connect(self):
-        if self.device is not None:
-            self.rendering_control.unsubscribe()
-            soco.events.event_listener.stop
-
+        self._disconnect()
         while True:
             try:
                 self.device = soco.discovery.by_name(self.zone)
@@ -212,6 +209,11 @@ class SonosVolume:
             asyncio.get_running_loop().add_reader(
                     fifo_fd, self._process_volume_commands)
             self.fifo = os.fdopen(fifo_fd, "rb")
+
+    def _disconnect(self):
+        if self.device is not None:
+            self.rendering_control.unsubscribe()
+            soco.events.event_listener.stop()
 
     def _process_volume_commands(self):
         if (data := self.fifo.read()) is None:
@@ -254,8 +256,7 @@ class SonosVolume:
         return self
 
     def __del__(self):
-        self.rendering_control.unsubscribe()
-        soco.events.event_listener.stop()
+        self._disconnect()
 
     def render(self):
         if self.volume is not None:
