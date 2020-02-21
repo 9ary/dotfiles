@@ -1,0 +1,2 @@
+[[ -z $WAYLAND_DISPLAY && $XDG_VTNR -eq 1 ]] && exec sway -c ~/dotfiles/i3/config &> /dev/null
+
