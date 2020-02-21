@@ -2,9 +2,6 @@
 
 setopt nobgnice
 
-systemd_setup=/etc/sway/conf.d/10-systemd.conf
-[[ -x $systemd_setup ]] && $systemd_setup
-
 xrdb ~/dotfiles/x/Xresources
 
 import-gsettings \
