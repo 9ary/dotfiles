@@ -1,19 +1,19 @@
 sort=+time
 group-by=app-name,app-icon,summary,body,urgency
 actions=0
-#default-timeout=10000
-ignore-timeout=1
+default-timeout=10000
 
 font=Ubuntu Mono 11.5
 background-color=#333333
 progress-color=source #4C4C4C
 text-color=#B2B2B2
-border-color=#B2B2B2
+border-color=#7F7F7F
 margin=20
 padding=8
-border-size=4
+border-size=6
 icons=0
 
 [urgency=high]
 default-timeout=0
+ignore-timeout=1
 border-color=#B25050

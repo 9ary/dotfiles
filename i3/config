@@ -119,7 +119,7 @@ bindsym Ctrl+Shift+space exec makoctl dismiss --all
 bar {
 	status_command $config/status.py
 	position bottom
-	separator_symbol -
+	separator_symbol " - "
 
 	colors {
 		separator $base02

@@ -46,5 +46,5 @@ URxvt*url-select.underline: true
 URxvt*iso14755: False
 URxvt*keysym.Shift-Control-C: perl:clipboard:copy
 URxvt*keysym.Shift-Control-V: perl:clipboard:paste
-URxvt*clipboard.copycmd: wl-copy
-URxvt*clipboard.pastecmd: wl-paste
+URxvt*clipboard.copycmd: wl-copy -n
+URxvt*clipboard.pastecmd: wl-paste -n
