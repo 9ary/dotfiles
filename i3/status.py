@@ -181,7 +181,7 @@ class SonosVolume:
         self.zone = zone
         self.device = None
         self.executor = ThreadPoolExecutor(max_workers=1)
-        self.fifo = None
+        self.volume_server = None
 
     async def _connect(self):
         self._disconnect()
@@ -194,30 +194,18 @@ class SonosVolume:
         self.rendering_control = self.device.renderingControl.subscribe(
                 auto_renew=True)
 
-        if self.fifo is None:
-            fifo_path = f"/run/user/{os.getuid()}/sonos_volume"
-            try:
-                os.remove(fifo_path)
-            except FileNotFoundError:
-                pass
-            os.mkfifo(fifo_path)
-            # We need to open the FIFO this way for two reasons:
-            # - open() will block until someone else opens the FIFO for
-            #   writing, unless we use O_NONBLOCK
-            # - add_reader() takes a raw fd rather than a file object
-            fifo_fd = os.open(fifo_path, os.O_NONBLOCK)
-            asyncio.get_running_loop().add_reader(
-                    fifo_fd, self._process_volume_commands)
-            self.fifo = os.fdopen(fifo_fd, "rb")
+        if self.volume_server is None:
+            self.volume_server = await asyncio.start_unix_server(
+                    self._volume_client_connnected,
+                    path=f"/run/user/{os.getuid()}/sonos_volume")
 
     def _disconnect(self):
         if self.device is not None:
             self.rendering_control.unsubscribe()
             soco.events.event_listener.stop()
 
-    def _process_volume_commands(self):
-        if (data := self.fifo.read()) is None:
-            return
+    async def _volume_client_connnected(self, r, w):
+        data = await r.read()
         for byte in data:
             if byte == ord("+"):
                 self.volume = (
@@ -233,6 +221,7 @@ class SonosVolume:
             elif byte == ord("l"):
                 self.device.switch_to_line_in()
                 self.device.play()
+        w.write_eof()
 
     async def update(self):
         if self.device is None:
