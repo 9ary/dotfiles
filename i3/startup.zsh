@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+i3_config="$1"
+
 setopt nobgnice
 
 xrdb ~/dotfiles/x/Xresources
@@ -13,7 +15,7 @@ import-gsettings \
 udiskie -s &
 redshift &
 pidof ydotoold || ydotoold &
-~/dotfiles/i3/fullscreen-manager.py &
+"${i3_config}"/fullscreen-manager.py &
 
 $BROWSER &
 $TERMINAL -name WeeChat -e weechat &
@@ -21,6 +23,7 @@ telegram-desktop &
 qbittorrent &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
+    "${i3_config}"/ws-1.py &
     mako --anchor bottom-center --width 600 --font "Ubuntu Mono 15" &
 else
     mako &

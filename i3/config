@@ -154,4 +154,4 @@ input type:touchpad {
 }
 input 1386:890:Wacom_One_by_Wacom_S_Pen map_from_region .0x.1 1x1
 
-exec $config/startup.zsh
+exec $config/startup.zsh $config
