@@ -141,8 +141,12 @@ hide_edge_borders --i3 none
 output * background ~/.swaybg fill
 
 # window rules
-for_window [class="Pinentry"] floating enable
 for_window [instance="mpdclient"] floating enable
+no_focus [app_id="^firefox" title="^$"]
+for_window [app_id="^firefox" title="^$"] {
+    floating enable
+    move position 30 30
+}
 
 input type:keyboard xkb_layout us
 input type:pointer accel_profile flat
