@@ -14,7 +14,6 @@ import-gsettings \
 
 udiskie -s &
 redshift &
-pidof ydotoold || ydotoold &
 "${i3_config}"/fullscreen-manager.py &
 
 $BROWSER &
