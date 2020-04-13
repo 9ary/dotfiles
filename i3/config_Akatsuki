@@ -1,1 +1,4 @@
 font pango:Terminus 15
+
+bindsym XF86MonBrightnessUp exec xbacklight -perceived -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -perceived -dec 5

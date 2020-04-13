@@ -1,5 +1,8 @@
 font pango:Terminus 10
 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
 assign [app_id="^firefox"] 1
 assign [instance="WeeChat"] 2
 assign [app_id="telegramdesktop"] 2
