@@ -19,7 +19,7 @@ redshift &
 $BROWSER &
 $TERMINAL -name WeeChat -e weechat &
 telegram-desktop &
-qbittorrent &
+transmission-gtk -m &
 
 if [[ "$HOST" == "Akatsuki" ]]; then
     "${i3_config}"/ws-1.py &

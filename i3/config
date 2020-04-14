@@ -93,6 +93,7 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
 bindsym $mod+c exec passmenu
 bindsym $mod+b exec $BROWSER --new-window
+bindsym $mod+t exec transmission-gtk
 
 bindsym Print exec wankparty -w
 bindsym shift+Print exec wankparty -s
