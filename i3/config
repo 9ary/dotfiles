@@ -145,6 +145,7 @@ for_window [app_id="^firefox" title="^$"] {
     floating enable
     move position 30 30
 }
+for_window [app_id="^telegramdesktop$" title="^Media viewer"] fullscreen disable
 
 input * xkb_layout us
 input type:pointer accel_profile flat

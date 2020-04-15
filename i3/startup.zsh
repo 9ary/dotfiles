@@ -18,7 +18,6 @@ import-gsettings \
 
 udiskie -s &
 redshift &
-"${i3_config}"/fullscreen-manager.py &
 
 $BROWSER &
 $TERMINAL -name WeeChat -e weechat &
