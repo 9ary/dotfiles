@@ -29,6 +29,5 @@ else
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then
-    pkill libinput-debug-; libinput-gestures &
     swayidle -w before-sleep 'swaylock -fFc 333333' &
 fi
