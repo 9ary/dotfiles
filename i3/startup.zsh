@@ -4,6 +4,10 @@ i3_config="$1"
 
 setopt nobgnice
 
+swaylock='swaylock -fFc 333333'
+eval $swaylock
+swayidle -w before-sleep "$swaylock" &
+
 xrdb ~/dotfiles/x/Xresources
 
 import-gsettings \
@@ -29,5 +33,4 @@ else
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then
-    swayidle -w before-sleep 'swaylock -fFc 333333' &
 fi
