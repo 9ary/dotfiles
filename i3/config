@@ -146,7 +146,7 @@ for_window [app_id="^firefox" title="^$"] {
     move position 30 30
 }
 
-input type:keyboard xkb_layout us
+input * xkb_layout us
 input type:pointer accel_profile flat
 input type:touchpad {
 	click_method clickfinger
