@@ -5,6 +5,7 @@ After=pulseaudio.service
 [Service]
 Type=simple
 ExecStart=/home/%u/dotfiles/autoloopback/target/release/autoloopback
+Restart=on-failure
 
 [Install]
 WantedBy=default.target
