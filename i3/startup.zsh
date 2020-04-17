@@ -18,6 +18,7 @@ import-gsettings \
 
 udiskie -s &
 redshift &
+uniconize &
 
 $BROWSER &
 $TERMINAL -name WeeChat -e weechat &
