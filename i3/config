@@ -111,6 +111,9 @@ bindsym shift+XF86AudioMute exec sonos.sh x
 bindsym shift+XF86AudioPlay exec sonos.sh l
 bindsym XF86Tools exec $TERMINAL -name mpdclient -geometry 120x60 -e ncmpcpp
 
+bindsym XF86MonBrightnessUp exec xbacklight -perceived -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -perceived -dec 5
+
 bindsym Ctrl+space exec makoctl dismiss
 bindsym Ctrl+Shift+space exec makoctl dismiss --all
 
