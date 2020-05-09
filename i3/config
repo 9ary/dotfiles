@@ -150,7 +150,7 @@ for_window [app_id="^firefox" title="^$"] {
 }
 for_window [app_id="^telegramdesktop$" title="^Media viewer"] fullscreen disable
 
-input * xkb_layout us
+input type:keyboard xkb_layout us
 input type:pointer accel_profile flat
 input type:touchpad {
 	click_method clickfinger
