@@ -149,6 +149,7 @@ for_window [app_id="^firefox" title="^$"] {
     move position 30 30
 }
 for_window [app_id="^telegramdesktop$" title="^Media viewer"] fullscreen disable
+for_window [title="^muvluv - Wine desktop$"] floating enable
 
 input type:keyboard xkb_layout us
 input type:pointer accel_profile flat
