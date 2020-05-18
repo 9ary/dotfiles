@@ -3,4 +3,4 @@ command=$(
     IFS=:
     stest -flx $PATH | sort -u | dmenu "$@"
 )
-exec /bin/sh -c "${command}"
+exec ${SHELL:-"/bin/sh"} -c "${command}"
