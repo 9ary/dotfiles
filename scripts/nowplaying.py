@@ -51,7 +51,12 @@ def mpd_query():
         return status["state"] == "play", f"{artist} - {title}"
 
 def get_title():
-    for playing, title in (mpd_query(), mpv_query()):
+    playing, title = False, None
+    for getter in (mpd_query, mpv_query):
+        try:
+            playing, title = getter()
+        except FileNotFoundError:
+            continue
         if playing and title is not None:
             break
     if title is not None:
