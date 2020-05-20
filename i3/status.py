@@ -139,9 +139,10 @@ class AlsaVolume:
 
     def render(self):
         if self.volume is not None:
-            return {
-                    "full_text": f"♫ {self.volume}%",
-                    "color": COLOR_DEGRADED if self.mute else None}
+            if not self.mute:
+                return {"full_text": f"♫ {self.volume}%"}
+            else:
+                return {"full_text": f"♫ ×", "color": COLOR_DEGRADED}
 
 
 class Mpd:
@@ -249,9 +250,10 @@ class SonosVolume:
 
     def render(self):
         if self.volume is not None:
-            return {
-                    "full_text": f"♫ {self.volume}%",
-                    "color": COLOR_DEGRADED if self.mute else None}
+            if not self.mute:
+                return {"full_text": f"♫ {self.volume}%"}
+            else:
+                return {"full_text": f"♫ ×", "color": COLOR_DEGRADED}
 
 
 blocks = []
