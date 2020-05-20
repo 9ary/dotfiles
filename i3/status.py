@@ -18,9 +18,9 @@ import mpd
 
 HOST = platform.node()
 INTERVAL = 1
-COLOR_GOOD = "#60B250"
-COLOR_DEGRADED = "#B2B250"
-COLOR_BAD = "#B25050"
+COLOR_GOOD = "#29A329"
+COLOR_DEGRADED = "#98981B"
+COLOR_BAD = "#E6193C"
 
 
 class FdWatcher:

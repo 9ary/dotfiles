@@ -22,7 +22,7 @@ get_window_rects() {
 selection() {
     uploadme="/tmp/scrot.png"
 
-    sel=$(get_window_rects '.pid? and .visible?' | slurp -b 00000000 -s 00000000 -c 5081B2 -w 4)
+    sel=$(get_window_rects '.pid? and .visible?' | slurp -b 00000000 -s 00000000 -c 3D62F5 -w 4)
     grim -g "$sel" "$uploadme"
 
     word=selection

@@ -57,9 +57,9 @@ set signcolumn=yes
 " Syntax highlighting
 syntax enable
 set synmaxcol=1024
-set background=dark
+set background=light
 let base16colorspace=256
-colorscheme base16-default-dark
+colorscheme base16-atelier-seaside-light
 hi Normal ctermbg=NONE
 
 " Formatting rules

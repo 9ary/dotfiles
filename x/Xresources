@@ -27,7 +27,7 @@ URxvt*saveLines: 10000
 #ifdef SRVR_Akatsuki
 URxvt*font: xft:Ubuntu Mono:size=15
 #else
-URxvt*font: xft:Ubuntu Mono:size=11.5
+URxvt*font: xft:Ubuntu Mono:size=13
 #endif
 
 ! Notifications

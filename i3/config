@@ -126,7 +126,7 @@ bar {
 		separator $base02
 		background $base00
 		statusline $base05
-		focused_workspace $base02 $base02 $base05
+		focused_workspace $base02 $base02 $base06
 		active_workspace $base01 $base01 $base05
 		inactive_workspace $base00 $base00 $base05
 		urgent_workspace $base08 $base08 $base05
