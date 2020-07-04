@@ -12,6 +12,8 @@ export QT_STYLE_OVERRIDE=adwaita
 export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
+export TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY=1
+
 export NINJA_STATUS="[%u/%r/%f] "
 
 export PATH="$HOME/dotfiles/scripts:$HOME/bin:$PATH"
