@@ -16,8 +16,8 @@ import-gsettings \
     cursor-theme:gtk-cursor-theme-name \
     font-name:gtk-font-name
 
-udiskie -s &
-redshift &
+udiskie -s --appindicator &
+redshift-gtk &
 uniconize &
 nm-applet --indicator &
 
