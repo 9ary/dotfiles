@@ -78,9 +78,7 @@ def main():
             root = Path(root)
             for f in files:
                 f = root / f
-                if f.suffix.lower() in (".flac", ".ogg") \
-                        and "instrumental" not in f.name.lower() \
-                        and "5.1 mix" not in f.name.lower():
+                if f.suffix.lower() in (".flac", ".ogg"):
                     infiles.append(f)
 
     with multiprocessing.Pool() as p:
