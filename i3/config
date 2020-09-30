@@ -121,6 +121,7 @@ bar {
 	status_command $config/status.py
 	position bottom
 	separator_symbol " - "
+        icon_theme Adwaita
 
 	colors {
 		separator $base02
