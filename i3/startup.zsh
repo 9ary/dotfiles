@@ -18,7 +18,6 @@ import-gsettings \
 
 udiskie -s --appindicator &
 redshift-gtk &
-uniconize &
 nm-applet --indicator &
 
 $BROWSER &
