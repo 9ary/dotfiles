@@ -31,7 +31,7 @@ if [[ "$HOST" == "Akatsuki" ]]; then
 
     # AOSP/CM
     export JAVA_HOME="/usr/lib/jvm/$(archlinux-java get)"
-    #export USE_CCACHE=1
+    export USE_CCACHE=1
     export WITH_SU=true
     export LINEAGE_VERSION_APPEND_TIME_OF_DAY=true
 fi
