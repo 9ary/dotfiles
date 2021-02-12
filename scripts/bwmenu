@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+timeout=15
+
+pwlist=$(rbw list)
+entry=$(echo "$pwlist" | dmenu "$@")
+[[ -n $entry ]] || exit
+
+password=$(rbw get "$entry")
+echo "$password" | timeout "$timeout" wl-copy -fn &
+
+notify-send \
+	"Password for $entry copied to clipboard" \
+	"You have $timeout seconds to paste it somewhere."

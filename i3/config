@@ -91,7 +91,7 @@ bindsym $mod+shift+q exit
 bindsym $mod+r exec dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL -e ranger
-bindsym $mod+c exec passmenu
+bindsym $mod+c exec bwmenu
 bindsym $mod+b exec $BROWSER --new-window
 bindsym $mod+t exec transmission-gtk
 
