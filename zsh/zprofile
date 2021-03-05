@@ -1,2 +1,4 @@
-[[ -z $WAYLAND_DISPLAY && $XDG_VTNR -eq 1 ]] && exec sway -c ~/dotfiles/i3/config &> /dev/null
-
+if [[ -z $WAYLAND_DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    export XDG_CURRENT_DESKTOP=sway
+    exec sway -c ~/dotfiles/i3/config &> /dev/null
+fi
