@@ -19,7 +19,6 @@ import-gsettings \
 udiskie -s --appindicator &
 redshift-gtk &
 nm-applet --indicator &
-pkill gebaard; gebaard &
 
 $BROWSER &
 $TERMINAL -name WeeChat -e weechat &
@@ -34,4 +33,5 @@ else
 fi
 
 if [[ "$HOST" == "Hitagi" ]]; then
+    pkill gebaard; gebaard &
 fi
