@@ -151,6 +151,7 @@ for_window [app_id="^firefox" title="^$"] {
 }
 for_window [app_id="^telegramdesktop$" title="^Media viewer"] fullscreen disable
 for_window [title="^muvluv - Wine desktop$"] floating enable
+for_window [title=" is sharing (your screen|a window)\.$"] move scratchpad
 
 input type:keyboard xkb_layout us
 input type:pointer accel_profile flat
