@@ -12,7 +12,7 @@ export QT_STYLE_OVERRIDE=adwaita
 export QT_QPA_PLATFORMTHEME=qgnomeplatform
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
-export TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY=1
+export TDESKTOP_USE_GTK_FILE_DIALOG=1
 
 export NINJA_STATUS="[%u/%r/%f] "
 
@@ -30,7 +30,6 @@ if [[ "$HOST" == "Akatsuki" ]]; then
     export XILINX_ISE="/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64"
 
     # AOSP/CM
-    export JAVA_HOME="/usr/lib/jvm/$(archlinux-java get)"
     export USE_CCACHE=1
     export WITH_SU=true
     export LINEAGE_VERSION_APPEND_TIME_OF_DAY=true
