@@ -160,6 +160,6 @@ endfunction
 autocmd FileType * call LC_maps()
 let g:LanguageClient_serverCommands={
     \ 'python': ['pyls'],
-    \ 'rust': ['rls'],
+    \ 'rust': ['rust-analyzer'],
     \ }
 let g:LanguageClient_diagnosticsEnable=0
