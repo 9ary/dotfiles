@@ -43,7 +43,7 @@ def iter_leaves(subtree):
         node["parent"] = subtree
         if node.get("swallows"):
             yield node
-        if children := node.get("nodes"):
+        if node.get("nodes") is not None:
             yield from iter_leaves(node)
 leaves = list(iter_leaves(layout))
 
@@ -69,18 +69,23 @@ def check_all_leaves_matched():
 async def main():
     sway = await i3ipc.Connection().connect()
 
-    async def on_window(self, event):
+    # Subscribe to events first to make sure we don't miss anything
+    def on_window(self, event):
         try_match(event.container)
         if check_all_leaves_matched():
             sway.main_quit()
     sway.on("window", on_window)
-    event_loop = asyncio.create_task(sway.main())
 
     for con in await sway.get_tree():
         try_match(con)
 
     if not check_all_leaves_matched():
-        await event_loop
+        # Wait until all windows have appeared
+        await sway.main()
+
+    # This really shouldn't be necessary, but we get a warning otherwise
+    # (this could be a bug in i3ipc)
+    sway.off(on_window)
 
     await asyncio.sleep(1)
     for leaf in leaves:
@@ -97,7 +102,7 @@ async def main():
                     await con.command(f"layout {subtree['layout']}")
                     applied_split = True
                 await con.command("focus")
-            elif children := node.get("nodes"):
+            elif node.get("nodes") is not None:
                 await apply_layout(node)
         if con := subtree["nodes"][0].get("con"):
             await con.command("focus parent")
