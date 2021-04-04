@@ -1,5 +1,7 @@
 font pango:Terminus 10
 
+input type:keyboard xkb_options compose:ralt
+
 assign [app_id="^firefox"] 1
 assign [instance="WeeChat"] 2
 assign [app_id="telegramdesktop"] 2

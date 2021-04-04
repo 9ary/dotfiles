@@ -1,6 +1,4 @@
-include /etc/sway/config.d/50-systemd-user.conf
 set $config ~/dotfiles/i3
-include config_$(hostname)
 include colors
 
 set $mod Mod4
@@ -166,5 +164,6 @@ input type:touchpad {
 }
 input 1386:890:Wacom_One_by_Wacom_S_Pen map_from_region .0x.1 1x1
 
+include config_$(hostname)
 exec $config/startup.zsh $config
-exec "systemctl --user import-environment"
+exec systemctl --user import-environment
