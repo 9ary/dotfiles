@@ -27,7 +27,7 @@ URxvt*saveLines: 10000
 #ifdef SRVR_Akatsuki
 URxvt*font: xft:Ubuntu Mono:size=15
 #else
-URxvt*font: xft:Ubuntu Mono:size=13
+URxvt*font: xft:Ubuntu Mono:size=14
 #endif
 
 ! Notifications
@@ -35,13 +35,21 @@ URxvt*urgentOnBell: true
 
 ! Perl extensions
 URxvt*perl-lib: /home/streetwalrus/dotfiles/urxvt-ext
-URxvt*perl-ext-common: default,url-select,clipboard
+URxvt*perl-ext-common: default,url-select,clipboard,font-size
 
 ! url-select
 URxvt*url-select.button: 1
 URxvt*keysym.C-i: perl:url-select:select_next
 URxvt*url-select.launcher: rifle
 URxvt*url-select.underline: true
+
+! font-size
+URxvt.keysym.C-Up: perl:font-size:increase
+URxvt.keysym.C-Down: perl:font-size:decrease
+URxvt.keysym.C-S-Up: perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.keysym.C-equal: perl:font-size:reset
+URxvt.keysym.C-slash: perl:font-size:show
 
 ! Clipboard
 URxvt*iso14755: False
