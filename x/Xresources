@@ -4,9 +4,9 @@ Xcursor.size: 32
 
 Xft.antialias: 1
 Xft.hinting: 1
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
+Xft.autohint: 1
 Xft.rgba: none
-Xft.lcdfilter: none
 Xft.dpi: 96
 
 #define background_opacity 100
