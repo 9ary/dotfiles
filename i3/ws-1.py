@@ -98,7 +98,7 @@ async def main():
                 await con.command("move workspace 1")
                 await con.command("floating disable")
                 if not applied_split:
-                    await con.command("split toggle")
+                    await con.command("split h")
                     await con.command(f"layout {subtree['layout']}")
                     applied_split = True
                 await con.command("focus")
