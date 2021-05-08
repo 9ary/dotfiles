@@ -1,0 +1,9 @@
+#!/bin/sh
+
+foot=/usr/bin/foot
+
+if [ "$HOSTNAME" == "Akatsuki" ]; then
+    exec $foot -f 'Ubuntu Mono:size=15' "$@"
+fi
+
+exec $foot "$@"

@@ -20,7 +20,7 @@ udiskie -s --appindicator &
 redshift-gtk &
 
 $BROWSER &
-$TERMINAL -name WeeChat -e weechat &
+$TERMINAL -a WeeChat weechat &
 telegram-desktop &
 transmission-gtk -m &
 

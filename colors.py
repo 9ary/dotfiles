@@ -70,12 +70,12 @@ def base16_to_rgb(i):
     return f"#{r:0{2}X}{g:0{2}X}{b:0{2}X}"
 
 
-with Path("~/dotfiles/x/colors.xresources").expanduser().open("w") as f:
-    f.write(f"*foreground: {base16_to_rgb(fg_map)}\n")
-    f.write(f"*background: [background_opacity]{base16_to_rgb(bg_map)}\n")
-    f.write(f"*cursorColor: {base16_to_rgb(cur_map)}\n")
-    for n, c in enumerate(ansi_map):
-        f.write(f"*color{n}: {base16_to_rgb(c)}\n")
+#with Path("~/dotfiles/x/colors.xresources").expanduser().open("w") as f:
+#    f.write(f"*foreground: {base16_to_rgb(fg_map)}\n")
+#    f.write(f"*background: [background_opacity]{base16_to_rgb(bg_map)}\n")
+#    f.write(f"*cursorColor: {base16_to_rgb(cur_map)}\n")
+#    for n, c in enumerate(ansi_map):
+#        f.write(f"*color{n}: {base16_to_rgb(c)}\n")
 
 with Path("~/dotfiles/i3/colors").expanduser().open("w") as f:
     for i in range(16):

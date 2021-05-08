@@ -16,6 +16,7 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
+Plug 'ojroques/vim-oscyank'
 
 " Language support
 Plug 'mitsuhiko/vim-jinja'
@@ -84,6 +85,18 @@ nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
 nnoremap <C-[> <C-t>
 noremap ; :
+
+" Custom clipboard provider
+let g:clipboard={
+    \ 'name': 'termclip',
+    \ 'copy': {
+    \     '+': {lines, regtype -> YankOSC52(join(lines, "\n"))},
+    \     '*': {lines, regtype -> YankOSC52(join(lines, "\n"))},
+    \     },
+    \ 'paste': {
+    \     },
+    \ 'cache_enabled': 0,
+    \ }
 
 " Airline
 if !exists('g:airline_symbols')

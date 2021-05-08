@@ -88,7 +88,7 @@ bindsym $mod+shift+q exit
 
 bindsym $mod+r exec dmenu_run -p '>'
 bindsym $mod+Return exec $TERMINAL
-bindsym $mod+shift+Return exec $TERMINAL -e ranger
+bindsym $mod+shift+Return exec $TERMINAL ranger
 bindsym $mod+c exec bwmenu
 bindsym $mod+b exec $BROWSER --new-window
 bindsym $mod+t exec transmission-gtk
@@ -107,7 +107,7 @@ bindsym shift+XF86AudioRaiseVolume exec sonos.sh +
 bindsym shift+XF86AudioLowerVolume exec sonos.sh -
 bindsym shift+XF86AudioMute exec sonos.sh x
 bindsym shift+XF86AudioPlay exec sonos.sh l
-bindsym XF86Tools exec $TERMINAL -name mpdclient -geometry 120x60 -e ncmpcpp
+bindsym XF86Tools exec $TERMINAL -a mpdclient -W 120x60 ncmpcpp
 
 bindsym XF86MonBrightnessUp exec xbacklight -perceived -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -perceived -dec 5
@@ -141,7 +141,7 @@ hide_edge_borders --i3 none
 output * background ~/.swaybg fill
 
 # window rules
-for_window [instance="mpdclient"] floating enable
+for_window [app_id="mpdclient"] floating enable
 no_focus [app_id="^firefox" title="^$"]
 for_window [app_id="^firefox" title="^$"] {
     floating enable

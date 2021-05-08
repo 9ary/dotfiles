@@ -24,10 +24,7 @@ layout = {
             "nodes": [
                 {
                     "height": 40,
-                    "swallows": {
-                        "window_class": r"^URxvt$",
-                        "window_instance": r"^WeeChat$"
-                    }
+                    "swallows": {"app_id": r"^WeeChat$"}
                 },
                 {
                     "height": 60,
