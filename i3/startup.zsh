@@ -4,7 +4,7 @@ i3_config="$1"
 
 setopt nobgnice
 
-swaylock='swaylock -fFc F4FBF4'
+swaylock='swaylock -fFc CDCDCD'
 eval $swaylock
 swayidle -w before-sleep "$swaylock" &
 

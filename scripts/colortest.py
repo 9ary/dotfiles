@@ -7,9 +7,7 @@ def stripes(iterable):
     return f"{ret}\n{ret}"
 
 standard_colors = itertools.chain(range(8), (16, 17))
-bright_colors = range(8, 16)
-base16_grays = (0, 18, 19, 8, 20, 7, 21, 15)
+bright_colors = itertools.chain(range(8, 16), (18, 19))
 
 print(stripes(standard_colors))
 print(stripes(bright_colors))
-print(stripes(base16_grays))

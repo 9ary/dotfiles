@@ -3,7 +3,7 @@ call plug#begin()
 " Visuals
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'chriskempson/base16-vim'
+Plug 'jan-warchol/selenized', { 'rtp': 'editors/vim' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 
@@ -58,10 +58,10 @@ set signcolumn=yes
 " Syntax highlighting
 syntax enable
 set synmaxcol=1024
+set termguicolors
 set background=light
-let base16colorspace=256
-colorscheme base16-atelier-seaside-light
-hi Normal ctermbg=NONE
+colorscheme selenized_bw
+" hi Normal ctermbg=NONE
 
 " Formatting rules
 set encoding=utf-8

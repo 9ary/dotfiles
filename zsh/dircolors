@@ -1,15 +1,3 @@
-# Configuration file for dircolors, a utility to help you set the
-# LS_COLORS environment variable used by GNU ls with the --color option.
-
-# Copyright (C) 1996, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006
-# Free Software Foundation, Inc.
-# Copying and distribution of this file, with or without modification,
-# are permitted provided the copyright notice and this notice are preserved.
-#
-# You can copy this file to .dir_colors in your $HOME directory to override
-# the system defaults.
-
-# Below, there should be one TERM entry for each termtype that is colorizable
 TERM Eterm
 TERM ansi
 TERM color-xterm
@@ -57,41 +45,40 @@ TERM xterm-debian
 # Below are the color init strings for the basic file types. A color init
 # string consists of one or more of the following numeric codes:
 # Attribute codes:
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
-# Text color codes:
-# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
-# Background color codes:
-# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
-NORMAL                  00      # global default, although everything should be something.
-FILE                    38;5;20   # normal file
-RESET                   00;38;5;7   # reset to "normal" color
-DIR                     00;38;5;4   # directory
-LINK                    00;38;5;6   # symbolic link.  (If you set this to 'target' instead of a
-                                # numerical value, the color is as for the file pointed to.)
-MULTIHARDLINK           00;38;5;7   # regular file with more than one link
-FIFO                    48;5;0;38;5;3   # pipe
-SOCK                    00;38;5;5   # socket
-DOOR                    00;38;5;5   # door
-BLK                     48;5;0;38;5;19;01    # block device driver
-CHR                     48;5;0;38;5;19;01    # character device driver
-ORPHAN                  00;05;38;5;7;48;5;1 # orphaned syminks
-MISSING                 00;05;38;5;7;48;5;1 # ... and the files they point to
-SETUID                  38;5;7;48;5;1   # file that is setuid (u+s)
-SETGID                  38;5;0;48;5;3   # file that is setgid (g+s)
-CAPABILITY              38;5;0;48;5;1   # file with capability
-STICKY_OTHER_WRITABLE   38;5;0;48;5;2   # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE          04;38;5;4   # dir that is other-writable (o+w) and not sticky
-STICKY                  38;5;7;48;5;4   # dir with the sticky bit set (+t) and not other-writable
-EXEC                    00;38;5;2   # This is for files with execute permission:
+# 0=reset 1=bold 4=underline 5=blink 7=reverse 8=concealed
+NORMAL                  0                    # global default, although everything should be something
+FILE                    0                    # normal file
+RESET                   0                    # reset to "normal" color
+DIR                     38;5;4               # directory
+LINK                    38;5;6;48;5;0;1      # symbolic link  (if you set this to 'target' instead of a
+                                             # numerical value, the color is as for the file pointed to)
+MULTIHARDLINK           38;5;15;1            # regular file with more than one link
+FIFO                    38;5;3;48;5;0;1      # pipe
+SOCK                    38;5;5;48;5;0;1      # socket
+DOOR                    38;5;5;48;5;0;1      # door
+BLK                     38;5;7;48;5;0;1      # block device driver
+CHR                     38;5;7;48;5;0;1      # character device driver
+ORPHAN                  38;5;1;7             # orphaned syminks
+MISSING                 38;5;1;7             # ... and the files they point to
+SETUID                  38;5;1;7             # file that is setuid (u+s)
+SETGID                  38;5;3;7             # file that is setgid (g+s)
+CAPABILITY              38;5;1;7             # file with capability
+STICKY_OTHER_WRITABLE   38;5;2;7             # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE          38;5;4;4             # dir that is other-writable (o+w) and not sticky
+STICKY                  38;5;4;7             # dir with the sticky bit set (+t) and not other-writable
+EXEC                    38;5;2               # This is for files with execute permission:
 
-# If you use DOS-style suffixes, you may want to uncomment the following:
-.cmd 00;38;5;3 # executables (bright green)
-.exe 00;38;5;3
-.com 00;38;5;3
-.btm 00;38;5;3
-.bat 00;38;5;3
+# Misc executables and binaries (green)
+.cmd 38;5;2
+.exe 38;5;2
+.com 38;5;2
+.btm 38;5;2
+.bat 38;5;2
+.bin 38;5;2
+.hex 38;5;2
+.elf 38;5;2
 
-## Archives or compressed (red)
+## Archives and compressed files (orange)
 .tar    38;5;16
 .tgz    38;5;16
 .arj    38;5;16
@@ -116,73 +103,43 @@ EXEC                    00;38;5;2   # This is for files with execute permission:
 .deb    38;5;16
 .rpm    38;5;16
 .jar    38;5;16
-.rar    38;5;16  # rar
-.ace    38;5;16  # unace
-.zoo    38;5;16  # zoo
-.cpio   38;5;16 # cpio
-.7z     38;5;16  # p7zip
-.rz     38;5;16  # rzip
-.apk    38;5;16  # rzip
-.gem    38;5;16  # rzip
+.rar    38;5;16
+.ace    38;5;16
+.zoo    38;5;16
+.cpio   38;5;16
+.7z     38;5;16
+.rz     38;5;16
+.apk    38;5;16
+.gem    38;5;16
 
-## image formats (magenta)
-.jpg    00;38;5;5
-.JPG    00;38;5;5
-.jpeg   00;38;5;5
-.gif    00;38;5;5
-.bmp    00;38;5;5
-.pbm    00;38;5;5
-.pgm    00;38;5;5
-.ppm    00;38;5;5
-.tga    00;38;5;5
-.xbm    00;38;5;5
-.xpm    00;38;5;5
-.tif    00;38;5;5
-.tiff   00;38;5;5
-.png    00;38;5;5
-.svg    00;38;5;5
-.svgz   00;38;5;5
-.mng    00;38;5;5
-.pcx    00;38;5;5
-.dl     00;38;5;5
-.xcf    00;38;5;5
-.xwd    00;38;5;5
-.yuv    00;38;5;5
-.cgm    00;38;5;5
-.emf    00;38;5;5
-.eps    00;38;5;5
-.CR2    00;38;5;5
-.ico    00;38;5;5
-
-## Document files (green)
-.pdf    00;38;5;2
-.ps     00;38;5;2
-.txt    00;38;5;2
-.html   00;38;5;2
-.css    00;38;5;2
-.rst    00;38;5;2
-.md     00;38;5;2
-.patch  00;38;5;2
-.diff   00;38;5;2
-.tex    00;38;5;2
-.xls    00;38;5;2
-.xlsx   00;38;5;2
-.doc    00;38;5;2
-.docx   00;38;5;2
-.ppt    00;38;5;2
-.pptx   00;38;5;2
-.key    00;38;5;2 # Keynote presentation
-.ods    00;38;5;2 # OpenDocument spreadsheet
-.odt    00;38;5;2 # OpenDocument text document
-
-## Template files (bright green)
-.pt     38;5;10 # Zope page template
-.tmpl   38;5;10
-.in     38;5;10
-.ots    38;5;10 # OpenDocument spreadsheet template
-.ott    38;5;10 # OpenDocument text document template
-
-## Audio formats (bright red)
+## Media files (violet)
+.jpg    38;5;17
+.JPG    38;5;17
+.jpeg   38;5;17
+.gif    38;5;17
+.bmp    38;5;17
+.pbm    38;5;17
+.pgm    38;5;17
+.ppm    38;5;17
+.tga    38;5;17
+.xbm    38;5;17
+.xpm    38;5;17
+.tif    38;5;17
+.tiff   38;5;17
+.png    38;5;17
+.svg    38;5;17
+.svgz   38;5;17
+.mng    38;5;17
+.pcx    38;5;17
+.dl     38;5;17
+.xcf    38;5;17
+.xwd    38;5;17
+.yuv    38;5;17
+.cgm    38;5;17
+.emf    38;5;17
+.eps    38;5;17
+.CR2    38;5;17
+.ico    38;5;17
 .aac    38;5;17
 .au     38;5;17
 .flac   38;5;17
@@ -199,8 +156,6 @@ EXEC                    00;38;5;2   # This is for files with execute permission:
 .oga    38;5;17
 .spx    38;5;17
 .xspf   38;5;17
-
-## Video formats (as audio + bold)
 .mov    38;5;17
 .mpg    38;5;17
 .mpeg   38;5;17
@@ -230,46 +185,75 @@ EXEC                    00;38;5;2   # This is for files with execute permission:
 .ogv    38;5;17
 .ogx    38;5;17
 
+## Documents (yellow)
+.pdf    38;5;3
+.ps     38;5;3
+.txt    38;5;3
+.html   38;5;3
+.css    38;5;3
+.rst    38;5;3
+.md     38;5;3
+.patch  38;5;3
+.diff   38;5;3
+.tex    38;5;3
+.xls    38;5;3
+.xlsx   38;5;3
+.doc    38;5;3
+.docx   38;5;3
+.ppt    38;5;3
+.pptx   38;5;3
+.key    38;5;3 # Keynote presentation
+.ods    38;5;3 # OpenDocument spreadsheet
+.odt    38;5;3 # OpenDocument text document
+
+## Template files (bold yellow)
+.pt     38;5;3;1 # Zope page template
+.tmpl   38;5;3;1
+.in     38;5;3;1
+.ots    38;5;3;1 # OpenDocument spreadsheet template
+.ott    38;5;3;1 # OpenDocument text document template
+
 ## Config files (cyan)
-.conf       00;38;5;6
-.config     00;38;5;6
-.cnf        00;38;5;6
-.cfg        00;38;5;6
-.ini        00;38;5;6
-.properties 00;38;5;6
-.yaml       00;38;5;6
-.vcl        00;38;5;6 # Varnish
+.conf       38;5;6
+.config     38;5;6
+.cnf        38;5;6
+.cfg        38;5;6
+.ini        38;5;6
+.properties 38;5;6
+.yaml       38;5;6
+.vcl        38;5;6 # Varnish
 
-## Source code files (yellow)
-.c              00;38;5;3
-.cpp            00;38;5;3
-.py             00;38;5;3
-.coffesscript   00;38;5;3
-.js             00;38;5;3
-.rb             00;38;5;3
-.sh             00;38;5;3
-.zsh            00;38;5;3
-.env            00;38;5;3
-.bash           00;38;5;3
-.php            00;38;5;3
-.java           00;38;5;3
-.zcml           00;38;5;3 # Zope configuration language
-.pl             00;38;5;3
-.lua            00;38;5;3
-.clj            00;38;5;3
-.cs             00;38;5;3 # csharp
-.fs             00;38;5;3 # fsharp
-.fsx            00;38;5;3 # fsharp script
-.go             00;38;5;3
+## Source code files (magenta)
+.c              38;5;5
+.cpp            38;5;5
+.py             38;5;5
+.coffesscript   38;5;5
+.js             38;5;5
+.rb             38;5;5
+.sh             38;5;5
+.zsh            38;5;5
+.env            38;5;5
+.bash           38;5;5
+.php            38;5;5
+.java           38;5;5
+.zcml           38;5;5 # Zope configuration language
+.pl             38;5;5
+.lua            38;5;5
+.clj            38;5;5
+.cs             38;5;5
+.fs             38;5;5
+.fsx            38;5;5
+.go             38;5;5
+.rs             38;5;5
 
-## Data / database (green)
-.db     00;38;5;2
-.sql    00;38;5;2
-.json   00;38;5;2
-.plist  00;38;5;2 # OSX properties
-.xml    00;38;5;2
+## Data / database (red)
+.db     38;5;1
+.sql    38;5;1
+.json   38;5;1
+.plist  38;5;1 # OSX properties
+.xml    38;5;1
 
-## Files of special interest (base1 + bold)
+## Files of special interest (fg_2)
 .tex                38;5;15
 .rdf                38;5;15
 .owl                38;5;15
@@ -291,29 +275,28 @@ EXEC                    00;38;5;2   # This is for files with execute permission:
 *README.md          38;5;15
 .cc                 38;5;15
 
-## Machine generated files / non-important (bright black)
-.log        38;5;8
-.bak        38;5;8
-.aux        38;5;8
-.lof        38;5;8
-.lol        38;5;8
-.lot        38;5;8
-.out        38;5;8
-.toc        38;5;8
-.bbl        38;5;8
-.blg        38;5;8
-*~          38;5;8
-*#          38;5;8
-.part       38;5;8
-.incomplete 38;5;8
-.swp        38;5;8
-.tmp        38;5;8
-.temp       38;5;8
-.o          38;5;8
-.obj        38;5;8
-.pyc        38;5;8
-.pyo        38;5;8
-.class      38;5;8
-.cache      38;5;8
-.egg-info   38;5;8
-
+## Machine generated files / non-important (dim_0)
+.log        38;5;7
+.bak        38;5;7
+.aux        38;5;7
+.lof        38;5;7
+.lol        38;5;7
+.lot        38;5;7
+.out        38;5;7
+.toc        38;5;7
+.bbl        38;5;7
+.blg        38;5;7
+*~          38;5;7
+*#          38;5;7
+.part       38;5;7
+.incomplete 38;5;7
+.swp        38;5;7
+.tmp        38;5;7
+.temp       38;5;7
+.o          38;5;7
+.obj        38;5;7
+.pyc        38;5;7
+.pyo        38;5;7
+.class      38;5;7
+.cache      38;5;7
+.egg-info   38;5;7

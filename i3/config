@@ -1,3 +1,5 @@
+# vim: noet ts=8 sts=8 sw=8 tw=80
+
 set $config ~/dotfiles/i3
 include colors
 
@@ -118,42 +120,45 @@ bindsym Ctrl+Shift+space exec makoctl dismiss --all
 bar {
 	status_command $config/status.py
 	position bottom
-	separator_symbol " - "
-        icon_theme Adwaita
+	separator_symbol " | "
+	icon_theme Adwaita
 
 	colors {
-		separator $base02
-		background $base00
-		statusline $base05
-		focused_workspace $base02 $base02 $base06
-		active_workspace $base01 $base01 $base05
-		inactive_workspace $base00 $base00 $base05
-		urgent_workspace $base08 $base08 $base05
+		separator $fg_0
+		background $bg_1
+		statusline $fg_0
+		focused_workspace $blue $blue $bg_1
+		active_workspace $fg_0 $fg_0 $bg_0
+		inactive_workspace $bg_2 $bg_2 $fg_0
+		urgent_workspace $red $red $bg_1
 	}
 }
 
-client.focused $base03 $base03 $base06 $base03 $base03
-client.focused_inactive $base01 $base01 $base05 $base01 $base01
-client.unfocused $base00 $base00 $base05 $base00 $base00
-client.urgent $base08 $base08 $base05 $base08 $base08
-default_border pixel 4
-hide_edge_borders --i3 none
-output * background ~/.swaybg fill
+client.focused $blue $blue $bg_1 $blue $dim_0
+client.focused_inactive $fg_0 $fg_0 $bg_0 $fg_0 $dim_0
+client.unfocused $bg_2 $bg_2 $dim_0 $bg_2 $dim_0
+client.urgent $red $red $bg_1 $red $dim_0
+default_border normal 4
+hide_edge_borders both
+output * {
+	background ~/.swaybg fill
+	subpixel none
+}
 
 # window rules
 for_window [app_id="mpdclient"] floating enable
 no_focus [app_id="^firefox" title="^$"]
 for_window [app_id="^firefox" title="^$"] {
-    floating enable
-    move position 30 30
+	floating enable
+	move position 30 30
 }
 for_window [app_id="^telegramdesktop$" title="^Media viewer"] fullscreen disable
 for_window [title="^muvluv - Wine desktop$"] floating enable
 for_window [title=" is sharing (your screen|a window)\.$"] move scratchpad
 
 input type:keyboard {
-    xkb_layout us
-    xkb_options compose:menu
+	xkb_layout us
+	xkb_options compose:menu
 }
 input type:pointer accel_profile flat
 input type:touchpad {
