@@ -24,12 +24,15 @@ $TERMINAL -a WeeChat weechat &
 telegram-desktop &
 transmission-gtk -m &
 
+pkill dunst
 if [[ "$HOST" == "Akatsuki" ]]; then
     "${i3_config}"/ws-1.py &
-    mako --anchor bottom-center --width 600 --font "Ubuntu Mono 15" &
+    dunst -config ~/dotfiles/dunstrc \
+        -geometry "600x5+1620-48" -font "Ubuntu Mono 15" &
 else
-    mako &
+    dunst -config ~/dotfiles/dunstrc &
 fi
+"${i3_config}"/dunst-fullscreen-inhibitor.py
 
 if [[ "$HOST" == "Hitagi" ]]; then
     pkill gebaard; gebaard &

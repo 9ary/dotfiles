@@ -114,8 +114,10 @@ bindsym XF86Tools exec $TERMINAL -a mpdclient -W 120x60 ncmpcpp
 bindsym XF86MonBrightnessUp exec xbacklight -perceived -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -perceived -dec 5
 
-bindsym Ctrl+space exec makoctl dismiss
-bindsym Ctrl+Shift+space exec makoctl dismiss --all
+bindsym Ctrl+space exec dunstctl close
+bindsym Ctrl+Shift+space exec dunstctl close-all
+bindsym Ctrl+grave exec dunstctl history-pop
+bindsym Ctrl+Shift+period dunstctl context
 
 bar {
 	status_command $config/status.py
@@ -147,11 +149,6 @@ output * {
 
 # window rules
 for_window [app_id="mpdclient"] floating enable
-no_focus [app_id="^firefox" title="^$"]
-for_window [app_id="^firefox" title="^$"] {
-	floating enable
-	move position 30 30
-}
 for_window [app_id="^telegramdesktop$" title="^Media viewer"] fullscreen disable
 for_window [title="^muvluv - Wine desktop$"] floating enable
 for_window [title=" is sharing (your screen|a window)\.$"] move scratchpad
