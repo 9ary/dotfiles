@@ -94,6 +94,8 @@ let g:clipboard={
     \     '*': {lines, regtype -> YankOSC52(join(lines, "\n"))},
     \     },
     \ 'paste': {
+    \     '+': 'wl-paste -n',
+    \     '*': 'wl-paste -pn',
     \     },
     \ 'cache_enabled': 0,
     \ }
