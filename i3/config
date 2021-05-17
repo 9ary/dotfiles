@@ -141,6 +141,7 @@ client.focused_inactive $fg_0 $fg_0 $bg_0 $dim_0 $dim_0
 client.unfocused $bg_2 $bg_2 $dim_0 $dim_0 $dim_0
 client.urgent $red $red $bg_1 $dim_0 $dim_0
 default_border normal 4
+titlebar_padding 5 1
 hide_edge_borders both
 output * {
 	background ~/.swaybg fill
