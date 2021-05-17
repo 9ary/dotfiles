@@ -136,10 +136,10 @@ bar {
 	}
 }
 
-client.focused $blue $blue $bg_1 $blue $dim_0
-client.focused_inactive $fg_0 $fg_0 $bg_0 $fg_0 $dim_0
-client.unfocused $bg_2 $bg_2 $dim_0 $bg_2 $dim_0
-client.urgent $red $red $bg_1 $red $dim_0
+client.focused $blue $blue $bg_1 $dim_0 $dim_0
+client.focused_inactive $fg_0 $fg_0 $bg_0 $dim_0 $dim_0
+client.unfocused $bg_2 $bg_2 $dim_0 $dim_0 $dim_0
+client.urgent $red $red $bg_1 $dim_0 $dim_0
 default_border normal 4
 hide_edge_borders both
 output * {
