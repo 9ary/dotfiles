@@ -264,6 +264,7 @@ EXEC                    38;5;2               # This is for files with execute pe
 .xml                38;5;15
 *Makefile           38;5;15
 *makefile           38;5;15
+*Cargo.toml         38;5;15
 *Rakefile           38;5;15
 *build.xml          38;5;15
 *rc                 38;5;15
@@ -300,3 +301,4 @@ EXEC                    38;5;2               # This is for files with execute pe
 .class      38;5;7
 .cache      38;5;7
 .egg-info   38;5;7
+*Cargo.lock 38;5;7
