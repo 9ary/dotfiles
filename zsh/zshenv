@@ -14,6 +14,8 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 export TDESKTOP_USE_GTK_FILE_DIALOG=1
 
+export WINEDLLOVERRIDES=winemenubuilder.exe=d
+
 export NINJA_STATUS="[%u/%r/%f] "
 
 export PATH="$HOME/dotfiles/scripts:$HOME/bin:$PATH"
