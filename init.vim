@@ -17,6 +17,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'ojroques/vim-oscyank'
+Plug 'justinmk/vim-dirvish'
 
 " Language support
 Plug 'mitsuhiko/vim-jinja'
@@ -33,9 +34,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-" Local plugin
-Plug '~/dotfiles/nvim'
-
 call plug#end()
 
 " General settings
@@ -44,6 +42,7 @@ set wildmode=longest:full,full
 set splitright splitbelow
 set ignorecase smartcase
 set undofile
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " Editor look
 set nowrap
@@ -145,6 +144,11 @@ map *  <Plug>(is-nohl)<Plug>(asterisk-*)
 map #  <Plug>(is-nohl)<Plug>(asterisk-#)
 map g* <Plug>(is-nohl)<Plug>(asterisk-g*)
 map g# <Plug>(is-nohl)<Plug>(asterisk-g#)
+map z*  <Plug>(is-nohl)<Plug>(asterisk-z*)
+map gz* <Plug>(is-nohl)<Plug>(asterisk-gz*)
+map z#  <Plug>(is-nohl)<Plug>(asterisk-z#)
+map gz# <Plug>(is-nohl)<Plug>(asterisk-gz#)
+let g:asterisk#keeppos = 1
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
@@ -152,10 +156,6 @@ set completeopt=menu
 call deoplete#custom#option('async_timeout', 0)
 call deoplete#custom#option('auto_complete_delay', 0)
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-call deoplete#custom#source('_', 'converters', [
-    \ 'converter_remove_info',
-    \ 'converter_remove_overlap',
-    \ ])
 inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
 inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
 
