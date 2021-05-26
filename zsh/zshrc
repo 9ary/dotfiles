@@ -53,6 +53,8 @@ terminfo-bindkey kcud1 history-substring-search-down
 bindkey '[B' history-substring-search-down
 bindkey  history-substring-search-up
 bindkey  history-substring-search-down
+# shift+enter in foot
+bindkey '[27;2;13~' accept-line
 # ctrl+enter in foot
 bindkey '[27;5;13~' accept-line
 unset -f terminfo-bindkey
