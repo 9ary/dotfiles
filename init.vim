@@ -17,7 +17,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'ojroques/vim-oscyank'
-Plug 'justinmk/vim-dirvish'
 
 " Language support
 Plug 'mitsuhiko/vim-jinja'
@@ -26,13 +25,16 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'LnL7/vim-nix'
 
+" nvim extensions
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Code completion
+Plug 'neovim/nvim-lspconfig'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/echodoc.vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'deoplete-plugins/deoplete-lsp', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -70,7 +72,7 @@ set cino=:0
 au FileType text,markdown setlocal textwidth=80
 au FileType python setlocal textwidth=79
 " Trim trailing spaces
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <F5> <cmd>let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Misc bindings
 let mapleader=','
@@ -79,9 +81,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <silent> <C-t> :tabnew<CR>
-nnoremap <silent> <C-n> :tabnext<CR>
-nnoremap <silent> <C-p> :tabprevious<CR>
+nnoremap <C-t> <cmd>tabnew<CR>
+nnoremap <C-n> <cmd>tabnext<CR>
+nnoremap <C-p> <cmd>tabprevious<CR>
 nnoremap <C-[> <C-t>
 noremap ; :
 
@@ -115,13 +117,13 @@ let g:airline#extensions#tabline#show_tab_nr=0
 let g:airline#extensions#tabline#show_tab_type=0
 
 " undotree
-nnoremap <F9> :UndotreeToggle<CR>
+nnoremap <F9> <cmd>UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_ShortIndicators=1
 let g:undotree_HighlightChangedText=0
 
 " Tagbar
-nnoremap <silent> <F8> :TagbarOpenAutoClose<CR>
+nnoremap <F8> <cmd>TagbarOpenAutoClose<CR>
 let g:tagbar_sort=0
 
 " indentLine
@@ -150,6 +152,33 @@ map z#  <Plug>(is-nohl)<Plug>(asterisk-z#)
 map gz# <Plug>(is-nohl)<Plug>(asterisk-gz#)
 let g:asterisk#keeppos = 1
 
+" tree-sitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "rust" },
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
+" Telescope
+nnoremap <Leader>f <cmd>Telescope find_files<CR>
+nnoremap <Leader>g <cmd>Telescope live_grep<CR>
+lua << EOF
+require'telescope'.setup {
+  defaults = {
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+  }
+}
+EOF
+
+" LSP
+lua << EOF
+require'lspconfig'.pyls.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+EOF
+
 " Deoplete
 let g:deoplete#enable_at_startup=1
 set completeopt=menu
@@ -158,21 +187,3 @@ call deoplete#custom#option('auto_complete_delay', 0)
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
 inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
-
-" echodoc
-let g:echodoc#enable_at_startup=1
-
-" LanguageClient
-function LC_maps()
-    if has_key(g:LanguageClient_serverCommands, &filetype)
-        nnoremap <buffer><silent> K :call LanguageClient#textDocument_hover()<CR>
-        nnoremap <buffer><silent> gd :call LanguageClient#textDocument_definition()<CR>
-        nnoremap <buffer><silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-    endif
-endfunction
-autocmd FileType * call LC_maps()
-let g:LanguageClient_serverCommands={
-    \ 'python': ['pyls'],
-    \ 'rust': ['rust-analyzer'],
-    \ }
-let g:LanguageClient_diagnosticsEnable=0
