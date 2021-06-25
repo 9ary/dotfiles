@@ -133,9 +133,6 @@ let g:indentLine_concealcursor=''
 let g:indentLine_indentLevel=25
 let g:indentLine_fileType=['vhdl']
 
-" SudoEdit
-let g:SudoEdit_skip_wundo=0
-
 " ack.vim
 let g:ackprg='rg -S --vimgrep'
 nnoremap <Leader>a "zyiw:exe 'Ack! -Fwe ' . shellescape(@z, 1)<CR>

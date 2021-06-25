@@ -72,7 +72,6 @@ function grml-zsh-fg () {
 zle -N grml-zsh-fg
 bindkey  grml-zsh-fg
 
-alias sudo="sudo "
 alias ls='ls --color=auto --dereference-command-line-symlink-to-dir -Fh'
 alias lsa='ls --color=auto --dereference-command-line-symlink-to-dir -FAh'
 alias ll='ls --color=auto --dereference-command-line-symlink-to-dir -Fhl'
@@ -80,7 +79,7 @@ alias lla='ls --color=auto --dereference-command-line-symlink-to-dir -FAhl'
 alias cp='cp -r'
 alias rsync='rsync -rPh --info=PROGRESS2'
 alias v='nvim'
-alias sv='sudo --preserve-env=HOME nvim'
+alias sv='doas nvim'
 alias rg='rg -S'
 alias pgrep='pgrep -l'
 alias verynice='schedtool -B -n 15 -e ionice -c3'
