@@ -117,7 +117,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -perceived -dec 5
 bindsym Ctrl+space exec dunstctl close
 bindsym Ctrl+Shift+space exec dunstctl close-all
 bindsym Ctrl+grave exec dunstctl history-pop
-bindsym Ctrl+Shift+period dunstctl context
+bindsym Ctrl+Shift+period dunstctl action
 
 bar {
 	status_command $config/status.py
