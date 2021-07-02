@@ -1,0 +1,11 @@
+#!/bin/sh -e
+command=$(
+    IFS=:
+    find $PATH -mindepth 1 -maxdepth 1 \
+        2>/dev/null \
+        -type f,l -executable \
+        -printf "%f\0" \
+        | sort -zu \
+        | fzf --read0
+)
+setsid -f ${SHELL:-"/bin/sh"} -c "${command}"

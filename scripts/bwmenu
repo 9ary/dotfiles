@@ -4,7 +4,7 @@ set -e
 timeout=15
 
 pwlist=$(rbw list)
-entry=$(echo "$pwlist" | dmenu "$@")
+entry=$(echo "$pwlist" | fzf)
 [[ -n $entry ]] || exit
 
 password=$(rbw get "$entry")

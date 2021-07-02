@@ -1,6 +1,0 @@
-#!/bin/sh -e
-command=$(
-    IFS=:
-    stest -flx $PATH | sort -u | dmenu "$@"
-)
-exec ${SHELL:-"/bin/sh"} -c "${command}"

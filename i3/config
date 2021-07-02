@@ -88,10 +88,10 @@ bindsym $mod+Shift+u exec xdotool getactivewindow windowunmap windowmap
 bindsym $mod+Shift+c reload
 bindsym $mod+shift+q exit
 
-bindsym $mod+r exec dmenu_run -p '>'
+bindsym $mod+r exec $TERMINAL -a modalterm -T run fzf_run
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL ranger
-bindsym $mod+c exec bwmenu
+bindsym $mod+c exec $TERMINAL -a modalterm -T BitWarden bwmenu
 bindsym $mod+b exec $BROWSER --new-window
 bindsym $mod+t exec transmission-gtk
 
@@ -109,7 +109,7 @@ bindsym shift+XF86AudioRaiseVolume exec sonos.sh +
 bindsym shift+XF86AudioLowerVolume exec sonos.sh -
 bindsym shift+XF86AudioMute exec sonos.sh x
 bindsym shift+XF86AudioPlay exec sonos.sh l
-bindsym XF86Tools exec $TERMINAL -a mpdclient -W 120x60 ncmpcpp
+bindsym XF86Tools exec $TERMINAL -a modalterm -W 120x60 ncmpcpp
 
 bindsym XF86MonBrightnessUp exec xbacklight -perceived -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -perceived -dec 5
@@ -149,7 +149,7 @@ output * {
 }
 
 # window rules
-for_window [app_id="mpdclient"] floating enable
+for_window [app_id="modalterm"] floating enable
 for_window [app_id="^telegramdesktop$" title="^Media viewer"] fullscreen disable
 for_window [title="^muvluv - Wine desktop$"] floating enable
 for_window [title=" is sharing (your screen|a window)\.$"] move scratchpad
