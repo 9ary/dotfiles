@@ -1,4 +1,4 @@
 if [[ -z $WAYLAND_DISPLAY && $XDG_VTNR -eq 1 ]]; then
     export XDG_CURRENT_DESKTOP=sway
-    exec sway -c ~/dotfiles/i3/config &> /dev/null
+    exec systemd-cat --identifier=sway sway -c ~/dotfiles/i3/config
 fi
