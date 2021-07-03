@@ -3,6 +3,5 @@
 # This horrible hack hooks stdin and stdout up from the pipeline
 # to fzf, bypassing the terminal emulator
 exec $TERMINAL -a modalterm -T dunst \
-    100</proc/self/fd/0 \
-    101>/proc/self/fd/1 \
-    -- bash -c 'exec fzf < /proc/self/fd/100 > /proc/self/fd/101'
+    100<&0 101>&1 \
+    -- bash -c 'exec fzf <&100 >&101'
