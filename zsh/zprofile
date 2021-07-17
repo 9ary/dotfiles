@@ -1,4 +1,7 @@
 if [[ -z $WAYLAND_DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    if [[ "$HOST" == "Akatsuki" ]]; then
+        export WLR_DRM_DEVICES=$(realpath '/dev/dri/by-path/pci-0000:0b:00.0-card')
+    fi
     export XDG_CURRENT_DESKTOP=sway
     exec systemd-cat --identifier=sway sway -c ~/dotfiles/i3/config
 fi
