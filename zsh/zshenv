@@ -32,7 +32,6 @@ if [[ "$HOST" == "Akatsuki" ]]; then
     export XILINX_ISE="/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64"
 
     # AOSP/CM
-    export USE_CCACHE=1
     export WITH_SU=true
     export LINEAGE_VERSION_APPEND_TIME_OF_DAY=true
 fi
