@@ -72,6 +72,7 @@ function grml-zsh-fg () {
 zle -N grml-zsh-fg
 bindkey  grml-zsh-fg
 
+alias doas='doas '
 alias ls='ls --color=auto --dereference-command-line-symlink-to-dir -Fh'
 alias lsa='ls --color=auto --dereference-command-line-symlink-to-dir -FAh'
 alias ll='ls --color=auto --dereference-command-line-symlink-to-dir -Fhl'
