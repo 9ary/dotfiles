@@ -2,7 +2,7 @@ export EDITOR="nvim"
 export DIFFPROG="nvim -d"
 export BROWSER="firefox-nightly"
 export LESS="FRi"
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER="nvim +Man!"
 export TERMINAL="foot"
 
 export MOZ_ENABLE_WAYLAND=1
