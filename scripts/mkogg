@@ -13,9 +13,9 @@ ogg_path = Path("~/ogg").expanduser()
 
 max_sample_rate = 48000
 
-ffprobe_cmd = "ffprobe -print_format json -show_streams".split()
+ffprobe_cmd = "ffprobe -print_format json -show_streams -show_entries format_tags".split()
 def transocde(infile):
-    outfile_tmp = infile.with_suffix(".ogg.tmp")
+    outfile_tmp = infile.with_suffix(".opus.tmp")
     outfile_tmp = ogg_path / outfile_tmp.relative_to(music_path)
     outfile = outfile_tmp.with_suffix("")
     if outfile.is_file():
@@ -44,6 +44,32 @@ def transocde(infile):
                     sample_rate / math.ceil(sample_rate / max_sample_rate)
                 )
                 #encode_args += f"-ar:0:{index} {target_sample_rate}".split()
+
+    # An empty value removes the tag from the output
+    metadata = [
+        "REPLAYGAIN_ALBUM_GAIN=",
+        "REPLAYGAIN_ALBUM_PEAK=",
+        "REPLAYGAIN_TRACK_GAIN=",
+        "REPLAYGAIN_TRACK_PEAK=",
+    ]
+
+    metadata_spec = ""
+    if (tags := probe["format"].get("tags")) is None:
+        # Ogg files support multiple streams and store metadata per stream
+        # Assume that stream 0 is the correct one
+        tags = probe["streams"][0].get("tags")
+        metadata_spec = ":s:a:0"
+
+    for gain_type in ["ALBUM", "TRACK"]:
+        if (gain := tags.get(f"REPLAYGAIN_{gain_type}_GAIN")) is not None:
+            if gain.endswith(" dB"):
+                gain = gain[:-3]
+            r128_gain = round(float(gain) * 256)
+            metadata.append(f"R128_{gain_type}_GAIN={r128_gain}")
+
+    for i in metadata:
+        encode_args.append(f"-metadata{metadata_spec}")
+        encode_args.append(i)
 
     encode_cmd = [
         *"ffmpeg -y -i".split(),
