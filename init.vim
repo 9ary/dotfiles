@@ -91,8 +91,8 @@ noremap ; :
 let g:clipboard={
     \ 'name': 'termclip',
     \ 'copy': {
-    \     '+': {lines, regtype -> YankOSC52(join(lines, "\n"))},
-    \     '*': {lines, regtype -> YankOSC52(join(lines, "\n"))},
+    \     '+': {lines, regtype -> OSCYankString(join(lines, "\n"))},
+    \     '*': {lines, regtype -> OSCYankString(join(lines, "\n"))},
     \     },
     \ 'paste': {
     \     '+': 'wl-paste -n',
