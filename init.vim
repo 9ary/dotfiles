@@ -172,7 +172,7 @@ EOF
 
 " LSP
 lua << EOF
-require'lspconfig'.pyls.setup{}
+require'lspconfig'.pylsp.setup{}
 require'lspconfig'.rust_analyzer.setup{}
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 EOF
