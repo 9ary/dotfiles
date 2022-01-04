@@ -124,11 +124,17 @@ class Battery:
 
 class AlsaVolume:
     def __init__(self):
-        self.mixer = alsaaudio.Mixer()
+        self.mixer = None
         self.watcher = None
         self.volume = None
 
     async def update(self):
+        if self.mixer is None:
+            try:
+                self.mixer = alsaaudio.Mixer()
+            except alsaaudio.ALSAAudioError:
+                await asyncio.sleep(1)
+                return self
         if self.watcher is None:
             self.watcher = FdWatcher(self.mixer.polldescriptors()[0][0])
         await self.watcher.poll()
