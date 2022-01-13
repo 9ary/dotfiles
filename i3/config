@@ -156,8 +156,9 @@ for_window [app_id="^firefox" title=" — Sharing Indicator$"] move scratchpad
 for_window [title=" is sharing (your screen|a window)\.$"] move scratchpad
 
 input type:keyboard {
-	xkb_layout us
-	xkb_options compose:menu
+	xkb_layout us,il
+	xkb_variant qwerty-fr,
+	xkb_options grp:menu_toggle
 }
 input type:pointer accel_profile flat
 input type:touchpad {

@@ -2,7 +2,7 @@
 
 font pango:Terminus 10
 
-input type:keyboard xkb_options compose:ralt
+input type:keyboard xkb_options grp:ralt_toggle
 
 assign [app_id="^firefox"] 1
 assign [app_id="WeeChat"] 2
