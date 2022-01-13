@@ -15,7 +15,7 @@ import-gsettings \
     font-name:gtk-font-name
 
 udiskie -s --appindicator &
-redshift-gtk &
+wlsunset -t 3400 -l 32 -L 35 &
 
 $BROWSER &
 $TERMINAL -a WeeChat weechat &
