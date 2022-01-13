@@ -136,13 +136,13 @@ bar {
 	}
 }
 
-client.focused $blue $blue $bg_1 $dim_0 $dim_0
-client.focused_inactive $fg_0 $fg_0 $bg_0 $dim_0 $dim_0
-client.unfocused $bg_2 $bg_2 $dim_0 $dim_0 $dim_0
-client.urgent $red $red $bg_1 $dim_0 $dim_0
-default_border normal 4
+client.focused $blue $blue $bg_1 $blue $blue
+client.focused_inactive $fg_0 $fg_0 $bg_0 $fg_0 $fg_0
+client.unfocused $bg_2 $bg_2 $dim_0 $bg_2 $bg_2
+client.urgent $red $red $bg_1 $red $red
+default_border pixel 4
 titlebar_padding 5 1
-hide_edge_borders both
+hide_edge_borders --i3 none
 output * {
 	background ~/.swaybg fill
 	subpixel none
