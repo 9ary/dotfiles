@@ -7,12 +7,9 @@ export TERMINAL="foot"
 
 export MOZ_ENABLE_WAYLAND=1
 
-export QT_QPA_PLATFORM=wayland-egl
 export QT_STYLE_OVERRIDE=adwaita
-export QT_QPA_PLATFORMTHEME=qgnomeplatform
+export QT_QPA_PLATFORMTHEME=gtk3
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
-
-export TDESKTOP_USE_GTK_FILE_DIALOG=1
 
 export WINEDLLOVERRIDES=winemenubuilder.exe=d
 
