@@ -116,11 +116,9 @@ class Battery:
         if not watts and discharge_rate is not None and voltage is not None:
             discharge_rate *= voltage
 
-        text = f"{status}:{charge_rel:.0%}"
-        if discharge_rate is not None:
-            text += f" {discharge_rate:.2f}W"
         return {
-                "full_text": text,
+                "full_text":
+                        f"{status}:{charge_rel:.0%} {discharge_rate:.2f}W",
                 "color": COLOR_BAD if charge_rel <= .2 else None}
 
 
@@ -286,11 +284,6 @@ else:
             "CPU",
             "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"))
 
-# Mouse battery
-if HOST == "Akatsuki":
-    blocks.append(Battery("/sys/class/power_supply/hidpp_battery_0/uevent"))
-
-# Laptop battery
 if HOST == "Hitagi":
     blocks.append(Battery("/sys/class/power_supply/BAT1/uevent"))
 
