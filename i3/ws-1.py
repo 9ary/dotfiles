@@ -16,11 +16,11 @@ layout = {
         {
             "layout": "stacking",
             "width": 67,
-            "nodes": [
-                {
-                    "swallows": {"app_id": r"^firefox"}
-                }
-            ]
+            #"nodes": [
+            #    {
+            "swallows": {"app_id": r"^firefox"}
+            #    }
+            #]
         },
         {
             "layout": "splitv",
@@ -120,5 +120,7 @@ async def main():
                     {leaf.get('height', 0)}")
 
     await leaves[0]["con"].command("focus")
+    await sway.command("splith")
+    await sway.command("layout stacking")
 
 asyncio.run(main())
