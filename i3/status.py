@@ -194,13 +194,15 @@ class SonosVolume:
         self._disconnect()
         while True:
             try:
-                self.device = soco.discovery.by_name(self.zone)
-                if self.device is not None:
+                #self.device = soco.discovery.by_name(self.zone)
+                device = soco.SoCo("10.0.3.138")
+                if device is not None:
+                    self.rendering_control = device.renderingControl.subscribe(
+                            auto_renew=True)
+                    self.device = device
                     break
-            except (OSError, TypeError):
+            except:
                 await asyncio.sleep(1)
-        self.rendering_control = self.device.renderingControl.subscribe(
-                auto_renew=True)
 
         if self.volume_server is None:
             self.volume_server = await asyncio.start_unix_server(
