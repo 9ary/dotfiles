@@ -1,3 +1,7 @@
 # vim: noet ts=8 sts=8 sw=8 tw=80
 
 font pango:Terminus 15
+
+# Longer vblank to minimize flickering during memory reclocks
+output "Samsung Electric Company U32J59x HTPK700098" \
+	modeline 590.4 3840 3888 3920 4000 2160 2208 2216 2460 +HSync -VSync
