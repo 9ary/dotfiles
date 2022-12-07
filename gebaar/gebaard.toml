@@ -1,8 +1,6 @@
 [swipe.commands.three]
 up = "swaymsg workspace next_on_output"
 down = "swaymsg workspace prev_on_output"
-left = "swaymsg seat seat0 cursor press 275; swaymsg seat seat0 cursor release 275"
-right = "swaymsg seat seat0 cursor press 276; swaymsg seat seat0 cursor release 276"
 
 [swipe.settings]
 threshold = 5.0
