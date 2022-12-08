@@ -77,14 +77,17 @@ nnoremap <F5> <cmd>let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " Misc bindings
 let mapleader=','
 vnoremap <C-y> "+y
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+noremap <M-m> h
+noremap <M-n> j
+noremap <M-e> k
+noremap <M-i> l
+nnoremap <C-m> <C-w>h
+nnoremap <C-n> <C-w>j
+nnoremap <C-e> <C-w>k
+nnoremap <C-i> <C-w>l
 nnoremap <C-t> <cmd>tabnew<CR>
-nnoremap <C-n> <cmd>tabnext<CR>
-nnoremap <C-p> <cmd>tabprevious<CR>
-nnoremap <C-[> <C-t>
+nnoremap <C-Tab> <cmd>tabnext<CR>
+nnoremap <C-S-Tab> <cmd>tabprevious<CR>
 noremap ; :
 
 " Custom clipboard provider
