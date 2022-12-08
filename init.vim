@@ -8,6 +8,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 
 " Search
+Plug 'ggandor/leap.nvim'
 Plug 'haya14busa/is.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'mileszs/ack.vim'
@@ -140,6 +141,9 @@ let g:indentLine_fileType=['vhdl']
 let g:ackprg='rg -S --vimgrep'
 nnoremap <Leader>a "zyiw:exe 'Ack! -Fwe ' . shellescape(@z, 1)<CR>
 vnoremap <Leader>a "zy:exe 'Ack! -Fe ' . shellescape(@z, 1)<CR>
+
+" leap.nvim
+lua require('leap').add_default_mappings()
 
 " Asterisk + is.vim
 map *  <Plug>(is-nohl)<Plug>(asterisk-*)
