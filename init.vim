@@ -179,16 +179,12 @@ EOF
 
 " LSP
 lua << EOF
-require'lspconfig'.pylsp.setup{}
-require'lspconfig'.rust_analyzer.setup{}
-vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
+require'lspconfig'.pylsp.setup {}
+require'lspconfig'.rust_analyzer.setup {}
+vim.lsp.handlers["textDocument/publishDiagnostics"] = nil
 EOF
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
 set completeopt=menu
-call deoplete#custom#option('async_timeout', 0)
-call deoplete#custom#option('auto_complete_delay', 0)
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
-inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
