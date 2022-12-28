@@ -33,5 +33,8 @@ if [[ "$HOST" == "Hitagi" ]]; then
     export MESA_LOADER_DRIVER_OVERRIDE=iris
 fi
 
+: "${SSH_AUTH_SOCK:=${XDG_RUNTIME_DIR}/yubikey-agent/yubikey-agent.sock}"
+export SSH_AUTH_SOCK
+
 typeset -U path
 
