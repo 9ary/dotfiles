@@ -31,7 +31,3 @@ else
     dunst -config ~/dotfiles/dunstrc &
 fi
 "${i3_config}"/dunst-fullscreen-inhibitor.py
-
-if [[ "$HOST" == "Hitagi" ]]; then
-    pkill gebaard; gebaard &
-fi
