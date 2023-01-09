@@ -1,6 +1,6 @@
 # vim: noet ts=8 sts=8 sw=8 tw=80
 
-font pango:Terminus 10
+font pango:IBM Plex Sans 10
 
 assign [app_id="^firefox"] 1
 assign [app_id="WeeChat"] 2
