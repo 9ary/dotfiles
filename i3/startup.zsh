@@ -18,7 +18,7 @@ udiskie -s --appindicator &
 wlsunset -t 3400 -l 32 -L 35 &
 
 $BROWSER &
-$TERMINAL -a WeeChat weechat &
+$TERMINAL -a senpai senpai-irc &
 telegram-desktop &
 transmission-gtk -m &
 

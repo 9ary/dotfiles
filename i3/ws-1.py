@@ -28,7 +28,7 @@ layout = {
             "nodes": [
                 {
                     "height": 40,
-                    "swallows": {"app_id": r"^WeeChat$"}
+                    "swallows": {"app_id": r"^senpai$"}
                 },
                 {
                     "height": 60,
