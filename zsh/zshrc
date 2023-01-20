@@ -148,8 +148,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 
 zle -N history-substring-search-up
 zle -N history-substring-search-down
-source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+source ~/dotfiles/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 source ~/dotfiles/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black,bold'
