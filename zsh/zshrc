@@ -15,7 +15,7 @@ zstyle ':completion:*' menu select=1
 zstyle ':completion:*' original true
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*:manuals' separate-sections true
-zstyle ':completion:*:manuals.*' insert-sections   true
+zstyle ':completion:*:manuals.*' insert-sections true
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' rehash true
 autoload -Uz compinit
@@ -102,7 +102,7 @@ pr_bg='%{[48;5;0m%}'
 pr_nobg='%{[49m%}'
 pr_bold='%{[1m%}'
 pr_nobold='%{[21m%}'
-pr_reset='%{[0m'
+pr_reset='%{[0m%}'
 
 if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
     pr_host="$(pr_fg 5)@$HOST"
@@ -129,8 +129,8 @@ function pr_pwd() {
 
 # We enable promptsubst and use single quotes here so that the prompt gets expanded at runtime
 setopt promptsubst
-PROMPT='${pr_bg}${pr_user}${pr_host}$(pr_pwd)$(gitprompt-rs zsh)%E
-${pr_nobg}${pr_bold}${pr_nofg}$ ${pr_reset}'
+PROMPT='${pr_bg}${pr_user}${pr_host}$(pr_pwd)$(gitprompt-rs zsh)${pr_reset}
+${pr_bold}${pr_nofg}$ ${pr_reset}'
 
 # ls colors
 eval $(dircolors ~/dotfiles/zsh/dircolors)
