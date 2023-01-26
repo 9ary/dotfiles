@@ -1,5 +1,7 @@
+bindkey -e
+
 zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _ignored
+zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors ''
@@ -33,7 +35,6 @@ REPORTTIME=5
 unsetopt beep
 unsetopt nomatch
 
-bindkey -e
 function terminfo-bindkey() {
     [[ -n "${terminfo[$1]}" ]] && bindkey "${terminfo[$1]}" $2
 }
