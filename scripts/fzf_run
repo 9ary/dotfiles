@@ -8,4 +8,4 @@ command=$(
         | sort -zu \
         | fzf --read0
 )
-setsid -f ${SHELL:-"/bin/sh"} -c "${command}"
+swaymsg "exec '${command}'"
