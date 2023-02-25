@@ -8,7 +8,7 @@ entry=$(echo "$pwlist" | fzf)
 [[ -n $entry ]] || exit
 
 password=$(rbw get "$entry")
-echo "$password" | timeout "$timeout" wl-copy -fn &
+echo "$password" | timeout "$timeout" wl-copy -fno &
 
 notify-send \
 	"Password for $entry copied to clipboard" \
