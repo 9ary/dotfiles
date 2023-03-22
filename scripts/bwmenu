@@ -3,13 +3,12 @@
 set -e
 timeout=15
 
-pwlist=$(rbw list)
-entry=$(echo "$pwlist" | fzf)
+rbw unlock
+entry=$(rbw list | fzf)
 [[ -n $entry ]] || exit
 
-password=$(rbw get "$entry")
-echo "$password" | timeout "$timeout" wl-copy -fno &
+rbw get "$entry" | { timeout "$timeout" wl-copy -fno & }
 
-notify-send \
+notify-send -t $((timeout * 1000)) \
 	"Password for $entry copied to clipboard" \
 	"You have $timeout seconds to paste it somewhere."
