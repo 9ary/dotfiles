@@ -1,15 +1,18 @@
 #!/bin/bash
 
 set -e
-timeout=15
 name='Bitwarden'
 
 rbw unlock
 entry=$(rbw list | gfzf -T "$name" -- --prompt="$name> ")
 [[ -n $entry ]] || exit
 
-rbw get "$entry" | { timeout "$timeout" wl-copy -fno & }
+# Neither wtype nor rbw can eliminate the trailing newline,
+# so we have to do it ourselves
+password=$(rbw get "$entry")
+echo -n "$password" | wtype -
 
-notify-send -t $((timeout * 1000)) \
-	"Password for $entry copied to clipboard" \
-	"You have $timeout seconds to paste it somewhere."
+# Do this in two steps so that we don't clobber the clipboard
+# if there is no TOTP code
+code=$(rbw code "$entry")
+echo -n "$code" | wl-copy -o
