@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+. __9utils.bash
+
+split_array_once '--' "$@" || {
+	pre=()
+	post=("$@")
+}
+
+: {stdin}<&0
+: {stdout}>&1
+
+exec $TERMINAL "${pre[@]}" >/dev/null -- \
+	bash -c -- 'exec "$0" "$@"'" <&$stdin- >&$stdout-" "${post[@]}"

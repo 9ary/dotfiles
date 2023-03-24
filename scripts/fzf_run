@@ -1,4 +1,6 @@
 #!/bin/sh -e
+
+name='run'
 command=$(
     IFS=:
     find $PATH -mindepth 1 -maxdepth 1 \
@@ -6,6 +8,6 @@ command=$(
         -type f,l -executable \
         -printf "%f\0" \
         | sort -zu \
-        | fzf --read0
+        | gfzf -T "$name" -- --read0 --prompt="$name> "
 )
 swaymsg "exec '${command}'"

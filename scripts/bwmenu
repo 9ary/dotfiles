@@ -2,9 +2,10 @@
 
 set -e
 timeout=15
+name='Bitwarden'
 
 rbw unlock
-entry=$(rbw list | fzf)
+entry=$(rbw list | gfzf -T "$name" -- --prompt="$name> ")
 [[ -n $entry ]] || exit
 
 rbw get "$entry" | { timeout "$timeout" wl-copy -fno & }

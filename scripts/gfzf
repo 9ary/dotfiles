@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+. __9utils.bash
+
+split_array_once '--' "$@" || {
+	pre=()
+	post=("$@")
+}
+
+exec termpipe -a modalterm "${pre[@]}" -- fzf "${post[@]}"

@@ -81,10 +81,10 @@ bindsym $mod+Shift+u exec xdotool getactivewindow windowunmap windowmap
 bindsym $mod+Shift+c reload
 bindsym $mod+shift+q exit
 
-bindsym $mod+r exec $TERMINAL -a modalterm -T run fzf_run
+bindsym $mod+r exec fzf_run
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+shift+Return exec $TERMINAL ranger
-bindsym $mod+c exec $TERMINAL -a modalterm -T BitWarden bwmenu
+bindsym $mod+c exec bwmenu
 bindsym $mod+b exec $BROWSER --new-window
 bindsym $mod+t exec transmission-gtk
 
