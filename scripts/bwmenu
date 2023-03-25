@@ -4,7 +4,12 @@ set -e
 name='Bitwarden'
 
 rbw unlock
-entry=$(rbw list | gfzf -T "$name" -- --prompt="$name> ")
+entry=$(
+	rbw list \
+		| gfzf -T "$name" -- \
+		--bind 'ctrl-r:execute(rbw sync)+reload(rbw list)' \
+		--prompt="$name> "
+)
 [[ -n $entry ]] || exit
 
 # Neither wtype nor rbw can eliminate the trailing newline,
