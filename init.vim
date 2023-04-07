@@ -17,7 +17,7 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
-Plug 'ojroques/vim-oscyank'
+Plug 'ojroques/nvim-osc52'
 
 " Language support
 Plug 'mitsuhiko/vim-jinja'
@@ -77,7 +77,6 @@ nnoremap <F5> <cmd>let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Misc bindings
 let mapleader=','
-vnoremap <C-y> "+y
 noremap <M-m> h
 noremap <M-n> j
 noremap <M-e> k
@@ -91,19 +90,18 @@ nnoremap <C-Tab> <cmd>tabnext<CR>
 nnoremap <C-S-Tab> <cmd>tabprevious<CR>
 noremap ; :
 
-" Custom clipboard provider
-let g:clipboard={
-    \ 'name': 'termclip',
-    \ 'copy': {
-    \     '+': {lines, regtype -> OSCYankString(join(lines, "\n"))},
-    \     '*': {lines, regtype -> OSCYankString(join(lines, "\n"))},
-    \     },
-    \ 'paste': {
-    \     '+': 'wl-paste -n',
-    \     '*': 'wl-paste -pn',
-    \     },
-    \ 'cache_enabled': 0,
-    \ }
+" OSC52
+lua << EOF
+osc52 = require'osc52'.setup {
+    max_length = 0,
+    silent = false,
+    trim = false,
+}
+
+vim.keymap.set('n', '<leader>c', require'osc52'.copy_operator, {expr = true})
+vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set('v', '<leader>c', require'osc52'.copy_visual)
+EOF
 
 " Airline
 if !exists('g:airline_symbols')
