@@ -18,7 +18,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 Plug 'ojroques/nvim-osc52'
-Plug 'lambdalisue/suda.vim'
 
 " Language support
 Plug 'mitsuhiko/vim-jinja'
@@ -90,10 +89,6 @@ nnoremap <C-t> <cmd>tabnew<CR>
 nnoremap <C-Tab> <cmd>tabnext<CR>
 nnoremap <C-S-Tab> <cmd>tabprevious<CR>
 noremap ; :
-
-" sudo
-let g:suda_smart_edit = 1
-let g:suda#nopass = 1
 
 " OSC52
 lua << EOF
