@@ -11,7 +11,6 @@ import sys
 import time
 
 import alsaaudio
-import psutil
 import soco
 
 import mpd
@@ -43,10 +42,10 @@ class FdWatcher:
         return fut
 
 
-class CpuLoad:
+class Load:
     def render(self):
-        p = int(psutil.cpu_percent())
-        return {"full_text": f"CPU:{p:02}%"}
+        load_averages = os.getloadavg()
+        return {"full_text": ", ".join(f"{l:.2f}" for l in load_averages)}
 
 
 class Temperature:
@@ -273,7 +272,7 @@ if HOST == "Akatsuki":
     blocks.append(SonosVolume("La Grotte"))
     blocks.append(Mpd())
 
-blocks.append(CpuLoad())
+blocks.append(Load())
 if HOST == "Akatsuki":
     blocks.append(Temperature(
             "CPU",
