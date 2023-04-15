@@ -47,6 +47,12 @@ set ignorecase smartcase
 set undofile
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
+if expand('$UID') == 0
+    set nobackup
+    set noswapfile
+    set noundofile
+endif
+
 " Editor look
 set nowrap
 set scrolloff=5
