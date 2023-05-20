@@ -83,14 +83,9 @@ nnoremap <F5> <cmd>let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Misc bindings
 let mapleader=','
-noremap <M-m> h
-noremap <M-n> j
-noremap <M-e> k
-noremap <M-i> l
-nnoremap <C-m> <C-w>h
-nnoremap <C-n> <C-w>j
-nnoremap <C-e> <C-w>k
-nnoremap <C-i> <C-w>l
+set whichwrap=""
+noremap <S-Space> <Left>
+nnoremap <Leader>w <C-w>p
 nnoremap <C-t> <cmd>tabnew<CR>
 nnoremap <C-Tab> <cmd>tabnext<CR>
 nnoremap <C-S-Tab> <cmd>tabprevious<CR>
