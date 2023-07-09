@@ -17,7 +17,7 @@ import soco
 import mpd
 
 HOST = platform.node()
-INTERVAL = 10
+INTERVAL = 1
 COLOR_GOOD = "#1D9700"
 COLOR_DEGRADED = "#C49700"
 COLOR_BAD = "#D6000C"
