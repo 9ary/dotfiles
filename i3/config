@@ -137,7 +137,8 @@ default_border pixel 4
 titlebar_padding 5 1
 hide_edge_borders --i3 none
 output * {
-	background ~/.swaybg fill
+	# Windows 2000 blue
+	background #3a6ea5 solid_color
 	subpixel none
 }
 
