@@ -20,7 +20,6 @@ Plug 'mbbill/undotree'
 Plug 'ojroques/nvim-osc52'
 
 " Language support
-Plug 'mitsuhiko/vim-jinja'
 Plug 'tikhomirov/vim-glsl'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
