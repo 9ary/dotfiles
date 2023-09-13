@@ -3,5 +3,4 @@
 font pango:IBM Plex Sans 10
 
 assign [app_id="^firefox"] 1
-assign [app_id="senpai"] 2
 assign [app_id="^org.telegram.desktop$"] 2
