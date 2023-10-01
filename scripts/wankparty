@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # wankparty - Upload files/scrots/urls to wank.party (bye sr.ht)
 # By onodera, modified by SirCmpwn and Streetwalrus
