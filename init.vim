@@ -73,7 +73,6 @@ colorscheme selenized_bw
 " Formatting rules
 set encoding=utf-8
 set autoindent
-set tabstop=8 shiftwidth=4 expandtab
 set cino=:0
 au FileType text,markdown setlocal textwidth=80
 au FileType python setlocal textwidth=79
