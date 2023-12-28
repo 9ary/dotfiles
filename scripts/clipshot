@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -e
+
+get_window_rects() {
+	swaymsg -t get_tree \
+		| jq -r '..
+			| select('"$1"') as $node
+			| .window_rect
+			| "\($node.rect.x + .x),\($node.rect.y + .y) \(.width)x\(.height)"'
+}
+
+grim_args=()
+
+case $1 in
+	sel)
+		sel=$(get_window_rects '.pid? and .visible?' \
+			| slurp -b 00000000 -s 00000000 -c 7f51d6 -w 4)
+		grim_args+=('-g' "$sel")
+		;;
+	active)
+		grim_args+=('-g' "$(get_window_rects '.focused?')")
+		;;
+	full)
+		;;
+	*)
+		printf '%s\n' 'Unrecognized option: '"$1"
+		exit 1
+		;;
+esac
+
+outfile="/tmp/scrot.png"
+
+grim "${grim_args[@]}" "$outfile"
+
+wl-copy < "$outfile"
+wl-copy --primary < "$outfile"
