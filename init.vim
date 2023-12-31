@@ -73,7 +73,7 @@ colorscheme selenized_bw
 " Formatting rules
 set encoding=utf-8
 set autoindent
-set cino=:0
+set cino=:0(su0Wsm1
 au FileType text,markdown setlocal textwidth=80
 au FileType python setlocal textwidth=79
 " Trim trailing spaces
