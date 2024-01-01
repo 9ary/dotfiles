@@ -15,7 +15,7 @@ grim_args=()
 case $1 in
 	sel)
 		sel=$(get_window_rects '.pid? and .visible?' \
-			| slurp -b 00000000 -s 00000000 -c 7f51d6 -w 4)
+			| slurp -o -b 00000000 -s 00000000 -c 7f51d6 -w 4)
 		grim_args+=('-g' "$sel")
 		;;
 	active)
@@ -29,9 +29,14 @@ case $1 in
 		;;
 esac
 
-outfile="/tmp/scrot.png"
+format="png"
+outfile="/tmp/scrot.$format"
+grim_args+=(
+	-t "$format"
+	"$outfile"
+)
 
-grim "${grim_args[@]}" "$outfile"
+grim "${grim_args[@]}"
 
-wl-copy < "$outfile"
-wl-copy --primary < "$outfile"
+wl-copy -t "image/$format" < "$outfile"
+wl-copy -t "image/$format" --primary < "$outfile"

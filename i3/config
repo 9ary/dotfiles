@@ -88,8 +88,8 @@ bindsym $mod+c exec bwmenu
 bindsym $mod+b exec $BROWSER --new-window
 bindsym $mod+t exec transmission-gtk
 
-bindsym $mod+p exec clipshot active
-bindsym $mod+Shift+p exec clipshot sel
+bindsym $mod+p exec clipshot sel
+bindsym $mod+Shift+p exec clipshot active
 bindsym $mod+Ctrl+p exec clipshot full
 
 bindsym XF86AudioPlay exec mpc toggle
