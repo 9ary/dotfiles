@@ -21,6 +21,9 @@ INTERVAL = 1
 COLOR_GOOD = "#1D9700"
 COLOR_DEGRADED = "#C49700"
 COLOR_BAD = "#D6000C"
+BACKGROUND = "#CDCDCD"
+BLOCK_MARGIN = 4
+SEPARATOR_WIDTH = 6
 
 
 class FdWatcher:
@@ -318,8 +321,17 @@ async def main():
         for block in blocks:
             r = block.render()
             if r is not None:
-                r["name"] = block.__class__.__name__
-                render.append(r)
+                render.append({
+                    "name": block.__class__.__name__,
+                    "background": BACKGROUND,
+                    "border": BACKGROUND,
+                    "border_left": BLOCK_MARGIN,
+                    "border_right": BLOCK_MARGIN,
+                    "separator_block_width": SEPARATOR_WIDTH,
+                    "separator": False,
+                    **r,
+                })
+        render[-1]["separator_block_width"] = 0
         print_unbuffered(json.dumps(render) + ",")
 
         if not updates:

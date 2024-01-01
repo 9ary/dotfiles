@@ -115,7 +115,8 @@ bindsym Ctrl+Shift+period dunstctl action
 bar {
 	status_command $config/status.py
 	position bottom
-	separator_symbol " | "
+	status_edge_padding 0
+	status_padding 0
 	icon_theme Adwaita
 
 	colors {
