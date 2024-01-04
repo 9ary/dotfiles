@@ -4,7 +4,7 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jan-warchol/selenized', { 'rtp': 'editors/vim' }
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'airblade/vim-gitgutter'
 
 " Search
@@ -127,12 +127,22 @@ let g:undotree_HighlightChangedText=0
 nnoremap <F8> <cmd>TagbarOpenAutoClose<CR>
 let g:tagbar_sort=0
 
-" indentLine
-let g:indentLine_color_term=20
-let g:indentLine_char='│'
-let g:indentLine_concealcursor=''
-let g:indentLine_indentLevel=25
-let g:indentLine_fileType=['vhdl']
+" indent-blankline.nvim
+exe 'hi IblIndent guifg='.g:terminal_color_8.' guibg=NONE guisp=NONE gui=NONE ctermfg=8 ctermbg=None cterm=NONE'
+exe 'hi IblScope guifg='.g:terminal_color_7.' guibg=NONE guisp=NONE gui=NONE ctermfg=7 ctermbg=None cterm=NONE'
+lua << EOF
+local char = "▎"
+require("ibl").setup {
+    indent = {
+        char = char,
+        tab_char = char,
+    },
+    scope = {
+        show_start = false,
+        show_end = false,
+    },
+}
+EOF
 
 " ack.vim
 let g:ackprg='rg -S --vimgrep'
