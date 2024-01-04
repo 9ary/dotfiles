@@ -185,5 +185,5 @@ EOF
 let g:deoplete#enable_at_startup=1
 set completeopt=menu
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
-inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
+"inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
+"inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
