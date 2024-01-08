@@ -20,9 +20,7 @@ Plug 'mbbill/undotree'
 Plug 'ojroques/nvim-osc52'
 
 " Language support
-Plug 'tikhomirov/vim-glsl'
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
+" Partially included with (n)vim, but missing indentation rules
 Plug 'LnL7/vim-nix'
 
 " nvim extensions
