@@ -164,7 +164,14 @@ let g:asterisk#keeppos = 1
 " tree-sitter
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "rust" },
+  ensure_installed = {
+      "c",
+      "lua",
+      "vim",
+      "vimdoc",
+      "query",
+      "rust",
+  },
   highlight = {
     enable = true,
   },
