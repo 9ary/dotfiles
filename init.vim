@@ -34,6 +34,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-lsp', { 'do': ':UpdateRemotePlugins' }
 
+" Local plugin
+Plug '~/dotfiles/nvim'
+
 call plug#end()
 
 " General settings
