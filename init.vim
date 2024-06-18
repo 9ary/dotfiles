@@ -61,7 +61,6 @@ set cursorline
 set colorcolumn=+1
 set list listchars=tab:\ \ ,trail:•,precedes:…,extends:…
 set noshowmode
-set signcolumn=yes
 
 " Syntax highlighting
 syntax enable
